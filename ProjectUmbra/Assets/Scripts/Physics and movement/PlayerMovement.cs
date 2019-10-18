@@ -5,66 +5,93 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 input = Vector3.zero;
-    private float Speed = 5f;
+    private float speed = 50f;
     [SerializeField] private float JumpHeight = 2f;
     [SerializeField] private float DashDistance = 5f;
     [SerializeField] private float GroundDistance = 0.2f;
     public LayerMask Ground;
-    private Rigidbody body;
+    private Rigidbody rb;
     private Transform groundChecker;
     public CornerTurner cornerTurner;
 
     private bool movementIsLocked = false;
 
 
+    public Vector3 veloc;
+
     private void Start()
     {
-        body = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         groundChecker = transform.GetChild(0);
     }
 
     void Update()
     {
-        //input.x = Input.GetAxis("Horizontal");
-        //input.z = Input.GetAxis("Vertical");
-        //if (input != Vector3.zero)
-        //    transform.forward = input;
     }
 
     void FixedUpdate()
     {
-        //body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
-        
+        veloc = rb.velocity;
     }
+
+
 
     public void SetInput()
     {
         input.z = Input.GetAxis("Horizontal");
-        //input.x = Input.GetAxis("Vertical");
-        //if (input != Vector3.zero)
-            //transform.forward = input;
-            //transform.forward = input;
-
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    transform.localPosition. 
-            //}
     }
 
     public void Move()
     {
-        //body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
-        transform.Translate(input * Speed * Time.fixedDeltaTime);
+        //if (rb.velocity.magnitude < 10)
+        //{
+        //    rb.velocity += input  * speed * Time.fixedDeltaTime;
+        //}
+
+
+        if (input.z >0)
+        {
+            if (rb.velocity.magnitude < 10)
+            {
+                rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+
+            }
+        }
+        if (input.z < 0)
+        {
+            if (rb.velocity.magnitude < 10)
+            {
+                rb.velocity -= rb.transform.forward * speed * Time.fixedDeltaTime;
+
+            }
+        }
+        //body.AddForce(input * Speed * Time.fixedDeltaTime, ForceMode.Acceleration);        
     }
 
     public void AutoMove(Vector3 input)
     {
-        transform.Translate(input * Speed * Time.fixedDeltaTime);
+           rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
     }
+        //if(input.z == 1)
+        //{
+        //    if (rb.velocity.magnitude < 10)
+        //    {
+        //        rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+
+        //    }
+        //}
+        //if (input.z == -1)
+        //{
+        //    if (rb.velocity.magnitude < 10)
+        //    {
+        //        rb.velocity -= rb.transform.forward * speed * Time.fixedDeltaTime;
+
+        //    }
+        //}
 
     public void Jump()
     {
-        body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+        rb.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
     
     }
 
@@ -80,12 +107,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void setSpeed(float newSpeed)
     {
-        Speed = newSpeed;
+        Debug.Log(newSpeed);
+        speed = newSpeed;
     }
 
     public float getSpeed()
     {
-        return Speed;
+        return speed;
     }
 
     public Vector3 getInput()
@@ -110,11 +138,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Corner"))
+    //    {
+    //        cornerTurner = other.gameObject.GetComponent<CornerTurner>();
+    //    }
+    //}
+
+    public void setVelocity(Vector3 velocity)
     {
-        if (other.CompareTag("Corner"))
-        {
-            cornerTurner = other.gameObject.GetComponent<CornerTurner>();
-        }
+        rb.velocity = velocity;
     }
 }

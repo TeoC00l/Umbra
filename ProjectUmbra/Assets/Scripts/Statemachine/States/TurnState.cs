@@ -22,20 +22,22 @@ public class TurnState : BaseState
     public override void HandleUpdate()
     {
 
-        if (!rotated)
-        {
-            if (lastTurned.Equals("none") || lastTurned.Equals("right"))
-            {
-                owner.transform.Rotate(0, -90, 0, Space.Self);
-                lastTurned = "left";
-            }
-            else if (!rotated && lastTurned.Equals("left"))
-            {
-                owner.transform.Rotate(0, 90, 0, Space.Self);
-                lastTurned = "right";
-            }
-            rotated = true;
-        }
+        //if (!rotated)
+        //{
+        //    if (lastTurned.Equals("none") || lastTurned.Equals("right"))
+        //    {
+        //        owner.transform.Rotate(0, -90, 0, Space.Self);
+        //        lastTurned = "left";
+        //    }
+        //    else if (!rotated && lastTurned.Equals("left"))
+        //    {
+        //        owner.transform.Rotate(0, 90, 0, Space.Self);
+        //        lastTurned = "right";
+        //    }
+        //    rotated = true;
+        //}
+
+        
 
         if (rotated == true && cornerTurner.getTurningStatus() == false)
         {
