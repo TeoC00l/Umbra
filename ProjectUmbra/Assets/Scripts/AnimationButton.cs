@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Animations;
 public class AnimationButton : MonoBehaviour
 {
     private Animator anim;
@@ -22,7 +22,9 @@ public class AnimationButton : MonoBehaviour
             {
                 if (!isPressed)
                 {
+
                     anim.SetBool("Active", true);
+                    //anim.Play("Door_Closed", -1, anim.animation);
 
                     isPressed = true;
                     return;
@@ -31,11 +33,31 @@ public class AnimationButton : MonoBehaviour
                 if(isPressed)
                 {
                     anim.SetBool("Active", false);
+
+                    //anim.Play("Door_Open", -1, anim.);
+
                     isPressed = false;
                     return;
                 }
                 
             }
         }
+    }
+
+
+    private float CheckPlaybackTime()
+    {
+        float time;
+
+        if (anim.playbackTime < 1)
+        {
+            time = 1 - anim.playbackTime;
+            return time;
+        }
+        else
+        {
+            time = 0;
+        }
+        return 0f;
     }
 }
