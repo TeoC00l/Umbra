@@ -10,6 +10,7 @@ public class BaseState : State
     protected BoxCollider playerCollider;
     private bool onSetup = true;
     protected GrabObject grabHandler;
+    protected Rigidbody playerBody;
 
     public override void Initialize(StateMachine owner)
     {
@@ -17,6 +18,7 @@ public class BaseState : State
         MovementHandler = owner.GetComponent<PlayerMovement>();
         playerCollider = owner.GetComponent<BoxCollider>();
         grabHandler = owner.GetComponentInChildren<GrabObject>();
+        playerBody = owner.GetComponent<Rigidbody>();
     }
 
     public override void Enter()

@@ -10,7 +10,7 @@ public class GrabObject : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.E))
+        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.F))
         //if (other.CompareTag("Grabbable"))
         {
             Debug.Log("Grabbing");
@@ -24,7 +24,7 @@ public class GrabObject : MonoBehaviour
 
     public void Update()
     {
-        if(grabStatus && Input.GetKeyUp(KeyCode.E))
+        if(grabStatus && Input.GetKeyUp(KeyCode.F))
         {
             Release();
         }
