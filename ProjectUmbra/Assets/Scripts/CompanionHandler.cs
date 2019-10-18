@@ -37,6 +37,7 @@ public class CompanionHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (aliceMoving) {
             setDirection(Alice);
             moveFollower(Alice, aliceAgent);
@@ -48,10 +49,7 @@ public class CompanionHandler : MonoBehaviour
             moveFollower(Set, setAgent);
             checkRotation(Set);
         }
-        else
-        {
-            
-        }
+
 
         setMovement();
     }
@@ -79,25 +77,31 @@ public class CompanionHandler : MonoBehaviour
     }
     private void setMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && !setMoving && this.CompareTag("Set"))
+
+        
+        if (Input.GetKeyDown(KeyCode.Q) && !setMoving)
         {
             setMoving = true;
             setAgent.isStopped = false;
+            Debug.Log("set moving");
         }
-        else if (Input.GetKeyDown(KeyCode.E) && !aliceMoving && this.CompareTag("Alice"))
+        else if (Input.GetKeyDown(KeyCode.E) && !aliceMoving)
         {
             aliceMoving = true;
             aliceAgent.isStopped = false;
+            Debug.Log("alice moving");
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && setMoving && this.CompareTag("Set"))
+        else if (Input.GetKeyDown(KeyCode.Q) && setMoving)
         {
             setMoving = false;
             setAgent.isStopped = true;
+            Debug.Log("set stopped");
         }
-        else if (Input.GetKeyDown(KeyCode.E) && aliceMoving && this.CompareTag("Alice"))
+        else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
         {
             aliceMoving = false;
             aliceAgent.isStopped = true;
+            Debug.Log("alice stopped");
         }
     }
 }
