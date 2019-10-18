@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask Ground;
     private Rigidbody body;
     private Transform groundChecker;
+    public CornerTurner cornerTurner;
 
     private bool movementIsLocked = false;
 
@@ -106,5 +107,14 @@ public class PlayerMovement : MonoBehaviour
     public bool getLocked()
     {
         return movementIsLocked;
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Corner"))
+        {
+            cornerTurner = other.gameObject.GetComponent<CornerTurner>();
+        }
     }
 }
