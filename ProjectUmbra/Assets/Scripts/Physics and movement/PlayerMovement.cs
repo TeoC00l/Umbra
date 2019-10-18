@@ -48,14 +48,16 @@ public class PlayerMovement : MonoBehaviour
             //{
             //    transform.localPosition. 
             //}
-
-
-
     }
 
     public void Move()
     {
         //body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
+        transform.Translate(input * Speed * Time.fixedDeltaTime);
+    }
+
+    public void AutoMove(Vector3 input)
+    {
         transform.Translate(input * Speed * Time.fixedDeltaTime);
     }
 

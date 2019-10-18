@@ -8,10 +8,15 @@ public class TurnState : BaseState
     [SerializeField] private float movementSpeed = 0f;
     private bool rotated = false;
     string lastTurned = "none";
+    [SerializeField] private GameObject cornerTurnerObject;
+    private CornerTurner cornerTurner;
+    private Vector3 direction;
 
     public override void Enter()
     {
+        direction = MovementHandler.getInput();
         MovementHandler.setSpeed(movementSpeed);
+        cornerTurner= cornerTurnerObject.GetComponent<CornerTurner>();
     }
 
     public override void HandleUpdate()
@@ -30,11 +35,25 @@ public class TurnState : BaseState
             }
             rotated = true;
         }
-        if (rotated)
+
+        MovementHandler.AutoMove(direction);
+
+        if (rotated == true && cornerTurner.getTurningStatus() == false)
         {
+            Debug.Log("Exited");
             rotated = false;
             MovementHandler.setLocked();
             owner.Transition<WalkState>();
         }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }
