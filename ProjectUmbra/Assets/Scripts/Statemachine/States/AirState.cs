@@ -18,4 +18,11 @@ public class AirState : BaseState
             owner.Transition<WalkState>();
         }
     }
+    public override void HandleFixedUpdate()
+    {
+        MovementHandler.SetInput();
+        MovementHandler.Move();
+
+
+    }
 }

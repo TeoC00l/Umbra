@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform groundChecker;
     public CornerTurner cornerTurner;
+    [SerializeField] Transform wallCheckerRight;
+    [SerializeField] Transform wallCheckerLeft;
+
+    [SerializeField] private LayerMask layerMask;
+
 
     private bool movementIsLocked = false;
 
@@ -33,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         SetInput();
         veloc = rb.velocity;
+
+
     }
 
 
@@ -151,4 +158,17 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = velocity;
     }
+
+
+    private bool CheckForWall(Transform wallChecker)
+    {
+        if(Physics.CheckSphere(wallChecker.position, 0.25f, layerMask, QueryTriggerInteraction.Ignore))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+
 }
