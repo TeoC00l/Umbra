@@ -11,7 +11,7 @@ public class dummyMovement : MonoBehaviour
     private bool isJumping;
     [SerializeField] private float JumpHeight = 2f;
 
-
+    private Vector3 input;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class dummyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forwardAxis.z = Input.GetAxis("Horizontal");
+        input.z = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,12 +35,24 @@ public class dummyMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if(rb.velocity.magnitude < 10)
+        if (input.z > 0)
         {
-            rb.velocity += forwardAxis * speed * Time.fixedDeltaTime;
-        }      
-        
-        if(isJumping == true)
+            if (rb.velocity.magnitude < 10)
+            {
+                rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+
+            }
+        }
+        if (input.z < 0)
+        {
+            if (rb.velocity.magnitude < 10)
+            {
+                rb.velocity -= rb.transform.forward * speed * Time.fixedDeltaTime;
+
+            }
+        }
+
+        if (isJumping == true)
         {
             rb.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
             isJumping = false;

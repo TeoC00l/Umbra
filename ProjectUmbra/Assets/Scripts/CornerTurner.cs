@@ -11,46 +11,80 @@ public class CornerTurner : MonoBehaviour
     [SerializeField] private Transform rotation2;
     private bool tpd;
     private int turnRotation;
-    private void Start() {
+
+    private bool hasTurned;
+
+    private void Start()
+    {
         pm = player.GetComponent<PlayerMovement>();
-        
+
     }
 
     private void Update()
     {
     }
 
-    private void OnTriggerEnter(Collider collider)
+
+    private void TurnRotation(bool hasTurnd)
     {
-        if (collider.CompareTag("Player"))
+        if (hasTurned == false)
         {
-
-
-            
-
-
-            //pm.setVelocity(Vector3.zero);
-            //pm.setLocked();
-            //isTurning = true;
-            //Debug.Log("isTurning = true");
+            turnRotation = -90;
+        }
+        else
+        {
+            turnRotation = 90;
         }
     }
-    private void OnTriggerStay(Collider other)
+
+
+    private void TranslatePlayerToSelf(Collider other)
+    {
+        other.attachedRigidbody.velocity = Vector3.zero;
+        other.gameObject.transform.position = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
 
 
+
+        }
+
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             if (tpd == false && Vector3.Distance(other.transform.position, transform.position) < 0.3f)
             {
-                other.gameObject.transform.position = transform.position;
-                other.gameObject.transform.Rotate(0, 90/* insert variable*/, 0, Space.Self);
+
+                TranslatePlayerToSelf(other);
+                TurnRotation(hasTurned);
+                other.gameObject.transform.Rotate(0, turnRotation/* insert variable*/, 0, Space.Self);
+
+
+
                 tpd = true;
+                if (hasTurned)
+                {
+                    hasTurned = false;
+                }
+                else
+                {
+                    hasTurned = true;
+                }
+                Debug.Log(hasTurned);
             }
 
-            
-            // kom på hur man vet vilket håll man ska rotera, lägg det i en variabel som ändrar sig själv
-            //efter varje gång man har svängt på den collidern
+            if (Vector3.Distance(other.transform.position, transform.position) > 0.3f)
+            {
+                tpd = false;
+            }
 
         }
     }

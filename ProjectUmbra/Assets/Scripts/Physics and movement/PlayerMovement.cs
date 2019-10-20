@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        SetInput();
         veloc = rb.velocity;
     }
 
