@@ -17,7 +17,7 @@ public class ClimbLedge : MonoBehaviour
             {
                 if (velocityZeroApplied == false)
                 {
-                    other.attachedRigidbody.velocity = Vector3.zero;
+                    other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, 0);
                     velocityZeroApplied = true;
                 }
                 

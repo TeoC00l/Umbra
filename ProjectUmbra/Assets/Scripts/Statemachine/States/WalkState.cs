@@ -31,6 +31,6 @@ public class WalkState : BaseState
 
     public override void Exit()
     {
-        Debug.Log("exit walkstate");
+        //Debug.Log("exit walkstate");
     }
 }
