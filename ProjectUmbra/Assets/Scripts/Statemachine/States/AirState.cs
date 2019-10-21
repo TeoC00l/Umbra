@@ -12,7 +12,10 @@ public class AirState : BaseState
 
     public override void HandleUpdate()
     {
+
         base.HandleUpdate();
+        MovementHandler.SetInput();
+        
         if (MovementHandler.isGrounded())
         {
             owner.Transition<WalkState>();
@@ -20,9 +23,6 @@ public class AirState : BaseState
     }
     public override void HandleFixedUpdate()
     {
-        MovementHandler.SetInput();
         MovementHandler.Move();
-
-
     }
 }

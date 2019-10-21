@@ -22,14 +22,15 @@ public class BridgeControl : MonoBehaviour
         {
             transform.localRotation = originalAngles;
         }
-        if (transform.localEulerAngles.z > 80f)
+        if (transform.localEulerAngles.z > 89f)
         {
-            Destroy(this.GetComponent<HingeJoint>());
+            
             tipped = true;
         }
         if(tipped && rb.velocity == Vector3.zero)
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            Destroy(this.GetComponent<HingeJoint>());
         }
        
     }

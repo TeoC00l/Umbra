@@ -16,7 +16,6 @@ public class WalkState : BaseState
     {
         base.HandleUpdate();
         MovementHandler.SetInput();
-        Debug.Log(MovementHandler.isGrounded());
         if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.isGrounded())
         {
             MovementHandler.Jump();

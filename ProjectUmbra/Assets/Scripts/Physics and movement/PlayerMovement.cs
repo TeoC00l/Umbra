@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 input = Vector3.zero;
-    private float speed = 75f;
+    [SerializeField] private float speed = 75f;
+    [SerializeField] private float topSpeed = 10f;
     [SerializeField] private float JumpHeight = 2f;
     [SerializeField] private float DashDistance = 5f;
     [SerializeField] private float GroundDistance = 0.2f;
@@ -61,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
         //}
 
 
-        if (input.z >0)
+        if (input.z > 0)
         {
-            if (rb.velocity.magnitude < 10)
+            if (rb.velocity.magnitude < topSpeed)
             {
                 rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
 
@@ -71,12 +72,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (input.z < 0)
         {
-            if (rb.velocity.magnitude < 10)
+            if (rb.velocity.magnitude < topSpeed)
             {
                 rb.velocity -= rb.transform.forward * speed * Time.fixedDeltaTime;
 
             }
         }
+
         //body.AddForce(input * Speed * Time.fixedDeltaTime, ForceMode.Acceleration);        
     }
 
@@ -119,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void setSpeed(float newSpeed)
     {
-        Debug.Log(newSpeed);
+        //Debug.Log(newSpeed);
         speed = newSpeed;
     }
 
