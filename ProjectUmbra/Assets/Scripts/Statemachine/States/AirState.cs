@@ -7,7 +7,7 @@ public class AirState : BaseState
 {
     public override void Enter()
     {
-        //Debug.Log("Airstate");
+        Debug.Log("Airstate");
     }
 
     public override void HandleUpdate()

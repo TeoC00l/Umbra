@@ -11,7 +11,8 @@ public class GrabbingState : BaseState
 
     public override void Enter()
     {
-        MovementHandler.setSpeed(movementSpeed);
+        //MovementHandler.setSpeed(movementSpeed);
+        Debug.Log("grabbing");
     }
 
     public override void HandleUpdate()
