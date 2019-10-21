@@ -97,6 +97,7 @@ public class CornerTurner : MonoBehaviour
                 other.gameObject.transform.Rotate(0, turnRotation/* insert variable*/, 0, Space.Self);
 
 
+                gameObject.SetActive(false);
 
                 tpd = true;
                 if (hasTurned)
