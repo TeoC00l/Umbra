@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 input = Vector3.zero;
+    private Vector3 verticalInput = Vector3.zero;
+    private Vector3 horizontalLadderInput = Vector3.zero;
+
     [SerializeField] private float speed = 75f;
     [SerializeField] private float topSpeed = 10f;
     [SerializeField] private float JumpHeight = 2f;
@@ -21,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private bool movementIsLocked = false;
-
+    private bool isOnLadder = false;
 
     public Vector3 veloc;
 
@@ -103,6 +106,28 @@ public class PlayerMovement : MonoBehaviour
         //    }
         //}
 
+    public void MoveOnLadder()
+    {
+        
+        verticalInput.y = Input.GetAxis("Vertical");
+        horizontalLadderInput.z = Input.GetAxis("Horizontal");
+        transform.Translate(verticalInput * 5f * Time.deltaTime);
+        //Debug.Log(horizontalLadderInput);
+        if(horizontalLadderInput.z < 0)
+        {
+            rb.isKinematic = false;
+            Debug.Log("left");
+            rb.AddForce(Vector3.back * 5f);
+        }
+        if (horizontalLadderInput.z > 0)
+        {
+            rb.isKinematic = false;
+            Debug.Log("right");
+            rb.AddForce(Vector3.forward * 5f);
+        }
+
+    }
+
     public void Jump()
     {
         rb.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
@@ -176,5 +201,13 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    public bool getLadderStatus()
+    {
+        return isOnLadder;
+    }
 
+    public void setLadderStatus(bool status)
+    {
+        isOnLadder = status;
+    }
 }

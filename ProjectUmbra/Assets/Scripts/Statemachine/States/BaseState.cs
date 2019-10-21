@@ -43,7 +43,11 @@ public class BaseState : State
         {
             owner.Transition<GrabbingState>();
         }
-        
+
+        if (MovementHandler.getLadderStatus())
+        {
+            owner.Transition<ClimbState>();
+        }
     }
 
     public override void HandleFixedUpdate()
