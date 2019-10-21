@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         groundChecker = transform.GetChild(0);
         Physics.gravity = new Vector3(0, -15f, 0);
-        Debug.Log(Physics.gravity);
+        //Debug.Log(Physics.gravity);
 
 
     }
