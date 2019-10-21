@@ -24,7 +24,7 @@ public class WalkState : BaseState
     public override void HandleFixedUpdate()
     {
         MovementHandler.Move();
-        Debug.Log("fixed");
+        //Debug.Log("fixed");
 
     }
 

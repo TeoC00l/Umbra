@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 input = Vector3.zero;
-    private float speed = 50f;
+    private float speed = 75f;
     [SerializeField] private float JumpHeight = 2f;
     [SerializeField] private float DashDistance = 5f;
     [SerializeField] private float GroundDistance = 0.2f;
@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         groundChecker = transform.GetChild(0);
+        Physics.gravity = new Vector3(0, -15f, 0);
+        Debug.Log(Physics.gravity);
+
+
     }
 
     void Update()

@@ -41,7 +41,7 @@ public class CornerTurner : MonoBehaviour
     private void TranslatePlayerToSelf(Collider other)
     {
         other.attachedRigidbody.velocity = Vector3.zero;
-        other.gameObject.transform.position = transform.position;
+        other.gameObject.transform.position = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +60,7 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (tpd == false && Vector3.Distance(other.transform.position, transform.position) < 0.3f)
+            if (tpd == false && Vector3.Distance(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, transform.position.z)) < 0.3f)
             {
 
                 TranslatePlayerToSelf(other);
