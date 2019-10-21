@@ -13,6 +13,8 @@ public class CornerTurner : MonoBehaviour
     private int turnRotation;
 
     private bool hasTurned;
+    [SerializeField] private bool rightTurn;
+
 
     private void Start()
     {
@@ -27,29 +29,45 @@ public class CornerTurner : MonoBehaviour
 
     private void TurnRotation(bool hasTurnd)
     {
-        if (hasTurned == false)
+        if (rightTurn)
         {
-            turnRotation = -90;
+            if (hasTurned == false)
+            {
+                turnRotation = -90;
+            }
+            else
+            {
+                turnRotation = 90;
+            }
         }
         else
         {
-            turnRotation = 90;
+            if (hasTurned == false)
+            {
+                turnRotation = 90;
+            }
+            else
+            {
+                turnRotation = -90;
+            }
         }
+        
     }
 
 
     private void TranslatePlayerToSelf(Collider other)
     {
-        if (hasTurned)
-        {
-            other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, other.attachedRigidbody.velocity.z);
+        //if (hasTurned)
+        //{
+        //    other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, other.attachedRigidbody.velocity.z);
 
-        }
-        else
-        {
-            other.attachedRigidbody.velocity = new Vector3(other.attachedRigidbody.velocity.x, other.attachedRigidbody.velocity.y, 0);
+        //}
+        //else
+        //{
+        //    other.attachedRigidbody.velocity = new Vector3(other.attachedRigidbody.velocity.x, other.attachedRigidbody.velocity.y, 0);
 
-        }
+        //}
+        other.attachedRigidbody.velocity = Vector3.zero;
 
         other.gameObject.transform.position = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
     }
