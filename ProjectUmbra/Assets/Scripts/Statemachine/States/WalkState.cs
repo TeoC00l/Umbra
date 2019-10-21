@@ -5,10 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/WalkState")]
 public class WalkState : BaseState
 {
-    //[SerializeField] private float movementSpeed = 5f;
     public override void Enter()
     {
-        //MovementHandler.setSpeed(movementSpeed);
         Debug.Log("walkstate");
     }
 
@@ -25,13 +23,11 @@ public class WalkState : BaseState
     public override void HandleFixedUpdate()
     {
         MovementHandler.Move();
-        //Debug.Log("fixed");
 
     }
 
 
     public override void Exit()
     {
-        //Debug.Log("exit walkstate");
     }
 }
