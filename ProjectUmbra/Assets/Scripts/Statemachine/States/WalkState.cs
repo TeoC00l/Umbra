@@ -6,15 +6,17 @@ using UnityEngine;
 public class WalkState : BaseState
 {
     //[SerializeField] private float movementSpeed = 5f;
-    //public override void Enter()
-    //{
-    //    MovementHandler.setSpeed(movementSpeed);
-    //}
+    public override void Enter()
+    {
+        //MovementHandler.setSpeed(movementSpeed);
+        Debug.Log("walkstate");
+    }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
         MovementHandler.SetInput();
+        Debug.Log(MovementHandler.isGrounded());
         if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.isGrounded())
         {
             MovementHandler.Jump();
