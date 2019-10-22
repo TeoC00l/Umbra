@@ -44,6 +44,7 @@ public class DeathComponent : MonoBehaviour
 
                     gameObject.SetActive(false);
                 }
+                fallDistance = 0;
                 cachedGroundedPos = false;
                 hasCalculatedAirDistance = true;
             }
