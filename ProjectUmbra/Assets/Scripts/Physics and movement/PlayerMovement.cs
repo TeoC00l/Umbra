@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿//TODO: Göra metoder private
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Göra metoder private
 
 public class PlayerMovement : MonoBehaviour
 {
