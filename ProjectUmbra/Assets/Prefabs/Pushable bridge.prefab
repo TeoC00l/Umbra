@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2835952961686838551}
   - component: {fileID: 2835952961686838550}
   - component: {fileID: 2835952961686838553}
-  - component: {fileID: 2835952961686838552}
   - component: {fileID: 2835952961686838546}
+  - component: {fileID: 1662641279}
   m_Layer: 0
   m_Name: Pushable bridge
   m_TagString: Ground
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2835952961686838555}
   m_LocalRotation: {x: 0, y: 0.7104925, z: 0, w: 0.7037048}
   m_LocalPosition: {x: 8.41, y: 4.64, z: -1.87}
-  m_LocalScale: {x: 0.33066, y: 8.9328, z: 4.0167837}
+  m_LocalScale: {x: 1, y: 9, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,7 +111,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!59 &2835952961686838552
+--- !u!114 &2835952961686838546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835952961686838555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5de566495a3cce48b7096896f1d11b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalRotation: {x: 0, y: 90, z: 90, w: 0}
+--- !u!59 &1662641279
 HingeJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +134,12 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.41, y: 0.17359972, z: -1.87}
-  m_UseSpring: 0
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 8, y: 0, z: -4.5}
+  m_UseSpring: 1
   m_Spring:
     spring: 0
-    damper: 42.4
+    damper: 0
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -146,15 +159,3 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2835952961686838546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2835952961686838555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5de566495a3cce48b7096896f1d11b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
