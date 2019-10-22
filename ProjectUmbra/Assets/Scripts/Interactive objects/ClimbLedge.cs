@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ClimbLedge : MonoBehaviour
 {
-    [SerializeField] private Transform corner;
-    [SerializeField]private Transform top;
+
     private bool velocityZeroApplied = false;
 
 
@@ -15,22 +14,21 @@ public class ClimbLedge : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                if (velocityZeroApplied == false)
-                {
-                    other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, 0);
-                    velocityZeroApplied = true;
-                }
-                
 
-                other.attachedRigidbody.velocity += Vector3.up* 20 * Time.fixedDeltaTime;
+                other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, 0);
+
+
+
+                other.attachedRigidbody.velocity += Vector3.up * 20 * Time.fixedDeltaTime;
             }
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.attachedRigidbody.velocity = new Vector3(other.attachedRigidbody.velocity.x, 0, other.attachedRigidbody.velocity.z);
+            other.attachedRigidbody.velocity = Vector3.zero;
         }
     }
 }
