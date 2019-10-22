@@ -7,7 +7,9 @@ public class BridgeControl : MonoBehaviour
     private Quaternion originalAngles;
     private Rigidbody rb;
     private bool tipped = false;
+    [SerializeField] private Quaternion finalRotation;
 
+    
     private void Start()
     {
 
@@ -29,6 +31,8 @@ public class BridgeControl : MonoBehaviour
         }
         if(tipped && rb.velocity == Vector3.zero)
         {
+            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+
             rb.constraints = RigidbodyConstraints.FreezeAll;
             Destroy(this.GetComponent<HingeJoint>());
         }
