@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3220737029942767836}
   - component: {fileID: 3220737029942767837}
   - component: {fileID: 3220737029942767838}
+  - component: {fileID: 1802658482}
   - component: {fileID: 3220737029942767839}
   - component: {fileID: 3220737029942767832}
   - component: {fileID: 3220737029942767826}
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220737029942767833}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.5, y: 0.5, z: -11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -130,6 +131,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1802658482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220737029942767833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780e6e8eae69cba4bb977de1a5c00b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDistanceToDie: 10
 --- !u!114 &3220737029942767839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,18 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccd654ee12130d4fb0665ffe070f155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpHeight: 2
-  DashDistance: 5
-  GroundDistance: 0.2
+  speed: 10
+  topSpeed: 0
+  jumpHeight: 0
+  groundDistance: 0
   Ground:
     serializedVersion: 2
     m_Bits: 256
   cornerTurner: {fileID: 0}
-  wallCheckerRight: {fileID: 0}
-  wallCheckerLeft: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   veloc: {x: 0, y: 0, z: 0}
 --- !u!54 &3220737029942767832
 Rigidbody:

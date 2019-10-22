@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private float groundDistance;
     [SerializeField] private LayerMask Ground;
-    [SerializeField] private LayerMask layerMask;
 
     public CornerTurner cornerTurner;
     public Vector3 veloc;
@@ -50,15 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void AutoMove(Vector3 input)
     {
-           rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+        rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
     }
 
     public void MoveOnLadder()
-    {      
+    {
         verticalLadderInput.y = Input.GetAxis("Vertical");
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
         transform.Translate(verticalLadderInput * 5f * Time.deltaTime);
-        if(horizontalLadderInput.z < 0)
+        if (horizontalLadderInput.z < 0)
         {
             rb.isKinematic = false;
             rb.AddForce(Vector3.back * 5f);
@@ -73,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);   
+        rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
     }
 
     public bool IsGrounded()
@@ -85,15 +84,7 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    //Används inte -Ta bort? /Teo
-    private bool CheckForWall(Transform wallChecker)
-    {
-        if (Physics.CheckSphere(wallChecker.position, 0.25f, layerMask, QueryTriggerInteraction.Ignore))
-        {
-            return true;
-        }
-        return false;
-    }
+
 
     //Getters and Setters
     public void SetInput()
