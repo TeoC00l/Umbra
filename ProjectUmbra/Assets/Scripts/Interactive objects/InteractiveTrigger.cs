@@ -7,12 +7,17 @@ public class InteractiveTrigger : MonoBehaviour
     private Animator anim;
     private bool isPressed = false;
     [SerializeField] GameObject animGO;
+    [SerializeField] string animationBoolKey = "";
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         anim = animGO.GetComponent<Animator>();
     }
+
+    //Byt ut "ObjectToAnimate" mot objektet som ska animeras, samt animator controllers och animationer i dem.
+    //Skriv villkorsboolens namn i animationBoolKey.
+    
 
     private void OnTriggerStay(Collider other)
     {
@@ -22,17 +27,17 @@ public class InteractiveTrigger : MonoBehaviour
             {
                 if (!isPressed)
                 {
-                    anim.SetBool("WallLowered", true);
+                    anim.SetBool(animationBoolKey, true);
                     
                     isPressed = true;
-                    return;
+                    
                 }
 
-                if (isPressed)
+                else if (isPressed)
                 {
-                    anim.SetBool("WallLowered", false);
+                    anim.SetBool(animationBoolKey, false);
                     isPressed = false;
-                    return;
+                    
                 }
 
             }
