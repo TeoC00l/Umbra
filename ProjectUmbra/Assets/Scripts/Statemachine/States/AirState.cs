@@ -16,7 +16,7 @@ public class AirState : BaseState
         base.HandleUpdate();
         MovementHandler.SetInput();
         
-        if (MovementHandler.isGrounded())
+        if (MovementHandler.IsGrounded())
         {
             owner.Transition<WalkState>();
         }

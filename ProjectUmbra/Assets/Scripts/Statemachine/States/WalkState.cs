@@ -14,7 +14,7 @@ public class WalkState : BaseState
     {
         base.HandleUpdate();
         MovementHandler.SetInput();
-        if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.isGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.IsGrounded())
         {
             MovementHandler.Jump();
             owner.Transition<AirState>();
