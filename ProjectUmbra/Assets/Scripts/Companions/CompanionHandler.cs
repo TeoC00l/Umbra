@@ -25,9 +25,26 @@ public class CompanionHandler : MonoBehaviour
 
 
     #region JumpVariabels
-    private Vector3 jumpPosition;
+    [SerializeField] private float addToJumpHeight = 5;
+    private Vector3 startJumpPosition;
+    private Vector3 endJumpPosition;
+
+    private float jumpDistance;
+    private float maxJumpDistance = 100;
+
     private NavMeshPath navPath;
     private int endCorenerIndex;
+    public bool SetCanJump = false;
+
+    private ReturnNavmeshInfo navInfo;
+
+    private List<Vector3> jumpPath = new List<Vector3>();
+
+    public GameObject agentPrefab;
+
+    public bool isCalced = false;
+
+
     #endregion
 
 
@@ -40,9 +57,84 @@ public class CompanionHandler : MonoBehaviour
         aliceRB = Alice.GetComponent<Rigidbody>();
         setAgent = Set.GetComponent<NavMeshAgent>();
         aliceAgent = Alice.GetComponent<NavMeshAgent>();
-        
+
+        setAgent.SetDestination(targetPlayer.transform.position);
     }
 
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+        
+
+
+        if (aliceMoving) {
+            setDirection(Alice);
+            if (NotCloseToDestinationCheck(aliceAgent) == true)
+            {
+                aliceAgent.isStopped = false;
+                moveFollower(Alice, aliceAgent);
+                //Debug.Log("moveFlollower set");
+
+            }
+            else
+            {
+                aliceAgent.isStopped = true;
+                //Debug.Log("set is stopped");
+
+            }
+            checkRotation(Alice);
+        }
+        if (setMoving)
+        {
+            setDirection(Set);
+            if (NotCloseToDestinationCheck(setAgent) == true)
+            {
+                setAgent.isStopped = false;
+                moveFollower(Set, setAgent);
+                //Debug.Log("moveFlollower set");
+
+            }
+            else
+            {
+                setAgent.isStopped = true;
+                //Debug.Log("set is stopped");
+
+            }
+
+
+            checkRotation(Set);
+        }
+
+
+        setMovement();
+
+        if (setAgent.hasPath)
+        {
+            if (setAgent.path.status == NavMeshPathStatus.PathPartial)
+            {
+                MoveToJumpPosition(setAgent);
+               
+                if(SetCanJump == true && isCalced == false)
+                {
+                    CalacJumpPath(setAgent);
+                    Debug.Log(jumpPath.Count);
+                    for (int i = 0; i < jumpPath.Count; i++)
+                    {
+                        Debug.Log(jumpPath[i]);
+
+                    }
+                    isCalced = true;
+                }
+                    
+                
+            }
+        }
+
+    }
     private Vector3 GetStartJumpPosition(NavMeshAgent agent)
     {
         navPath = agent.path;
@@ -52,35 +144,80 @@ public class CompanionHandler : MonoBehaviour
 
     private void MoveToJumpPosition(NavMeshAgent agent)
     {
-        agent.isStopped = false;
-        agent.SetDestination(GetStartJumpPosition(agent));
+        if (SetCanJump == false)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(GetStartJumpPosition(agent));
+        }
+
+
+    }
+    private void CalacJumpPath(NavMeshAgent agent)
+    {
+        jumpPath.Add(startJumpPosition = GetStartJumpPosition(setAgent));
+        Vector3 midJumpPos = Vector3.Lerp(startJumpPosition, endJumpPosition, 0.5f);
+        midJumpPos.y = midJumpPos.y + agent.height + addToJumpHeight;
+        jumpPath.Add(midJumpPos);
+
+
+        GetEndJumpPos();
+        jumpPath.Add(endJumpPosition);
+
+        //for (int i = 0; i < jumpPath.Count; i++)
+        //{
+        //    Instantiate<GameObject>(jumpposprefab);
+        //}
+        jumpDistance = Vector3.Distance(startJumpPosition, endJumpPosition);
+        if(jumpDistance <= maxJumpDistance)
+        {
+            Jump(agent, agent.gameObject.GetComponent<Rigidbody>());
+        }
+        else
+        {
+            Debug.Log("To far to jump");
+        }
+
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Jump(NavMeshAgent agent, Rigidbody companionsRB)
     {
-        //if(setAgent.path.status == NavMeshPathStatus.PathPartial)
+        //companionsRB.isKinematic = true;
+        //agent.enabled = false;
+
+        companionsRB.AddForce(new Vector3(0, 5, 5));
+
+
+        //Vector3 targetPosInJump;
+        //for (int i = 0; i < jumpPath.Count; i++)
         //{
-        //    MoveToJumpPosition(setAgent);
-        //    Debug.Log("moveTOJumpPosition" + GetStartJumpPosition(setAgent));
+        //    targetPosInJump = jumpPath[i];
+        //    if(Vector3.Distance(companionsRB.position, targetPosInJump) > 1)
+        //    {
+        //        move
+        //    }
         //}
+    }
 
+    private void GetEndJumpPos()
+    {
+        GameObject tmpagent = Instantiate<GameObject>(agentPrefab,targetPlayer.transform);
+        navInfo = tmpagent.GetComponent<ReturnNavmeshInfo>();
+        endJumpPosition = navInfo.ReturnClosestPointBackToAgent(tmpagent.transform.position);
+    }
 
-        if (aliceMoving) {
-            setDirection(Alice);
-            moveFollower(Alice, aliceAgent);
-            checkRotation(Alice);
-        }
-        if (setMoving)
+    private bool NotCloseToDestinationCheck(NavMeshAgent agent)
+    {
+        if(Vector3.Distance(agent.transform.position , targetPlayer.transform.position) > 5)
         {
-            setDirection(Set);
-            moveFollower(Set, setAgent);
-            checkRotation(Set);
+            
+            //Debug.Log("return true dist" + Vector3.Distance(agent.transform.position, targetPlayer.transform.position));
+            return true;
         }
 
+        //Debug.Log("return false dist" + Vector3.Distance(agent.transform.position, agent.destination));
+        return false;
 
-        setMovement();
     }
 
 
@@ -99,11 +236,11 @@ public class CompanionHandler : MonoBehaviour
         //rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
         
 
-        if(Vector3.Distance(follower.transform.position, targetPlayer.transform.position) > 5){
+        //if(Vector3.Distance(follower.transform.position, targetPlayer.transform.position) > 5){
             //transform.Translate(direction * speed * Time.fixedDeltaTime);
             agent.SetDestination(targetPlayer.transform.position);
 
-        }
+        //}
     }
 
     private void checkRotation(GameObject follower)
