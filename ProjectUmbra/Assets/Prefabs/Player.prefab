@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 3220737029942767833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.5, y: 0.5, z: -11.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 3220737030458600430}
   - {fileID: 3220737030875498120}
@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDistanceToDie: 10
+  cachedPosition: {x: 0, y: 0, z: 0}
+  fallDistance: 0
 --- !u!114 &3220737029942767839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,13 +158,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccd654ee12130d4fb0665ffe070f155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  topSpeed: 0
-  jumpHeight: 0
-  groundDistance: 0
+  speed: 7
+  topSpeed: 10
+  jumpHeight: 8
+  fallMultiplier: 2.5
+  groundDistance: 0.2
   Ground:
     serializedVersion: 2
     m_Bits: 256
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   cornerTurner: {fileID: 0}
   veloc: {x: 0, y: 0, z: 0}
 --- !u!54 &3220737029942767832

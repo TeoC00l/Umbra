@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 horizontalLadderInput;
     private Rigidbody rb;
     private Transform groundChecker;
-    private bool movementIsLocked = false;
-    private bool isOnLadder = false;
+    private bool isMovementLocked;
+    private bool isOnLadder;
+    private bool isJumping;
 
     [SerializeField] private float speed;
     [SerializeField] private float topSpeed;
@@ -40,12 +41,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
         veloc = rb.velocity;
     }
 
     private void FixedUpdate()
     {
+        if (isJumping)
+        {
+            rb.velocity = Vector3.up * jumpHeight;
+            isJumping = false;
+        }
+
         ApplyAdditionalPhysics();
     }
 
@@ -81,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        rb.velocity = Vector3.up * jumpHeight;
+        isJumping = true;
         //rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);   
     }
 
@@ -123,13 +129,13 @@ public class PlayerMovement : MonoBehaviour
     }
     public void setLocked()
     {
-        if (movementIsLocked)
+        if (isMovementLocked)
         {
-            movementIsLocked = false;
+            isMovementLocked = false;
         }
         else
         {
-            movementIsLocked = true;
+            isMovementLocked = true;
         }
     }
     public void setVelocity(Vector3 velocity)
@@ -138,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool getLocked()
     {
-        return movementIsLocked;
+        return isMovementLocked;
     }
     public float getSpeed()
     {
