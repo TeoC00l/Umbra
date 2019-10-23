@@ -23,6 +23,14 @@ public class CompanionHandler : MonoBehaviour
     private bool setMoving = true;
     private bool aliceMoving = true;
 
+
+    #region JumpVariabels
+    private Vector3 jumpPosition;
+    private NavMeshPath navPath;
+    private int endCorenerIndex;
+    #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +40,33 @@ public class CompanionHandler : MonoBehaviour
         aliceRB = Alice.GetComponent<Rigidbody>();
         setAgent = Set.GetComponent<NavMeshAgent>();
         aliceAgent = Alice.GetComponent<NavMeshAgent>();
+        
+    }
+
+    private Vector3 GetStartJumpPosition(NavMeshAgent agent)
+    {
+        navPath = agent.path;
+        endCorenerIndex = navPath.corners.Length - 1;
+        return navPath.corners[endCorenerIndex];
+    }
+
+    private void MoveToJumpPosition(NavMeshAgent agent)
+    {
+        agent.isStopped = false;
+        agent.SetDestination(GetStartJumpPosition(agent));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if(setAgent.path.status == NavMeshPathStatus.PathPartial)
+        //{
+        //    MoveToJumpPosition(setAgent);
+        //    Debug.Log("moveTOJumpPosition" + GetStartJumpPosition(setAgent));
+        //}
+
+
         if (aliceMoving) {
             setDirection(Alice);
             moveFollower(Alice, aliceAgent);
@@ -52,6 +81,12 @@ public class CompanionHandler : MonoBehaviour
 
 
         setMovement();
+    }
+
+
+    private void FixedUpdate()
+    {
+        
     }
 
     private void setDirection(GameObject follower)
@@ -104,4 +139,11 @@ public class CompanionHandler : MonoBehaviour
             Debug.Log("alice stopped");
         }
     }
+
+
+
+
+
+
+
 }
