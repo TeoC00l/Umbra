@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float topSpeed;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private float fallMultiplier;
     [SerializeField] private float groundDistance;
     [SerializeField] private LayerMask Ground;
+    [SerializeField] private LayerMask layerMask;
 
     public CornerTurner cornerTurner;
     public Vector3 veloc;
@@ -38,7 +40,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         veloc = rb.velocity;
+    }
+
+    private void FixedUpdate()
+    {
+        ApplyAdditionalPhysics();
     }
 
     public void Move()
@@ -49,30 +57,32 @@ public class PlayerMovement : MonoBehaviour
 
     public void AutoMove(Vector3 input)
     {
-        rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+           rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
     }
 
     public void MoveOnLadder()
-    {
+    {      
         verticalLadderInput.y = Input.GetAxis("Vertical");
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
         transform.Translate(verticalLadderInput * 5f * Time.deltaTime);
+
         if (horizontalLadderInput.z < 0)
         {
             rb.isKinematic = false;
             rb.AddForce(Vector3.back * 5f);
         }
+
         if (horizontalLadderInput.z > 0)
         {
             rb.isKinematic = false;
             rb.AddForce(Vector3.forward * 5f);
         }
-
     }
 
     public void Jump()
     {
-        rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+        rb.velocity = Vector3.up * jumpHeight;
+        //rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);   
     }
 
     public bool IsGrounded()
@@ -84,7 +94,23 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    //Används inte -Ta bort? /Teo
+    private bool CheckForWall(Transform wallChecker)
+    {
+        if (Physics.CheckSphere(wallChecker.position, 0.25f, layerMask, QueryTriggerInteraction.Ignore))
+        {
+            return true;
+        }
+        return false;
+    }
 
+    private void ApplyAdditionalPhysics()
+    {
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+    }
 
     //Getters and Setters
     public void SetInput()
