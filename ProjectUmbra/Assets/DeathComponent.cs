@@ -9,9 +9,9 @@ public class DeathComponent : MonoBehaviour
 
     private PlayerMovement pm;
     private bool cachedGroundedPos;
-    private Vector3 cachedPosition;
+    public Vector3 cachedPosition;
     private bool hasCalculatedAirDistance;
-    private float fallDistance;
+    public float fallDistance;
     
     
     // Start is called before the first frame update
