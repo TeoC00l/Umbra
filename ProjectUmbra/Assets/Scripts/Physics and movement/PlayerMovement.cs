@@ -88,22 +88,11 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         isJumping = true;
-        //rb.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);   
     }
 
     public bool IsGrounded()
     {
         if (Physics.CheckSphere(groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    //Används inte -Ta bort? /Teo
-    private bool CheckForWall(Transform wallChecker)
-    {
-        if (Physics.CheckSphere(wallChecker.position, 0.25f, layerMask, QueryTriggerInteraction.Ignore))
         {
             return true;
         }
