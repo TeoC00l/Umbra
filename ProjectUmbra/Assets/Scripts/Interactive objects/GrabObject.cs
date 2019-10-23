@@ -6,7 +6,7 @@ public class GrabObject : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     private Rigidbody rb;
-    private bool grabStatus = false;
+    private bool grabStatus;
 
     public void OnTriggerStay(Collider other)
     {

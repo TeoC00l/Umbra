@@ -5,16 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/TurnState")]
 public class TurnState : BaseState
 {
-    [SerializeField] private float movementSpeed = 0f;
-    private bool rotated = false;
-    string lastTurned = "none";
+    private bool rotated;
     private CornerTurner cornerTurner;
-    private Vector3 direction = Vector3.zero;
+    private Vector3 direction;
 
     public override void Enter()
     {
         cornerTurner = MovementHandler.cornerTurner;
         direction = MovementHandler.getInput();
+        rotated = false;
+        direction = Vector3.zero;
     }
 
     public override void HandleUpdate()

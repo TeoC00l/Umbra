@@ -8,7 +8,7 @@ public class BaseState : State
     protected Player owner;
     protected PlayerMovement MovementHandler;
     protected BoxCollider playerCollider;
-    private bool onSetup = true;
+    private bool onSetup;
     protected GrabObject grabHandler;
     protected Rigidbody playerBody;
 
@@ -23,6 +23,7 @@ public class BaseState : State
 
     public override void Enter()
     {
+        onSetup = true;
         base.Enter();
         
     }
