@@ -8,20 +8,34 @@ public class CompanionWalkState : CompanionBaseState
 
     public override void Enter()
     {
-        base.Enter();
         //Play animation
         Debug.Log("enter WalkState Companion");
-        agent.SetDestination(owner.TargetPlayer.transform.position);
         agent.isStopped = false;
+        agent.SetDestination(owner.TargetPlayer.transform.position);
+
     }
 
 
     public override void HandleUpdate()
     {
-        if(companionHandler.NotCloseToDestinationCheck(agent) == false)
+
+        if (companionHandler.NotCloseToDestinationCheck(agent) == false)
         {
             owner.Transition<CompanionIdelState>();
         }
+        else
+        {
+            agent.SetDestination(owner.TargetPlayer.transform.position);
+        }
+
+
+        if (agent.isOnOffMeshLink)
+        {
+            owner.Transition<CompanionJumpState>();
+        }
+
+
+
     }
 
 

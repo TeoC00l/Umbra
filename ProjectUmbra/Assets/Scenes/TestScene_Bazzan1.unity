@@ -109,8 +109,8 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    ledgeDropHeight: 49.6
+    maxJumpAcrossDistance: 61.06
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.06666667
@@ -651,11 +651,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alice
       objectReference: {fileID: 0}
-    - target: {fileID: 3404401503035826671, guid: 482b20caf182c59458a88d99469795e6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8130496549289518310, guid: 482b20caf182c59458a88d99469795e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -715,16 +710,11 @@ PrefabInstance:
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1505883250}
-    - target: {fileID: 483917257, guid: 482b20caf182c59458a88d99469795e6, type: 3}
-      propertyPath: jumpposprefab
-      value: 
-      objectReference: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
+    - target: {fileID: 799213377853813508, guid: 482b20caf182c59458a88d99469795e6,
         type: 3}
-    - target: {fileID: 483917257, guid: 482b20caf182c59458a88d99469795e6, type: 3}
-      propertyPath: agentPrefab
+      propertyPath: TargetPlayer
       value: 
-      objectReference: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
-        type: 3}
+      objectReference: {fileID: 1505883250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482b20caf182c59458a88d99469795e6, type: 3}
 --- !u!1 &726889658
@@ -807,11 +797,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Set
       objectReference: {fileID: 0}
-    - target: {fileID: 7853493181096767001, guid: 2c99c5eab292e1642a84dd8bbb1b9988,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 572401977805860600, guid: 2c99c5eab292e1642a84dd8bbb1b9988,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -871,16 +856,11 @@ PrefabInstance:
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1505883250}
-    - target: {fileID: 1871210317, guid: 2c99c5eab292e1642a84dd8bbb1b9988, type: 3}
-      propertyPath: jumpposprefab
-      value: 
-      objectReference: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
+    - target: {fileID: 7447744134241528522, guid: 2c99c5eab292e1642a84dd8bbb1b9988,
         type: 3}
-    - target: {fileID: 1871210317, guid: 2c99c5eab292e1642a84dd8bbb1b9988, type: 3}
-      propertyPath: agentPrefab
+      propertyPath: TargetPlayer
       value: 
-      objectReference: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
-        type: 3}
+      objectReference: {fileID: 1505883250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c99c5eab292e1642a84dd8bbb1b9988, type: 3}
 --- !u!1 &869296310
@@ -2190,6 +2170,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1be94de26fd953e44a37bd489f6ad5f1, type: 2}
   - {fileID: 11400000, guid: 9317eeff644211b4e84ad8819456574f, type: 2}
   - {fileID: 11400000, guid: c823da8db85dd0a4299b1ed44fcf56b5, type: 2}
+  - {fileID: 11400000, guid: f18e59b24ede864448c3d4382f82d644, type: 2}
   TargetPlayer: {fileID: 1505883250}
 --- !u!65 &1933555295
 BoxCollider:

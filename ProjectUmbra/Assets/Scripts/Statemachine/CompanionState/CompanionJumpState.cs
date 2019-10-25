@@ -2,17 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompanionJumpState : MonoBehaviour
+
+[CreateAssetMenu(menuName = "Companion/JumpState")]
+public class CompanionJumpState : CompanionBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+
+    public override void Enter()
     {
-        
+        Debug.Log("enter CompanionJumpState");
+        //Play animation
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public override void HandleUpdate()
     {
         
+        if(agent.isOnOffMeshLink == false)
+        {
+            owner.Transition<CompanionWalkState>();
+        }
     }
+
+
+
+
+
 }

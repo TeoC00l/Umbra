@@ -11,7 +11,6 @@ public class CompanionIdelState : CompanionBaseState
     public override void Enter()
     {
         //play Animation
-        base.Enter();
 
         Debug.Log("enter idelState Companion");
         agent.isStopped = true;

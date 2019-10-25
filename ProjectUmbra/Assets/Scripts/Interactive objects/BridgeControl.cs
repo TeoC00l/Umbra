@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
+
 
 public class BridgeControl : MonoBehaviour
 {
@@ -29,13 +32,18 @@ public class BridgeControl : MonoBehaviour
             
             tipped = true;
         }
-        if(tipped && rb.velocity == Vector3.zero)
+        if(tipped && transform.localEulerAngles.z > 89/*rb.velocity == Vector3.zero*/)
         {
             gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
             Destroy(this.GetComponent<HingeJoint>());
+
+            
         }
        
     }
+
+
+    
 }

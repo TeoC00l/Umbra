@@ -12,6 +12,8 @@ public class CompanionBaseState : CompanionState
     protected Rigidbody compaionRB;
     protected NavMeshAgent agent;
 
+
+    private bool onSetUp = true;
     public override void Initialize(CompanionStateMachine owner)
     {
         this.owner = (Companion)owner;
@@ -28,14 +30,18 @@ public class CompanionBaseState : CompanionState
         base.Enter();
         Debug.Log("enter BaseState Companion");
 
-
     }
 
 
     public override void HandleUpdate()
     {
-        owner.Transition<CompanionIdelState>();
 
+        if (onSetUp)
+        {
+            owner.Transition<CompanionIdelState>();
+            
+            onSetUp = false;
+        }
     }
 
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1823336000705255009}
   - component: {fileID: 4735139905800924172}
   - component: {fileID: 483917257}
+  - component: {fileID: 799213377853813508}
   m_Layer: 0
   m_Name: Alice
   m_TagString: Alice
@@ -148,3 +149,26 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   bufferDistanceToPlayer: 5
   speed: 5
+  addToJumpHeight: 5
+  SetCanJump: 0
+  agentPrefab: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
+    type: 3}
+  isCalced: 0
+--- !u!114 &799213377853813508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404401503035826671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32eb4681aced584cbb4964847fde859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: 1be94de26fd953e44a37bd489f6ad5f1, type: 2}
+  - {fileID: 11400000, guid: 9317eeff644211b4e84ad8819456574f, type: 2}
+  - {fileID: 11400000, guid: f18e59b24ede864448c3d4382f82d644, type: 2}
+  - {fileID: 11400000, guid: c823da8db85dd0a4299b1ed44fcf56b5, type: 2}
+  TargetPlayer: {fileID: 0}

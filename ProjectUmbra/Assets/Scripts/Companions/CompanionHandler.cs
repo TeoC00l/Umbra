@@ -48,6 +48,73 @@ public class CompanionHandler : MonoBehaviour
     #endregion
 
 
+
+
+    public bool NotCloseToDestinationCheck(NavMeshAgent agent)
+    {
+        if (Vector3.Distance(agent.transform.position, targetPlayer.transform.position) > 5)
+        {
+
+            //Debug.Log("return true dist" + Vector3.Distance(agent.transform.position, targetPlayer.transform.position));
+            return true;
+        }
+
+        //Debug.Log("return false dist" + Vector3.Distance(agent.transform.position, agent.destination));
+        return false;
+
+    }
+
+
+
+    private void setDirection(GameObject follower)
+    {
+        direction = targetPlayer.transform.position - follower.transform.position;
+        direction.Normalize();
+    }
+    private void moveFollower(GameObject follower, NavMeshAgent agent)
+    {
+
+        agent.SetDestination(targetPlayer.transform.position);
+
+    }
+
+    private void checkRotation(GameObject follower)
+    {
+        follower.transform.localRotation = targetPlayer.transform.localRotation;
+    }
+
+
+    private void setMovement()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.Q) && !setMoving)
+        {
+            setMoving = true;
+            setAgent.isStopped = false;
+            Debug.Log("set moving");
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && !aliceMoving)
+        {
+            aliceMoving = true;
+            aliceAgent.isStopped = false;
+            Debug.Log("alice moving");
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && setMoving)
+        {
+            setMoving = false;
+            setAgent.isStopped = true;
+            Debug.Log("set stopped");
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
+        {
+            aliceMoving = false;
+            aliceAgent.isStopped = true;
+            Debug.Log("alice stopped");
+        }
+    }
+
+
     // Start is called before the first frame update
     //void Start()
     //{
@@ -68,7 +135,7 @@ public class CompanionHandler : MonoBehaviour
     //{
 
 
-        
+
 
 
     //    if (aliceMoving) {
@@ -117,7 +184,7 @@ public class CompanionHandler : MonoBehaviour
     //    //    if (setAgent.path.status == NavMeshPathStatus.PathPartial)
     //    //    {
     //    //        MoveToJumpPosition(setAgent);
-               
+
     //    //        if(SetCanJump == true && isCalced == false)
     //    //        {
     //    //            CalacJumpPath(setAgent);
@@ -129,8 +196,8 @@ public class CompanionHandler : MonoBehaviour
     //    //            }
     //    //            isCalced = true;
     //    //        }
-                    
-                
+
+
     //    //    }
     //    //}
 
@@ -138,67 +205,6 @@ public class CompanionHandler : MonoBehaviour
 
 
 
-    public bool NotCloseToDestinationCheck(NavMeshAgent agent)
-    {
-        if (Vector3.Distance(agent.transform.position, targetPlayer.transform.position) > 5)
-        {
-
-            //Debug.Log("return true dist" + Vector3.Distance(agent.transform.position, targetPlayer.transform.position));
-            return true;
-        }
-
-        //Debug.Log("return false dist" + Vector3.Distance(agent.transform.position, agent.destination));
-        return false;
-
-    }
-
-
-
-    private void setDirection(GameObject follower)
-    {
-        direction = targetPlayer.transform.position - follower.transform.position;
-        direction.Normalize();
-    }
-    private void moveFollower(GameObject follower, NavMeshAgent agent)
-    {
-
-        agent.SetDestination(targetPlayer.transform.position);
-
-    }
-
-    private void checkRotation(GameObject follower)
-    {
-        follower.transform.localRotation = targetPlayer.transform.localRotation;
-    }
-    private void setMovement()
-    {
-
-
-        if (Input.GetKeyDown(KeyCode.Q) && !setMoving)
-        {
-            setMoving = true;
-            setAgent.isStopped = false;
-            Debug.Log("set moving");
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && !aliceMoving)
-        {
-            aliceMoving = true;
-            aliceAgent.isStopped = false;
-            Debug.Log("alice moving");
-        }
-        else if (Input.GetKeyDown(KeyCode.Q) && setMoving)
-        {
-            setMoving = false;
-            setAgent.isStopped = true;
-            Debug.Log("set stopped");
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
-        {
-            aliceMoving = false;
-            aliceAgent.isStopped = true;
-            Debug.Log("alice stopped");
-        }
-    }
     //private Vector3 GetStartJumpPosition(NavMeshAgent agent)
     //{
     //    navPath = agent.path;
