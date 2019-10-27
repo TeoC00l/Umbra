@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080102686826143668}
   m_Layer: 0
-  m_Name: Ledge
+  m_Name: ledge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6080102688144745283}
   - component: {fileID: 6080102688144745282}
   - component: {fileID: 6080102688144745281}
+  - component: {fileID: 394393843}
   m_Layer: 8
   m_Name: ClimbSide
   m_TagString: Untagged
@@ -150,3 +151,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0660342, z: 0.42254764}
   m_Center: {x: 0, y: 0.0330171, z: 0.62687236}
+--- !u!114 &394393843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080102688144745287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0.011917114, y: 1.2665938, z: -0.99749756}
+  m_EndPoint: {x: -0.0077034472, y: -0.9449034, z: 0.80657697}
+  m_Width: 2.5
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0

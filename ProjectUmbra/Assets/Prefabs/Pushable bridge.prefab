@@ -15,12 +15,13 @@ GameObject:
   - component: {fileID: 2835952961686838553}
   - component: {fileID: 2835952961686838546}
   - component: {fileID: 1662641279}
-  m_Layer: 0
+  - component: {fileID: 1288442321}
+  m_Layer: 8
   m_Name: Pushable bridge
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2835952961686838549
 Transform:
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2835952961686838555}
   m_LocalRotation: {x: 0, y: 0.7104925, z: 0, w: 0.7037048}
   m_LocalPosition: {x: 8.41, y: 4.64, z: -1.87}
-  m_LocalScale: {x: 1, y: 9, z: 4}
+  m_LocalScale: {x: 8.5, y: 1, z: 2.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5de566495a3cce48b7096896f1d11b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshSurface: {fileID: 1288442321}
   finalRotation: {x: 0, y: 90, z: 90, w: 0}
 --- !u!59 &1662641279
 HingeJoint:
@@ -134,8 +136,8 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
-  m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 8, y: 0, z: -4.5}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 8.41, y: 4.14, z: -1.87}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -146,16 +148,45 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
-    max: 0
+    max: 95.12
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
+  m_MassScale: 59.55
   m_ConnectedMassScale: 1
+--- !u!114 &1288442321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835952961686838555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}

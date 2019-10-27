@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 public class BridgeControl : MonoBehaviour
 {
+
+
+    [SerializeField] private NavMeshSurface navMeshSurface;
     private Quaternion originalAngles;
     private Rigidbody rb;
     private bool tipped = false;
@@ -18,27 +21,29 @@ public class BridgeControl : MonoBehaviour
 
         originalAngles = transform.localRotation;
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
     {
         
-        if(transform.localEulerAngles.z < 0f)
-        {
-            transform.localRotation = originalAngles;
-        }
-        if (transform.localEulerAngles.z > 89f)
+        //if(transform.localEulerAngles.z < 0f)
+        //{
+        //    transform.localRotation = originalAngles;
+        //}
+        if (transform.localEulerAngles.z > 359f)
         {
             
             tipped = true;
         }
-        if(tipped && transform.localEulerAngles.z > 89/*rb.velocity == Vector3.zero*/)
+        if(tipped && transform.localEulerAngles.z > 359/*rb.velocity == Vector3.zero*/)
         {
-            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
-
-            rb.constraints = RigidbodyConstraints.FreezeAll;
             Destroy(this.GetComponent<HingeJoint>());
 
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+
+            navMeshSurface.BuildNavMesh();
             
         }
        
