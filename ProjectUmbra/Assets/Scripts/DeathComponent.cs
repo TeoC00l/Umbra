@@ -25,6 +25,11 @@ public class DeathComponent : MonoBehaviour
 
     private void Update()
     {
+        FallDistanceCheck();
+    }
+
+    private void FallDistanceCheck()
+    {
         if (pm.IsGrounded() == false)
         {
             hasCalculatedAirDistance = false;
@@ -54,7 +59,7 @@ public class DeathComponent : MonoBehaviour
         }
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
