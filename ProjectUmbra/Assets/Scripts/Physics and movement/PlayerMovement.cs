@@ -74,13 +74,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizontalLadderInput.z < 0)
         {
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
             rb.AddForce(Vector3.back * 5f);
         }
 
         if (horizontalLadderInput.z > 0)
         {
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
             rb.AddForce(Vector3.forward * 5f);
         }
     }
