@@ -144,8 +144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDistanceToDie: 10
+  set: {fileID: 0}
+  alice: {fileID: 0}
   cachedPosition: {x: 0, y: 0, z: 0}
   fallDistance: 0
+  checkpointManager: {fileID: 0}
 --- !u!114 &3220737029942767839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +171,7 @@ MonoBehaviour:
     m_Bits: 256
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   cornerTurner: {fileID: 0}
   veloc: {x: 0, y: 0, z: 0}
 --- !u!54 &3220737029942767832
