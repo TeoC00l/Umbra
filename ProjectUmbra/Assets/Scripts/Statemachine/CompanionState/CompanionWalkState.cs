@@ -9,7 +9,7 @@ public class CompanionWalkState : CompanionBaseState
     public override void Enter()
     {
         //Play animation
-        Debug.Log("enter WalkState Companion");
+        Debug.Log("enter WalkState " + owner.gameObject.name );
         agent.isStopped = false;
         agent.SetDestination(owner.TargetPlayer.transform.position);
 
@@ -29,10 +29,8 @@ public class CompanionWalkState : CompanionBaseState
         }
 
 
-        if (agent.isOnOffMeshLink)
-        {
-            owner.Transition<CompanionJumpState>();
-        }
+
+        
 
 
 

@@ -22,7 +22,7 @@ public class CompanionHandler : MonoBehaviour
 
     private bool setMoving = true;
     private bool aliceMoving = true;
-
+    private GameObject[] boxes;
 
     #region JumpVariabels
     [SerializeField] private float addToJumpHeight = 5;
@@ -48,24 +48,49 @@ public class CompanionHandler : MonoBehaviour
     #endregion
 
 
+    private void Start()
+    {
+        //boxes = GameObject.FindGameObjectsWithTag("Grabbable");
+        //foreach(GameObject box in boxes)
+        //{
+        //    Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), box.GetComponent<BoxCollider>());
+        //}
+        Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
+    }
+
+
     private void Update()
     {
         IfNotOnNavMesh();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Grabbable"))
+        {
+
+            Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<BoxCollider>());
+        }
+    }
+
     private void IfNotOnNavMesh()
     {
-        if(Vector3.Distance(gameObject.transform.position, targetPlayer.transform.position)> 100 )
+        NavMeshAgent thisAgent = gameObject.GetComponent<NavMeshAgent>();
+        if (Vector3.Distance(gameObject.transform.position, targetPlayer.transform.position)> 100 )
         {
             Debug.Log("not on mesh");
-            NavMeshAgent thisAgent =  gameObject.GetComponent<NavMeshAgent>() ;
+            Debug.Log(thisAgent.pathStatus);
+
             thisAgent.Warp(targetPlayer.transform.position);
             thisAgent.SetDestination(targetPlayer.transform.position);
             Debug.Log(thisAgent.pathStatus);
 
         }
-        else 
+        else if(thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
         {
+            thisAgent.SetDestination(targetPlayer.transform.position);
+            Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
+
             Debug.Log("on Mesh");
             //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
 

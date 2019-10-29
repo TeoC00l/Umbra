@@ -3,7 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        veloc = rb.velocity;
+    
     }
 
     private void FixedUpdate()
@@ -66,6 +66,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         ApplyAdditionalPhysics();
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            set.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
+            alice.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
+        }
+
     }
 
     public void Move()
