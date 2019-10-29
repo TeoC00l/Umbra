@@ -48,7 +48,24 @@ public class CompanionHandler : MonoBehaviour
     #endregion
 
 
+    private void Update()
+    {
+        IfNotOnNavMesh();
+    }
 
+    private void IfNotOnNavMesh()
+    {
+        if(Vector3.Distance(gameObject.transform.position, targetPlayer.transform.position)> 100 )
+        {
+            Debug.Log("not on mesh");
+            gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position) ;
+
+        }
+        else
+        {
+            Debug.Log("on Mesh");
+        }
+    }
 
     public bool NotCloseToDestinationCheck(NavMeshAgent agent)
     {

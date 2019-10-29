@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8437746739891379600}
   - component: {fileID: 1959281858225552459}
   - component: {fileID: 1469240236854990391}
+  - component: {fileID: 2104455083}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 9100644510327860172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11, y: 5.5, z: 30.5}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,8 +88,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100644510327860172}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.6556406, z: 1}
+  m_Center: {x: 0, y: 0.8278203, z: 0}
+--- !u!114 &2104455083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100644510327860172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef998df37ef7d64e8bd3623958773ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animGO: {fileID: 0}
+  animationBoolKey: Open

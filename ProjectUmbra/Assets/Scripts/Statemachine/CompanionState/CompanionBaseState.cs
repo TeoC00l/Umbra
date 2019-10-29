@@ -56,6 +56,7 @@ public class CompanionBaseState : CompanionState
             {
                 if (owner.isWaiting == false)
                 {
+                    
                     owner.Transition<CompanionWaitingState>();
                 }
             }
