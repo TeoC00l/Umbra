@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private Canvas pauseMenu;
+    [SerializeField] private GameObject mainButtons;
+    [SerializeField] private GameObject validateExitButtons;
     bool isPaused = false;
     float original;
 
@@ -38,6 +40,26 @@ public class PauseMenuManager : MonoBehaviour
         if (!isPaused)
         {
             Time.timeScale = original;
+        }
+    }
+
+    public void ValidateExit()
+    {
+        if (mainButtons.activeSelf)
+        {
+            mainButtons.SetActive(false);
+        }
+        else if (!mainButtons.activeSelf)
+        {
+            mainButtons.SetActive(true);
+        }
+        if (!validateExitButtons.activeSelf)
+        {
+            validateExitButtons.SetActive(true);
+        }
+        else if (validateExitButtons.activeSelf)
+        {
+            validateExitButtons.SetActive(false);
         }
     }
 
