@@ -18,7 +18,7 @@ public class CompanionWalkState : CompanionBaseState
 
     public override void HandleUpdate()
     {
-
+        base.HandleUpdate();
         if (companionHandler.NotCloseToDestinationCheck(agent) == false)
         {
             owner.Transition<CompanionIdelState>();
@@ -33,6 +33,7 @@ public class CompanionWalkState : CompanionBaseState
         {
             owner.Transition<CompanionJumpState>();
         }
+
 
 
 

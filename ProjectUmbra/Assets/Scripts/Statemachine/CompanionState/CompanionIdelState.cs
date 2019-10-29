@@ -20,10 +20,18 @@ public class CompanionIdelState : CompanionBaseState
 
     public override void HandleUpdate()
     {
-        if(companionHandler.NotCloseToDestinationCheck(agent) == true)
+
+        base.HandleUpdate();
+        if (companionHandler.NotCloseToDestinationCheck(agent) == true && owner.isWaiting == false)
         {
+
             owner.Transition<CompanionWalkState>();
+
+
         }
     }
+
+
+
 
 }

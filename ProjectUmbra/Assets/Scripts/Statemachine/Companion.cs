@@ -5,7 +5,7 @@ using UnityEngine;
 public class Companion : CompanionStateMachine
 {
     [SerializeField] public GameObject TargetPlayer;
-
+    public bool isWaiting = false;
 
 
 

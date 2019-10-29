@@ -13,6 +13,7 @@ public class CompanionBaseState : CompanionState
     protected NavMeshAgent agent;
 
 
+
     private bool onSetUp = true;
     public override void Initialize(CompanionStateMachine owner)
     {
@@ -39,9 +40,36 @@ public class CompanionBaseState : CompanionState
         if (onSetUp)
         {
             owner.Transition<CompanionIdelState>();
-            
+
             onSetUp = false;
         }
+
+        CheckIfWaiting();
+
     }
 
+    private void CheckIfWaiting()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (owner.gameObject.name == "Set")
+            {
+                if (owner.isWaiting == false)
+                {
+                    owner.Transition<CompanionWaitingState>();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (owner.gameObject.name == "Alice")
+            {
+                if (owner.isWaiting == false)
+                {
+                    owner.Transition<CompanionWaitingState>();
+                }
+            }
+        }
+    }
 }
