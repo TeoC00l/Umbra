@@ -19,9 +19,9 @@ public class PressurePadTrigger : MonoBehaviour
     //Skriv villkorsboolens namn i animationBoolKey.
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Set") || other.CompareTag("Alice"))
         {
 
             if (!isPressed)
@@ -36,21 +36,26 @@ public class PressurePadTrigger : MonoBehaviour
 
 
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-        if (other.CompareTag("Player"))
+        else
         {
-            if (isPressed)
-            {
-                anim.SetBool(animationBoolKey, false);
-                isPressed = false;
-
-            }
+            anim.SetBool(animationBoolKey, false);
+            isPressed = false;
         }
-        
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+
+    //    if (other.CompareTag("Player") || other.CompareTag("Set") || other.CompareTag("Alice"))
+    //    {
+    //        if (isPressed)
+    //        {
+    //            anim.SetBool(animationBoolKey, false);
+    //            isPressed = false;
+
+    //        }
+    //    }
+        
+    //}
 
 }

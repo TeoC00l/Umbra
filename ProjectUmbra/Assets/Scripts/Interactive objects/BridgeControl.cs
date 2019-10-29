@@ -10,6 +10,8 @@ public class BridgeControl : MonoBehaviour
 
 
     [SerializeField] private NavMeshSurface navMeshSurface;
+    //[SerializeField] private NavMeshLink navLink;
+
     private Quaternion originalAngles;
     private Rigidbody rb;
     private bool tipped = false;
@@ -41,9 +43,12 @@ public class BridgeControl : MonoBehaviour
             Destroy(this.GetComponent<HingeJoint>());
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.isKinematic = true;
             gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+            
 
             navMeshSurface.BuildNavMesh();
+            
             
         }
        
