@@ -58,12 +58,17 @@ public class CompanionHandler : MonoBehaviour
         if(Vector3.Distance(gameObject.transform.position, targetPlayer.transform.position)> 100 )
         {
             Debug.Log("not on mesh");
-            gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position) ;
+            NavMeshAgent thisAgent =  gameObject.GetComponent<NavMeshAgent>() ;
+            thisAgent.Warp(targetPlayer.transform.position);
+            thisAgent.SetDestination(targetPlayer.transform.position);
+            Debug.Log(thisAgent.pathStatus);
 
         }
-        else
+        else 
         {
             Debug.Log("on Mesh");
+            //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
+
         }
     }
 

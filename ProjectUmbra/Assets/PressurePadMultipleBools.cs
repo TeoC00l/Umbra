@@ -33,7 +33,7 @@ public class PressurePadMultipleBools : MonoBehaviour
 
         }
 
-        if(allBools == (PressurePads.Length -1))
+        if(allBools >= (PressurePads.Length -1))
         {
             anim.SetBool(animationBoolKey, true);
         }

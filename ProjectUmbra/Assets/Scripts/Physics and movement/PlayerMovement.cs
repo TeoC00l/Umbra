@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 veloc;
 
 
+    [SerializeField] private GameObject alice;
+    [SerializeField] private GameObject set;
+
     //Methods
     void Start()
     {
@@ -37,7 +40,17 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         groundChecker = transform.GetChild(0);
         Physics.gravity = new Vector3(0, -15f, 0);
+        Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), alice.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), set.GetComponent<BoxCollider>());
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.collider.CompareTag("Set") || collision.collider.CompareTag("Alice"))
+    //    {
+    //        Physics.ign
+    //    }
+    //}
 
     void Update()
     {
