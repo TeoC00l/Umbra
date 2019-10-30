@@ -77,9 +77,15 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueCanvas.gameObject.SetActive(false);
-        current.HasBeenPlayed(true);
-        //release player
-        pm.setSpeed(originalSpeed);
+        try
+        {
+            dialogueCanvas.gameObject.SetActive(false);
+            current.HasBeenPlayed(true);
+            //release player
+            pm.setSpeed(originalSpeed);
+        } catch(System.NullReferenceException)
+        {
+
+        }
     }
 }
