@@ -14,11 +14,14 @@ public class DialogueManager : MonoBehaviour
     private PlayerMovement pm;
     private float originalSpeed;
 
+    private Dialogue current;
+
     private void Start()
     {
         sentences = new Queue<string>();
         pm = player.GetComponent<PlayerMovement>();
         originalSpeed = pm.getSpeed();
+        
     }
 
     private void Update()
@@ -32,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue, bool holdPlayer)
     {
         sentences.Clear();
+        current = dialogue;
         //hold player
         if (holdPlayer)
         {
@@ -49,7 +53,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -74,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         dialogueCanvas.gameObject.SetActive(false);
+        current.HasBeenPlayed(true);
         //release player
         pm.setSpeed(originalSpeed);
     }

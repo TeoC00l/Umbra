@@ -8,6 +8,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Canvas pauseMenu;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject validateExitButtons;
+    [SerializeField] private GameObject controlScheme;
+
     bool isPaused = false;
     float original;
 
@@ -45,7 +47,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ValidateExit()
     {
-        Debug.Log("Validate exit");
+        
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
@@ -64,9 +66,30 @@ public class PauseMenuManager : MonoBehaviour
         }
     }
 
+    public void ShowControls()
+    {
+        if (mainButtons.activeSelf)
+        {
+            mainButtons.SetActive(false);
+        }
+        else if (!mainButtons.activeSelf)
+        {
+            mainButtons.SetActive(true);
+        }
+        
+        if (!controlScheme.activeSelf)
+        {
+            controlScheme.SetActive(true);
+        }
+        else if (controlScheme.activeSelf)
+        {
+            controlScheme.SetActive(false);
+        }
+    }
+
     public void Exit()
     {
-        //SceneManager.blabla byt scen
+        Time.timeScale = original;
         SceneManager.LoadScene(0);
     }
 }

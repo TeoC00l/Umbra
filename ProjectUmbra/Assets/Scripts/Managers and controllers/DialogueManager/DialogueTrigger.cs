@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    private DialogueManager dm;
+    [SerializeField] private DialogueManager dm;
     [Header("Should player input be disabled during dialogue?")]
     [SerializeField] bool holdPlayer = true;
 
@@ -13,7 +13,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void Start()
     {
-        dm = FindObjectOfType<DialogueManager>();
+        //dm = FindObjectOfType<DialogueManager>();
     }
 
     //call this function by any method to start the dialogue, for example ontriggerenter
