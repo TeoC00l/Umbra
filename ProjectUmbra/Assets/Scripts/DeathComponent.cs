@@ -37,7 +37,7 @@ public class DeathComponent : MonoBehaviour
     {
         if(Physics.CheckSphere(groundChecker.transform.position, 0.1f, deathZone, QueryTriggerInteraction.Ignore))
         {
-            Debug.Log("trigger respawn");
+            //Debug.Log("trigger respawn");
             RespawnPlayer();
         }
     }
@@ -75,7 +75,7 @@ public class DeathComponent : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        Debug.Log("respawning");
+        //Debug.Log("respawning");
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
         //transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();

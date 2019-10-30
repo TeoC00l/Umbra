@@ -21,7 +21,7 @@ public abstract class CompanionStateMachine : MonoBehaviour
             CompanionState instance = Instantiate(state);
             instance.Initialize(this);
             stateDictionary.Add(instance.GetType(), instance);
-            Debug.Log(instance + "added");
+            //Debug.Log(instance + "added");
             if (currentState == null)
             {
                 currentState = instance;

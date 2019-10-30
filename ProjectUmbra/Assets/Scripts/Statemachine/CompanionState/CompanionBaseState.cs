@@ -29,7 +29,7 @@ public class CompanionBaseState : CompanionState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("enter BaseState Companion");
+        //Debug.Log("enter BaseState Companion");
 
     }
 
