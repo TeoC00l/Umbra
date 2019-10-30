@@ -12,7 +12,7 @@ public class CompanionIdelState : CompanionBaseState
     {
         //play Animation
 
-        Debug.Log("enter idelState " + owner.gameObject.name);
+        //Debug.Log("enter idelState " + owner.gameObject.name);
         agent.isStopped = true;
 
     }

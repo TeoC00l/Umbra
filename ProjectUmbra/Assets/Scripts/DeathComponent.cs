@@ -14,18 +14,32 @@ public class DeathComponent : MonoBehaviour
     private bool hasCalculatedAirDistance;
     public float fallDistance;
     [SerializeField] private CheckPointManager checkpointManager;
+
+    private GameObject groundChecker;
+    [SerializeField]private LayerMask deathZone;
     
     
     // Start is called before the first frame update
     void Start()
     {
         pm = GetComponent<PlayerMovement>();
+        groundChecker = transform.GetChild(0).gameObject;
     }
 
 
     private void Update()
     {
         FallDistanceCheck();
+        DeathZoneCheck();
+    }
+
+    private void DeathZoneCheck()
+    {
+        if(Physics.CheckSphere(groundChecker.transform.position, 0.1f, deathZone, QueryTriggerInteraction.Ignore))
+        {
+            Debug.Log("trigger respawn");
+            RespawnPlayer();
+        }
     }
 
     private void FallDistanceCheck()
@@ -61,9 +75,10 @@ public class DeathComponent : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        Debug.Log("respawning");
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
-        transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
+        //transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
         set.transform.position = respawnPosition.position;
         alice.transform.position = respawnPosition.position;
     }

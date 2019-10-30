@@ -45,6 +45,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ValidateExit()
     {
+        Debug.Log("Validate exit");
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);

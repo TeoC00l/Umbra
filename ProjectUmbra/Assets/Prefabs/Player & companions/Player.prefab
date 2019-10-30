@@ -149,6 +149,9 @@ MonoBehaviour:
   cachedPosition: {x: 0, y: 0, z: 0}
   fallDistance: 0
   checkpointManager: {fileID: 0}
+  deathZone:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!114 &3220737029942767839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +177,8 @@ MonoBehaviour:
     m_Bits: 256
   cornerTurner: {fileID: 0}
   veloc: {x: 0, y: 0, z: 0}
+  alice: {fileID: 0}
+  set: {fileID: 0}
 --- !u!54 &3220737029942767832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -219,12 +224,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3220737030379990044}
   m_Layer: 0
-  m_Name: Forward
+  m_Name: FollowerTarget
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3220737030379990044
 Transform:
   m_ObjectHideFlags: 0
@@ -233,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220737030379990045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.062, y: -0.01, z: 0.995}
+  m_LocalPosition: {x: -0.06, y: -0.01, z: -1.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3220737029942767827}

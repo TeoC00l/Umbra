@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour
 {
-    //private Transform checkpointPosition;
-    //[SerializeField] private Transform[] checkpointPositionsArray;
-    //private float currentCheckpoint = 0;
-    private Transform currentCheckpointPosition;
+    [SerializeField] private Transform currentCheckpointPosition;
     private Quaternion latestRotation;
 
     private void Start()
     {
-        
+       
     }
 
     private void Update()
@@ -22,7 +19,6 @@ public class CheckPointManager : MonoBehaviour
 
     public void UpdateCurrentCheckpoint(Transform checkpointPosition, Quaternion playerRotation)
     {
-        //currentCheckpoint++;
         latestRotation = playerRotation;
         currentCheckpointPosition = checkpointPosition;
     }

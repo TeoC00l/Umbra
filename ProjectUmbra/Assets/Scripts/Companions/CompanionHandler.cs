@@ -14,8 +14,8 @@ public class CompanionHandler : MonoBehaviour
 
     private NavMeshAgent setAgent;
     private NavMeshAgent aliceAgent;
-    private GameObject Set;
-    private GameObject Alice;
+    [SerializeField] private GameObject Set;
+    [SerializeField] private GameObject Alice;
 
 
     private Vector3 direction;
@@ -89,9 +89,9 @@ public class CompanionHandler : MonoBehaviour
         else if(thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
         {
             thisAgent.SetDestination(targetPlayer.transform.position);
-            Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
+            //Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
 
-            Debug.Log("on Mesh");
+            //Debug.Log("on Mesh");
             //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
 
         }

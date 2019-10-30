@@ -8,7 +8,7 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Climb state");
+        //Debug.Log("Climb state");
         playerBody.isKinematic = true;
     }
 
