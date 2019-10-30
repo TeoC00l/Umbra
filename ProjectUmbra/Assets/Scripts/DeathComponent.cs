@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class DeathComponent : MonoBehaviour
 {
     [SerializeField] private int fallDistanceToDie;
@@ -19,6 +19,8 @@ public class DeathComponent : MonoBehaviour
     [SerializeField]private LayerMask deathZone;
     
     
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,17 +32,9 @@ public class DeathComponent : MonoBehaviour
     private void Update()
     {
         FallDistanceCheck();
-        DeathZoneCheck();
+        
     }
-
-    private void DeathZoneCheck()
-    {
-        if(Physics.CheckSphere(groundChecker.transform.position, 0.1f, deathZone, QueryTriggerInteraction.Ignore))
-        {
-            //Debug.Log("trigger respawn");
-            RespawnPlayer();
-        }
-    }
+    
 
     private void FallDistanceCheck()
     {
@@ -79,8 +73,9 @@ public class DeathComponent : MonoBehaviour
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
         //transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
-        set.transform.position = respawnPosition.position;
-        alice.transform.position = respawnPosition.position;
+        set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+        alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+        
     }
 
 }
