@@ -7,6 +7,7 @@ public class Dialogue
 {
     public string name;
     private bool hasBeenPlayed = false;
+    [SerializeField] private bool playNextVideo = false;
 
     [TextArea(3,10)]
     public string[] sentences;
@@ -19,5 +20,10 @@ public class Dialogue
     public bool getPlayedStatus()
     {
         return hasBeenPlayed;
+    }
+
+    public bool getPlayNextVideo()
+    {
+        return playNextVideo;
     }
 }

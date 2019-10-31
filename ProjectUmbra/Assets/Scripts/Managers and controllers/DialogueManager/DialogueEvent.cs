@@ -7,8 +7,9 @@ public class DialogueEvent : MonoBehaviour
 
     private DialogueTrigger currentTrigger;
     private int counter = 0;
-    private bool play = false;
+    [SerializeField] private bool play = false;
     private bool started = false;
+    [SerializeField] private CutsceneManager cm;
 
     
     //Create a child for each "speaking turn". Give children DialogueTriggers with speaker name and sentences. Order the children in the order of conversation.
@@ -16,6 +17,7 @@ public class DialogueEvent : MonoBehaviour
 
     void Start()
     {
+        
         currentTrigger = transform.GetChild(counter).gameObject.GetComponent<DialogueTrigger>();
 
     }
@@ -26,6 +28,10 @@ public class DialogueEvent : MonoBehaviour
         if (play) { 
             if (!started && !currentTrigger.dialogue.getPlayedStatus())
             {
+                if (currentTrigger.dialogue.getPlayNextVideo())
+                {
+                    cm.PlayNextVideo();
+                }
                 currentTrigger.TriggerDialogue();
                 started = true;
             }
@@ -39,13 +45,9 @@ public class DialogueEvent : MonoBehaviour
                 {
                     play = false;
                     this.gameObject.SetActive(false);
+                    cm.ShutOff();
                 }
                 started = false;
-                //if(currentTrigger == null)
-                //{
-                //    play = false;
-                //    this.gameObject.SetActive(false);
-                //}
             }
         }
     }
