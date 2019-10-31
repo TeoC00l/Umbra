@@ -86,15 +86,15 @@ public class CompanionHandler : MonoBehaviour
             Debug.Log(thisAgent.pathStatus);
 
         }
-        else if(thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
-        {
-            thisAgent.SetDestination(targetPlayer.transform.position);
-            //Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
+        //else if (thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
+        //{
+        //    //thisAgent.SetDestination(targetPlayer.transform.position);
+        //    //Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
 
-            //Debug.Log("on Mesh");
-            //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
+        //    //Debug.Log("on Mesh");
+        //    //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
 
-        }
+        //}
     }
 
     public bool NotCloseToDestinationCheck(NavMeshAgent agent)

@@ -21,7 +21,7 @@ public class CompanionJumpState : CompanionBaseState
     public override void HandleUpdate()
     {
         
-        if(agent.isOnOffMeshLink == false)
+        if(thisAgent.isOnOffMeshLink == false)
         {
             owner.Transition<CompanionWalkState>();
         }

@@ -13,7 +13,8 @@ public class CompanionIdelState : CompanionBaseState
         //play Animation
 
         //Debug.Log("enter idelState " + owner.gameObject.name);
-        agent.isStopped = true;
+        thisAgent.isStopped = true;
+        owner.isWaiting = false;
 
     }
 
@@ -22,7 +23,7 @@ public class CompanionIdelState : CompanionBaseState
     {
 
         base.HandleUpdate();
-        if (companionHandler.NotCloseToDestinationCheck(agent) == true && owner.isWaiting == false)
+        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == true && owner.isWaiting == false)
         {
 
             owner.Transition<CompanionWalkState>();

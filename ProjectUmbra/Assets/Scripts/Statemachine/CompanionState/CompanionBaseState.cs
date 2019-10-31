@@ -10,7 +10,7 @@ public class CompanionBaseState : CompanionState
     protected Companion owner;
     protected CompanionHandler companionHandler;
     protected Rigidbody compaionRB;
-    protected NavMeshAgent agent;
+    protected NavMeshAgent thisAgent;
 
 
 
@@ -20,7 +20,7 @@ public class CompanionBaseState : CompanionState
         this.owner = (Companion)owner;
         companionHandler = owner.GetComponent<CompanionHandler>();
         compaionRB = owner.GetComponent<Rigidbody>();
-        agent = owner.GetComponent<NavMeshAgent>();
+        thisAgent = owner.GetComponent<NavMeshAgent>();
 
     }
 

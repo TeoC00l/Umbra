@@ -9,9 +9,9 @@ public class CompanionWalkState : CompanionBaseState
     public override void Enter()
     {
         //Play animation
-        //Debug.Log("enter WalkState " + owner.gameObject.name );
-        agent.isStopped = false;
-        agent.SetDestination(owner.TargetPlayer.transform.position);
+        Debug.Log("enter WalkState " + owner.gameObject.name);
+        thisAgent.isStopped = false;
+        thisAgent.SetDestination(owner.TargetPlayer.transform.position);
 
     }
 
@@ -19,13 +19,13 @@ public class CompanionWalkState : CompanionBaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        if (companionHandler.NotCloseToDestinationCheck(agent) == false)
+        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false)
         {
             owner.Transition<CompanionIdelState>();
         }
         else
         {
-            agent.SetDestination(owner.TargetPlayer.transform.position);
+            thisAgent.SetDestination(owner.TargetPlayer.transform.position);
         }
 
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4735139905800924172}
   - component: {fileID: 483917257}
   - component: {fileID: 799213377853813508}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Alice
   m_TagString: Alice
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ BoxCollider:
   m_GameObject: {fileID: 3404401503035826671}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -149,6 +149,8 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   bufferDistanceToPlayer: 5
   speed: 5
+  Set: {fileID: 0}
+  Alice: {fileID: 3404401503035826671}
   addToJumpHeight: 5
   SetCanJump: 0
   agentPrefab: {fileID: 2017079003136623783, guid: 4d27da5b63bed584dacbc038c91ffabf,
@@ -171,4 +173,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9317eeff644211b4e84ad8819456574f, type: 2}
   - {fileID: 11400000, guid: f18e59b24ede864448c3d4382f82d644, type: 2}
   - {fileID: 11400000, guid: c823da8db85dd0a4299b1ed44fcf56b5, type: 2}
+  - {fileID: 11400000, guid: 194797a5598ae7b48833c4b5f048694b, type: 2}
   TargetPlayer: {fileID: 0}
+  isWaiting: 0
