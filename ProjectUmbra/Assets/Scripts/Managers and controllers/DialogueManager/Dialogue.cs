@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Dialogue
 {
     public string name;
     private bool hasBeenPlayed = false;
+    public Sprite characterImage;
     [SerializeField] private bool playNextVideo = false;
 
     [TextArea(3,10)]

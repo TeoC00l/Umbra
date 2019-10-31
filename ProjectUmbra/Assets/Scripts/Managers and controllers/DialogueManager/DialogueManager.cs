@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
     public Canvas dialogueCanvas;
+    [SerializeField] private Image characterImage;
     [SerializeField] private Text nameText;
     [SerializeField] private Text dialogueText;
     [SerializeField] private GameObject player;
@@ -42,6 +43,7 @@ public class DialogueManager : MonoBehaviour
             pm.setSpeed(0);
         }
         nameText.text = dialogue.name;
+        characterImage.sprite = dialogue.characterImage;
 
         foreach (string sentence in dialogue.sentences)
         {
