@@ -1594,12 +1594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194c65c86e10e9e42952a8e16f6fb859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &953540650 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cade6a70f4700964d883fb2da6aa011a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1334142854}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002757603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,11 +2732,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2127638397}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cade6a70f4700964d883fb2da6aa011a,
-        type: 3}
-      propertyPath: m_Name
-      value: trashcan (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cade6a70f4700964d883fb2da6aa011a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2813,8 +2802,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.43576
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cade6a70f4700964d883fb2da6aa011a,
+        type: 3}
+      propertyPath: m_Name
+      value: trashcan (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cade6a70f4700964d883fb2da6aa011a, type: 3}
+--- !u!4 &1294347480 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1294347479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1301637427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2916,11 +2915,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2127638397}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cade6a70f4700964d883fb2da6aa011a,
-        type: 3}
-      propertyPath: m_Name
-      value: trashcan
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cade6a70f4700964d883fb2da6aa011a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2991,8 +2985,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.43576
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cade6a70f4700964d883fb2da6aa011a,
+        type: 3}
+      propertyPath: m_Name
+      value: trashcan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cade6a70f4700964d883fb2da6aa011a, type: 3}
+--- !u!4 &1334142855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1334142854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1334149919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3146,7 +3150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335155133}
-  m_LocalRotation: {x: 0.13837862, y: -0.66237766, z: 0.12636426, w: 0.7253546}
+  m_LocalRotation: {x: 0.1383786, y: -0.6623776, z: 0.12636426, w: 0.7253547}
   m_LocalPosition: {x: 17.894655, y: 5.155245, z: -12.354442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3521,7 +3525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: '-'
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: bfc8d97aa105c8642b18b0481d47f6f6, type: 3}
     playNextVideo: 0
     sentences:
     - Your name is Oz. You're a normal guy in every way.
@@ -3897,12 +3901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2079783244 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cade6a70f4700964d883fb2da6aa011a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1294347479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2083167838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
@@ -3947,13 +3945,13 @@ Transform:
   - {fileID: 2083167838}
   - {fileID: 851871061}
   - {fileID: 1167538344}
-  - {fileID: 2079783244}
+  - {fileID: 1294347480}
   - {fileID: 93704803}
   - {fileID: 379032161}
   - {fileID: 47915444}
   - {fileID: 712321627}
   - {fileID: 1164740235}
-  - {fileID: 953540650}
+  - {fileID: 1334142855}
   - {fileID: 1928736862}
   m_Father: {fileID: 0}
   m_RootOrder: 1
