@@ -9,10 +9,12 @@ public class ShowText : MonoBehaviour
     private DialogueTrigger dt;
     [SerializeField] private Canvas dialogueCanvas;
     private bool triggerText = true;
+    [SerializeField] private GameObject Player;
 
     private void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
+
         
     }
 
@@ -32,9 +34,11 @@ public class ShowText : MonoBehaviour
 
     IEnumerator WaitToShow()
     {
-        print("waiting");
+        
         yield return new WaitForSeconds(3);
+        Player.SetActive(true);
         dt.TriggerDialogue();
-        print("done");
+        
+
     }
 }
