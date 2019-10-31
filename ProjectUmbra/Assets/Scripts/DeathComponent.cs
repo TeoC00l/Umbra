@@ -10,9 +10,9 @@ public class DeathComponent : MonoBehaviour
 
     private PlayerMovement pm;
     private bool cachedGroundedPos;
-    public Vector3 cachedPosition;
+    public static Vector3 cachedPosition;
     private bool hasCalculatedAirDistance;
-    public float fallDistance;
+    public static float fallDistance;
     [SerializeField] private CheckPointManager checkpointManager;
 
     private GameObject groundChecker;

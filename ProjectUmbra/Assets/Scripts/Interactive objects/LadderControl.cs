@@ -24,6 +24,9 @@ public class LadderControl : MonoBehaviour
     {
         if (other.CompareTag("Player") && pm.getLadderStatus())
         {
+
+            DeathComponent.cachedPosition = other.transform.position;
+
             pm.setLadderStatus(false);
         }
     }

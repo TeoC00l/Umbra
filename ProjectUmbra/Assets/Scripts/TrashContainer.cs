@@ -9,7 +9,7 @@ public class TrashContainer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<DeathComponent>().cachedPosition = gameObject.transform.position;
+            DeathComponent.cachedPosition = gameObject.transform.position;
         }
         
     }
