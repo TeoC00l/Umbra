@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: '-'
+    characterImage: {fileID: 0}
     playNextVideo: 1
     sentences:
     - The robber quickly disappears back into the dark with your valuables.
@@ -824,6 +825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: '-'
+    characterImage: {fileID: 0}
     playNextVideo: 1
     sentences:
     - '!!!'
@@ -1012,6 +1014,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &549619606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549619608}
+  - component: {fileID: 549619607}
+  m_Layer: 0
+  m_Name: ScreenFix
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &549619607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549619606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2a0e4fca7996949840cd433cdaa345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &549619608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549619606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.058365, y: -11.207414, z: 16.294092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586384673
 GameObject:
@@ -3101,7 +3146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335155133}
-  m_LocalRotation: {x: 0.1383786, y: -0.6623776, z: 0.12636426, w: 0.7253547}
+  m_LocalRotation: {x: 0.13837862, y: -0.66237766, z: 0.12636426, w: 0.7253546}
   m_LocalPosition: {x: 17.894655, y: 5.155245, z: -12.354442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3476,6 +3521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: '-'
+    characterImage: {fileID: 0}
     playNextVideo: 0
     sentences:
     - Your name is Oz. You're a normal guy in every way.
