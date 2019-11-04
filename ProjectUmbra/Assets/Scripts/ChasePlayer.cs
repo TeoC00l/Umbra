@@ -11,7 +11,7 @@ public class ChasePlayer : MonoBehaviour
     private void Start()
     {
         monsters = GameObject.FindGameObjectsWithTag("Monster");
-        Debug.Log(monsters.Length);
+
     }
     private void OnTriggerExit(Collider other)
     {

@@ -19,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     //call this function by any method to start the dialogue, for example ontriggerenter
     public void TriggerDialogue()
     {
-        dm.dialogueCanvas.gameObject.SetActive(true);
+        dm.dialogueCanvas.SetActive(true);
 
         dm.StartDialogue(dialogue, holdPlayer);
     }

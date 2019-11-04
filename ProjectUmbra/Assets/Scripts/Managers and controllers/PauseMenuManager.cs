@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    [SerializeField] private Canvas pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject firstSelected;
     [SerializeField] private GameObject validateExitButtons;
@@ -34,15 +34,15 @@ public class PauseMenuManager : MonoBehaviour
 
     public void PauseMenu()
     {
-        if (!pauseMenu.gameObject.activeSelf) { 
-            pauseMenu.gameObject.SetActive(true);
+        if (!pauseMenu.activeSelf) { 
+            pauseMenu.SetActive(true);
             
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(firstSelected);
+            //es.SetSelectedGameObject(null);
+            //es.SetSelectedGameObject(firstSelected);
             isPaused = true;
         } else
         {
-            pauseMenu.gameObject.SetActive(false);
+            pauseMenu.SetActive(false);
             isPaused = false;
         }
         if (isPaused)

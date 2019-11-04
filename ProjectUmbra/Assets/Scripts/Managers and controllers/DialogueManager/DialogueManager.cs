@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
-    public Canvas dialogueCanvas;
+    public GameObject dialogueCanvas;
     [SerializeField] private Image characterImage;
     [SerializeField] private Text nameText;
     [SerializeField] private Text dialogueText;
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
     {
         try
         {
-            dialogueCanvas.gameObject.SetActive(false);
+            dialogueCanvas.SetActive(false);
             current.HasBeenPlayed(true);
             //release player
             pm.setSpeed(originalSpeed);
