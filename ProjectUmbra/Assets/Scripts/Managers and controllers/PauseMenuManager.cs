@@ -12,7 +12,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject validateExitButtons;
     [SerializeField] private GameObject controlScheme;
 
-    private EventSystem es; 
+    //private EventSystem es; 
 
 
     bool isPaused = false;
@@ -21,7 +21,7 @@ public class PauseMenuManager : MonoBehaviour
     public void Start()
     {
         original = Time.timeScale;
-        es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        //es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         
     }
     public void Update()
@@ -42,6 +42,9 @@ public class PauseMenuManager : MonoBehaviour
             isPaused = true;
         } else
         {
+            mainButtons.SetActive(true);
+            validateExitButtons.SetActive(false);
+            controlScheme.SetActive(false);
             pauseMenu.SetActive(false);
             isPaused = false;
         }
@@ -61,14 +64,14 @@ public class PauseMenuManager : MonoBehaviour
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(validateExitButtons.transform.GetChild(0).gameObject);
+            //es.SetSelectedGameObject(null);
+            //es.SetSelectedGameObject(validateExitButtons.transform.GetChild(0).gameObject);
         }
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(firstSelected);
+            //es.SetSelectedGameObject(null);
+            //es.SetSelectedGameObject(firstSelected);
         }
         if (!validateExitButtons.activeSelf)
         {
@@ -85,14 +88,14 @@ public class PauseMenuManager : MonoBehaviour
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(controlScheme.transform.GetChild(0).gameObject);
+            //es.SetSelectedGameObject(null);
+            //es.SetSelectedGameObject(controlScheme.transform.GetChild(0).gameObject);
         }
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(firstSelected);
+            //es.SetSelectedGameObject(null);
+            //es.SetSelectedGameObject(firstSelected);
         }
         
         if (!controlScheme.activeSelf)

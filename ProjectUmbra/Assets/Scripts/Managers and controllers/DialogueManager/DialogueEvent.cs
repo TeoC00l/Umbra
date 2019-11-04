@@ -45,7 +45,14 @@ public class DialogueEvent : MonoBehaviour
                 {
                     play = false;
                     this.gameObject.SetActive(false);
-                    cm.ShutOff();
+                    try {
+                        cm.ShutOff();
+                    }
+                    catch (System.NullReferenceException)
+                    {
+
+                    }
+                    
                 }
                 started = false;
             }
