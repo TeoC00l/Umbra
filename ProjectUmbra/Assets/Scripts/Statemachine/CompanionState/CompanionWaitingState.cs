@@ -59,7 +59,7 @@ public class CompanionWaitingState : CompanionBaseState
         if (owner.isWalkingToButton)
         {
             //thisAgent.SetDestination(buttonTrans.position);
-            Debug.Log(thisAgent.pathEndPosition);
+            //Debug.Log(thisAgent.pathEndPosition);
 
             //thisAgent.SetDestination(new Vector3( buttonTrans.transform.position.x, owner.transform.position.y, buttonTrans.transform.position.z));
             if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.5f)

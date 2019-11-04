@@ -9,7 +9,9 @@ public class PressurePadMultipleBools : MonoBehaviour
     [SerializeField] GameObject animGO;
     [SerializeField] string animationBoolKey = "";
     [SerializeField] GameObject[] PressurePads;
+    [SerializeField] private int numbersOfActiveButtons;
     private int allBools;
+    public bool isActive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,26 +23,30 @@ public class PressurePadMultipleBools : MonoBehaviour
     private void FixedUpdate()
     {
         allBools = 0;
-        foreach (GameObject pressurePad in PressurePads)
+        if (isActive)
         {
-            
-
-            if(pressurePad.GetComponent<PressurePadMultipleBoolsChild>().isPressed == true)
+            foreach (GameObject pressurePad in PressurePads)
             {
-                allBools++;
+
+
+                if (pressurePad.GetComponent<PressurePadMultipleBoolsChild>().isPressed == true)
+                {
+                    allBools++;
+                }
+
+
             }
-            
 
+            if (allBools >= numbersOfActiveButtons)
+            {
+                anim.SetBool(animationBoolKey, true);
+            }
+            else
+            {
+                anim.SetBool(animationBoolKey, false);
+            }
         }
 
-        if(allBools >= (PressurePads.Length -1))
-        {
-            anim.SetBool(animationBoolKey, true);
-        }
-        else
-        {
-            anim.SetBool(animationBoolKey, false);
-        }
 
     }
 
