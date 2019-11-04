@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject firstSelected;
-    [SerializeField] private GameObject validateExitButtons;
-    [SerializeField] private GameObject controlScheme;
+    [SerializeField] private GameObject validateExitButtons, exitButton;
+    [SerializeField] private GameObject controlScheme, backButton;
 
-    //private EventSystem es; 
+    [SerializeField] private EventSystem es; 
 
 
     bool isPaused = false;
@@ -36,9 +37,15 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) { 
             pauseMenu.SetActive(true);
-            
+
             //es.SetSelectedGameObject(null);
             //es.SetSelectedGameObject(firstSelected);
+
+            StartCoroutine(HighlightButton(firstSelected));
+
+            //Button btn = es.currentSelectedGameObject.GetComponent<Button>();
+            //btn.image.color = new Color(49f, 22f, 41f, 0.56f);
+
             isPaused = true;
         } else
         {
@@ -64,18 +71,17 @@ public class PauseMenuManager : MonoBehaviour
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
-            //es.SetSelectedGameObject(null);
-            //es.SetSelectedGameObject(validateExitButtons.transform.GetChild(0).gameObject);
+            
         }
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            //es.SetSelectedGameObject(null);
-            //es.SetSelectedGameObject(firstSelected);
+            StartCoroutine(HighlightButton(firstSelected));
         }
         if (!validateExitButtons.activeSelf)
         {
             validateExitButtons.SetActive(true);
+            StartCoroutine(HighlightButton(exitButton));
         }
         else if (validateExitButtons.activeSelf)
         {
@@ -88,14 +94,12 @@ public class PauseMenuManager : MonoBehaviour
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
-            //es.SetSelectedGameObject(null);
-            //es.SetSelectedGameObject(controlScheme.transform.GetChild(0).gameObject);
+            StartCoroutine(HighlightButton(backButton));
         }
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            //es.SetSelectedGameObject(null);
-            //es.SetSelectedGameObject(firstSelected);
+            StartCoroutine(HighlightButton(firstSelected));
         }
         
         if (!controlScheme.activeSelf)
@@ -112,5 +116,15 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = original;
         SceneManager.LoadScene(0);
+    }
+
+    public IEnumerator HighlightButton(GameObject toSet)
+    {
+        es.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        es.SetSelectedGameObject(toSet);
+
+
+
     }
 }
