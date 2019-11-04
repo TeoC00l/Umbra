@@ -7,6 +7,7 @@ public class CutsceneManager : MonoBehaviour
 {
 
     [SerializeField] private VideoClip[] videos;
+    [SerializeField] private GameObject choice;
     private VideoPlayer vp;
     private int videoIndex = 0;
 
@@ -38,6 +39,8 @@ public class CutsceneManager : MonoBehaviour
     }
     public void ShutOff()
     {
+        //this.gameObject.SetActive(false);
+        choice.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }
