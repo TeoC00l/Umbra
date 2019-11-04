@@ -5,8 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class ChoiceManager : MonoBehaviour
 {
-    public void choice1()
+    [SerializeField] private int karmaChoice1, karmaChoice2;
+    [SerializeField] private int SetChoice_SceneToLoad, AliceChoice_SceneToLoad;
+
+    public void Choice1()
     {
-        SceneManager.LoadScene(0);
+        AddKarma(karmaChoice1);
+        SceneManager.LoadScene(SetChoice_SceneToLoad);
+    }
+
+    public void Choice2()
+    {
+        AddKarma(karmaChoice2);
+        SceneManager.LoadScene(AliceChoice_SceneToLoad);
+    }
+
+    public void AddKarma(int karma)
+    {
+        KarmaManager.Karma = karma;
+        
     }
 }
