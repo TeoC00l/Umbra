@@ -19,6 +19,8 @@ public class CompanionWaitingState : CompanionBaseState
         //thisAgent.path.ClearCorners();
 
         Debug.Log(owner.gameObject.name + " enter Waiting state");
+        owner.iconSprite.color = new Color(0f, 0f, 0f, 1f);
+        
         owner.isWaiting = true;
 
 

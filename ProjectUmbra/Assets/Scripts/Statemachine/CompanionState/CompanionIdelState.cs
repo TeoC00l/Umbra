@@ -13,6 +13,7 @@ public class CompanionIdelState : CompanionBaseState
         //play Animation
 
         //Debug.Log("enter idelState " + owner.gameObject.name);
+        owner.iconSprite.color = new Color(49f, 22f, 41f, 0.56f);
         thisAgent.isStopped = true;
         owner.isWaiting = false;
 

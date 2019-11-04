@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CompanionHandler : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class CompanionHandler : MonoBehaviour
     private bool setMoving = true;
     private bool aliceMoving = true;
     private GameObject[] boxes;
+
+    
 
     #region JumpVariabels
     [SerializeField] private float addToJumpHeight = 5;
@@ -149,12 +152,16 @@ public class CompanionHandler : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Q) && setMoving)
         {
+            //setIcon.color = new Color(49f, 22f, 41f, 0.56f);
+            //setIcon.gameObject.SetActive(false);
             setMoving = false;
             setAgent.isStopped = true;
             Debug.Log("set stopped");
         }
         else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
         {
+            //aliceIcon.color = new Color(49f, 22f, 41f, 0.56f);
+            
             aliceMoving = false;
             aliceAgent.isStopped = true;
             Debug.Log("alice stopped");
