@@ -69,6 +69,7 @@ public class PressurePadTrigger : MonoBehaviour
     {
         if (Physics.CheckBox(transform.position, boxCollider.size / 2, Quaternion.identity, TriggerLayerMask))
         {
+
             return true;
         }
         else
