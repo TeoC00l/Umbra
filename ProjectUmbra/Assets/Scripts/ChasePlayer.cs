@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 public class ChasePlayer : MonoBehaviour
 {
-    [SerializeField] public static GameObject [] monsters;
+    [SerializeField] public GameObject [] monsters;
     private BoxCollider collider1;
 
 
     private void Start()
     {
-        monsters = GameObject.FindGameObjectsWithTag("Monster");
 
     }
     private void OnTriggerExit(Collider other)

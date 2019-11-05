@@ -6,13 +6,18 @@ public class DeathZoneLevelOne : MonoBehaviour
 {
 
    [SerializeField] private DeathComponent deathComponent;
+    private MonsterLevelOneScrpit monsterLevelOneScrpit;
+    private void Start()
+    {
+        monsterLevelOneScrpit = GetComponent<MonsterLevelOneScrpit>();
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
         deathComponent.RespawnPlayer();
 
-        MonsterLevelOneScrpit.RespawnMonster();
+        monsterLevelOneScrpit.RespawnMonster();
 
     }
 }
