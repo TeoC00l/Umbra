@@ -7,16 +7,6 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private Transform currentCheckpointPosition;
     private Quaternion latestRotation;
 
-    private void Start()
-    {
-       
-    }
-
-    private void Update()
-    {
-        
-    }
-
     public void UpdateCurrentCheckpoint(Transform checkpointPosition, Quaternion playerRotation)
     {
         latestRotation = playerRotation;

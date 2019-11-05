@@ -5,19 +5,18 @@ using UnityEngine.AI;
 public class DeathComponent : MonoBehaviour
 {
     [SerializeField] private int fallDistanceToDie;
-    [SerializeField] private GameObject set;
-    [SerializeField] private GameObject alice;
+    [SerializeField] private GameObject set, alice;
 
     private PlayerMovement pm;
-    private bool cachedGroundedPos;
+    private bool cachedGroundedPos, hasCalculatedAirDistance;
     public static Vector3 cachedPosition;
-    private bool hasCalculatedAirDistance;
     public static float fallDistance;
     [SerializeField] private CheckPointManager checkpointManager;
 
     private GameObject groundChecker;
-    [SerializeField]private LayerMask deathZone;
-    
+    [SerializeField] private LayerMask deathZone;
+
+    [SerializeField] private DeathscreenTimer deathScreenTimer;
     
 
 
@@ -70,12 +69,36 @@ public class DeathComponent : MonoBehaviour
     public void RespawnPlayer()
     {
         //Debug.Log("respawning");
+        deathScreenTimer.startFade();
+        StartCoroutine(Respawn());
+        //Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
+        //transform.position = respawnPosition.position;
+        ////transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
+        //try { 
+        //    set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+        //    alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+        //}
+        //catch (UnassignedReferenceException)
+        //{
+
+        //}
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(0.8f);
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
         //transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
-        set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-        alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-        
+        try
+        {
+            set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+            alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+        }
+        catch (UnassignedReferenceException)
+        {
+
+        }
     }
 
 }
