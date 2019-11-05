@@ -281,6 +281,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 182612401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &183975352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1591985383, guid: f6ae53719874c774fab2611aa29e5b49,
+    type: 3}
+  m_PrefabInstance: {fileID: 895893889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b030783f78049bc42b84ef2c64f5c07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &186839213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4599,61 +4611,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 452948638}
-    - target: {fileID: 3503848930579587687, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Exit
-      objectReference: {fileID: 0}
     - target: {fileID: 1710820392364720683, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 452948638}
-    - target: {fileID: 1710820392364720683, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ValidateExit
-      objectReference: {fileID: 0}
-    - target: {fileID: 1710820392816181448, guid: f6ae53719874c774fab2611aa29e5b49,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 452948638}
     - target: {fileID: 1710820392816181448, guid: f6ae53719874c774fab2611aa29e5b49,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowControls
-      objectReference: {fileID: 0}
-    - target: {fileID: 1710820393437506907, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 452948638}
     - target: {fileID: 1710820393437506907, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708262299339725051, guid: f6ae53719874c774fab2611aa29e5b49,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 452948638}
     - target: {fileID: 8708262299339725051, guid: f6ae53719874c774fab2611aa29e5b49,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ValidateExit
-      objectReference: {fileID: 0}
-    - target: {fileID: 6972680800171494499, guid: f6ae53719874c774fab2611aa29e5b49,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 452948638}
     - target: {fileID: 6972680800171494499, guid: f6ae53719874c774fab2611aa29e5b49,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowControls
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 452948638}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ae53719874c774fab2611aa29e5b49, type: 3}
 --- !u!1001 &907318289
@@ -6805,6 +6787,10 @@ PrefabInstance:
       propertyPath: checkpointManager
       value: 
       objectReference: {fileID: 824927331}
+    - target: {fileID: 1802658482, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7, type: 3}
+      propertyPath: deathScreenTimer
+      value: 
+      objectReference: {fileID: 183975352}
     - target: {fileID: 3220737029942767839, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: alice
@@ -7054,14 +7040,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8761803173809569916, guid: 1e510bf7695eb4e4e9ed568d33aca71f,
-        type: 3}
-      propertyPath: rightTurn
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8761803173809569907, guid: 1e510bf7695eb4e4e9ed568d33aca71f,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761803173809569916, guid: 1e510bf7695eb4e4e9ed568d33aca71f,
+        type: 3}
+      propertyPath: rightTurn
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831149513, guid: 1e510bf7695eb4e4e9ed568d33aca71f, type: 3}
