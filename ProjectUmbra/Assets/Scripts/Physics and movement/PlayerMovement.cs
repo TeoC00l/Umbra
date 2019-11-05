@@ -8,29 +8,21 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
     //Attributes
-    private Vector3 input;
-    private Vector3 verticalLadderInput;
-    private Vector3 horizontalLadderInput;
+    private Vector3 input, verticalLadderInput, horizontalLadderInput;
+
     private Rigidbody rb;
     private Transform groundChecker;
-    private bool isMovementLocked;
-    private bool isOnLadder;
-    private bool isJumping;
 
-    [SerializeField] private float speed;
-    [SerializeField] private float topSpeed;
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float fallMultiplier;
-    [SerializeField] private float groundDistance;
-    [SerializeField] private LayerMask Ground;
-    [SerializeField] private LayerMask layerMask;
+    private bool isMovementLocked, isOnLadder, isJumping;
+
+    [SerializeField] private float speed, topSpeed, jumpHeight, fallMultiplier, groundDistance;
+    [SerializeField] private LayerMask Ground, layerMask;
 
     public CornerTurner cornerTurner;
     public Vector3 veloc;
 
 
-    [SerializeField] private GameObject alice;
-    [SerializeField] private GameObject set;
+    [SerializeField] private GameObject alice, set;
 
     //Methods
     void Start()
@@ -42,19 +34,6 @@ public class PlayerMovement : MonoBehaviour
         Physics.gravity = new Vector3(0, -15f, 0);
         Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), alice.GetComponent<BoxCollider>());
         Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), set.GetComponent<BoxCollider>());
-    }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.collider.CompareTag("Set") || collision.collider.CompareTag("Alice"))
-    //    {
-    //        Physics.ign
-    //    }
-    //}
-
-    void Update()
-    {
-    
     }
 
     private void FixedUpdate()
@@ -92,16 +71,18 @@ public class PlayerMovement : MonoBehaviour
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
         transform.Translate(verticalLadderInput * 5f * Time.deltaTime);
 
-        if (horizontalLadderInput.z < 0)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //rb.isKinematic = false;
-            rb.AddForce(Vector3.back * 5f);
+            rb.isKinematic = false;
+            //transform.Translate(Vector3.back * 35f * Time.deltaTime);
+            rb.AddForce(Vector3.right * 5f, ForceMode.VelocityChange);
         }
 
-        if (horizontalLadderInput.z > 0)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            //rb.isKinematic = false;
-            rb.AddForce(Vector3.forward * 5f);
+            rb.isKinematic = false;
+            //transform.Translate(Vector3.forward * 35f * Time.deltaTime);
+            rb.AddForce(Vector3.left * 5f, ForceMode.VelocityChange);
         }
     }
 
