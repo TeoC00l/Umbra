@@ -16,8 +16,12 @@ public class DeathZoneLevelOne : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         deathComponent.RespawnPlayer();
+        try{ 
+            monsterLevelOneScrpit.RespawnMonster();
+        }
+        catch (System.NullReferenceException)
+        {
 
-        monsterLevelOneScrpit.RespawnMonster();
-
+        }
     }
 }
