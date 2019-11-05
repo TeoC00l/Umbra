@@ -7,8 +7,6 @@ public class DeathscreenTimer : MonoBehaviour
 {
     [SerializeField] private Image deathScreen;
 
-    private bool fading;
-
     private void Start()
     {
         deathScreen.gameObject.SetActive(true);
