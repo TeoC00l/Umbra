@@ -22,7 +22,6 @@ public class PauseMenuManager : MonoBehaviour
     public void Start()
     {
         original = Time.timeScale;
-        //es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         
     }
     public void Update()
@@ -41,7 +40,7 @@ public class PauseMenuManager : MonoBehaviour
             //es.SetSelectedGameObject(null);
             //es.SetSelectedGameObject(firstSelected);
 
-            StartCoroutine(HighlightButton(firstSelected));
+            //StartCoroutine(HighlightButton(firstSelected));
 
             //Button btn = es.currentSelectedGameObject.GetComponent<Button>();
             //btn.image.color = new Color(49f, 22f, 41f, 0.56f);
@@ -76,12 +75,12 @@ public class PauseMenuManager : MonoBehaviour
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            StartCoroutine(HighlightButton(firstSelected));
+            //StartCoroutine(HighlightButton(firstSelected));
         }
         if (!validateExitButtons.activeSelf)
         {
             validateExitButtons.SetActive(true);
-            StartCoroutine(HighlightButton(exitButton));
+            //StartCoroutine(HighlightButton(exitButton));
         }
         else if (validateExitButtons.activeSelf)
         {
@@ -94,12 +93,12 @@ public class PauseMenuManager : MonoBehaviour
         if (mainButtons.activeSelf)
         {
             mainButtons.SetActive(false);
-            StartCoroutine(HighlightButton(backButton));
+            //StartCoroutine(HighlightButton(backButton));
         }
         else if (!mainButtons.activeSelf)
         {
             mainButtons.SetActive(true);
-            StartCoroutine(HighlightButton(firstSelected));
+            //StartCoroutine(HighlightButton(firstSelected));
         }
         
         if (!controlScheme.activeSelf)
