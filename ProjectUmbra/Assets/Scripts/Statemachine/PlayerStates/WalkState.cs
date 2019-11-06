@@ -7,7 +7,7 @@ public class WalkState : BaseState
 {
     public override void Enter()
     {
-        //Debug.Log("walkstate");
+        Debug.Log("walkstate");
     }
 
     public override void HandleUpdate()
@@ -23,6 +23,7 @@ public class WalkState : BaseState
     public override void HandleFixedUpdate()
     {
         MovementHandler.Move();
+
 
     }
 

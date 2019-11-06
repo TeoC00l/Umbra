@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject alice, set;
 
+    public RaycastHit SlideRayCastHit;
+    [SerializeField] private LayerMask slideMask;
+
     //Methods
     void Start()
     {
@@ -99,6 +102,15 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded()
     {
         if (Physics.CheckSphere(groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool isSliding()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out SlideRayCastHit, 10f, slideMask))
         {
             return true;
         }

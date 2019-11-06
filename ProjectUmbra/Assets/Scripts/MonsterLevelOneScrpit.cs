@@ -8,9 +8,8 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     private bool isStopped = false;
     private DeathComponent deathComponent;
     private NavMeshAgent agent;
-    [SerializeField] private GameObject chasePlayerGO;
-
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject chaseColliderGO;
+    [SerializeField] private GameObject playerGO;
     //private DeathComponent dc;
     private Transform playerTrans;
     [SerializeField] private Transform stopPoint;
@@ -20,10 +19,10 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     private void Start()
     {
 
-        playerTrans = player.transform;
+        playerTrans = playerGO.transform;
         //dc = player.GetComponent<DeathComponent>();
         agent = GetComponent<NavMeshAgent>();
-        deathComponent = player.GetComponent<DeathComponent>();
+        deathComponent = playerGO.GetComponent<DeathComponent>();
         //chasePlayer = GetComponentInParent<ChasePlayer>();
         originalPosition = transform.position;
         
@@ -45,7 +44,7 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
         if (Vector3.Distance(transform.position, stopPoint.position) < 3.5f)
         {
-            foreach (GameObject monster in chasePlayerGO.GetComponent<ChasePlayer>().monsters)
+            foreach (GameObject monster in chaseColliderGO.GetComponent<ChasePlayer>().monsters)
             {
                 monster.GetComponent<NavMeshAgent>().isStopped = true; ;
 
@@ -61,7 +60,7 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     public void RespawnMonster()
     {
         Debug.Log("Warp");
-        foreach (GameObject monster in chasePlayerGO.GetComponent<ChasePlayer>().monsters)
+        foreach (GameObject monster in chaseColliderGO.GetComponent<ChasePlayer>().monsters)
         {
             NavMeshAgent thisAgent = monster.GetComponent<NavMeshAgent>();
             thisAgent.Warp(monster.GetComponent<MonsterLevelOneScrpit>().originalPosition);
