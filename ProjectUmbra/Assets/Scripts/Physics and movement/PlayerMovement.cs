@@ -79,18 +79,19 @@ public class PlayerMovement : MonoBehaviour
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
         transform.Translate(verticalLadderInput * 5f * Time.deltaTime);
 
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.back * 35f * Time.deltaTime);
-            rb.AddForce(Vector3.right * 5f, ForceMode.VelocityChange);
+            rb.AddForce(-transform.forward * 5f, ForceMode.VelocityChange);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.forward * 35f * Time.deltaTime);
-            rb.AddForce(Vector3.left * 5f, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * 5f, ForceMode.VelocityChange);
         }
     }
 
