@@ -17,7 +17,15 @@ public class DeathComponent : MonoBehaviour
     [SerializeField] private LayerMask deathZone;
 
     [SerializeField] private DeathscreenTimer deathScreenTimer;
-    
+    private bool isDying = false;
+
+    public bool IsDying
+    {
+        get
+        {
+            return isDying;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -71,6 +79,7 @@ public class DeathComponent : MonoBehaviour
         //Debug.Log("respawning");
         deathScreenTimer.startFade();
         StartCoroutine(Respawn());
+        
         //Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         //transform.position = respawnPosition.position;
         ////transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
@@ -86,6 +95,7 @@ public class DeathComponent : MonoBehaviour
 
     private IEnumerator Respawn()
     {
+        isDying = true;
         yield return new WaitForSeconds(0.8f);
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
@@ -99,6 +109,7 @@ public class DeathComponent : MonoBehaviour
         {
 
         }
+        isDying = false;
     }
 
 }

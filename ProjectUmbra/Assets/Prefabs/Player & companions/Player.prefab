@@ -146,12 +146,11 @@ MonoBehaviour:
   fallDistanceToDie: 10
   set: {fileID: 0}
   alice: {fileID: 0}
-  cachedPosition: {x: 0, y: 0, z: 0}
-  fallDistance: 0
   checkpointManager: {fileID: 0}
   deathZone:
     serializedVersion: 2
     m_Bits: 16384
+  deathScreenTimer: {fileID: 0}
 --- !u!114 &3220737029942767839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +178,9 @@ MonoBehaviour:
   veloc: {x: 0, y: 0, z: 0}
   alice: {fileID: 0}
   set: {fileID: 0}
+  slideMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &3220737029942767832
 Rigidbody:
   m_ObjectHideFlags: 0

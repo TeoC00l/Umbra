@@ -54,12 +54,17 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
         }
 
+        if (deathComponent.IsDying == true && transform.position != originalPosition)
+        {
+            RespawnMonster();
+        }
+
 
     }
 
     public void RespawnMonster()
     {
-        Debug.Log("Warp");
+        
         foreach (GameObject monster in chaseColliderGO.GetComponent<ChasePlayer>().monsters)
         {
             NavMeshAgent thisAgent = monster.GetComponent<NavMeshAgent>();
