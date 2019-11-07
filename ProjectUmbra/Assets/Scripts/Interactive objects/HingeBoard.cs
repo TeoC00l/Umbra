@@ -1,13 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class HingeBoard : MonoBehaviour
 {
     [SerializeField] private bool movingInZ;
     [SerializeField] private bool movingInX;
 
     private Transform playerTransform;
+    private Transform cachedTrans;
+    private NavMeshSurface navSurface;
+    private void Start()
+    {
+        cachedTrans = transform;
+        InvokeRepeating("BakeMeshIfRotationIsChanged", 0, 2);
+    }
+
+
+    private void BakeMeshIfRotationIsChanged()
+    {
+        if (transform.hasChanged)
+        {
+            navSurface.BuildNavMesh();
+            transform.hasChanged = false;
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
