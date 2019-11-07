@@ -7,8 +7,7 @@ public class CornerTurner : MonoBehaviour
     [SerializeField] private GameObject player;
     private bool isTurning = false;
     private PlayerMovement pm;
-    [SerializeField] private Transform rotation1;
-    [SerializeField] private Transform rotation2;
+
     private bool tpd;
     private int turnRotation;
 
