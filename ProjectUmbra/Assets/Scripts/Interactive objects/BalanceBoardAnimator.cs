@@ -6,7 +6,9 @@ public class BalanceBoardAnimator : MonoBehaviour
 {
     [SerializeField] public Animator animator;
     [SerializeField] private bool isPointA;
-    private int collidersInTrigger = 0;
+    private int collidersInTriggerA = 0;
+    private int collidersInTriggerB = 0;
+
 
     private void Start()
     {
@@ -15,17 +17,66 @@ public class BalanceBoardAnimator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(isPointA);
-        collidersInTrigger++;
-        //if(collidersInTrigger >= 2)
-        //{
-        //    animator.SetBool("IsWeighed", isPointA);
-        //}
-        animator.SetBool("IsWeighed", isPointA);
+        
+        if (other.CompareTag("Grabbable"))
+        {
+            if (isPointA)
+            {
+                collidersInTriggerA += 2;
+            }
+            else
+            {
+                collidersInTriggerB += 2;
+            }
+        }
+        else if(other.CompareTag("Player") || other.CompareTag("Set") || other.CompareTag("Alice"))
+        {
+            if (isPointA)
+            {
+                collidersInTriggerA++;
+            }
+            else
+            {
+                collidersInTriggerB++;
+            }
+            
+        }
+        if (collidersInTriggerA >= 2)
+        {
+            animator.SetBool("IsWeighed", true);
+        } else if(collidersInTriggerB >= 2)
+        {
+            animator.SetBool("IsWeighed", false);
+        }
+        Debug.Log(collidersInTriggerA + " " + collidersInTriggerB);
+        //animator.SetBool("IsWeighed", isPointA);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        collidersInTrigger--;
+        if (other.CompareTag("Grabbable"))
+        {
+            if (isPointA)
+            {
+                collidersInTriggerA -= 2;
+            }
+            else
+            {
+                collidersInTriggerB -= 2;
+            }
+        }
+        else if(other.CompareTag("Player") || other.CompareTag("Set") || other.CompareTag("Alice"))
+        {
+            if (isPointA)
+            {
+                collidersInTriggerA--;
+            }
+            else
+            {
+                collidersInTriggerB--;
+            }
+
+        }
+        Debug.Log(collidersInTriggerA + " " + collidersInTriggerB);
     }
 }
