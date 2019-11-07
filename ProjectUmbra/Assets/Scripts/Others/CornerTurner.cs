@@ -87,7 +87,7 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (tpd == false && Vector3.Distance(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, transform.position.z)) < 0.3f)
+            if (tpd == false && Vector3.Distance(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, transform.position.z)) < 0.5f)
             {
 
                 TranslatePlayerToSelf(other);
@@ -110,7 +110,7 @@ public class CornerTurner : MonoBehaviour
                 //Debug.Log(hasTurned);
             }
 
-            if (Vector3.Distance(other.transform.position, transform.position) > 0.3f)
+            if (Vector3.Distance(other.transform.position, transform.position) > 0.5f)
             {
                 tpd = false;
             }

@@ -20,7 +20,7 @@ public class PressurePadToActivateButton : MonoBehaviour
     {
         buttonLight = GetComponentInChildren<Light>();
         animation = animGO.GetComponent<Animation>();
-        buttonLight.intensity = 0;
+        
          
     }
 
@@ -38,14 +38,14 @@ public class PressurePadToActivateButton : MonoBehaviour
 
         if (allBools >= numbersOfActiveBools)
         {
-            buttonLight.intensity = 5;
+            buttonLight.color = Color.green;
             buttonCanBePressed = true;
 
 
         }
         else
         {
-            buttonLight.intensity = 0;
+            buttonLight.color = Color.red;
             buttonCanBePressed = false;
 
         }
