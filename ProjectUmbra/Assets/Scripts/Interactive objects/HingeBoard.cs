@@ -13,6 +13,8 @@ public class HingeBoard : MonoBehaviour
     private Transform playerTransform;
     private Transform cachedTrans;
     private NavMeshSurface navSurface;
+    private Rigidbody rb;
+
     private void Start()
     {
         navSurface = GetComponent<NavMeshSurface>();
@@ -23,7 +25,6 @@ public class HingeBoard : MonoBehaviour
 
     private void BakeMeshIfRotationIsChanged()
     {
-     
      
             navSurface.BuildNavMesh();
             transform.hasChanged = false;
@@ -36,6 +37,11 @@ public class HingeBoard : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerTransform = other.transform;
+            rb = other.attachedRigidbody;
+            if (movingInX)
+            {
+                //rb.constraints.
+            }
         }
     }
 
@@ -45,6 +51,7 @@ public class HingeBoard : MonoBehaviour
         {
             if (movingInZ)
             {
+                
                 other.transform.position = new Vector3(playerTransform.position.x , other.transform.position.y, other.transform.position.z);
             }
             else if(movingInX)
