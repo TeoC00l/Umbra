@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class HingeBoard : MonoBehaviour
 {
+    [Tooltip("YOYOYO")]
     [SerializeField] private bool movingInZ;
+
+
     [SerializeField] private bool movingInX;
 
     private Transform playerTransform;
@@ -13,7 +16,7 @@ public class HingeBoard : MonoBehaviour
     private void Start()
     {
         cachedTrans = transform;
-        InvokeRepeating("BakeMeshIfRotationIsChanged", 0, 2);
+        //InvokeRepeating("BakeMeshIfRotationIsChanged", 0, 2);
     }
 
 
@@ -21,7 +24,7 @@ public class HingeBoard : MonoBehaviour
     {
         if (transform.hasChanged)
         {
-            navSurface.BuildNavMesh();
+            //navSurface.BuildNavMesh();
             transform.hasChanged = false;
         }
     }
