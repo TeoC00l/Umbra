@@ -12,19 +12,35 @@ public class MovingPlatform : MonoBehaviour
         platformCollider = GetComponent<BoxCollider>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.gameObject.transform.SetParent(transform.parent);
-        }
-    }
+    //    private void OnCollisionEnter(Collision collision)
+    //    {
+    //        if (collision.gameObject.CompareTag("Player"))
+    //        {
+    //            collision.gameObject.transform.SetParent(transform);
+    //        }
+    //    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.gameObject.transform.SetParent(null);
-        }
-    }
+    //    private void OnCollisionExit(Collision collision)
+    //    {
+    //        if (collision.gameObject.CompareTag("Player"))
+    //        {
+    //            collision.gameObject.transform.SetParent(transform);
+    //        }
+    //    }
+
+    //    private void OnTriggerEnter(Collider other)
+    //    {
+    //        if (other.CompareTag("Player"))
+    //        {
+    //            other.gameObject.transform.SetParent(transform.parent);
+    //        }
+    //    }
+
+    //    private void OnTriggerExit(Collider other)
+    //    {
+    //        if (other.CompareTag("Player"))
+    //        {
+    //            other.gameObject.transform.SetParent(null);
+    //        }
+    //    }
 }
