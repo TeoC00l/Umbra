@@ -10,6 +10,8 @@ public class ClimbState : BaseState
     {
         //Debug.Log("Climb state");
         playerBody.isKinematic = true;
+        animator.SetBool("isClimbing", true);
+
     }
 
     public override void HandleUpdate()
@@ -23,6 +25,7 @@ public class ClimbState : BaseState
     }
     public override void Exit()
     {
+        animator.SetBool("isClimbing", false);
         playerBody.isKinematic = false;
     }
 }

@@ -11,6 +11,9 @@ public class BaseState : State
     private bool onSetup;
     protected GrabObject grabHandler;
     protected Rigidbody playerBody;
+    protected Animator animator;
+    protected Transform characterModel;
+    protected bool runningBack;
 
     public override void Initialize(StateMachine owner)
     {
@@ -19,6 +22,8 @@ public class BaseState : State
         playerCollider = owner.GetComponent<BoxCollider>();
         grabHandler = owner.GetComponentInChildren<GrabObject>();
         playerBody = owner.GetComponent<Rigidbody>();
+        animator = owner.GetComponentInChildren<Animator>();
+        characterModel = owner.transform.Find("Idle");
     }
 
     public override void Enter()
@@ -49,6 +54,7 @@ public class BaseState : State
         {
             owner.Transition<ClimbState>();
         }
+
     }
 
     public override void HandleFixedUpdate()

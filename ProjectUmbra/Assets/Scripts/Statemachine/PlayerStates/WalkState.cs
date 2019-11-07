@@ -12,10 +12,36 @@ public class WalkState : BaseState
 
     public override void HandleUpdate()
     {
+       
+        bool isWalkingPressed = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+        animator.SetBool("isWalking", isWalkingPressed);
+
         base.HandleUpdate();
         MovementHandler.SetInput();
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (runningBack == false)
+            {
+                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
+                runningBack = true;
+            }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (runningBack == true)
+            {
+                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
+                runningBack = false;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.IsGrounded())
         {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isJumping", true);
             MovementHandler.Jump();
             owner.Transition<AirState>();
         }
@@ -30,5 +56,6 @@ public class WalkState : BaseState
 
     public override void Exit()
     {
+        animator.SetBool("isWalking", false);
     }
 }

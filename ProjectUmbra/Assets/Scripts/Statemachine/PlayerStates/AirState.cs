@@ -18,6 +18,7 @@ public class AirState : BaseState
         
         if (MovementHandler.IsGrounded())
         {
+            animator.SetBool("isJumping", false);
             owner.Transition<WalkState>();
         }
     }
