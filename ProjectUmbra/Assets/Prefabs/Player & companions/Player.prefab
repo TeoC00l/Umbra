@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 3220737029942767839}
   - component: {fileID: 3220737029942767832}
   - component: {fileID: 3220737029942767826}
+  - component: {fileID: 1740817134}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -127,7 +128,7 @@ BoxCollider:
   m_GameObject: {fileID: 3220737029942767833}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -180,7 +181,7 @@ MonoBehaviour:
   set: {fileID: 0}
   slideMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
 --- !u!54 &3220737029942767832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,8 +215,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d993be678d01d64439c3d14fa9e44570, type: 2}
   - {fileID: 11400000, guid: d03b8ef11ea3fa14083b3d64c00ebe10, type: 2}
   - {fileID: 11400000, guid: 8f9962148a79a3f42ac734975c9fd053, type: 2}
-  - {fileID: 11400000, guid: 910f0368311a76e4baa330edbb052094, type: 2}
+  - {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c, type: 2}
   - {fileID: 11400000, guid: bfd26bed997d8344889877a1774d46f1, type: 2}
+--- !u!136 &1740817134
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220737029942767833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3220737030379990045
 GameObject:
   m_ObjectHideFlags: 0

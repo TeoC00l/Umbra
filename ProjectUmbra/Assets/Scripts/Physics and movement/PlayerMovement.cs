@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
         groundChecker = transform.GetChild(0);
         Physics.gravity = new Vector3(0, -15f, 0);
         try { 
-            Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), alice.GetComponent<BoxCollider>());
-            Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), set.GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), alice.GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), set.GetComponent<BoxCollider>());
         } catch(UnassignedReferenceException)
         {
 
