@@ -15,18 +15,19 @@ public class HingeBoard : MonoBehaviour
     private NavMeshSurface navSurface;
     private void Start()
     {
+        navSurface = GetComponent<NavMeshSurface>();
         cachedTrans = transform;
-        //InvokeRepeating("BakeMeshIfRotationIsChanged", 0, 2);
+        InvokeRepeating("BakeMeshIfRotationIsChanged", 0, 2);
     }
 
 
     private void BakeMeshIfRotationIsChanged()
     {
-        if (transform.hasChanged)
-        {
-            //navSurface.BuildNavMesh();
+     
+     
+            navSurface.BuildNavMesh();
             transform.hasChanged = false;
-        }
+        
     }
 
 
