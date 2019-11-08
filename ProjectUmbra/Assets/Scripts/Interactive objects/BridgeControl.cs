@@ -33,6 +33,17 @@ public class BridgeControl : MonoBehaviour
         {
             rb.AddForce(tippingDirection, ForceMode.Force);
         }
+        if (collision.gameObject.CompareTag("Stopper"))
+        {
+            Destroy(this.GetComponent<HingeJoint>());
+
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.isKinematic = true;
+            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+
+
+            navMeshSurface.BuildNavMesh();
+        }
     }
 
     private void Update()
