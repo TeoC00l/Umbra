@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+using Cinemachine;
 public class DeathComponent : MonoBehaviour
 {
     [SerializeField] private int fallDistanceToDie;
@@ -18,6 +20,8 @@ public class DeathComponent : MonoBehaviour
 
     [SerializeField] private DeathscreenTimer deathScreenTimer;
     private bool isDying = false;
+
+    [SerializeField] private CinemachineTrackedDolly virtualCamera;
 
     public bool IsDying
     {
@@ -110,6 +114,7 @@ public class DeathComponent : MonoBehaviour
 
         }
         isDying = false;
+        //virtualCamera.m_PathPosition = 
     }
 
 }
