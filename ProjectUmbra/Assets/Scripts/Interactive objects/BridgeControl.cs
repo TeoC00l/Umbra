@@ -16,6 +16,7 @@ public class BridgeControl : MonoBehaviour
     private Rigidbody rb;
     private bool tipped = false;
     [SerializeField] private Quaternion finalRotation;
+    [SerializeField] Vector3 tippingDirection;
 
     
     private void Start()
@@ -24,6 +25,14 @@ public class BridgeControl : MonoBehaviour
         originalAngles = transform.localRotation;
         rb = GetComponent<Rigidbody>();
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.AddForce(tippingDirection, ForceMode.Force);
+        }
     }
 
     private void Update()

@@ -1991,6 +1991,21 @@ PrefabInstance:
       propertyPath: navLink
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2835952961686838546, guid: 66263f9681f7c9348b0dc91bbab92e39,
+        type: 3}
+      propertyPath: tippingDirection.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835952961686838551, guid: 66263f9681f7c9348b0dc91bbab92e39,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835952961686838551, guid: 66263f9681f7c9348b0dc91bbab92e39,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 497b9dac5fbb42f4aa861e1470aa7a29, type: 2}
     - target: {fileID: 2835952961686838550, guid: 66263f9681f7c9348b0dc91bbab92e39,
         type: 3}
       propertyPath: m_Material
@@ -2001,6 +2016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835952961686838553, guid: 66263f9681f7c9348b0dc91bbab92e39,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1662641279, guid: 66263f9681f7c9348b0dc91bbab92e39, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -2077,7 +2097,7 @@ PrefabInstance:
     - target: {fileID: 1288442321, guid: 66263f9681f7c9348b0dc91bbab92e39, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 50508906c6922754182527dc804f415a,
+      objectReference: {fileID: 23800000, guid: e9c24fb74670b994faaf57638b0c628a,
         type: 2}
     - target: {fileID: 1398920650, guid: 66263f9681f7c9348b0dc91bbab92e39, type: 3}
       propertyPath: m_Layer
@@ -12370,7 +12390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: 3.7246687, y: 0.7375309, z: -0.27814835}
-  m_EndPoint: {x: 5.7166915, y: 0.052913226, z: -0.429594}
+  m_EndPoint: {x: 5.681497, y: -0.355492, z: -0.16624561}
   m_Width: 2
   m_CostModifier: -1
   m_Bidirectional: 1
