@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameSceneNumber: 1
+  demoSceneNumber: 5
   mainButtons: {fileID: 1338504681}
   validateQuit: {fileID: 2129782689}
 --- !u!1 &961950008
@@ -1428,7 +1429,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 854863338}
-        m_MethodName: NewGame
+        m_MethodName: Demo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1836,7 +1837,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 204817802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854863338}
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1388070102
 MonoBehaviour:
   m_ObjectHideFlags: 0

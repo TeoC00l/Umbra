@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
 
-    [SerializeField] private int newGameSceneNumber;
+    [SerializeField] private int newGameSceneNumber, demoSceneNumber;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject validateQuit;
 
@@ -19,6 +19,11 @@ public class MainMenuManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Demo()
+    {
+        SceneManager.LoadScene(demoSceneNumber);
     }
 
     public void NewGame()
