@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class LadderControl : MonoBehaviour
 {
     private PlayerMovement pm;
     private BoxCollider boxCollider;
     [Tooltip("Check this if the player should snap to ladder in X axis, leave unchecked if player should snap in Z axis")]
     [SerializeField] private bool useX;
+
+    [SerializeField] private Transform lowerTrans;
+    [SerializeField] private Transform higherTrans;
+    private bool isSnaped = false;
+
+
 
     public void Start()
     {
@@ -36,6 +42,25 @@ public class LadderControl : MonoBehaviour
             //pos = pos.normalized;
             other.transform.position = pos;
             //other.transform.Translate(pos);
+        }
+        if (other.CompareTag("Set"))
+        {
+            other.transform.SetParent(transform);
+            other.GetComponent<NavMeshAgent>().enabled = false;
+            if(isSnaped == false)
+            {
+                other.transform.position = lowerTrans.position;
+                Debug.Log("snap");
+                isSnaped = true;
+                if (isSnaped)
+                {
+                    other.attachedRigidbody.MovePosition(higherTrans.position);
+                    Debug.Log("higher");
+                }
+
+            }
+
+
         }
     }
 
