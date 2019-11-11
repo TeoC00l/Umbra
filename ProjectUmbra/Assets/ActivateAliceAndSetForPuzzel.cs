@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class ActivateAliceAndSetForPuzzel : MonoBehaviour
 {
-    public GameObject alice;
+    private GameObject alice;
     private GameObject set;
 
     private void Awake()
     {
-        alice = GameObject.FindGameObjectWithTag("Alice");
-        set = GameObject.FindGameObjectWithTag("Set");
-        //set.SetActive(false);
-        //alice.SetActive(false);
+        alice = ObjectHandeler.Alice;
+        set = ObjectHandeler.Set;
     }
 
 
@@ -25,6 +23,10 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
 
             set.GetComponent<NavMeshAgent>().Warp(transform.position);
             alice.GetComponent<NavMeshAgent>().Warp(transform.position);
+
+
+            gameObject.SetActive(false);
+
         }
     }
 }
