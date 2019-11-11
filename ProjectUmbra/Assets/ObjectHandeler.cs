@@ -11,17 +11,23 @@ public class ObjectHandeler : MonoBehaviour
 
     private void Awake()
     {
-        Set = GameObject.FindGameObjectWithTag("Set");
-        Alice = GameObject.FindGameObjectWithTag("Alice");
+
 
     }
 
 
     private void Start()
     {
-        if(Set != null && Alice != null){
+        Set = GameObject.FindGameObjectWithTag("Set");
+        Alice = GameObject.FindGameObjectWithTag("Alice");
+
+        if (Set != null && Alice != null){
             Set.SetActive(false);
             Alice.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("dont have set and alice");
         }
     }
 
