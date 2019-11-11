@@ -84,14 +84,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.back * 35f * Time.deltaTime);
-            rb.AddForce((-transform.forward + new Vector3(0,1.5f,0)) * 5f, ForceMode.VelocityChange);
+            rb.AddForce((-transform.forward + new Vector3(0,1.5f,0)) * 4f, ForceMode.VelocityChange);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.forward * 35f * Time.deltaTime);
-            rb.AddForce((transform.forward + new Vector3(0, 1.5f, 0)) * 5f, ForceMode.VelocityChange);
+            rb.AddForce((transform.forward + new Vector3(0, 1.5f, 0)) * 4f, ForceMode.VelocityChange);
         }
     }
 
