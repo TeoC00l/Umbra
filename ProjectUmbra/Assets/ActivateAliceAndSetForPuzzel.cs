@@ -11,8 +11,8 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     {
         alice = GameObject.FindGameObjectWithTag("Alice");
         set = GameObject.FindGameObjectWithTag("Set");
-        set.SetActive(false);
-        alice.SetActive(false);
+        //set.SetActive(false);
+        //alice.SetActive(false);
     }
 
 
