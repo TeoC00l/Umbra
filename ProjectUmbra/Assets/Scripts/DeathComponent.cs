@@ -117,14 +117,14 @@ public class DeathComponent : MonoBehaviour
         {
 
         }
-        foreach(GameObject corner in cornerTriggers)
-        {
-            //if (checkpointManager.GetCornersTurned().Contains(corner) == false)
-            //{
-            //    corner.GetComponent<BoxCollider>().isTrigger = true;
-            //}
-            corner.GetComponent<BoxCollider>().isTrigger = true;
-        }
+        //foreach(GameObject corner in cornerTriggers)
+        //{
+        //    //if (checkpointManager.GetCornersTurned().Contains(corner) == false)
+        //    //{
+        //    //    corner.GetComponent<BoxCollider>().isTrigger = true;
+        //    //}
+        //    corner.GetComponent<BoxCollider>().isTrigger = true;
+        //}
         
         //checkpointManager.GetLastCorner().GetComponent<BoxCollider>().isTrigger = false;
         isDying = false;
