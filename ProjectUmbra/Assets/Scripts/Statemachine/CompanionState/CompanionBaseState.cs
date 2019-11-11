@@ -6,7 +6,6 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "Companion/BaseState")]
 public class CompanionBaseState : CompanionState
 {
-
     protected Companion owner;
     protected CompanionHandler companionHandler;
     protected Rigidbody compaionRB;
