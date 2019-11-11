@@ -21,7 +21,10 @@ public class DeathComponent : MonoBehaviour
     [SerializeField] private DeathscreenTimer deathScreenTimer;
     private bool isDying = false;
 
-    [SerializeField] private CinemachineTrackedDolly virtualCamera;
+    private CinemachineTrackedDolly virtualCamera;
+    [SerializeField] private CinemachineVirtualCamera virCam;
+
+    private GameObject[] cornerTriggers;
 
     public bool IsDying
     {
@@ -37,6 +40,7 @@ public class DeathComponent : MonoBehaviour
     {
         pm = GetComponent<PlayerMovement>();
         groundChecker = transform.GetChild(0).gameObject;
+        cornerTriggers = GameObject.FindGameObjectsWithTag("Corner");
     }
 
 
@@ -103,7 +107,7 @@ public class DeathComponent : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
-        //transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
+        transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
         try
         {
             set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
@@ -113,8 +117,21 @@ public class DeathComponent : MonoBehaviour
         {
 
         }
+        foreach(GameObject corner in cornerTriggers)
+        {
+            //if (checkpointManager.GetCornersTurned().Contains(corner) == false)
+            //{
+            //    corner.GetComponent<BoxCollider>().isTrigger = true;
+            //}
+            corner.GetComponent<BoxCollider>().isTrigger = true;
+        }
+        
+        //checkpointManager.GetLastCorner().GetComponent<BoxCollider>().isTrigger = false;
         isDying = false;
-        //virtualCamera.m_PathPosition = 
+
+        virtualCamera = virCam.GetCinemachineComponent<CinemachineTrackedDolly>();
+        virCam.PreviousStateIsValid = false;
+        virtualCamera.m_PathPosition = checkpointManager.GetCameraPositionAtCheckpoint();
     }
 
 }

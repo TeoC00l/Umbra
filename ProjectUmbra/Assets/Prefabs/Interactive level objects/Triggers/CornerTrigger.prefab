@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8761803173809569906}
   m_Layer: 0
   m_Name: CornerTrigger
-  m_TagString: Untagged
+  m_TagString: Corner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3220737029942767833, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7, type: 3}
-  rotation1: {fileID: 8761803173833622899}
-  rotation2: {fileID: 0}
   rightTurn: 1
 --- !u!23 &8761803173809569907
 MeshRenderer:
@@ -73,7 +71,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8761803173809569905}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

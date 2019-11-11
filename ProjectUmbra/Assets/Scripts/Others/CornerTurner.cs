@@ -26,7 +26,7 @@ public class CornerTurner : MonoBehaviour
     }
 
 
-    private void TurnRotation(bool hasTurnd)
+    private void TurnRotation(bool hasTurned)
     {
         if (rightTurn)
         {
@@ -75,13 +75,9 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-
-
+            pm.cornerTurner = this.gameObject;
         }
-
     }
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -96,17 +92,20 @@ public class CornerTurner : MonoBehaviour
                 other.gameObject.transform.Rotate(0, turnRotation/* insert variable*/, 0, Space.Self);
 
 
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
 
+                GetComponent<BoxCollider>().isTrigger = false;
+
+                hasTurned = false;
                 tpd = true;
-                if (hasTurned)
-                {
-                    hasTurned = false;
-                }
-                else
-                {
-                    hasTurned = true;
-                }
+                //if (hasTurned)
+                //{
+                //    hasTurned = false;
+                //}
+                //else
+                //{
+                //    hasTurned = true;
+                //}
                 //Debug.Log(hasTurned);
             }
 
@@ -124,7 +123,7 @@ public class CornerTurner : MonoBehaviour
         {
             isTurning = false;
             tpd = false;
-            Debug.Log("isTurning = false");
+            
         }
     }
 

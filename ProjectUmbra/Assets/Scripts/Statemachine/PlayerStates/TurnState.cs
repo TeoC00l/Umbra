@@ -6,11 +6,12 @@ using UnityEngine;
 public class TurnState : BaseState
 {
     private bool rotated;
-    private CornerTurner cornerTurner;
+    private GameObject cornerTurner;
     private Vector3 direction;
 
     public override void Enter()
     {
+
         cornerTurner = MovementHandler.cornerTurner;
         direction = MovementHandler.getInput();
         rotated = false;
@@ -19,7 +20,7 @@ public class TurnState : BaseState
 
     public override void HandleUpdate()
     {
-        if (rotated == true && cornerTurner.getTurningStatus() == false)
+        if (rotated == true && cornerTurner.GetComponent<CornerTurner>().getTurningStatus() == false)
         {
             Debug.Log("Exited");
             rotated = false;
