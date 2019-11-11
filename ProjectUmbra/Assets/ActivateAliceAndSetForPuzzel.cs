@@ -9,8 +9,7 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
 
     private void Awake()
     {
-        alice = ObjectHandeler.Alice;
-        set = ObjectHandeler.Set;
+       
     }
 
 
@@ -18,11 +17,11 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            set.SetActive(true);
-            alice.SetActive(true);
+            ObjectHandeler.Set.SetActive(true);
+            ObjectHandeler.Alice.SetActive(true);
 
-            set.GetComponent<NavMeshAgent>().Warp(transform.position);
-            alice.GetComponent<NavMeshAgent>().Warp(transform.position);
+            ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(transform.position);
+            ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(transform.position);
 
 
             gameObject.SetActive(false);

@@ -9,8 +9,7 @@ public class LadderControl : MonoBehaviour
     [Tooltip("Check this if the player should snap to ladder in X axis, leave unchecked if player should snap in Z axis")]
     [SerializeField] private bool useX;
 
-    [SerializeField] private Transform lowerTrans;
-    [SerializeField] private Transform higherTrans;
+
     private bool isSnaped = false;
 
 
