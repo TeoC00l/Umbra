@@ -25,18 +25,18 @@ public class CompanionClimbLadderState : CompanionBaseState
         //owner.GetComponent<NavMeshAgent>().enabled = false;
         //owner.transform.position = owner.LadderSplineGO.transform.position;
         Debug.Log("anchor dest set");
-        splinePos = new Vector3(owner.LadderSplineGO.transform.position.x, owner.transform.position.y, owner.LadderSplineGO.transform.position.z);
+        //splinePos = new Vector3(owner.LadderSplineGO.transform.position.x, owner.transform.position.y, owner.LadderSplineGO.transform.position.z);
 
     }
 
     public override void HandleUpdate()
     {
-        if(thisAgent.pathStatus == NavMeshPathStatus.PathInvalid || thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
-        {
-            owner.Transition<CompanionIdelState>();
-        }
+        //if(thisAgent.pathStatus == NavMeshPathStatus.PathInvalid || thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
+        //{
+        //    owner.Transition<CompanionIdelState>();
+        //}
 
-        if (Vector3.Distance(splinePos,  owner.transform.position) < 0.5f)
+        if (Vector3.Distance(owner.LadderSplineGO.transform.position,  owner.transform.position) < 1f)
         {
             Debug.Log("close to anchor");
 

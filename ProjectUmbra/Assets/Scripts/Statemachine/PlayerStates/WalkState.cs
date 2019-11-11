@@ -38,7 +38,7 @@ public class WalkState : BaseState
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) && MovementHandler.IsGrounded())
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isJumping", true);

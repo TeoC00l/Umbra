@@ -16,7 +16,7 @@ public class LadderEventTrigger : MonoBehaviour
     private void ClimbLadderEventMethod()
     {
         enterSetClimb();
-        Invoke("enterAliceClimb", 1f);
+        Invoke("enterAliceClimb", 0.5f);
         changeLadderTrigger();
     }
 
@@ -71,7 +71,6 @@ public class LadderEventTrigger : MonoBehaviour
         }
 
 
-        ObjectHandeler.Set.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
     }
 
     private void changeLadderTrigger()

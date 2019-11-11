@@ -28,7 +28,7 @@ public class CompanionWaitingState : CompanionBaseState
         foreach(GameObject button in buttons)
         {
             Debug.Log(button.name + " " + button.transform.position);
-            if(Vector3.Distance(owner.transform.position, button.transform.position)  < 5)
+            if(Vector3.Distance(owner.transform.position, button.transform.position)  < 15)
             {
                 
                 buttonTrans = button.transform;
