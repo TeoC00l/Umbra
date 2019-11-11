@@ -65,4 +65,9 @@ public abstract class CompanionStateMachine : MonoBehaviour
     {
         return lastState;
     }
+
+    public CompanionState GetCurrentCompanionState()
+    {
+        return currentState;
+    }
 }

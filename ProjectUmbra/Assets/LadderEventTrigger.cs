@@ -5,8 +5,7 @@ using Pixelplacement;
 
 public class LadderEventTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject set;
-    [SerializeField] private GameObject alice;
+
     [SerializeField] private GameObject otherTrigger;
     [SerializeField] private GameObject LadderSplineGO;
     [SerializeField] private Spline LadderSpline;
@@ -17,15 +16,14 @@ public class LadderEventTrigger : MonoBehaviour
     private void ClimbLadderEventMethod()
     {
         enterSetClimb();
-        Invoke("enterAliceClimb", 0.5f);
+        Invoke("enterAliceClimb", 1f);
         changeLadderTrigger();
     }
 
 
     private void Start()
     {
-        alice = GameObject.FindGameObjectWithTag("Alice");
-        set = GameObject.FindGameObjectWithTag("Set");
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,18 +37,41 @@ public class LadderEventTrigger : MonoBehaviour
 
     private void enterAliceClimb()
     {
-        alice.GetComponent<Companion>().LadderSplineGO = this.LadderSplineGO;
-        alice.GetComponent<Companion>().isHighLadder = this.isHigh;
-        alice.GetComponent<Companion>().LadderSpline = this.LadderSpline;
-        alice.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
+        ObjectHandeler.Alice.GetComponent<Companion>().LadderSplineGO = this.LadderSplineGO;
+        ObjectHandeler.Alice.GetComponent<Companion>().isHighLadder = this.isHigh;
+        ObjectHandeler.Alice.GetComponent<Companion>().LadderSpline = this.LadderSpline;
+
+        if (ObjectHandeler.Alice.GetComponent<Companion>().GetCurrentCompanionState() is CompanionWaitingState   /*Equals(typeof(CompanionWaitingState)) == false*/){
+
+            Debug.Log(ObjectHandeler.Alice.GetComponent<Companion>().GetCurrentCompanionState() + "is in WaitingState");
+
+
+        }
+        else
+        {
+            ObjectHandeler.Alice.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
+        }
+
     }
 
     private void enterSetClimb()
     {
-        set.GetComponent<Companion>().LadderSplineGO = this.LadderSplineGO;
-        set.GetComponent<Companion>().isHighLadder = this.isHigh;
-        set.GetComponent<Companion>().LadderSpline = this.LadderSpline;
-        set.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
+        ObjectHandeler.Set.GetComponent<Companion>().LadderSplineGO = this.LadderSplineGO;
+        ObjectHandeler.Set.GetComponent<Companion>().isHighLadder = this.isHigh;
+        ObjectHandeler.Set.GetComponent<Companion>().LadderSpline = this.LadderSpline;
+
+        if(ObjectHandeler.Set.GetComponent<Companion>().GetCurrentCompanionState() is CompanionWaitingState)
+        {
+            Debug.Log(ObjectHandeler.Set.GetComponent<Companion>().GetCurrentCompanionState() + "is in WaitingState");
+
+        }
+        else
+        {
+            ObjectHandeler.Set.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
+        }
+
+
+        ObjectHandeler.Set.GetComponent<Companion>().Transition<CompanionClimbLadderState>();
     }
 
     private void changeLadderTrigger()
