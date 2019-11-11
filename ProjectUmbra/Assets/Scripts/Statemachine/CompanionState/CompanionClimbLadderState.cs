@@ -12,6 +12,14 @@ public class CompanionClimbLadderState : CompanionBaseState
 
     public override void Enter()
     {
+        if(owner.name == "Set")
+        {
+            Debug.Log("Set Entered climb");
+            
+        }
+
+        thisAgent.radius = 0.1f;
+
         Debug.Log("entered");
         thisAgent.SetDestination(owner.LadderSplineGO.transform.position);
         //owner.GetComponent<NavMeshAgent>().enabled = false;
@@ -23,7 +31,12 @@ public class CompanionClimbLadderState : CompanionBaseState
 
     public override void HandleUpdate()
     {
-        if (Vector3.Distance(splinePos,  owner.transform.position) < 5f)
+        if(thisAgent.pathStatus == NavMeshPathStatus.PathInvalid || thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
+        {
+            owner.Transition<CompanionIdelState>();
+        }
+
+        if (Vector3.Distance(splinePos,  owner.transform.position) < 0.5f)
         {
             Debug.Log("close to anchor");
 
@@ -46,11 +59,17 @@ public class CompanionClimbLadderState : CompanionBaseState
                 
             }
         }
+        else
+        {
+            thisAgent.SetDestination(owner.LadderSplineGO.transform.position);
+        }
+        
     }
 
     public override void Exit()
     {
-        
+        thisAgent.radius = 0.5f;
+
     }
 
 
