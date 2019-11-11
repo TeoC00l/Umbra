@@ -13,8 +13,5 @@ public class Companion : CompanionStateMachine
     public Image iconSprite;
     public Spline LadderSpline;
     EventManager eventManager;
-
-    void OnEnable()
-    {
-    }
+    public bool isHighLadder;
 }

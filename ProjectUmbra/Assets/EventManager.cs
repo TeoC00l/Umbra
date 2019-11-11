@@ -5,14 +5,14 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
-    public delegate void CompanionClimbDelegate(GameObject ladder);
+    public delegate void CompanionClimbDelegate();
     public static event CompanionClimbDelegate onClimbLadderEvent;
 
-    public static void ClimbLadderEvent(GameObject ladder)
+    public static void ClimbLadderEvent()
     {
         if (onClimbLadderEvent != null)
         {
-            onClimbLadderEvent(ladder);
+            onClimbLadderEvent();
         }
     }
 }

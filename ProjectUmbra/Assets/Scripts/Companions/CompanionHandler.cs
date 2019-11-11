@@ -64,7 +64,7 @@ public class CompanionHandler : MonoBehaviour
 
     private void Update()
     {
-        IfNotOnNavMesh();
+        //IfNotOnNavMesh();
     }
 
     private void OnCollisionEnter(Collision collision)

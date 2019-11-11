@@ -43,25 +43,25 @@ public class LadderControl : MonoBehaviour
             other.transform.position = pos;
             //other.transform.Translate(pos);
         }
-        if (other.CompareTag("Set"))
-        {
-            other.transform.SetParent(transform);
-            other.GetComponent<NavMeshAgent>().enabled = false;
-            if(isSnaped == false)
-            {
-                other.transform.position = lowerTrans.position;
-                Debug.Log("snap");
-                isSnaped = true;
-                if (isSnaped)
-                {
-                    other.attachedRigidbody.MovePosition(higherTrans.position);
-                    Debug.Log("higher");
-                }
+        //if (other.CompareTag("Set"))
+        //{
+        //    other.transform.SetParent(transform);
+        //    other.GetComponent<NavMeshAgent>().enabled = false;
+        //    if(isSnaped == false)
+        //    {
+        //        other.transform.position = lowerTrans.position;
+        //        Debug.Log("snap");
+        //        isSnaped = true;
+        //        if (isSnaped)
+        //        {
+        //            other.attachedRigidbody.MovePosition(higherTrans.position);
+        //            Debug.Log("higher");
+        //        }
 
-            }
+        //    }
 
 
-        }
+        //}
     }
 
     public void OnTriggerExit(Collider other)
