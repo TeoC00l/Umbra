@@ -92,9 +92,9 @@ public class CornerTurner : MonoBehaviour
                 other.gameObject.transform.Rotate(0, turnRotation/* insert variable*/, 0, Space.Self);
 
 
-                //gameObject.SetActive(false);
+                gameObject.SetActive(false);
 
-                GetComponent<BoxCollider>().isTrigger = false;
+                //GetComponent<BoxCollider>().isTrigger = false;
 
                 hasTurned = false;
                 tpd = true;

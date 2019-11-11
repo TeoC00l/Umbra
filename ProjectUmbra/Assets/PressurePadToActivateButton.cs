@@ -14,14 +14,16 @@ public class PressurePadToActivateButton : MonoBehaviour
 
     private int allBools;
     private bool buttonCanBePressed = false;
-    private Animation animation;
-    
+    private Animation gameobject_animation;
+    private Animator gameobject_animator;
+
     private void Start()
     {
         buttonLight = GetComponentInChildren<Light>();
-        animation = animGO.GetComponent<Animation>();
-        
-         
+        gameobject_animation = animGO.GetComponent<Animation>();
+        gameobject_animator = animGO.GetComponent<Animator>();
+
+
     }
 
 
@@ -63,7 +65,8 @@ public class PressurePadToActivateButton : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    animation.Play("MovingPlatformGroup2Level2");
+                    gameobject_animation.Play();
+                    gameobject_animator.SetBool("Active", true);
                 }
                 
             }
