@@ -53,6 +53,29 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void StartDialogueWithTimer(Dialogue dialogue, bool holdPlayer)
+    {
+        sentences.Clear();
+        current = dialogue;
+        //hold player
+        if (holdPlayer)
+        {
+            pm.setSpeed(0);
+        }
+        nameText.text = dialogue.name;
+        characterImage.sprite = dialogue.characterImage;
+
+        foreach (string sent in dialogue.sentences)
+        {
+            sentences.Enqueue(sent);
+        }
+
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeTimedSentence(sentence));
+    }
+
+
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -75,6 +98,19 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
+    }
+
+    IEnumerator TypeTimedSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            //yield return null;
+        }
+        yield return new WaitForSeconds(5);
+        EndDialogue();
+
     }
 
     void EndDialogue()

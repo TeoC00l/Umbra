@@ -8,6 +8,8 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private DialogueManager dm;
     [Header("Should player input be disabled during dialogue?")]
     [SerializeField] bool holdPlayer = true;
+    [Header("Should dialogue disappear by itself after five seconds?")]
+    [SerializeField] bool hasTimer = false;
 
     //the object this script is attached to will be the trigger for the dialogue. It could be a collider trigger, button, etc. or be called from another script for scripted cutscene events.
 
@@ -21,7 +23,17 @@ public class DialogueTrigger : MonoBehaviour
     {
         dm.dialogueCanvas.SetActive(true);
 
-        dm.StartDialogue(dialogue, holdPlayer);
+        if (hasTimer)
+        {
+            dm.StartDialogueWithTimer(dialogue, holdPlayer);
+        }
+        else
+        {
+            dm.StartDialogue(dialogue, holdPlayer);
+        }
+        
     }
+
+
 
 }
