@@ -42,7 +42,7 @@ public class BridgeControl : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
 
 
-            navMeshSurface.BuildNavMesh();
+            //navMeshSurface.BuildNavMesh();
         }
     }
 
@@ -67,7 +67,7 @@ public class BridgeControl : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
             
 
-            navMeshSurface.BuildNavMesh();
+            //navMeshSurface.BuildNavMesh();
             
             
         }

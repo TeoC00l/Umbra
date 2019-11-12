@@ -15,9 +15,14 @@ public class InActivateAliceAndSet : MonoBehaviour
             alice = GameObject.FindGameObjectWithTag("Alice");
             set = GameObject.FindGameObjectWithTag("Set");
 
-            alice.SetActive(false);
-            set.SetActive(false);
+            try { 
+                alice.SetActive(false);
+                set.SetActive(false);
+            }
+            catch (System.NullReferenceException)
+            {
 
+            }
         }
     }
 
