@@ -61,4 +61,11 @@ public class BaseState : State
     {
         
     }
+
+    public override void Exit()
+    {
+       
+    }
+
+
 }

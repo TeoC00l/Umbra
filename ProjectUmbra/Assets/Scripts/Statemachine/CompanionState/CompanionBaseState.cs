@@ -42,6 +42,13 @@ public class CompanionBaseState : CompanionState
 
             onSetUp = false;
         }
+        
+        // OM SPELAREN ÄR 3M IFRÅN I Y-LED SÅ GÅR DEN IN I IDEL 
+
+        //if(Vector3.Distance(thisAgent.transform.position, new Vector3( thisAgent.transform.position.x, ObjectHandeler.Player.transform.position.y,thisAgent.transform.position.z)) > 3)
+        //{
+        //    owner.Transition<CompanionIdelState>();
+        //}
 
         CheckIfWaiting();
 

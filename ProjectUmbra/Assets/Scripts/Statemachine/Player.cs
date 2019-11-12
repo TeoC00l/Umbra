@@ -6,6 +6,13 @@ public class Player : StateMachine
 {
 
 
+    public bool isClimbing = false;
+
+
+    public Transform ClimbToTransform;
+
+
+
 
 
 

@@ -8,7 +8,7 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
-        //Debug.Log("Climb state");
+        Debug.Log("Climb state");
         playerBody.isKinematic = true;
         animator.SetBool("isClimbing", true);
 
@@ -18,7 +18,7 @@ public class ClimbState : BaseState
     {
         MovementHandler.MoveOnLadder();
 
-        if (!MovementHandler.getLadderStatus())
+        if (!MovementHandler.getLadderStatus() && ObjectHandeler.Player.GetComponent<Player>().isClimbing == false)
         {
             owner.Transition<WalkState>();
         }

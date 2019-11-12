@@ -77,21 +77,21 @@ public class PlayerMovement : MonoBehaviour
     {      
         verticalLadderInput.y = Input.GetAxis("Vertical");
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
-        transform.Translate(verticalLadderInput * 5f * Time.deltaTime);
+        transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
 
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.back * 35f * Time.deltaTime);
-            rb.AddForce((-transform.forward + new Vector3(0,1.5f,0)) * 4f, ForceMode.VelocityChange);
+            rb.AddForce((-transform.forward + new Vector3(0,/*1.5f*/ 0,0)) * 4f, ForceMode.VelocityChange);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             rb.isKinematic = false;
             //transform.Translate(Vector3.forward * 35f * Time.deltaTime);
-            rb.AddForce((transform.forward + new Vector3(0, 1.5f, 0)) * 4f, ForceMode.VelocityChange);
+            rb.AddForce((transform.forward + new Vector3(0, /*1.5f*/ 0, 0)) * 4f, ForceMode.VelocityChange);
         }
     }
 
