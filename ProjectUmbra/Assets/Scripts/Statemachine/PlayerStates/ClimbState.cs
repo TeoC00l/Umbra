@@ -18,7 +18,7 @@ public class ClimbState : BaseState
     {
         MovementHandler.MoveOnLadder();
 
-        if (!MovementHandler.getLadderStatus() && ObjectHandeler.Player.GetComponent<Player>().isClimbing == false)
+        if (!MovementHandler.getLadderStatus() /*&& ObjectHandeler.Player.GetComponent<Player>().isClimbing == false*/)
         {
             owner.Transition<WalkState>();
         }
