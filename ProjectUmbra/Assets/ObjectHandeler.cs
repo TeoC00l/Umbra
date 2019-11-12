@@ -8,7 +8,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject Set;
     public static GameObject Alice;
     public static GameObject[] ButtonList;
-
+    public static GameObject Player;
 
     private void Awake()
     {
@@ -19,6 +19,8 @@ public class ObjectHandeler : MonoBehaviour
 
     private void Start()
     {
+
+        Player = GameObject.FindGameObjectWithTag("Player");
         Set = GameObject.FindGameObjectWithTag("Set");
         Alice = GameObject.FindGameObjectWithTag("Alice");
 
