@@ -9,7 +9,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
     public bool isOccupied = false;
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Box"))
         {
             isPressed = true;
             
@@ -20,7 +20,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set"))
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Box"))
         {
             isPressed = false;
         }
