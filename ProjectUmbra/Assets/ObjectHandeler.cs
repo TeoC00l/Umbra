@@ -7,6 +7,7 @@ public class ObjectHandeler : MonoBehaviour
 
     public static GameObject Set;
     public static GameObject Alice;
+    public static GameObject[] ButtonList;
 
 
     private void Awake()
@@ -29,7 +30,14 @@ public class ObjectHandeler : MonoBehaviour
         {
             Debug.Log("dont have set and alice");
         }
+
+
+        ButtonList = GameObject.FindGameObjectsWithTag("Button");
+        Debug.Log(ButtonList.Length);
+
     }
+
+    
 
 
 }
