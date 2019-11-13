@@ -12,7 +12,7 @@ public class CornerTurner : MonoBehaviour
     private int turnRotation;
 
     private bool hasTurned;
-    [SerializeField] private bool rightTurn;
+    [SerializeField] private bool leftTurn;
 
 
     private void Start()
@@ -28,7 +28,7 @@ public class CornerTurner : MonoBehaviour
 
     private void TurnRotation(bool hasTurned)
     {
-        if (rightTurn)
+        if (leftTurn)
         {
             if (hasTurned == false)
             {
