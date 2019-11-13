@@ -7,20 +7,34 @@ public class WalkState : BaseState
 {
     public override void Enter()
     {
-        Debug.Log("walkstate");
     }
 
     public override void HandleUpdate()
     {
-       
-        bool isWalkingPressed = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
-        animator.SetBool("isWalking", isWalkingPressed);
-
-        base.HandleUpdate();
-        MovementHandler.SetInput();
-
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
         {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", true);
+        }
+        else
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
+
+            if (runningBack == true)
+            {
+                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
+                runningBack = false;
+            }
+
+        }
+        else
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
+
             if (runningBack == false)
             {
                 characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
@@ -28,34 +42,28 @@ public class WalkState : BaseState
             }
         }
 
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (runningBack == true)
-            {
-                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
-                runningBack = false;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) && MovementHandler.IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.IsGrounded())
         {
             animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", false);
             animator.SetBool("isJumping", true);
             MovementHandler.Jump();
             owner.Transition<AirState>();
         }
+
+
+        base.HandleUpdate();
+        MovementHandler.SetInput();
     }
     public override void HandleFixedUpdate()
     {
         MovementHandler.Move();
-
-
     }
 
 
     public override void Exit()
     {
         animator.SetBool("isWalking", false);
+        animator.SetBool("isIdle", false);
     }
 }
