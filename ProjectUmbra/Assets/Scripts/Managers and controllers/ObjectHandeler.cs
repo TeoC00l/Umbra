@@ -9,6 +9,9 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject Alice;
     public static GameObject[] ButtonList;
     public static GameObject Player;
+    //public GameObject[] CornerTurners;
+
+
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class ObjectHandeler : MonoBehaviour
 
 
         ButtonList = GameObject.FindGameObjectsWithTag("Button");
-        Debug.Log(ButtonList.Length);
+        //Debug.Log(ButtonList.Length);
 
     }
 

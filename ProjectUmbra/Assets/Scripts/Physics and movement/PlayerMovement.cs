@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform groundChecker;
 
-    [SerializeField]private bool isMovementLocked, isOnLadder, isJumping;
+    [SerializeField] private bool isMovementLocked, isOnLadder, isJumping;
 
     [SerializeField] private float speed, topSpeed, jumpHeight, fallMultiplier, groundDistance;
     [SerializeField] private LayerMask Ground, layerMask;
@@ -27,22 +27,73 @@ public class PlayerMovement : MonoBehaviour
     public RaycastHit SlideRayCastHit;
     [SerializeField] private LayerMask slideMask;
 
+    public bool isUpdatingXPosition;
+    Vector3 newPosition;
+
+    [SerializeField] private Transform [] CornerTurners;
+    [SerializeField] private Vector3 nextCornerTransform;
+    private int corner = 0;
+    private GameObject trans;
     //Methods
     void Start()
     {
+
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();
         groundChecker = transform.GetChild(0);
         Physics.gravity = new Vector3(0, -15f, 0);
         //try { 
-            Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), alice.GetComponent<BoxCollider>());
-            Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), set.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), alice.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), set.GetComponent<BoxCollider>());
         //} catch(UnassignedReferenceException)
         //{
 
         //}
+
+        //GetNextCorner();
+
+
     }
+    public void GetNextCorner()
+    {
+        //if (nextCornerTransform.gameObject.activeInHierarchy == false)
+        //{
+        //    corner += 1;
+        //}
+        nextCornerTransform = CornerTurners[corner].position;
+
+
+        corner += 1;
+        Debug.Log(CornerTurners.Length);
+        Debug.Log(corner);
+    }
+
+    public void Move()
+    {
+
+        newPosition = rb.position + transform.TransformDirection(input * speed * Time.fixedDeltaTime);
+
+        if (isUpdatingXPosition)
+        {
+
+            newPosition = new Vector3(nextCornerTransform.x, newPosition.y, newPosition.z);
+        }
+        else
+        {
+            newPosition = new Vector3(newPosition.x, newPosition.y, nextCornerTransform.z);
+        }
+
+
+        rb.MovePosition(newPosition);
+    }
+
+
+
+
+
+
+
 
     private void FixedUpdate()
     {
@@ -62,19 +113,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Move()
-    {
-        Vector3 newPosition = rb.position + transform.TransformDirection(input * speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPosition);
-    }
+
 
     public void AutoMove(Vector3 input)
     {
-           rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
+        rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
     }
 
     public void MoveOnLadder()
-    {      
+    {
         verticalLadderInput.y = Input.GetAxis("Vertical");
         horizontalLadderInput.z = Input.GetAxis("Horizontal");
         transform.Translate(verticalLadderInput * 5 * Time.deltaTime);

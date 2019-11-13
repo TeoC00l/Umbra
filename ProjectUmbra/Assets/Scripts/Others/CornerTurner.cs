@@ -13,17 +13,15 @@ public class CornerTurner : MonoBehaviour
 
     private bool hasTurned;
     [SerializeField] private bool leftTurn;
+    private bool horizontalPathUpdateIsX;
 
 
-    private void Start()
+    private void Awake()
     {
         pm = player.GetComponent<PlayerMovement>();
 
     }
 
-    private void Update()
-    {
-    }
 
 
     private void TurnRotation(bool hasTurned)
@@ -56,16 +54,7 @@ public class CornerTurner : MonoBehaviour
 
     private void TranslatePlayerToSelf(Collider other)
     {
-        //if (hasTurned)
-        //{
-        //    other.attachedRigidbody.velocity = new Vector3(0, other.attachedRigidbody.velocity.y, other.attachedRigidbody.velocity.z);
 
-        //}
-        //else
-        //{
-        //    other.attachedRigidbody.velocity = new Vector3(other.attachedRigidbody.velocity.x, other.attachedRigidbody.velocity.y, 0);
-
-        //}
         other.attachedRigidbody.velocity = Vector3.zero;
 
         other.gameObject.transform.position = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
@@ -75,8 +64,20 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            pm.cornerTurner = this.gameObject;
+            pm.cornerTurner = gameObject;
+
+            pm.GetNextCorner();
+
+            if (pm.isUpdatingXPosition)
+            {
+                pm.isUpdatingXPosition = false;
+            }
+            else
+            {
+                pm.isUpdatingXPosition = true;
+            }
         }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -85,17 +86,24 @@ public class CornerTurner : MonoBehaviour
         {
             if (tpd == false && Vector3.Distance(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, transform.position.z)) < 0.5f)
             {
-
+                
+                if(tpd == false)
+                {
+                    other.GetComponent<PlayerMovement>().isUpdatingXPosition = !other.GetComponent<PlayerMovement>().isUpdatingXPosition;
+                }
                 TranslatePlayerToSelf(other);
                 TurnRotation(hasTurned);
 
                 other.gameObject.transform.Rotate(0, turnRotation/* insert variable*/, 0, Space.Self);
 
 
-                gameObject.SetActive(false);
+
+
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+
+                //gameObject.SetActive(false);
 
                 //GetComponent<BoxCollider>().isTrigger = false;
-
                 hasTurned = false;
                 tpd = true;
                 //if (hasTurned)
@@ -107,12 +115,26 @@ public class CornerTurner : MonoBehaviour
                 //    hasTurned = true;
                 //}
                 //Debug.Log(hasTurned);
+
+
+
+
+                //if (other.GetComponent<HorizontalPathUpdate>().isUpdatingXPosition)
+                //{
+                //    other.GetComponent<HorizontalPathUpdate>().isUpdatingXPosition = false;
+                //}
+                //else
+                //{
+                //    other.GetComponent<HorizontalPathUpdate>().isUpdatingXPosition = true;
+                //}
+
             }
 
-            if (Vector3.Distance(other.transform.position, transform.position) > 0.5f)
-            {
-                tpd = false;
-            }
+            //if (Vector3.Distance(other.transform.position, transform.position) > 0.5f)
+            //{
+            //    tpd = false;
+
+            //}
 
         }
     }
@@ -123,7 +145,7 @@ public class CornerTurner : MonoBehaviour
         {
             isTurning = false;
             tpd = false;
-            
+
         }
     }
 

@@ -7,7 +7,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private Transform currentCheckpointPosition;
     private Quaternion latestRotation;
     private float cameraPosition;
-    private GameObject lastCornerTurned;
+    public GameObject lastCornerTurned;
     private List<GameObject> cornersTurned = new List<GameObject>();
 
     public void UpdateCurrentCheckpoint(Transform checkpointPosition, Quaternion playerRotation, float cameraPos, GameObject lastCorner)
