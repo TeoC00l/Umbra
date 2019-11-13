@@ -1857,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -6058,7 +6058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &235739493
 Transform:
   m_ObjectHideFlags: 0
@@ -11318,6 +11318,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 219007265, guid: f41b2855f54b49a468f633c863cdb881, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84,
+        type: 2}
     - target: {fileID: 219007266, guid: f41b2855f54b49a468f633c863cdb881, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -21899,6 +21904,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.144833
       objectReference: {fileID: 0}
+    - target: {fileID: 219007265, guid: f41b2855f54b49a468f633c863cdb881, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84,
+        type: 2}
     - target: {fileID: 219007266, guid: f41b2855f54b49a468f633c863cdb881, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -38679,7 +38689,7 @@ PrefabInstance:
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.5
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -38725,6 +38735,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5699
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359071, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -39783,7 +39808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1859718707
 Transform:
   m_ObjectHideFlags: 0
@@ -42119,8 +42144,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967653943}
-  m_LocalRotation: {x: -0.026953325, y: 0.3188802, z: 0.009072376, w: 0.94736826}
-  m_LocalPosition: {x: -21.101028, y: 18.29871, z: 130.6953}
+  m_LocalRotation: {x: -0.028710846, y: 0.3074957, z: 0.009282653, w: 0.95107096}
+  m_LocalPosition: {x: -21.103966, y: 18.258638, z: 130.70023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2091917262}
@@ -43036,13 +43061,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034064582}
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.01, y: 7.47, z: 17.4}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000015497205}
+  m_LocalPosition: {x: -14.75, y: 24.25, z: 115.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1859718707}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!65 &2034064584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43081,20 +43106,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Alice
-    characterImage: {fileID: 21300000, guid: e5ab9f0fe6cdac345b4d613c5f71dcf5, type: 3}
+    name: Set
+    characterImage: {fileID: 21300000, guid: 3f0d3d4d4c0d8ab4aab49c84b4032afb, type: 3}
     playNextVideo: 0
     sentences:
-    - 'Looks like that door will only open if someone''s standing on the switch.
-
-'
-    - 'Maybe Set or I could help you? Use "Q" to direct Set to stay or move, and "E"
-      to direct me.
-
-'
+    - You probably shouldn't touch that fire - in case you couldn't figure that out
+      by yourself or something...
   dm: {fileID: 1928835580}
-  holdPlayer: 1
-  hasTimer: 0
+  holdPlayer: 0
+  hasTimer: 1
 --- !u!1 &2040594177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5913021889783607774, guid: 526c1c324e16a584998805298611b905,
@@ -43995,7 +44015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 2128145753}
-  m_PathPosition: 14.344183
+  m_PathPosition: 14.341838
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
