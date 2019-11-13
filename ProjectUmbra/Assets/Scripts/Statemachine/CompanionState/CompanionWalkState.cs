@@ -10,6 +10,7 @@ public class CompanionWalkState : CompanionBaseState
     {
         //Play animation
         //Debug.Log("enter WalkState " + owner.gameObject.name);
+        
         thisAgent.isStopped = false;
         thisAgent.SetDestination(owner.TargetPlayer.transform.position);
 
@@ -22,10 +23,12 @@ public class CompanionWalkState : CompanionBaseState
         if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false)
         {
             owner.Transition<CompanionIdelState>();
+            companionAnimator.SetBool("IsWalking", false);
         }
         else
         {
             thisAgent.SetDestination(owner.TargetPlayer.transform.position);
+            companionAnimator.SetBool("IsWalking", true);
         }
 
 

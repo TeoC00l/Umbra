@@ -10,12 +10,13 @@ public class CompanionBaseState : CompanionState
     protected CompanionHandler companionHandler;
     protected Rigidbody compaionRB;
     protected NavMeshAgent thisAgent;
-
+    protected Animator companionAnimator;
 
 
     private bool onSetUp = true;
     public override void Initialize(CompanionStateMachine owner)
     {
+        companionAnimator = owner.GetComponentInChildren<Animator>();
         this.owner = (Companion)owner;
         companionHandler = owner.GetComponent<CompanionHandler>();
         compaionRB = owner.GetComponent<Rigidbody>();
