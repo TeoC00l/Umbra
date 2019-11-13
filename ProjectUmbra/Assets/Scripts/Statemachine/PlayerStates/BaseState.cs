@@ -15,6 +15,7 @@ public class BaseState : State
     protected Transform characterModel;
     protected bool runningBack;
 
+
     public override void Initialize(StateMachine owner)
     {
         this.owner = (Player)owner;
@@ -66,6 +67,4 @@ public class BaseState : State
     {
        
     }
-
-
 }

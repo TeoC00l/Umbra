@@ -5,49 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/AirState")]
 public class AirState : BaseState
 {
+    public int framesPassed;
+
     public override void Enter()
     {
+        framesPassed = 0;
     }
 
     public override void HandleUpdate()
     {
-
-        //if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
-        //{
-        //    //Do nothing
-        //}
-        //else
-        //if (Input.GetAxis("Horizontal") > 0)
-        //{
-        //    if (runningBack == true)
-        //    {
-        //        characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
-        //        runningBack = false;
-        //    }
-
-        //}
-        //else
-        //if (Input.GetAxis("Horizontal") < 0)
-        //{
-        //    if (runningBack == false)
-        //    {
-        //        characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
-        //        runningBack = true;
-        //    }
-        //}
-
-
-        //base.HandleUpdate();
+        framesPassed++;
         MovementHandler.SetInput();
-        
-        if (MovementHandler.IsGrounded())
+
+        base.HandleUpdate();
+    }
+    public override void HandleFixedUpdate()
+    {
+        if (MovementHandler.IsGrounded() && framesPassed > 10)
         {
             animator.SetBool("isJumping", false);
             owner.Transition<WalkState>();
         }
-    }
-    public override void HandleFixedUpdate()
-    {
+
         MovementHandler.Move();
     }
 
