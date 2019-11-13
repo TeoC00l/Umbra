@@ -7,6 +7,7 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     private GameObject alice;
     private GameObject set;
     [SerializeField] private ParticleSystem particles;
+    [SerializeField] private GameObject followerIcons;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
             try
             {
                 particles.Play();
+                followerIcons.SetActive(true);
             }
             catch (System.NullReferenceException)
             {
