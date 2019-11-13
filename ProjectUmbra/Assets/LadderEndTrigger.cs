@@ -26,22 +26,25 @@ public class LadderEndTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (climbUp)
+            if (!isTween)
             {
-                if (Input.GetKey(KeyCode.W))
+                if (climbUp)
                 {
-                    Tween.Spline(LadderSpline, other.gameObject.transform, 0f, 1f, false, 1f, 0f, Tween.EaseInOut, Tween.LoopType.None, null, OnTweenFinished);
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        Tween.Spline(LadderSpline, other.gameObject.transform, 0f, 1f, false, 1f, 0f, Tween.EaseIn, Tween.LoopType.None, null, OnTweenFinished);
+                    }
                 }
-            }
-            else
-            {
-                if(Input.GetKey(KeyCode.D))
+                else
                 {
+                    if (Input.GetKey(KeyCode.D))
+                    {
 
+                    }
                 }
             }
         }
@@ -49,6 +52,6 @@ public class LadderEndTrigger : MonoBehaviour
 
     private void OnTweenFinished()
     {
-
+        isTween = false;
     }
 }
