@@ -20,13 +20,13 @@ public class TurnState : BaseState
 
     public override void HandleUpdate()
     {
-        if (rotated == true && cornerTurner.GetComponent<CornerTurner>().getTurningStatus() == false)
-        {
-            Debug.Log("Exited");
-            rotated = false;
-            MovementHandler.setLocked();
-            owner.Transition<WalkState>();
-        }
+        //if (rotated == true && cornerTurner.GetComponent<CornerTurner>().getTurningStatus() == false)
+        //{
+        //    Debug.Log("Exited");
+        //    rotated = false;
+        //    MovementHandler.setLocked();
+        //    owner.Transition<WalkState>();
+        //}
     }
 
     public override void HandleFixedUpdate()
