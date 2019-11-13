@@ -82,16 +82,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //rb.isKinematic = false;
+            rb.isKinematic = false;
             ////transform.Translate(Vector3.back * 35f * Time.deltaTime);
-            //rb.AddForce((-transform.forward + new Vector3(0,/*1.5f*/ 0,0)) * 4f, ForceMode.VelocityChange);
+            ///
+            rb.AddForce(-transform.forward * 4f, ForceMode.VelocityChange);
+            setLadderStatus(false);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //rb.isKinematic = false;
+            rb.isKinematic = false;
             ////transform.Translate(Vector3.forward * 35f * Time.deltaTime);
-            //rb.AddForce((transform.forward + new Vector3(0, /*1.5f*/ 0, 0)) * 4f, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * 4f, ForceMode.VelocityChange);
+            setLadderStatus(false);
         }
     }
 
