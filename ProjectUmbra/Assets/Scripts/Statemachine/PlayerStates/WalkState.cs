@@ -7,6 +7,7 @@ public class WalkState : BaseState
 {
     public override void Enter()
     {
+        animator.SetBool("isIdle", true);
     }
 
     public override void HandleUpdate()

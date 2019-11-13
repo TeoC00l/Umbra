@@ -33,14 +33,5 @@ public class AirState : BaseState
     public override void Exit()
     {
         animator.SetBool("isJumping", false);
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isIdle", true);
-        }
     }
 }
