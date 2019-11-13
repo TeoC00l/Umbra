@@ -27,7 +27,7 @@ public class LadderControl : MonoBehaviour
     }
     public void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) && !pm.getLadderStatus())
+        if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !pm.getLadderStatus())
         {
             pm.setLadderStatus(true);
             Vector3 pos;

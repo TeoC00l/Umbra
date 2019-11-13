@@ -8,9 +8,11 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
-        characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 270f);
+        //characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 270f);
         playerBody.isKinematic = true;
         //animator.SetBool("isClimbing", true);
+        animator.SetBool("isIdle", true);
+        Debug.Log("Climbing");
     }
 
     public override void HandleUpdate()
@@ -24,7 +26,7 @@ public class ClimbState : BaseState
     }
     public override void Exit()
     {
-        characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
+        //characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
         //animator.SetBool("isClimbing", false);
         animator.SetBool("isIdle", true);
         playerBody.isKinematic = false;
