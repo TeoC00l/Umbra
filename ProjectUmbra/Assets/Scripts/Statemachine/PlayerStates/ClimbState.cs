@@ -25,6 +25,7 @@ public class ClimbState : BaseState
     }
     public override void Exit()
     {
+        Debug.Log("climb state exited");
         animator.SetBool("isClimbing", false);
         playerBody.isKinematic = false;
     }

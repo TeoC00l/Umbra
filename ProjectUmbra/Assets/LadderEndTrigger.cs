@@ -30,20 +30,25 @@ public class LadderEndTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!isTween)
+            if (other.GetComponent<PlayerMovement>().getLadderStatus() == true)
             {
-                if (climbUp)
-                {
-                    if (Input.GetKey(KeyCode.W))
-                    {
-                        Tween.Spline(LadderSpline, other.gameObject.transform, 0f, 1f, false, 1f, 0f, Tween.EaseIn, Tween.LoopType.None, null, OnTweenFinished);
-                    }
-                }
-                else
-                {
-                    if (Input.GetKey(KeyCode.D))
-                    {
 
+                if (!isTween)
+                {
+                    if (climbUp)
+                    {
+                        if (Input.GetKey(KeyCode.W))
+                        {
+                            Tween.Spline(LadderSpline, other.gameObject.transform, 0f, 1f, false, 1f, 0f, Tween.EaseIn, Tween.LoopType.None, null, OnTweenFinished);
+                        }
+                    }
+
+                    else
+                    {
+                        if (Input.GetKey(KeyCode.S))
+                        {
+                            Tween.Spline(LadderSpline, other.gameObject.transform, 0f, 1f, false, 1f, 0f, Tween.EaseIn, Tween.LoopType.None, null, OnTweenFinished);
+                        }
                     }
                 }
             }
