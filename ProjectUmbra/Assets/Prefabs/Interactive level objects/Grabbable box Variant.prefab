@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &363863506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095599184019708647}
+  m_Material: {fileID: 13400000, guid: ed5ac8619f0b2d94592e2cc1778c210b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.1070712, z: 1.0892149}
+  m_Center: {x: 0.0000004635917, y: -0.024335107, z: -0.004056229}
 --- !u!65 &3087997134950775763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25,20 +38,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grabbable box Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5038066850995359057, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -140.37007
+      value: -11.522621
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.5
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 117.5
+      value: 139
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359069, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -95,11 +113,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7717884245718081325, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: ed5ac8619f0b2d94592e2cc1778c210b,
+      objectReference: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84,
         type: 2}
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -109,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.1051502
+      value: 0.9542772
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -119,17 +142,17 @@ PrefabInstance:
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.013137817
+      value: 0.013137791
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.021906853
+      value: 0.009727558
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359056, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Center.z
-      value: -0.0065727234
+      value: -0.006572737
       objectReference: {fileID: 0}
     - target: {fileID: 5038066850995359071, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
@@ -139,8 +162,13 @@ PrefabInstance:
     - target: {fileID: 5038066850995359071, guid: 0bbbeaec1be2fec48a1a244242da1621,
         type: 3}
       propertyPath: m_Constraints
-      value: 120
+      value: 114
       objectReference: {fileID: 0}
+    - target: {fileID: 6515550111544011859, guid: 0bbbeaec1be2fec48a1a244242da1621,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79b27305356666a42980c0497ed2ccc7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bbbeaec1be2fec48a1a244242da1621, type: 3}
 --- !u!1 &4095599184019708647 stripped
