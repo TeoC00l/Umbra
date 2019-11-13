@@ -17,7 +17,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Box"))
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
         {
             isPressed = true;
             feedbackLight.color = Color.green;
@@ -28,7 +28,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Box"))
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
         {
             isPressed = false;
             feedbackLight.color = Color.red;
