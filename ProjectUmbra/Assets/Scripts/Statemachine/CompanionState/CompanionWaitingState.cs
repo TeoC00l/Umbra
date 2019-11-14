@@ -40,7 +40,7 @@ public class CompanionWaitingState : CompanionBaseState
 
         }
 
-        if (distance < 20)
+        if (distance < 15)
         {
             owner.isWalkingToButton = true;
 

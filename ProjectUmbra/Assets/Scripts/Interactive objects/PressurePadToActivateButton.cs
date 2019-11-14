@@ -11,7 +11,7 @@ public class PressurePadToActivateButton : MonoBehaviour
     [SerializeField] private int numbersOfActiveBools;
 
     [SerializeField] private Light buttonLight;
-    private Color buttonLightColor = Color.green;
+    //private Color buttonLightColor = Color.yellow;
 
     private int allBools;
     private bool buttonCanBePressed = false;
@@ -23,7 +23,7 @@ public class PressurePadToActivateButton : MonoBehaviour
         buttonLight = GetComponentInChildren<Light>();
         gameobject_animation = animGO.GetComponent<Animation>();
         gameobject_animator = animGO.GetComponent<Animator>();
-
+        //buttonLight.color = Color.red;
 
     }
 
@@ -41,7 +41,7 @@ public class PressurePadToActivateButton : MonoBehaviour
 
         if (allBools >= numbersOfActiveBools)
         {
-            buttonLight.color = buttonLightColor;
+            buttonLight.color = Color.yellow;
             buttonCanBePressed = true;
 
 
@@ -66,7 +66,7 @@ public class PressurePadToActivateButton : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    buttonLightColor = Color.blue;
+                    buttonLight.color = Color.green;
                     gameobject_animation.Play();
                     gameobject_animator.SetBool("Active", true);
                 }
