@@ -11,6 +11,7 @@ public class CompanionBaseState : CompanionState
     protected Rigidbody compaionRB;
     protected NavMeshAgent thisAgent;
     protected Animator companionAnimator;
+    protected Transform characterModel;
 
 
     private bool onSetUp = true;
@@ -28,6 +29,7 @@ public class CompanionBaseState : CompanionState
 
     public override void Enter()
     {
+        characterModel = owner.transform.Find("Idle");
         base.Enter();
         //Debug.Log("enter BaseState Companion");
 

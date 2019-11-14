@@ -52,7 +52,6 @@ public class CompanionHandler : MonoBehaviour
 
     private void Start()
     {
-
         Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
     }
 
@@ -169,6 +168,11 @@ public class CompanionHandler : MonoBehaviour
             aliceAgent.isStopped = true;
             Debug.Log("alice stopped");
         }
+    }
+
+    public void LateUpdate()
+    {
+        //characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
     }
 
 

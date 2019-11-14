@@ -30,6 +30,9 @@ public class CompanionWalkState : CompanionBaseState
         {
             owner.TargetIsToFarInYAxis();
             thisAgent.SetDestination(owner.TargetPlayer.transform.position);
+
+            //characterModel.LookAt(owner.TargetPlayer.transform.position);
+
             companionAnimator.SetBool("IsWalking", true);
         }
 
