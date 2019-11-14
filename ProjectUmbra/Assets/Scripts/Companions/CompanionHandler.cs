@@ -23,7 +23,6 @@ public class CompanionHandler : MonoBehaviour
 
     private bool setMoving = true;
     private bool aliceMoving = true;
-    private GameObject[] boxes;
 
     
 
@@ -53,11 +52,7 @@ public class CompanionHandler : MonoBehaviour
 
     private void Start()
     {
-        //boxes = GameObject.FindGameObjectsWithTag("Grabbable");
-        //foreach(GameObject box in boxes)
-        //{
-        //    Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), box.GetComponent<BoxCollider>());
-        //}
+
         Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
     }
 
@@ -72,9 +67,10 @@ public class CompanionHandler : MonoBehaviour
         if (collision.collider.CompareTag("Grabbable"))
         {
             BoxCollider[] colliderArray = collision.gameObject.GetComponents<BoxCollider>();
+            Debug.Log(colliderArray.Length);
             foreach (BoxCollider box in colliderArray)
             {
-                Physics.IgnoreCollision(collision.collider.GetComponent<BoxCollider>(), gameObject.GetComponent<BoxCollider>());
+                Physics.IgnoreCollision(box, gameObject.GetComponent<BoxCollider>());
             }
         }
         if (collision.collider.CompareTag("Monster"))
