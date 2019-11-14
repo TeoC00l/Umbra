@@ -10,7 +10,7 @@ public class ClimbState : BaseState
     {
         if (movementHandler.cornerTurnerMode == 0)
         {
-            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
         }
 
         if (movementHandler.cornerTurnerMode == 1)
@@ -20,7 +20,7 @@ public class ClimbState : BaseState
 
         if (movementHandler.cornerTurnerMode == 2)
         {
-            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
         }
 
         if (movementHandler.cornerTurnerMode == 3)

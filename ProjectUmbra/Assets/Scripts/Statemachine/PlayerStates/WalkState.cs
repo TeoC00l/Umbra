@@ -68,7 +68,6 @@ public class WalkState : BaseState
 
         if (movementHandler.cornerTurnerMode == 2)
         {
-            Debug.Log("in");
             if (Input.GetAxis("Horizontal") > 0)
             {
                 animator.SetBool("isWalking", true);
