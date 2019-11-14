@@ -30,7 +30,7 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
                 particles.Play();
                 followerIcons.SetActive(true);
             }
-            catch (System.NullReferenceException)
+            catch (UnityEngine.UnassignedReferenceException)
             {
 
             }
