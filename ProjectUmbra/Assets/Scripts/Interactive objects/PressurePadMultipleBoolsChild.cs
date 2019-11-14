@@ -20,6 +20,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
         {
             isPressed = true;
+            isOccupied = true;
             feedbackLight.color = Color.green;
         }
 
@@ -30,7 +31,9 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
         {
+            
             isPressed = false;
+            isOccupied = false;
             feedbackLight.color = Color.red;
         }
     }

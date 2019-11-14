@@ -42,7 +42,7 @@ public class CompanionWaitingState : CompanionBaseState
 
 
 
-        if (distance < 15)
+        if (distance < 20)
         {
             owner.isWalkingToButton = true;
             buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = true;
