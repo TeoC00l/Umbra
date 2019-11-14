@@ -108,7 +108,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             //yield return null;
         }
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(6f);
         EndDialogue();
 
     }

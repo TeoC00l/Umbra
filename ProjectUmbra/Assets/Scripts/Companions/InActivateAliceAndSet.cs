@@ -13,17 +13,17 @@ public class InActivateAliceAndSet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            alice = GameObject.FindGameObjectWithTag("Alice");
-            set = GameObject.FindGameObjectWithTag("Set");
+
+
 
             try { 
-                alice.SetActive(false);
-                set.SetActive(false);
+                ObjectHandeler.Alice.SetActive(false);
+                ObjectHandeler.Set.SetActive(false);
                 followerIcons.SetActive(false);
             }
             catch (System.NullReferenceException)
             {
-
+                Debug.Log("deActivate set and alice FAIL");
             }
         }
     }
