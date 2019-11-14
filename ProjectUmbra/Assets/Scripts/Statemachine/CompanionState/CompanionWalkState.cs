@@ -35,14 +35,12 @@ public class CompanionWalkState : CompanionBaseState
 
             companionAnimator.SetBool("IsWalking", true);
         }
+    }
 
 
-
-        
-
-
-
-
+    public override void Exit()
+    {
+        companionAnimator.SetBool("IsWalking", false);
     }
 
 
