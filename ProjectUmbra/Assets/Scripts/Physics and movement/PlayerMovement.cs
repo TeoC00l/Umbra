@@ -48,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
         {
             cornerTurnerMode = 3;
         }
+        else if (sceneName == "Prologue_Gameplay")
+        {
+            cornerTurnerMode = 3;
+        }
 
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
