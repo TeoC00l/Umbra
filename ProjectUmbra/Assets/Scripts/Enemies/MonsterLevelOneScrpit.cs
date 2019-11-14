@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class MonsterLevelOneScrpit : MonoBehaviour
 {
+    private Animator animator;
     public bool isChasing = false;
     private bool isStopped = false;
     private DeathComponent deathComponent;
@@ -18,26 +19,23 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
     private void Start()
     {
-
+        animator = GetComponentInChildren<Animator>();
         playerTrans = playerGO.transform;
-        //dc = player.GetComponent<DeathComponent>();
         agent = GetComponent<NavMeshAgent>();
         deathComponent = playerGO.GetComponent<DeathComponent>();
-        //chasePlayer = GetComponentInParent<ChasePlayer>();
-        originalPosition = transform.position;
-        
-
+        originalPosition = transform.position;    
     }
 
     private void Update()
     {
         if (isChasing == true)
         {
-
+            animator.SetBool("isChasing", true);
             setMonsterDestination(playerTrans);
 
             if (agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
             {
+                animator.SetBool("isChasing", false);
                 agent.isStopped = true;
             }
         }
@@ -49,6 +47,8 @@ public class MonsterLevelOneScrpit : MonoBehaviour
                 monster.GetComponent<NavMeshAgent>().isStopped = true; ;
 
                 monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
+                animator.SetBool("isChasing", false);
+
 
             }
 
@@ -71,7 +71,7 @@ public class MonsterLevelOneScrpit : MonoBehaviour
             thisAgent.Warp(monster.GetComponent<MonsterLevelOneScrpit>().originalPosition);
 
             monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
-
+            animator.SetBool("isChasing", false);
         }
 
     }
