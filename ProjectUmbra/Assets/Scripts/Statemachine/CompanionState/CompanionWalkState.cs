@@ -20,13 +20,15 @@ public class CompanionWalkState : CompanionBaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false)
+        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false || owner.TargetIsToFarInYAxis())
         {
+            owner.TargetIsToFarInYAxis();
             owner.Transition<CompanionIdelState>();
             companionAnimator.SetBool("IsWalking", false);
         }
         else
         {
+            owner.TargetIsToFarInYAxis();
             thisAgent.SetDestination(owner.TargetPlayer.transform.position);
             companionAnimator.SetBool("IsWalking", true);
         }

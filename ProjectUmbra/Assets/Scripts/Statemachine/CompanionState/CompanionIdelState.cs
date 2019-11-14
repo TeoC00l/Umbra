@@ -23,7 +23,7 @@ public class CompanionIdelState : CompanionBaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == true && owner.isWaiting == false)
+        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == true && owner.isWaiting == false && owner.TargetIsToFarInYAxis() == false)
         {
 
             owner.Transition<CompanionWalkState>();
