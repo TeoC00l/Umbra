@@ -8,14 +8,27 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
-        if (runningBack)
+        //characterModel.transform.LookAt(CurrentLadder.transform, Vector3.up);
+        
+        //if (runningBack)
+        //{
+        //characterModel.transform.LookAt(MovementHandler.CurrentLadder.transform.GetChild(1));
+        if (movementHandler.cornerTurner.GetComponent<CornerTurner>().GetTurnDirection())
         {
-            characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 270f);
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
         }
         else
         {
-            characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
         }
+
+        //    //characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 270f);
+        //}
+        //else
+        //{
+
+        //    characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
+        //}
 
         playerBody.isKinematic = true;
         animator.SetBool("isClimbing", true);
@@ -25,7 +38,7 @@ public class ClimbState : BaseState
 
     public override void HandleUpdate()
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             animator.SetBool("isClimbing", true);
             animator.speed = 2f;
@@ -37,9 +50,9 @@ public class ClimbState : BaseState
             animator.speed = 0f;
         }
 
-        MovementHandler.MoveOnLadder();
+        movementHandler.MoveOnLadder();
 
-        if (!MovementHandler.getLadderStatus())
+        if (!movementHandler.getLadderStatus())
         {
             owner.Transition<WalkState>();
         }
@@ -47,15 +60,6 @@ public class ClimbState : BaseState
 
     public override void Exit()
     {
-        if (runningBack)
-        {
-            characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
-        }
-        else
-        {
-            characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
-        }
-
         animator.speed = 1f;
         animator.SetBool("isClimbing", false);
         playerBody.isKinematic = false;

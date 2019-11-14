@@ -12,53 +12,131 @@ public class WalkState : BaseState
 
     public override void HandleUpdate()
     {
-        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+        if (movementHandler.cornerTurnerMode == 0)
         {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", true);
-        }
-        else
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isIdle", false);
-
-            if (runningBack == true)
+            if (Input.GetAxis("Horizontal") > 0)
             {
-                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
-                runningBack = false;
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
             }
 
-        }
-        else
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isIdle", false);
-
-            if (runningBack == false)
+            if (Input.GetAxis("Horizontal") < 0)
             {
-                characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 180f);
-                runningBack = true;
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && MovementHandler.IsGrounded())
+
+
+        if (movementHandler.cornerTurnerMode == 1)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+
+        if (movementHandler.cornerTurnerMode == 2)
+        {
+            Debug.Log("in");
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+        if (movementHandler.cornerTurnerMode == 3)
+        {
+
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && movementHandler.IsGrounded())
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", false);
             animator.SetBool("isJumping", true);
-            MovementHandler.Jump();
+            movementHandler.Jump();
             owner.Transition<AirState>();
         }
 
-
         base.HandleUpdate();
-        MovementHandler.SetInput();
+        movementHandler.SetInput();
     }
+
     public override void HandleFixedUpdate()
     {
-        MovementHandler.Move();
+        movementHandler.Move();
     }
 
 

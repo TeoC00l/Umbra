@@ -18,7 +18,7 @@ public class GrabbingState : BaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        MovementHandler.SetInput();
+        movementHandler.SetInput();
         
         if(grabHandler.GetGrabStatus() == false)
         {
@@ -28,6 +28,6 @@ public class GrabbingState : BaseState
     }
     public override void HandleFixedUpdate()
     {
-        MovementHandler.Move();
+        movementHandler.Move();
     }
 }

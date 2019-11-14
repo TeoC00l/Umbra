@@ -20,16 +20,23 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject cornerTurner;
     public Vector3 veloc;
+    public int cornerTurnerMode;
+    //Cornerturn mode is a value 0-3
+    //0 is forward, 1 is right, 2 is back, and 3 is left
+    //this value serves to identify the rotation of the players character
 
 
     [SerializeField] private GameObject alice, set;
 
     public RaycastHit SlideRayCastHit;
     [SerializeField] private LayerMask slideMask;
+    [SerializeField] public GameObject CurrentLadder;
+
 
     //Methods
     void Start()
     {
+        cornerTurnerMode = 1;
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();
@@ -172,5 +179,15 @@ public class PlayerMovement : MonoBehaviour
     public void setLadderStatus(bool status)
     {
         isOnLadder = status;
+    }
+
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            CurrentLadder = other.gameObject;
+        }
     }
 }

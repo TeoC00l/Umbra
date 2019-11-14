@@ -14,11 +14,13 @@ public class CornerTurner : MonoBehaviour
     private bool hasTurned;
     [SerializeField] private bool leftTurn;
 
+    [SerializeField]public int cornerTurnMode;
+    //Cornerturn mode is a value 0-3
+    //0 is forward, 1 is right, 2 is back, and 3 is left
+    //this value serves to identify the rotation of the players character
 
     private void Start()
     {
-        pm = player.GetComponent<PlayerMovement>();
-
     }
 
     private void Update()
@@ -75,7 +77,9 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            pm.cornerTurner = this.gameObject;
+            Debug.Log("Entered cornerturnmode " + cornerTurnMode);
+            pm = other.gameObject.GetComponent<PlayerMovement>();
+            pm.cornerTurner = gameObject;
         }
     }
 
@@ -85,6 +89,7 @@ public class CornerTurner : MonoBehaviour
         {
             if (tpd == false && Vector3.Distance(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, transform.position.z)) < 0.5f)
             {
+                pm.cornerTurnerMode = this.cornerTurnMode;
 
                 TranslatePlayerToSelf(other);
                 TurnRotation(hasTurned);
@@ -130,5 +135,10 @@ public class CornerTurner : MonoBehaviour
     public bool getTurningStatus()
     {
         return isTurning;
+    }
+
+    public bool GetTurnDirection()
+    {
+        return hasTurned;
     }
 }
