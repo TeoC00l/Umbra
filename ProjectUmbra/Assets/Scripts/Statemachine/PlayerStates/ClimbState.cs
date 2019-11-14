@@ -49,6 +49,7 @@ public class ClimbState : BaseState
         }
 
         movementHandler.MoveOnLadder();
+        
 
         if (!movementHandler.getLadderStatus())
         {

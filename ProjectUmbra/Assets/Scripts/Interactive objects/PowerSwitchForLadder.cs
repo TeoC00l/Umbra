@@ -20,7 +20,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKey(KeyCode.F))
             {
                 buttonLight.color = Color.green;
 
