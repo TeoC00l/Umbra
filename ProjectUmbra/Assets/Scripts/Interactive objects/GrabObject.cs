@@ -10,7 +10,7 @@ public class GrabObject : MonoBehaviour
     private GameObject box;
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.F))
+        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKey(KeyCode.F))
         //if (other.CompareTag("Grabbable"))
         {
             box = other.gameObject;

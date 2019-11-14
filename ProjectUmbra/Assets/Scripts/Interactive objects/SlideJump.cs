@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlideJump : MonoBehaviour
 {
 
-
+    private bool hasJumped = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,9 +18,13 @@ public class SlideJump : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DeathComponent.cachedPosition = other.transform.position;
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+            //other.GetComponent<Player>().Transition<PlayerSlidingState>();
+
+            //DeathComponent.cachedPosition = other.transform.position;
+            if(Input.GetKey(KeyCode.Space) && hasJumped == false)
             {
+
+                hasJumped = true;
                 //force = transform.forward.normalized + transform.up.normalized * 10;
 
                 other.attachedRigidbody.velocity = Vector3.zero;
