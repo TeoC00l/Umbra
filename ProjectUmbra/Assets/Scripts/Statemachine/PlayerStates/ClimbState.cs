@@ -8,31 +8,29 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
-        //characterModel.transform.LookAt(CurrentLadder.transform, Vector3.up);
-        
-        //if (runningBack)
-        //{
-        //characterModel.transform.LookAt(MovementHandler.CurrentLadder.transform.GetChild(1));
-        if (movementHandler.cornerTurner.GetComponent<CornerTurner>().GetTurnDirection())
+        if (movementHandler.cornerTurnerMode == 0)
         {
-            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
         }
-        else
+
+        if (movementHandler.cornerTurnerMode == 1)
         {
             characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
         }
 
-        //    //characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, 270f);
-        //}
-        //else
-        //{
+        if (movementHandler.cornerTurnerMode == 2)
+        {
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        }
 
-        //    characterModel.transform.RotateAround(characterModel.transform.position, characterModel.transform.up, -270f);
-        //}
+        if (movementHandler.cornerTurnerMode == 3)
+        {
+            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+        }       
 
         playerBody.isKinematic = true;
         animator.SetBool("isClimbing", true);
-        //animator.SetBool("isIdle", true);
+
         Debug.Log("Climbing");
     }
 

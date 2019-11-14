@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,7 +37,18 @@ public class PlayerMovement : MonoBehaviour
     //Methods
     void Start()
     {
-        cornerTurnerMode = 1;
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "Whitebox_lvl1")
+        {
+            cornerTurnerMode = 1;
+        }
+        else if (sceneName == "WhiteBox_lvl2")
+        {
+            cornerTurnerMode = 3;
+        }
+
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();
