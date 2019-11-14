@@ -13,6 +13,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     private void Start()
     {
         buttonLight = GetComponentInChildren<Light>();
+        buttonLight.color = Color.yellow;
     }
 
     private void OnTriggerStay(Collider other)
@@ -21,7 +22,7 @@ public class PowerSwitchForLadder : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                buttonLight.color = Color.blue;
+                buttonLight.color = Color.green;
 
                 foreach (GameObject animGo in animGOs)
                 {

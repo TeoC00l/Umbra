@@ -46,7 +46,7 @@ public class DeathComponent : MonoBehaviour
 
     private void Update()
     {
-        FallDistanceCheck();
+        //FallDistanceCheck();
 
     }
     
