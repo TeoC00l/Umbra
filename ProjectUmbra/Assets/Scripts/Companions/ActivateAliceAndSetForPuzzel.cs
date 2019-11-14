@@ -8,6 +8,9 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     private GameObject set;
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private GameObject followerIcons;
+    [SerializeField] private Transform aliceSpawn;
+    [SerializeField] private Transform setSpawn;
+
 
     private void Awake()
     {
@@ -22,8 +25,8 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
             ObjectHandeler.Set.SetActive(true);
             ObjectHandeler.Alice.SetActive(true);
 
-            ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(transform.position);
-            ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(transform.position);
+            ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(setSpawn.position);
+            ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(aliceSpawn.position);
 
             try
             {

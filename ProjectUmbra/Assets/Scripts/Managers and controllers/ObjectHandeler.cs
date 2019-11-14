@@ -25,8 +25,8 @@ public class ObjectHandeler : MonoBehaviour
         Alice = GameObject.FindGameObjectWithTag("Alice");
 
         if (Set != null && Alice != null){
-            Set.SetActive(false);
-            Alice.SetActive(false);
+            //Set.SetActive(false);
+            //Alice.SetActive(false);
         }
         else
         {
