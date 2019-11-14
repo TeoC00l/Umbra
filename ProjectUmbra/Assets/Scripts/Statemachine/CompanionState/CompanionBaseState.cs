@@ -59,7 +59,7 @@ public class CompanionBaseState : CompanionState
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (owner.gameObject.name == "Set")
+            if (owner.gameObject.CompareTag("Set"))
             {
                 if (owner.isWaiting == false)
                 {
@@ -71,7 +71,7 @@ public class CompanionBaseState : CompanionState
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (owner.gameObject.name == "Alice")
+            if (owner.gameObject.CompareTag("Alice"))
             {
                 if (owner.isWaiting == false)
                 {

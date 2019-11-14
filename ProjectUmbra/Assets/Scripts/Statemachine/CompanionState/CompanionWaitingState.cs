@@ -95,7 +95,7 @@ public class CompanionWaitingState : CompanionBaseState
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (owner.gameObject.name == "Set")
+            if (owner.gameObject.CompareTag("Set"))
             {
                 if (owner.isWaiting == true)
                 {
@@ -110,7 +110,7 @@ public class CompanionWaitingState : CompanionBaseState
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (owner.gameObject.name == "Alice")
+            if (owner.gameObject.CompareTag("Alice"))
             {
                 if (owner.isWaiting == true)
                 {
