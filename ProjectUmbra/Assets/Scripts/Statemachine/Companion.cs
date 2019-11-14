@@ -20,7 +20,7 @@ public class Companion : CompanionStateMachine
     {
         if(Vector3.Distance(new Vector3(0, transform.position.y,0), new Vector3(0, TargetPlayer.transform.position.y, 0)) > 2){
 
-            Debug.Log(Vector3.Distance(new Vector3(0, transform.position.y, 0), new Vector3(0, TargetPlayer.transform.position.y, 0)));
+            //Debug.Log(Vector3.Distance(new Vector3(0, transform.position.y, 0), new Vector3(0, TargetPlayer.transform.position.y, 0)));
             return true;
         }
         return false;
