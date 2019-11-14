@@ -69,9 +69,16 @@ public class CompanionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Grabbable") || collision.collider.CompareTag("Monster"))
+        if (collision.collider.CompareTag("Grabbable"))
         {
-            
+            BoxCollider[] colliderArray = collision.gameObject.GetComponents<BoxCollider>();
+            foreach (BoxCollider box in colliderArray)
+            {
+                Physics.IgnoreCollision(collision.collider.GetComponent<BoxCollider>(), gameObject.GetComponent<BoxCollider>());
+            }
+        }
+        if (collision.collider.CompareTag("Monster"))
+        {
             Physics.IgnoreCollision(collision.collider.GetComponent<BoxCollider>(), gameObject.GetComponent<BoxCollider>());
         }
     }
