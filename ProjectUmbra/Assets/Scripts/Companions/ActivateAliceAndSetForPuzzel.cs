@@ -22,8 +22,9 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ObjectHandeler.Set.SetActive(true);
-            ObjectHandeler.Alice.SetActive(true);
+            //ObjectHandeler.Set.SetActive(true);
+            //ObjectHandeler.Alice.SetActive(true);
+            ObjectHandeler.SetActiveStatusForCompanions(true);
 
             ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(setSpawn.position);
             ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(aliceSpawn.position);
