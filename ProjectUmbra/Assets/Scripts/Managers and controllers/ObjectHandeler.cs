@@ -39,6 +39,23 @@ public class ObjectHandeler : MonoBehaviour
 
     }
 
+    public static void SetActiveStatusForCompanions(bool status)
+    {
+        if(Set.activeSelf == true && Alice.activeSelf == true)
+        { 
+            Set.GetComponentInChildren<ParticleSystem>().Play();
+            Set.SetActive(status);
+            Alice.GetComponentInChildren<ParticleSystem>().Play();
+            Alice.SetActive(status);
+        } else if(Set.activeSelf == false && Alice.activeSelf == false)
+        {
+            Set.SetActive(status);
+            Set.GetComponentInChildren<ParticleSystem>().Play();
+            Alice.SetActive(status);
+            Alice.GetComponentInChildren<ParticleSystem>().Play();
+        }
+    }
+
     
 
 

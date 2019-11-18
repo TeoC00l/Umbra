@@ -16,10 +16,13 @@ public class InActivateAliceAndSet : MonoBehaviour
 
 
 
-            try { 
-                ObjectHandeler.Alice.SetActive(false);
-                ObjectHandeler.Set.SetActive(false);
-                followerIcons.SetActive(false);
+            try {
+                //ObjectHandeler.Alice.SetActive(false);
+                //ObjectHandeler.Set.SetActive(false);
+
+                //ObjectHandeler.SetActiveStatusForCompanions(false);
+                //followerIcons.SetActive(false);
+                StartCoroutine(PlayParticlesAndSetInactive());
             }
             catch (System.NullReferenceException)
             {
@@ -28,5 +31,12 @@ public class InActivateAliceAndSet : MonoBehaviour
         }
     }
 
-
+    private IEnumerator PlayParticlesAndSetInactive()
+    {
+        ObjectHandeler.Set.GetComponentInChildren<ParticleSystem>().Play();
+        ObjectHandeler.Alice.GetComponentInChildren<ParticleSystem>().Play();
+        yield return new WaitForSeconds(0.35f);
+        ObjectHandeler.SetActiveStatusForCompanions(false);
+        followerIcons.SetActive(false);
+    }
 }

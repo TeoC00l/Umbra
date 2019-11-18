@@ -49,7 +49,6 @@ public class CompanionHandler : MonoBehaviour
 
     #endregion
 
-
     private void Start()
     {
         Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
