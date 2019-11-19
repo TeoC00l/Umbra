@@ -30,21 +30,37 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     {
         if (isChasing == true)
         {
-            animator.SetBool("isChasing", true);
+
             setMonsterDestination(playerTrans);
 
-            if (agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
-            {
-                animator.SetBool("isChasing", false);
-                agent.isStopped = true;
-            }
+            animator.SetBool("isChasing", true);
+            agent.isStopped = false;
+
+            //if (agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
+            //{
+            //    isChasing = false;
+            //    animator.SetBool("isChasing", false);
+            //    agent.isStopped = true;
+            //}
         }
 
+        IfCloseToStopPosition();
+
+        if (deathComponent.IsDying == true && transform.position != originalPosition)
+        {
+            RespawnMonster();
+        }
+
+
+    }
+
+    private void IfCloseToStopPosition()
+    {
         if (Vector3.Distance(transform.position, stopPoint.position) < 3.5f)
         {
             foreach (GameObject monster in chaseColliderGO.GetComponent<ChasePlayer>().monsters)
             {
-                monster.GetComponent<NavMeshAgent>().isStopped = true; ;
+                monster.GetComponent<NavMeshAgent>().isStopped = true;
 
                 monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
                 animator.SetBool("isChasing", false);
@@ -53,13 +69,6 @@ public class MonsterLevelOneScrpit : MonoBehaviour
             }
 
         }
-
-        if (deathComponent.IsDying == true && transform.position != originalPosition)
-        {
-            RespawnMonster();
-        }
-
-
     }
 
     public void RespawnMonster()
@@ -72,16 +81,17 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
             monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
             animator.SetBool("isChasing", false);
+            monster.GetComponent<NavMeshAgent>().isStopped = false;
         }
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Set") || other.CompareTag("Alice"))
-        {
-            Physics.IgnoreCollision(GetComponent<BoxCollider>(), other.GetComponent<BoxCollider>());
-        }
+        //if (other.CompareTag("Set") || other.CompareTag("Alice"))
+        //{
+        //    Physics.IgnoreCollision(GetComponent<BoxCollider>(), other.GetComponent<BoxCollider>());
+        //}
 
         if (other.CompareTag("Player"))
         {

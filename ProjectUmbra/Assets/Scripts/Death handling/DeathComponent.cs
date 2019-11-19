@@ -112,8 +112,8 @@ public class DeathComponent : MonoBehaviour
         transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
         try
         {
-            set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-            alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+            //set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
+            //alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
         }
         catch (UnassignedReferenceException)
         {
