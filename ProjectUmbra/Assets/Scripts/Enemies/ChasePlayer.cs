@@ -12,7 +12,7 @@ public class ChasePlayer : MonoBehaviour
     {
 
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
