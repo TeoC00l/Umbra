@@ -18,6 +18,7 @@ public class SlideJump : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            DeathComponent.cachedPosition = other.transform.position;
             //other.GetComponent<Player>().Transition<PlayerSlidingState>();
 
             //DeathComponent.cachedPosition = other.transform.position;

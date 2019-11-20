@@ -33,7 +33,7 @@ public class BridgeControl : MonoBehaviour
         {
             rb.AddForce(tippingDirection, ForceMode.Force);
         }
-        if (collision.gameObject.CompareTag("Stopper"))
+        if (collision.gameObject.CompareTag("Stopper")) 
         {
             Destroy(this.GetComponent<HingeJoint>());
 
