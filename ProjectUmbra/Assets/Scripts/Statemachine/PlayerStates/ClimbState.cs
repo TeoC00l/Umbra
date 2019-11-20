@@ -36,6 +36,9 @@ public class ClimbState : BaseState
 
     public override void HandleUpdate()
     {
+
+        DeathComponent.cachedPosition = owner.transform.position;
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             animator.SetBool("isClimbing", true);

@@ -7,7 +7,7 @@ using Cinemachine;
 public class DeathComponent : MonoBehaviour
 {
     [SerializeField] private int fallDistanceToDie;
-    [SerializeField] private GameObject set, alice;
+    //[SerializeField] private GameObject set, alice;
 
     private PlayerMovement pm;
     private bool cachedGroundedPos, hasCalculatedAirDistance;
@@ -46,10 +46,10 @@ public class DeathComponent : MonoBehaviour
 
     private void Update()
     {
-        //FallDistanceCheck();
+        FallDistanceCheck();
 
     }
-    
+
 
     private void FallDistanceCheck()
     {
