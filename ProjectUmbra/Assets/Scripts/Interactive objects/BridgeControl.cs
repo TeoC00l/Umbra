@@ -15,10 +15,10 @@ public class BridgeControl : MonoBehaviour
     private Quaternion originalAngles;
     private Rigidbody rb;
     private bool tipped = false;
-    [SerializeField] private Quaternion finalRotation;
+    //[SerializeField] private Quaternion finalRotation;
     [SerializeField] Vector3 tippingDirection;
 
-    
+
     private void Start()
     {
 
@@ -29,17 +29,18 @@ public class BridgeControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.collider.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             rb.AddForce(tippingDirection, ForceMode.Force);
         }
-        if (collision.gameObject.CompareTag("Stopper")) 
+        if (collision.gameObject.CompareTag("Stopper"))
         {
             Destroy(this.GetComponent<HingeJoint>());
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
             rb.isKinematic = true;
-            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+            //gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
 
 
             //navMeshSurface.BuildNavMesh();
@@ -53,24 +54,24 @@ public class BridgeControl : MonoBehaviour
         //{
         //    transform.localRotation = originalAngles;
         //}
-        if (transform.localEulerAngles.z > 359f)
-        {
+        //if (transform.localEulerAngles.z > 359f)
+        //{
             
-            tipped = true;
-        }
-        if(tipped && transform.localEulerAngles.z > 359/*rb.velocity == Vector3.zero*/)
-        {
-            Destroy(this.GetComponent<HingeJoint>());
+        //    tipped = true;
+        //}
+        //if(tipped && transform.localEulerAngles.z > 359/*rb.velocity == Vector3.zero*/)
+        //{
+        //    Destroy(this.GetComponent<HingeJoint>());
 
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            rb.isKinematic = true;
-            gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
+        //    rb.constraints = RigidbodyConstraints.FreezeAll;
+        //    rb.isKinematic = true;
+        //    gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
             
 
-            //navMeshSurface.BuildNavMesh();
+        //    //navMeshSurface.BuildNavMesh();
             
             
-        }
+        //}
        
     }
 
