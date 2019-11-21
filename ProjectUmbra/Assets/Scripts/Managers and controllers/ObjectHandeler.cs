@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObjectHandeler : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject Alice;
     public static GameObject[] ButtonList;
     public static GameObject Player;
+
+    //public static GameObject SpeechBubble_Alice, SpeechBubble_Set;
+    //public static TextMeshPro SpeechBubble_Alice_Text, SpeechBubble_Set_Text;
 
     private void Awake()
     {
@@ -23,6 +27,12 @@ public class ObjectHandeler : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Set = GameObject.FindGameObjectWithTag("Set");
         Alice = GameObject.FindGameObjectWithTag("Alice");
+
+        //SpeechBubble_Alice = GameObject.FindGameObjectWithTag("AliceSpeechBubble");
+        //SpeechBubble_Set = GameObject.FindGameObjectWithTag("SetSpeechBubble");
+
+        //SpeechBubble_Alice_Text = SpeechBubble_Alice.transform.GetChild(0).GetComponent<TextMeshPro>();
+        //SpeechBubble_Set_Text = SpeechBubble_Set.transform.GetChild(0).GetComponent<TextMeshPro>();
 
         if (Set != null && Alice != null){
             //Set.SetActive(false);

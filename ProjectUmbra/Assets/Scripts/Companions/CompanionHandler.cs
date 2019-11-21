@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class CompanionHandler : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class CompanionHandler : MonoBehaviour
     private bool setMoving = true;
     private bool aliceMoving = true;
 
-    
+    [SerializeField] private TMP_Text speechBubbleText_A, speechBubbleText_S;
+    [SerializeField] private GameObject speechBubble_A, speechBubble_S;
 
     #region JumpVariabels
     [SerializeField] private float addToJumpHeight = 5;
@@ -52,6 +54,14 @@ public class CompanionHandler : MonoBehaviour
     private void Start()
     {
         Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
+
+        //speechBubble_A = GameObject.FindGameObjectWithTag("AliceSpeechBubble");
+        //speechBubble_S = GameObject.FindGameObjectWithTag("SetSpeechBubble");
+        //speechBubbleText_A = speechBubble_A.transform.GetChild(0).GetComponent<TextMeshPro>();
+        //speechBubbleText_S = speechBubble_S.transform.GetChild(0).GetComponent<TextMeshPro>();
+
+        //speechBubbleText_A = GameObject.FindGameObjectWithTag("A_SpeechText").GetComponent<TMP_Text>();
+        //speechBubbleText_S = GameObject.FindGameObjectWithTag("S_SpeechText").GetComponent<TMP_Text>();
     }
 
 
@@ -144,6 +154,7 @@ public class CompanionHandler : MonoBehaviour
             setMoving = true;
             setAgent.isStopped = false;
             Debug.Log("set moving");
+            
         }
         else if (Input.GetKeyDown(KeyCode.E) && !aliceMoving)
         {
@@ -158,6 +169,7 @@ public class CompanionHandler : MonoBehaviour
             setMoving = false;
             setAgent.isStopped = true;
             Debug.Log("set stopped");
+            
         }
         else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
         {
@@ -172,6 +184,32 @@ public class CompanionHandler : MonoBehaviour
     public void LateUpdate()
     {
         //characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+    }
+
+    public void SpeechBubble(string text, string name)
+    {
+        StartCoroutine(DisplaySpeechBubble(text, name));
+    }
+
+    public IEnumerator DisplaySpeechBubble(string text, string name)
+    {
+        if (name.Equals("Alice"))
+        {
+            speechBubble_A.SetActive(true);
+            print("teeeeeext");
+            speechBubbleText_A.text = text;
+            yield return new WaitForSeconds(3);
+            speechBubble_A.SetActive(false);
+        } else if (name.Equals("Set"))
+        {
+            speechBubble_S.SetActive(true);
+            print("teeeeeext");
+            speechBubbleText_S.text = text;
+            yield return new WaitForSeconds(3);
+            speechBubble_S.SetActive(false);
+        }
+        
+
     }
 
 

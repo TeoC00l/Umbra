@@ -19,7 +19,7 @@ public class CompanionWaitingState : CompanionBaseState
         distance = Mathf.Infinity;
         //thisAgent.path.ClearCorners();
 
-        Debug.Log(owner.gameObject.name + " enter Waiting state");
+        //Debug.Log(owner.gameObject.name + " enter Waiting state");
         owner.iconSprite.color = new Color(0f, 0f, 0f, 1f);
 
         owner.isWaiting = true;
@@ -54,7 +54,7 @@ public class CompanionWaitingState : CompanionBaseState
                 companionAnimator.SetBool("IsWalking", false);
             }
 
-            Debug.Log(Vector3.Distance(owner.transform.position, buttonTrans.transform.position) + " " + thisAgent.pathStatus + thisAgent.isStopped + " " + thisAgent.pathEndPosition);
+            //Debug.Log(Vector3.Distance(owner.transform.position, buttonTrans.transform.position) + " " + thisAgent.pathStatus + thisAgent.isStopped + " " + thisAgent.pathEndPosition);
         }
         else
         {
@@ -104,7 +104,7 @@ public class CompanionWaitingState : CompanionBaseState
                     owner.isWaiting = false;
                     buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
                     owner.Transition<CompanionIdelState>();
-
+                    companionHandler.SpeechBubble("Going...", "Set");
                 }
             }
         }
@@ -119,6 +119,8 @@ public class CompanionWaitingState : CompanionBaseState
 
                     owner.isWaiting = false;
                     owner.Transition<CompanionIdelState>();
+
+                    companionHandler.SpeechBubble("I'll get moving!", "Alice");
                 }
             }
         }
