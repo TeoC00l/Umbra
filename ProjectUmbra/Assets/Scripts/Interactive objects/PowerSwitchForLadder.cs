@@ -10,6 +10,8 @@ public class PowerSwitchForLadder : MonoBehaviour
     [SerializeField] private GameObject groundToActivate;
     private Light buttonLight;
 
+    private bool played = false;
+
     private void Start()
     {
         buttonLight = GetComponentInChildren<Light>();
@@ -23,7 +25,12 @@ public class PowerSwitchForLadder : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 buttonLight.color = Color.green;
-
+                if (!played)
+                {
+                    Animation leverAnimation = GetComponentInChildren<Animation>();
+                    leverAnimation.Play();
+                    played = true;
+                }
                 foreach (GameObject animGo in animGOs)
                 {
                     animGo.GetComponent<Animator>().SetBool(animationBoolKey, true);
