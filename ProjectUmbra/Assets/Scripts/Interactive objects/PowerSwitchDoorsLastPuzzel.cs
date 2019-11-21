@@ -10,6 +10,8 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
     [SerializeField] GameObject multipleBoolButtons;
     private Light buttonLight;
 
+    private bool played = false;
+
     private void Start()
     {
         buttonLight = GetComponentInChildren<Light>();
@@ -22,6 +24,12 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Animation leverAnimation = GetComponentInChildren<Animation>();
+                if (!played)
+                {
+                    leverAnimation.Play();
+                    played = true;
+                }                
                 multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;
                 buttonLight.color = Color.green;
 
