@@ -22,6 +22,8 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Animation leverAnimation = GetComponentInChildren<Animation>();
+                leverAnimation.Play();
                 multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;
                 buttonLight.color = Color.green;
 
