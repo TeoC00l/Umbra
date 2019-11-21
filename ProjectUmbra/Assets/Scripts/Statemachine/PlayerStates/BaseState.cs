@@ -6,7 +6,7 @@ using UnityEngine;
 public class BaseState : State
 {
     protected Player owner;
-    protected PlayerMovement movementHandler;
+    protected PlayerMovement playerMovement;
     protected BoxCollider playerCollider;
     private bool onSetup;
     protected GrabObject grabHandler;
@@ -18,7 +18,7 @@ public class BaseState : State
     public override void Initialize(StateMachine owner)
     {
         this.owner = (Player)owner;
-        movementHandler = owner.GetComponent<PlayerMovement>();
+        playerMovement = owner.GetComponent<PlayerMovement>();
         playerCollider = owner.GetComponent<BoxCollider>();
         grabHandler = owner.GetComponentInChildren<GrabObject>();
         playerBody = owner.GetComponent<Rigidbody>();
@@ -40,7 +40,7 @@ public class BaseState : State
             owner.Transition<WalkState>();
         }
         
-        if (movementHandler.getLocked())
+        if (playerMovement.getLocked())
         {
             owner.Transition<TurnState>();
         }
@@ -50,7 +50,7 @@ public class BaseState : State
             owner.Transition<GrabbingState>();
         }
 
-        if (movementHandler.getLadderStatus())
+        if (playerMovement.getLadderStatus())
         {
             owner.Transition<ClimbState>();
         }

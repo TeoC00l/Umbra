@@ -18,7 +18,7 @@ public class PlayerSlidingState : BaseState
 
     public override void HandleFixedUpdate()
     {
-        if (movementHandler.IsGrounded())
+        if (playerMovement.IsGrounded())
         {
 
             owner.Transition<WalkState>();
