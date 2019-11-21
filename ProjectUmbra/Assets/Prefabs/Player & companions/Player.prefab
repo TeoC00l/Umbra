@@ -146,8 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDistanceToDie: 10
-  set: {fileID: 0}
-  alice: {fileID: 0}
   checkpointManager: {fileID: 0}
   deathZone:
     serializedVersion: 2
@@ -189,6 +187,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   CurrentLadder: {fileID: 0}
+  upperLadderTransform: {fileID: 0}
+  lowerLadderTransform: {fileID: 0}
+  LadderCollider: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!54 &3220737029942767832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -358,6 +360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3220737029942767833}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &3220737031079223505
 GameObject:
   m_ObjectHideFlags: 0

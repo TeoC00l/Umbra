@@ -11,7 +11,6 @@ public class GrabbingState : BaseState
 
     public override void Enter()
     {
-        //MovementHandler.setSpeed(movementSpeed);
         Debug.Log("grabbing");
     }
 
@@ -19,8 +18,10 @@ public class GrabbingState : BaseState
     {
         base.HandleUpdate();
         playerMovement.SetInput();
-        
-        if(grabHandler.GetGrabStatus() == false)
+
+        playAnimation();
+
+        if (grabHandler.GetGrabStatus() == false)
         {
             owner.Transition<WalkState>();
         }
@@ -30,4 +31,57 @@ public class GrabbingState : BaseState
     {
         playerMovement.Move();
     }
+
+    public override void Exit()
+    {
+        animator.SetBool("isPulling", false);
+        animator.SetBool("isPushing", false);
+
+    }
+    private void playAnimation()
+    {
+
+        if (grabHandler.IsBoxInFront())
+        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isPushing", true);
+                animator.SetBool("isPulling", false);
+            }
+
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isPushing", false);
+                animator.SetBool("isPulling", true);
+            }
+        }
+
+        if (!grabHandler.IsBoxInFront())
+        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.speed = 1;
+
+                animator.SetBool("isPushing", false);
+                animator.SetBool("isPulling", true);
+            }
+
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.speed = 1;
+
+                animator.SetBool("isPushing", true);
+                animator.SetBool("isPulling", false);
+            }
+        }
+
+        if (Input.GetAxis("Horizontal") == 0)
+        {
+            animator.speed = 0;
+        }
+
+
+
+    }
+
 }
