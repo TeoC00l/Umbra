@@ -65,8 +65,9 @@ public class CompanionBaseState : CompanionState
             {
                 if (owner.isWaiting == false)
                 {
-                    
+                    companionHandler.SpeechBubble("I'll stay here, I guess...", "Set");
                     owner.Transition<CompanionWaitingState>();
+
                 }
             }
         }
@@ -77,6 +78,7 @@ public class CompanionBaseState : CompanionState
             {
                 if (owner.isWaiting == false)
                 {
+                    companionHandler.SpeechBubble("I'll stop here.", "Alice");
                     owner.Transition<CompanionWaitingState>();
                 }
             }
