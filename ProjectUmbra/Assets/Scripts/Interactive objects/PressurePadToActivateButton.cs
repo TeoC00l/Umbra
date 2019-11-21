@@ -77,7 +77,10 @@ public class PressurePadToActivateButton : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     Animation anim = GetComponentInChildren<Animation>();
-                    anim.Play();
+                    if (!isPressed)
+                    {
+                        anim.Play();
+                    }
                     isPressed = true;
                     gameobject_animation.Play();
                     gameobject_animator.SetBool("Active", true);

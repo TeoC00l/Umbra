@@ -33,5 +33,6 @@ public class AirState : BaseState
     public override void Exit()
     {
         animator.SetBool("isJumping", false);
+        
     }
 }
