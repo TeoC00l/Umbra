@@ -4,32 +4,39 @@ using UnityEngine;
 using UnityEngine.AI;
 public class LadderControl : MonoBehaviour
 {
-    private PlayerMovement pm;
+    private PlayerMovement playerMovement;
     private BoxCollider boxCollider;
     [Tooltip("Check this if the player should snap to ladder in X axis, leave unchecked if player should snap in Z axis")]
     [SerializeField] private bool useX;
 
 
     private bool isSnaped = false;
-
-
+   [SerializeField] private Transform upperTransform;
+    [SerializeField] private Transform lowerTransform;
 
     public void Start()
     {
+
         boxCollider = GetComponent<BoxCollider>();
+  
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) { 
-            pm = other.GetComponent<PlayerMovement>();
+            playerMovement = other.GetComponent<PlayerMovement>();
+            Debug.Log(upperTransform, lowerTransform);
+            playerMovement.upperLadderTransform = upperTransform;
+            playerMovement.lowerLadderTransform = lowerTransform;
         }
+
     }
     public void OnTriggerStay(Collider other)
     {
-        if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !pm.getLadderStatus())
+        if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !playerMovement.getLadderStatus())
         {
-            pm.setLadderStatus(true);
+            Debug.Log(boxCollider.size.y);
+            playerMovement.setLadderStatus(true);
             Vector3 pos;
             if (useX) { 
                 pos = new Vector3(boxCollider.transform.position.x, other.transform.position.y, other.transform.position.z);
@@ -65,12 +72,21 @@ public class LadderControl : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && pm.getLadderStatus())
+        if (other.CompareTag("Player") && playerMovement.getLadderStatus())
         {
 
             //DeathComponent.cachedPosition = other.transform.position;
 
-            pm.setLadderStatus(false);
+            playerMovement.setLadderStatus(false);
         }
+    }
+
+    public Transform GetUpperTransforms()
+    {
+        return upperTransform;
+    }
+    public Transform GetLowerTransforms()
+    {
+        return lowerTransform;
     }
 }

@@ -12,7 +12,7 @@ public class WalkState : BaseState
 
     public override void HandleUpdate()
     {
-        if (movementHandler.cornerTurnerMode == 0)
+        if (playerMovement.cornerTurnerMode == 0)
         {
             if (Input.GetAxis("Horizontal") > 0)
             {
@@ -39,7 +39,7 @@ public class WalkState : BaseState
 
 
 
-        if (movementHandler.cornerTurnerMode == 1)
+        if (playerMovement.cornerTurnerMode == 1)
         {
             if (Input.GetAxis("Horizontal") > 0)
             {
@@ -66,7 +66,7 @@ public class WalkState : BaseState
 
 
 
-        if (movementHandler.cornerTurnerMode == 2)
+        if (playerMovement.cornerTurnerMode == 2)
         {
             if (Input.GetAxis("Horizontal") > 0)
             {
@@ -92,7 +92,7 @@ public class WalkState : BaseState
         }
 
 
-        if (movementHandler.cornerTurnerMode == 3)
+        if (playerMovement.cornerTurnerMode == 3)
         {
 
             if (Input.GetAxis("Horizontal") > 0)
@@ -120,22 +120,22 @@ public class WalkState : BaseState
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && movementHandler.IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && playerMovement.IsGrounded())
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", false);
             animator.SetBool("isJumping", true);
-            movementHandler.Jump();
+            playerMovement.Jump();
             owner.Transition<AirState>();
         }
 
         base.HandleUpdate();
-        movementHandler.SetInput();
+        playerMovement.SetInput();
     }
 
     public override void HandleFixedUpdate()
     {
-        movementHandler.Move();
+        playerMovement.Move();
     }
 
 

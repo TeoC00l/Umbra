@@ -34,11 +34,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject CurrentLadder;
 
 
+    //ClimbeStuff
+    public Transform upperLadderTransform;
+    public Transform lowerLadderTransform;
+
+
+    public Animator animator;
+
     //Methods
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
+
+
+
 
         if (sceneName == "Whitebox_lvl1")
         {
@@ -53,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
             cornerTurnerMode = 3;
         }
 
+
+        animator = GetComponentInChildren<Animator>();
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();
@@ -96,12 +108,51 @@ public class PlayerMovement : MonoBehaviour
            rb.velocity += rb.transform.forward * speed * Time.fixedDeltaTime;
     }
 
-    public void MoveOnLadder()
-    {      
-        verticalLadderInput.y = Input.GetAxis("Vertical");
-        horizontalLadderInput.z = Input.GetAxis("Horizontal");
-        transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
+    //public void MoveOnLadder()
+    //{
 
+
+
+    //    verticalLadderInput.y = Input.GetAxis("Vertical");
+    //    transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
+
+    
+    //}
+
+    public void MoveUpOnLadder()
+    {
+        verticalLadderInput.y = Input.GetAxis("Vertical");
+        if(verticalLadderInput.y > 0)
+        {
+            transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                animator.SetBool("isClimbing", true);
+                animator.speed = 2f;
+
+            }
+            else
+            {
+                animator.SetBool("isClimbing", false);
+                animator.speed = 0f;
+            }
+
+        }
+    }
+
+    public void MoveDownOnLadder()
+    {
+        verticalLadderInput.y = Input.GetAxis("Vertical");
+        if (verticalLadderInput.y < 0)
+        {
+            transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
+
+        }
+    }
+
+    public void ExitLadder()
+    {
+        horizontalLadderInput.z = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -118,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
             ////transform.Translate(Vector3.forward * 35f * Time.deltaTime);
             rb.AddForce(transform.forward * 4f, ForceMode.VelocityChange);
             setLadderStatus(false);
+
         }
     }
 

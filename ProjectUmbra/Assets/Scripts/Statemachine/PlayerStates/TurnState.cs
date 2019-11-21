@@ -12,8 +12,8 @@ public class TurnState : BaseState
     public override void Enter()
     {
 
-        cornerTurner = movementHandler.cornerTurner;
-        direction = movementHandler.getInput();
+        cornerTurner = playerMovement.cornerTurner;
+        direction = playerMovement.getInput();
         rotated = false;
         direction = Vector3.zero;
     }
@@ -31,6 +31,6 @@ public class TurnState : BaseState
 
     public override void HandleFixedUpdate()
     {
-        movementHandler.AutoMove(direction);
+        playerMovement.AutoMove(direction);
     }
 }
