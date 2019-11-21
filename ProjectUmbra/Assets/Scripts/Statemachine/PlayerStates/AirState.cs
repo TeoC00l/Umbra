@@ -10,6 +10,8 @@ public class AirState : BaseState
     public override void Enter()
     {
         framesPassed = 0;
+        //animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", true);
     }
 
     public override void HandleUpdate()
@@ -21,9 +23,11 @@ public class AirState : BaseState
     }
     public override void HandleFixedUpdate()
     {
-        if (playerMovement.IsGrounded() && framesPassed > 10)
+
+
+        if (playerMovement.IsGrounded() && framesPassed > 5)
         {
-            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
             owner.Transition<WalkState>();
         }
 
@@ -32,6 +36,8 @@ public class AirState : BaseState
 
     public override void Exit()
     {
+        animator.SetBool("isFalling", false);
+
         animator.SetBool("isJumping", false);
         
     }
