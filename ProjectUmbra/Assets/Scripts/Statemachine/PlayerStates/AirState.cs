@@ -19,17 +19,24 @@ public class AirState : BaseState
         framesPassed++;
         playerMovement.SetInput();
 
-        base.HandleUpdate();
-    }
-    public override void HandleFixedUpdate()
-    {
+        if(framesPassed > 5)
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
 
+        }
 
         if (playerMovement.IsGrounded() && framesPassed > 5)
         {
             animator.SetBool("isFalling", false);
+
             owner.Transition<WalkState>();
         }
+
+        base.HandleUpdate();
+    }
+    public override void HandleFixedUpdate()
+    {
 
         playerMovement.Move();
     }

@@ -7,8 +7,15 @@ public class WalkState : BaseState
 {
     public override void Enter()
     {
-        animator.SetBool("isIdle", true);
-        //playerBody.velocity = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("Walking", true);
+        }
+        else
+        {
+            animator.SetBool("isIdle", true);
+        }
     }
 
     public override void HandleUpdate()
