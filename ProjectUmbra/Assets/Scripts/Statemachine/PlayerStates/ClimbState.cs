@@ -10,22 +10,20 @@ public class ClimbState : BaseState
 
     public override void Enter()
     {
+        Debug.Log("Entered climb state");
+
         RotateMesh();
 
         playerBody.isKinematic = true;
         animator.SetBool("isClimbing", true);
 
-        Debug.Log("Climbing");
-        playerMovement = owner.GetComponent<PlayerMovement>();
-        Debug.Log(playerMovement.upperLadderTransform + " " + playerMovement.lowerLadderTransform);
-       
+        playerMovement = owner.GetComponent<PlayerMovement>();       
     }
 
 
 
     public override void HandleUpdate()
     {
-        Debug.Log("Climbing");
         DeathComponent.cachedPosition = owner.transform.position;
 
 
@@ -67,7 +65,7 @@ public class ClimbState : BaseState
 
         if (!playerMovement.getLadderStatus())
         {
-            owner.Transition<WalkState>();
+            owner.Transition<AirState>();
         }
     }
 
@@ -107,7 +105,6 @@ public class ClimbState : BaseState
         {
 
             animator.speed = 0f;
-            Debug.Log(animator.speed);
             return true;
         }
 

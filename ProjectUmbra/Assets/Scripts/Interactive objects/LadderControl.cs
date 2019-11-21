@@ -33,7 +33,7 @@ public class LadderControl : MonoBehaviour
     }
     public void OnTriggerStay(Collider other)
     {
-        if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !playerMovement.getLadderStatus())
+        if ((other.CompareTag("Player") && ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)))) && !playerMovement.getLadderStatus())
         {
             Debug.Log(boxCollider.size.y);
             playerMovement.setLadderStatus(true);

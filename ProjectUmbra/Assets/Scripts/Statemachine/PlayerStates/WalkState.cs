@@ -13,6 +13,35 @@ public class WalkState : BaseState
 
     public override void HandleUpdate()
     {
+        turnMesh();
+
+        if (Input.GetKeyDown(KeyCode.Space) && playerMovement.IsGrounded())
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isJumping", true);
+            playerMovement.Jump();
+            owner.Transition<AirState>();
+        }
+
+        base.HandleUpdate();
+        playerMovement.SetInput();
+    }
+
+    public override void HandleFixedUpdate()
+    {
+        playerMovement.Move();
+    }
+
+
+    public override void Exit()
+    {
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isIdle", false);
+    }
+
+    private void turnMesh()
+    {
         if (playerMovement.cornerTurnerMode == 0)
         {
             if (Input.GetAxis("Horizontal") > 0)
@@ -118,31 +147,5 @@ public class WalkState : BaseState
                 animator.SetBool("isIdle", true);
             }
         }
-
-
-
-        if (Input.GetKeyDown(KeyCode.Space) && playerMovement.IsGrounded())
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", false);
-            animator.SetBool("isJumping", true);
-            playerMovement.Jump();
-            owner.Transition<AirState>();
-        }
-
-        base.HandleUpdate();
-        playerMovement.SetInput();
-    }
-
-    public override void HandleFixedUpdate()
-    {
-        playerMovement.Move();
-    }
-
-
-    public override void Exit()
-    {
-        animator.SetBool("isWalking", false);
-        animator.SetBool("isIdle", false);
     }
 }
