@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     //ClimbeStuff
     public Transform upperLadderTransform;
     public Transform lowerLadderTransform;
-
+    public BoxCollider LadderCollider;
 
     public Animator animator;
 

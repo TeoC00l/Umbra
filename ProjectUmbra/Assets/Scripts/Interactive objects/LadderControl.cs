@@ -28,6 +28,7 @@ public class LadderControl : MonoBehaviour
             Debug.Log(upperTransform, lowerTransform);
             playerMovement.upperLadderTransform = upperTransform;
             playerMovement.lowerLadderTransform = lowerTransform;
+            playerMovement.LadderCollider = GetComponent<BoxCollider>();
         }
 
     }
@@ -35,7 +36,7 @@ public class LadderControl : MonoBehaviour
     {
         if ((other.CompareTag("Player") && ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)))) && !playerMovement.getLadderStatus())
         {
-            Debug.Log(boxCollider.size.y);
+            //Debug.Log(boxCollider.size.y);
             playerMovement.setLadderStatus(true);
             Vector3 pos;
             if (useX) { 
