@@ -19,14 +19,14 @@ public class AirState : BaseState
         framesPassed++;
         playerMovement.SetInput();
 
-        if(framesPassed > 5)
+        if(framesPassed > 20)
         {
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
 
         }
 
-        if (playerMovement.IsGrounded() && framesPassed > 5)
+        if (playerMovement.IsGrounded() && framesPassed > 10)
         {
             animator.SetBool("isFalling", false);
 
