@@ -7,7 +7,7 @@ public class PowerSwitchForLadder : MonoBehaviour
 
     [SerializeField] private GameObject[] animGOs;
     [SerializeField] string animationBoolKey = "";
-    [SerializeField] private GameObject groundToActivate;
+    //[SerializeField] private GameObject groundToActivate;
     private Light buttonLight;
 
     private bool played = false;
@@ -34,7 +34,7 @@ public class PowerSwitchForLadder : MonoBehaviour
                 foreach (GameObject animGo in animGOs)
                 {
                     animGo.GetComponent<Animator>().SetBool(animationBoolKey, true);
-                    groundToActivate.GetComponent<BoxCollider>().isTrigger = false;
+                    //groundToActivate.GetComponent<BoxCollider>().isTrigger = false;
                 }
             }
         }
