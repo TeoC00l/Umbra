@@ -33,14 +33,14 @@ public class ClimbeSplineLedge : MonoBehaviour
     private void startClimbeState()
     {
 
-        ObjectHandeler.Player.GetComponent<Player>().isClimbing = true;
-        ObjectHandeler.Player.GetComponent<Player>().Transition<ClimbState>();
+        //ObjectHandeler.Player.GetComponent<Player>().isClimbing = true;
+        //ObjectHandeler.Player.GetComponent<Player>().Transition<ClimbState>();
     }
 
     private void EndClimbeState()
     {
-        ObjectHandeler.Player.GetComponent<Player>().isClimbing = false;
-        ObjectHandeler.Player.GetComponent<Player>().Transition<WalkState>();
+        //ObjectHandeler.Player.GetComponent<Player>().isClimbing = false;
+        //ObjectHandeler.Player.GetComponent<Player>().Transition<WalkState>();
     }
 
 

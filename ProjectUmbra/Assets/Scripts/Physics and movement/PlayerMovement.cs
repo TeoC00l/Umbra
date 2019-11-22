@@ -20,14 +20,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask Ground, layerMask;
 
     public GameObject cornerTurner;
-    public Vector3 veloc;
     public int cornerTurnerMode;
     //Cornerturn mode is a value 0-3
     //0 is forward, 1 is right, 2 is back, and 3 is left
     //this value serves to identify the rotation of the players character
 
 
-    [SerializeField] private GameObject alice, set;
+     private GameObject alice, set;
 
     public RaycastHit SlideRayCastHit;
     [SerializeField] private LayerMask slideMask;
@@ -35,15 +34,18 @@ public class PlayerMovement : MonoBehaviour
 
 
     //ClimbeStuff
-    public Transform upperLadderTransform;
-    public Transform lowerLadderTransform;
     public BoxCollider LadderCollider;
+
+
 
     public Animator animator;
 
     //Methods
     void Start()
     {
+
+        alice = ObjectHandeler.Alice;
+        set = ObjectHandeler.Set;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 

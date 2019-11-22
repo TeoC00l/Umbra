@@ -39,7 +39,7 @@ public class ClimbLedgeState : BaseState
     }
     public override void Exit()
     {
-        owner.transform.position = owner.ClimbToTransform.position;
+        //owner.transform.position = owner.ClimbToTransform.position;
 
     }
 
