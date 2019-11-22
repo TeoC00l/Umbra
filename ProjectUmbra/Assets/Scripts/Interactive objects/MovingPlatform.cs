@@ -48,7 +48,7 @@ public class MovingPlatform : MonoBehaviour
         {
             if (!isExitMode)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     player.transform.SetParent(transform);
                 }
