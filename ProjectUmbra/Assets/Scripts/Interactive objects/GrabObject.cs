@@ -7,10 +7,12 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovement;
     [SerializeField] private LayerMask layerMask;
+
     private Rigidbody rb;
     private bool grabStatus;
     private GameObject box;
     private bool isPushing;
+    [SerializeField] private LayerMask groundCheck;
 
     public void Start()
     {
@@ -19,7 +21,7 @@ public class GrabObject : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKey(KeyCode.F))
+        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.F))
         //if (other.CompareTag("Grabbable"))
         {
             box = other.gameObject;
@@ -41,6 +43,9 @@ public class GrabObject : MonoBehaviour
     public void Update()
     {
         if(grabStatus && Input.GetKeyUp(KeyCode.F))
+        {
+            Release();
+        }else if (BoxGrounded() == false)
         {
             Release();
         }
@@ -89,5 +94,21 @@ public class GrabObject : MonoBehaviour
         RaycastHit hit;
 
         return (Physics.Raycast(player.transform.position, transform.TransformDirection(direction), out hit, 3f, layerMask));
+    }
+
+
+
+
+    public bool BoxGrounded()
+    {
+        if (Physics.BoxCast(box.transform.position, (box.GetComponent<BoxCollider>().transform.lossyScale + new Vector3(0.1f ,0.1f ,0.1f )) / 2, Vector3.down, Quaternion.identity, 0.5f, groundCheck))
+        {
+            Debug.Log("BoxGrounded");
+            return true;
+
+        }
+        Debug.Log("not BoxGrounded");
+
+        return false;
     }
 }
