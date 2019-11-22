@@ -11,8 +11,7 @@ public class LadderControl : MonoBehaviour
 
 
     private bool isSnaped = false;
-   [SerializeField] private Transform upperTransform;
-    [SerializeField] private Transform lowerTransform;
+
 
     public void Start()
     {
@@ -25,9 +24,7 @@ public class LadderControl : MonoBehaviour
     {
         if (other.CompareTag("Player")) { 
             playerMovement = other.GetComponent<PlayerMovement>();
-            Debug.Log(upperTransform, lowerTransform);
-            playerMovement.upperLadderTransform = upperTransform;
-            playerMovement.lowerLadderTransform = lowerTransform;
+
             playerMovement.LadderCollider = GetComponent<BoxCollider>();
         }
 
@@ -82,12 +79,4 @@ public class LadderControl : MonoBehaviour
         }
     }
 
-    public Transform GetUpperTransforms()
-    {
-        return upperTransform;
-    }
-    public Transform GetLowerTransforms()
-    {
-        return lowerTransform;
-    }
 }
