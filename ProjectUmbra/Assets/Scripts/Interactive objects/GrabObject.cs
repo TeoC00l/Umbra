@@ -73,7 +73,7 @@ public class GrabObject : MonoBehaviour
 
         if (playerMovement.cornerTurnerMode == 1)
         {
-            direction = Vector3.back;
+            direction = Vector3.forward;
         }
 
         if (playerMovement.cornerTurnerMode == 2)
@@ -83,7 +83,7 @@ public class GrabObject : MonoBehaviour
 
         if (playerMovement.cornerTurnerMode == 3)
         {
-            direction = Vector3.forward;
+            direction = Vector3.back;
         }
  
         RaycastHit hit;
