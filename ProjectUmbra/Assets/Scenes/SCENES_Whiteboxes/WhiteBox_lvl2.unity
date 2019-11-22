@@ -2600,7 +2600,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.7
+      value: -38.19
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -2610,7 +2610,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 146.05
+      value: 162.88
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -2620,7 +2620,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071076
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -2630,7 +2630,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710605
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -2645,7 +2645,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -630
+      value: -810
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -2716,6 +2716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: slideMask.m_Bits
       value: 65536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220737030875498126, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
+        type: 3}
+      propertyPath: groundCheck.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767838, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -6551,6 +6556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScaffoldNew (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -8222627246756661005, guid: 8ab9227bab534ba4580728d79448f441,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8ab9227bab534ba4580728d79448f441,
         type: 3}
@@ -49701,6 +49711,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1983438185}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1856843963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4095599184019708647, guid: d3971a8f8cd0a674f94fe02fe6afb8b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 941159248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856843970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856843963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67241109a772c364c92cbd3c809ed7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground:
+    serializedVersion: 2
+    m_Bits: 1280
 --- !u!1 &1859718706
 GameObject:
   m_ObjectHideFlags: 0
@@ -52864,8 +52895,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967653943}
-  m_LocalRotation: {x: 0.07476803, y: 0.34173632, z: -0.027285792, w: 0.93641955}
-  m_LocalPosition: {x: -80.38466, y: 15.486978, z: 135.73592}
+  m_LocalRotation: {x: -0.009405461, y: 0.9894009, z: 0.07508737, w: 0.123932585}
+  m_LocalPosition: {x: -44.821373, y: 9.215551, z: 188.93507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2091917262}
@@ -55869,7 +55900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 2128145753}
-  m_PathPosition: 13.510318
+  m_PathPosition: 8.277492
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
