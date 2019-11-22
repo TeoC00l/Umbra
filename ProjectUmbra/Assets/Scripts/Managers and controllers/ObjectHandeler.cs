@@ -10,7 +10,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject Alice;
     public static GameObject[] ButtonList;
     public static GameObject Player;
-
+    public static GameObject CheckPointManager;
     //public static GameObject SpeechBubble_Alice, SpeechBubble_Set;
     //public static TextMeshPro SpeechBubble_Alice_Text, SpeechBubble_Set_Text;
 
@@ -27,6 +27,7 @@ public class ObjectHandeler : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Set = GameObject.FindGameObjectWithTag("Set");
         Alice = GameObject.FindGameObjectWithTag("Alice");
+        CheckPointManager = GameObject.FindGameObjectWithTag("CheckPointManager");
 
         //SpeechBubble_Alice = GameObject.FindGameObjectWithTag("AliceSpeechBubble");
         //SpeechBubble_Set = GameObject.FindGameObjectWithTag("SetSpeechBubble");

@@ -13,7 +13,7 @@ public class DeathComponent : MonoBehaviour
     private bool cachedGroundedPos, hasCalculatedAirDistance;
     public static Vector3 cachedPosition;
     public static float fallDistance;
-    [SerializeField] private CheckPointManager checkpointManager;
+    private CheckPointManager checkpointManager;
 
     private GameObject groundChecker;
     [SerializeField] private LayerMask deathZone;
@@ -38,6 +38,7 @@ public class DeathComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        checkpointManager = ObjectHandeler.CheckPointManager.GetComponent<CheckPointManager>();
         pm = GetComponent<PlayerMovement>();
         groundChecker = transform.GetChild(0).gameObject;
         cornerTriggers = GameObject.FindGameObjectsWithTag("Corner");
