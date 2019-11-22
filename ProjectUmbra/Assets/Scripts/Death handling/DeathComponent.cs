@@ -38,8 +38,9 @@ public class DeathComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        checkpointManager = ObjectHandeler.CheckPointManager.GetComponent<CheckPointManager>();
         pm = GetComponent<PlayerMovement>();
+        checkpointManager = ObjectHandeler.CheckPointManager.GetComponent<CheckPointManager>();
+
         groundChecker = transform.GetChild(0).gameObject;
         cornerTriggers = GameObject.FindGameObjectsWithTag("Corner");
     }
