@@ -10,7 +10,7 @@ public class WalkState : BaseState
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
         {
-            animator.SetBool("Walking", true);
+            animator.SetBool("isWalking", true);
         }
         else
         {
@@ -20,6 +20,7 @@ public class WalkState : BaseState
 
     public override void HandleUpdate()
     {
+        animator.SetBool("isPushing", false);
         turnMesh();
 
         if (Input.GetKeyDown(KeyCode.Space) && playerMovement.IsGrounded())
@@ -29,6 +30,11 @@ public class WalkState : BaseState
             animator.SetBool("isJumping", true);
             playerMovement.Jump();
             owner.Transition<AirState>();
+        }
+
+        if (LookForPushObject() && Input.GetKey(KeyCode.D) || LookForPushObject() && Input.GetKey(KeyCode.A))
+        {
+            ChangeToPushAnimation();
         }
 
         base.HandleUpdate();
@@ -155,4 +161,24 @@ public class WalkState : BaseState
             }
         }
     }
+
+    private bool LookForPushObject()
+    {
+        return (Physics.Raycast(owner.transform.position, characterModel.transform.forward, 0.5f, playerMovement.boxes));
+    }
+    
+    private void ChangeToPushAnimation()
+    {
+        if (LookForPushObject())
+        {
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isPushing", true);
+
+
+        }
+    }
+
+
+    
 }

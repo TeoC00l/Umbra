@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDistanceToDie: 9
-  checkpointManager: {fileID: 0}
   deathZone:
     serializedVersion: 2
     m_Bits: 16384
@@ -164,11 +163,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  boxes:
+    serializedVersion: 2
+    m_Bits: 2048
   cornerTurner: {fileID: 0}
-  veloc: {x: 0, y: 0, z: 0}
   cornerTurnerMode: 0
-  alice: {fileID: 0}
-  set: {fileID: 0}
   slideMask:
     serializedVersion: 2
     m_Bits: 65536
@@ -210,8 +209,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f9962148a79a3f42ac734975c9fd053, type: 2}
   - {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c, type: 2}
   - {fileID: 11400000, guid: bfd26bed997d8344889877a1774d46f1, type: 2}
-  isClimbing: 0
-  ClimbToTransform: {fileID: 0}
 --- !u!136 &1740817134
 CapsuleCollider:
   m_ObjectHideFlags: 0

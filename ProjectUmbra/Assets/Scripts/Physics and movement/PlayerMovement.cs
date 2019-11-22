@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed, topSpeed, jumpHeight, fallMultiplier, groundDistance;
     [SerializeField] private LayerMask Ground, layerMask;
+    public LayerMask boxes;
 
     public GameObject cornerTurner;
     public int cornerTurnerMode;

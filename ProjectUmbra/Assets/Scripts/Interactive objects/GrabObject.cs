@@ -30,11 +30,6 @@ public class GrabObject : MonoBehaviour
             joint.connectedBody = rb;
 
             grabStatus = true;
-
-            if (IsBoxInFront())
-            {
-
-            }
         }
     }
 

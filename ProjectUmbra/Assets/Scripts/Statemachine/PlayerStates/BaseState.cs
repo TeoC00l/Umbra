@@ -14,6 +14,7 @@ public class BaseState : State
     protected Animator animator;
     protected Transform characterModel;
     protected bool runningBack;
+    protected LayerMask boxLayerMask;
 
     public override void Initialize(StateMachine owner)
     {
@@ -30,7 +31,8 @@ public class BaseState : State
     {
         onSetup = true;
         base.Enter();
-        
+        boxLayerMask = 11;
+
     }
 
     public override void HandleUpdate()
