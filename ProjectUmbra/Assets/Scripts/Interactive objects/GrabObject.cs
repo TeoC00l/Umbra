@@ -45,7 +45,7 @@ public class GrabObject : MonoBehaviour
         if(grabStatus && Input.GetKeyUp(KeyCode.F))
         {
             Release();
-        }else if (BoxGrounded() == false)
+        }else if (BoxGrounded() == false || player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
         }
@@ -64,6 +64,24 @@ public class GrabObject : MonoBehaviour
     public bool GetGrabStatus()
     {
         return grabStatus;
+    }
+
+
+
+
+
+
+    public bool BoxGrounded()
+    {
+        if (Physics.BoxCast(box.transform.position, (box.GetComponent<BoxCollider>().transform.lossyScale + new Vector3(0.1f ,0.1f ,0.1f )) / 2, Vector3.down, Quaternion.identity, 0.5f, groundCheck))
+        {
+            Debug.Log("BoxGrounded");
+            return true;
+
+        }
+        Debug.Log("not BoxGrounded");
+
+        return false;
     }
 
 
@@ -90,25 +108,10 @@ public class GrabObject : MonoBehaviour
         {
             direction = Vector3.back;
         }
- 
+
         RaycastHit hit;
 
         return (Physics.Raycast(player.transform.position, transform.TransformDirection(direction), out hit, 3f, layerMask));
     }
 
-
-
-
-    public bool BoxGrounded()
-    {
-        if (Physics.BoxCast(box.transform.position, (box.GetComponent<BoxCollider>().transform.lossyScale + new Vector3(0.1f ,0.1f ,0.1f )) / 2, Vector3.down, Quaternion.identity, 0.5f, groundCheck))
-        {
-            Debug.Log("BoxGrounded");
-            return true;
-
-        }
-        Debug.Log("not BoxGrounded");
-
-        return false;
-    }
 }
