@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         {
             cornerTurnerMode = 3;
         }
+        else if (sceneName == "PrologueHospitalToRobbery")
+        {
+            cornerTurnerMode = 2;
+        }
 
 
         animator = GetComponentInChildren<Animator>();
