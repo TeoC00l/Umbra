@@ -53,7 +53,7 @@ public class CompanionHandler : MonoBehaviour
 
     private void Start()
     {
-        Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
+
 
         //speechBubble_A = GameObject.FindGameObjectWithTag("AliceSpeechBubble");
         //speechBubble_S = GameObject.FindGameObjectWithTag("SetSpeechBubble");
