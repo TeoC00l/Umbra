@@ -64,8 +64,8 @@ public class CompanionWaitingState : CompanionBaseState
 
     public override void HandleUpdate()
     {
-            if (owner.isWalkingToButton)
-            {
+        if (owner.isWalkingToButton)
+        {
             companionAnimator.SetBool("IsWalking", true);
 
             //thisAgent.SetDestination(buttonTrans.position);
@@ -75,9 +75,10 @@ public class CompanionWaitingState : CompanionBaseState
             if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.25f)
             {
                 StopAgent();
-                owner.isWalkingToButton = false;            }
+                owner.isWalkingToButton = false;
+            }
 
-            if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 1f)
+            if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.5f)
             {
                 StopAgent();
                 owner.isWalkingToButton = false;
@@ -85,13 +86,28 @@ public class CompanionWaitingState : CompanionBaseState
             }
         }
         CheckIfNotWaiting();
+
+        StopWalkingIfNotMoving();
+    }
+
+    private void StopWalkingIfNotMoving()
+    {
+        if (thisAgent.velocity.magnitude < 1)
+        {
+            companionAnimator.SetBool("IsWalking", false);
+
+        }
     }
 
     private void StopAgent()
     {
         companionAnimator.SetBool("IsWalking", false);
         thisAgent.isStopped = true;
+        owner.isWaiting = true;
+        
     }
+
+
 
     private void CheckIfNotWaiting()
     {
