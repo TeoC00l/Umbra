@@ -48,6 +48,10 @@ public class ObjectHandeler : MonoBehaviour
         ButtonList = GameObject.FindGameObjectsWithTag("Button");
         Debug.Log(ButtonList.Length);
 
+        Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Set.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Alice.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(Set.GetComponent<BoxCollider>(), Alice.GetComponent<BoxCollider>());
+
     }
 
     public static void SetActiveStatusForCompanions(bool status)
