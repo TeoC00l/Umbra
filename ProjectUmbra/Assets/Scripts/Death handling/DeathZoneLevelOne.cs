@@ -27,6 +27,11 @@ public class DeathZoneLevelOne : MonoBehaviour
 
             }
         }
+
+        if (other.CompareTag("Grabbable"))
+        {
+            other.GetComponent<BoxSpawn>().RespawnBox();
+        }
         
     }
 }
