@@ -40,7 +40,7 @@ public class GrabObject : MonoBehaviour
         if(grabStatus && Input.GetKeyUp(KeyCode.F))
         {
             Release();
-        }else if (BoxGrounded() == false || player.GetComponent<PlayerMovement>().IsGrounded() == false)
+        }else if (grabStatus && BoxGrounded() == false || player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
         }
