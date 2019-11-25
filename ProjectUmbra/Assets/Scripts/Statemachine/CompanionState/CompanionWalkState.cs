@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 [CreateAssetMenu(menuName = "Companion/WalkState")]
 
 public class CompanionWalkState : CompanionBaseState
@@ -35,6 +37,15 @@ public class CompanionWalkState : CompanionBaseState
 
             companionAnimator.SetBool("IsWalking", true);
         }
+
+        //if (thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
+        //{
+        //    Debug.Log("NavMesh path status == partial, Going from WalkState to WaitingState");
+        //    owner.Transition<CompanionWaitingState>();
+
+
+        //}
+
     }
 
 

@@ -56,9 +56,7 @@ public class CompanionWaitingState : CompanionBaseState
 
             //Debug.Log(Vector3.Distance(owner.transform.position, buttonTrans.transform.position) + " " + thisAgent.pathStatus + thisAgent.isStopped + " " + thisAgent.pathEndPosition);
         }
-        else
-        {
-        }
+
     }
 
 
@@ -87,10 +85,10 @@ public class CompanionWaitingState : CompanionBaseState
         }
         CheckIfNotWaiting();
 
-        StopWalkingIfNotMoving();
+        StopWalkingAnimationIfNotMoving();
     }
 
-    private void StopWalkingIfNotMoving()
+    private void StopWalkingAnimationIfNotMoving()
     {
         if (thisAgent.velocity.magnitude < 1)
         {
