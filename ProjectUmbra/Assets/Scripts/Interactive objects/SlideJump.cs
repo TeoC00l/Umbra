@@ -6,6 +6,7 @@ public class SlideJump : MonoBehaviour
 {
 
     private bool hasJumped = false;
+    [SerializeField] private bool useXAxis;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,11 +28,19 @@ public class SlideJump : MonoBehaviour
 
                 hasJumped = true;
                 //force = transform.forward.normalized + transform.up.normalized * 10;
+                if (useXAxis)
+                {
+                    other.attachedRigidbody.velocity = Vector3.zero;
+                    other.attachedRigidbody.AddForce(new Vector3(10, 10, 0), ForceMode.VelocityChange);
+                }
+                else
+                {
+                    other.attachedRigidbody.velocity = Vector3.zero;
+                    other.attachedRigidbody.AddForce(new Vector3(0, 10, 10), ForceMode.VelocityChange);
 
-                other.attachedRigidbody.velocity = Vector3.zero;
-                other.attachedRigidbody.AddForce(new Vector3(0,10 , 10), ForceMode.VelocityChange);
+                }
 
-                
+
             }
         }
     }

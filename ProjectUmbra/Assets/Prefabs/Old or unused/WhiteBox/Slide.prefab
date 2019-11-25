@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 735426061557654519}
   - component: {fileID: 735426061557654520}
   - component: {fileID: 735426061557654521}
-  m_Layer: 0
+  - component: {fileID: 1530142535}
+  - component: {fileID: 1530142534}
+  m_Layer: 16
   m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735426061557654522}
-  m_LocalRotation: {x: 0.38268274, y: -0, z: -0, w: 0.9238798}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 11, y: 15, z: 106.5}
-  m_LocalScale: {x: 2, y: 1, z: 6.5}
+  m_LocalScale: {x: 2, y: 1, z: 22.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735426061557654522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -87,8 +89,33 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735426061557654522}
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.7321293, z: 0.9464547}
+  m_Center: {x: 0, y: 0.86606133, z: 0.03974703}
+--- !u!65 &1530142535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735426061557654522}
+  m_Material: {fileID: 13400000, guid: 3621d6f0e95c03541a8a11fd34832077, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.000001, z: 0.9999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1530142534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735426061557654522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc36e91d8264494d99889283e34f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
