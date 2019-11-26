@@ -31,12 +31,12 @@ public class SlideJump : MonoBehaviour
                 if (useXAxis)
                 {
                     other.attachedRigidbody.velocity = Vector3.zero;
-                    other.attachedRigidbody.AddForce(new Vector3(10, 10, 0), ForceMode.VelocityChange);
+                    other.attachedRigidbody.AddForce(new Vector3(5, 5, 0), ForceMode.VelocityChange);
                 }
                 else
                 {
                     other.attachedRigidbody.velocity = Vector3.zero;
-                    other.attachedRigidbody.AddForce(new Vector3(0, 10, 10), ForceMode.VelocityChange);
+                    other.attachedRigidbody.AddForce(new Vector3(0, 5, 5), ForceMode.VelocityChange);
 
                 }
 
