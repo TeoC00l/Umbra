@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChangeListener : MonoBehaviour
 {
     [SerializeField] private GameObject trigger;
-    [SerializeField] private int sceneToLoad;
+    [SerializeField] private string sceneToLoad;
 
     void Start()
     {
