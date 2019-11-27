@@ -41,6 +41,7 @@ public class CutsceneManager : MonoBehaviour
     {
         //this.gameObject.SetActive(false);
         choice.SetActive(true);
+        Debug.Log(choice.activeSelf);
         this.gameObject.SetActive(false);
     }
 }
