@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private int karmaChoice1, karmaChoice2;
-    [SerializeField] private int SetChoice_SceneToLoad, AliceChoice_SceneToLoad;
+    [SerializeField] private string SetChoice_SceneToLoad, AliceChoice_SceneToLoad;
 
     public void Choice1()
     {
