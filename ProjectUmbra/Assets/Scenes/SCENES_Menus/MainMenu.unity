@@ -1656,10 +1656,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MainTheme
-    clip: {fileID: 8300000, guid: 33a901b1bd269e548b2a4c8281d5de6c, type: 3}
-    volume: 0.289
+    clip: {fileID: 8300000, guid: 0a25043a28f0b20409372d9476b3ccf6, type: 3}
+    volume: 0.369
     pitch: 0.69
     loop: 1
+    source: {fileID: 0}
+  - name: ButtonMouseOver
+    clip: {fileID: 8300000, guid: 7300835691e7383468f923825d4ade9f, type: 3}
+    volume: 0.558
+    pitch: 0.69
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClicked
+    clip: {fileID: 8300000, guid: 90c478d213978a3488213d517593f261, type: 3}
+    volume: 0.299
+    pitch: 0.69
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1177815017
 Transform:
@@ -1687,6 +1699,7 @@ GameObject:
   - component: {fileID: 1256986539}
   - component: {fileID: 1256986538}
   - component: {fileID: 1256986537}
+  - component: {fileID: 1256986540}
   m_Layer: 5
   m_Name: Demo
   m_TagString: Untagged
@@ -1804,6 +1817,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256986535}
   m_CullTransparentMesh: 0
+--- !u!114 &1256986540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256986535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 854863338}
+          m_MethodName: OnButtonMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 854863338}
+          m_MethodName: OnButtonMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1293660335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,6 +2861,7 @@ GameObject:
   - component: {fileID: 2111817987}
   - component: {fileID: 2111817986}
   - component: {fileID: 2111817985}
+  - component: {fileID: 2111817988}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2922,6 +2979,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111817983}
   m_CullTransparentMesh: 0
+--- !u!114 &2111817988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111817983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 854863338}
+          m_MethodName: OnButtonMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 854863338}
+          m_MethodName: OnButtonMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2129782689
 GameObject:
   m_ObjectHideFlags: 0
