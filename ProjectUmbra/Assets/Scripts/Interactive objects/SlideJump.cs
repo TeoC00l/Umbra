@@ -7,7 +7,12 @@ public class SlideJump : MonoBehaviour
 
     private bool hasJumped = false;
     [SerializeField] private bool useXAxis;
+    [SerializeField] private float force;
 
+    private void Start()
+    {
+        force = 5;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -31,12 +36,12 @@ public class SlideJump : MonoBehaviour
                 if (useXAxis)
                 {
                     other.attachedRigidbody.velocity = Vector3.zero;
-                    other.attachedRigidbody.AddForce(new Vector3(5, 5, 0), ForceMode.VelocityChange);
+                    other.attachedRigidbody.AddForce(new Vector3(force, force, 0), ForceMode.VelocityChange);
                 }
                 else
                 {
                     other.attachedRigidbody.velocity = Vector3.zero;
-                    other.attachedRigidbody.AddForce(new Vector3(0, 5, 5), ForceMode.VelocityChange);
+                    other.attachedRigidbody.AddForce(new Vector3(0, force, force), ForceMode.VelocityChange);
 
                 }
 
