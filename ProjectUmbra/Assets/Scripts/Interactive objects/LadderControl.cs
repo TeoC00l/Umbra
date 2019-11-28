@@ -27,25 +27,31 @@ public class LadderControl : MonoBehaviour
             playerMovement = other.GetComponent<PlayerMovement>();
 
             playerMovement.LadderCollider = GetComponent<BoxCollider>();
+            isSnaped = false;
         }
 
     }
     public void OnTriggerStay(Collider other)
     {
-        if ((other.CompareTag("Player") && ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)))) && !playerMovement.getLadderStatus())
+        if (isSnaped == false)
         {
-            playerMovement.setLadderStatus(true);
-            Vector3 playerPosition;
-            if (useXAxis)
+            if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !playerMovement.getLadderStatus())
             {
-                playerPosition = new Vector3(boxCollider.transform.position.x, other.transform.position.y, other.transform.position.z);
+                playerMovement.setLadderStatus(true);
+                Vector3 playerPosition;
+                if (useXAxis)
+                {
+                    playerPosition = new Vector3(boxCollider.transform.position.x, other.transform.position.y, other.transform.position.z);
+                }
+                else
+                {
+                    playerPosition = new Vector3(other.transform.position.x, other.transform.position.y, boxCollider.transform.position.z);
+                }
+                other.transform.position = playerPosition;
+                isSnaped = true;
             }
-            else
-            {
-                playerPosition = new Vector3(other.transform.position.x, other.transform.position.y, boxCollider.transform.position.z);
-            }
-            other.transform.position = playerPosition;
         }
+        
 
     }
 
@@ -54,7 +60,7 @@ public class LadderControl : MonoBehaviour
         if (other.CompareTag("Player") && playerMovement.getLadderStatus())
         {
 
-
+            isSnaped = false;
             playerMovement.setLadderStatus(false);
         }
     }
