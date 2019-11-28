@@ -22,6 +22,8 @@ public class CheckPointManager : MonoBehaviour
         }
         
         Debug.Log(currentCheckpointPosition);
+
+        SaveSystem.SavePosition();
     }
 
     public Transform GetLatestCheckpointPosition()

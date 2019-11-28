@@ -37,6 +37,20 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
+    public void LoadSave()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        SceneManager.LoadScene(data.lastLoadedSceneIndex);
+        Player player = FindObjectOfType<Player>();
+
+        Vector3 savedPosition = new Vector3();
+        savedPosition.x = data.latestPassedCheckpoint[0];
+        savedPosition.y = data.latestPassedCheckpoint[1];
+        savedPosition.z = data.latestPassedCheckpoint[2];
+
+        player.transform.position = savedPosition;
+    }
+
     public void ApplyAndReturn()
     {
 
