@@ -7,6 +7,8 @@ public class FireChimney : MonoBehaviour
     [SerializeField] private ParticleSystem fire;
     private BoxCollider fireCollider;
     [SerializeField] private GameObject player;
+
+    private AudioSource source;
     private DeathComponent dc;
     private bool fireActive = false;
     private bool playing = true;
@@ -14,8 +16,10 @@ public class FireChimney : MonoBehaviour
     private void Start()
     {
         dc = player.GetComponent<DeathComponent>();
+        source = GetComponent<AudioSource>();
         StartCoroutine(FireTimer());
         fireCollider = GetComponent<BoxCollider>();
+        
     }
 
     
@@ -33,6 +37,7 @@ public class FireChimney : MonoBehaviour
         while (playing) { 
             fireActive = true;
             fire.Play();
+            source.PlayOneShot(source.clip);
             yield return new WaitForSeconds(3);
             fire.Stop();
             fireActive = false;
