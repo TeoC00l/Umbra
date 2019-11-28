@@ -21,7 +21,7 @@ public class CheckPointManager : MonoBehaviour
             cornersTurned.Add(lastCorner);
         }
         
-        Debug.Log(cornersTurned.Count);
+        Debug.Log(currentCheckpointPosition);
     }
 
     public Transform GetLatestCheckpointPosition()

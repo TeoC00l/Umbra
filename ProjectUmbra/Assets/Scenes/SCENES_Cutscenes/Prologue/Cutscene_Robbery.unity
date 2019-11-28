@@ -175,6 +175,36 @@ MonoBehaviour:
   dm: {fileID: 1259154545}
   holdPlayer: 0
   hasTimer: 0
+--- !u!1 &365681932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365681933}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &365681933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365681932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.183334, y: 36.03112, z: 85.93659}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1130746634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1065,7 +1095,7 @@ PrefabInstance:
         type: 3}
       propertyPath: choice
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 365681932}
     - target: {fileID: 7256317782607142789, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: m_LocalPosition.x
