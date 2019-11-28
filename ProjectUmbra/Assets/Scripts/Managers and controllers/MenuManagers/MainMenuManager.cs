@@ -21,8 +21,14 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    public void OnButtonMouseOver()
+    {
+        AudioManager.instance.Play("ButtonMouseOver");
+    }
+
     public void Demo()
     {
+        AudioManager.instance.Play("ButtonClicked");
         SceneManager.LoadScene(demoSceneNumber);
     }
 
@@ -63,6 +69,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ValidateQuit()
     {
+        AudioManager.instance.Play("ButtonClicked");
         if (mainButtons.activeSelf) {
             mainButtons.SetActive(false);
         }
@@ -82,6 +89,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Quit()
     {
+        AudioManager.instance.Play("ButtonClicked");
         Debug.Log("Hejdå!");
         Application.Quit();
     }
