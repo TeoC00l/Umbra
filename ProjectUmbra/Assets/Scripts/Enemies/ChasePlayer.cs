@@ -16,10 +16,11 @@ public class ChasePlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            AudioManager.instance.Play("MonsterGrowl");
                     
             foreach (GameObject monster in monsters)
             {
+                AudioManager.instance.Play("MonsterGrowl");
                 monster.GetComponent<MonsterLevelOneScrpit>().isChasing = true;
             }
         }

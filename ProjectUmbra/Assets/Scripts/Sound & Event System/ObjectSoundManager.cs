@@ -21,4 +21,9 @@ public class ObjectSoundManager : MonoBehaviour
     {
         source.PlayOneShot(clip2);
     }
+
+    public void PlayLooping()
+    {
+        source.Play();
+    }
 }

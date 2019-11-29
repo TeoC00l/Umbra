@@ -85,6 +85,8 @@ public class PressurePadToActivateButton : MonoBehaviour
                     isPressed = true;
                     gameobject_animation.Play();
                     gameobject_animator.SetBool("Active", true);
+                    objectToAnimate.GetComponent<ObjectSoundManager>().PlayLooping();
+
                     try
                     {
                         foreach(GameObject go in particlesToActivate)

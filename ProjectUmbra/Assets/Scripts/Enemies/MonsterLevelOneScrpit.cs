@@ -30,18 +30,14 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     {
         if (isChasing == true)
         {
-
+            
             setMonsterDestination(playerTrans);
 
             animator.SetBool("isChasing", true);
             agent.isStopped = false;
 
-            //if (agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
-            //{
-            //    isChasing = false;
-            //    animator.SetBool("isChasing", false);
-            //    agent.isStopped = true;
-            //}
+            
+          
         }
 
         IfCloseToStopPosition();
@@ -97,6 +93,7 @@ public class MonsterLevelOneScrpit : MonoBehaviour
         {
             deathComponent.RespawnPlayer();
             RespawnMonster();
+            AudioManager.instance.Play("MonsterGrowl");
         }
     }
 
