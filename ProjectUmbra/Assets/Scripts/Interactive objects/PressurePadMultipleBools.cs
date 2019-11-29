@@ -43,7 +43,7 @@ public class PressurePadMultipleBools : MonoBehaviour
             }
             else
             {
-                anim.SetBool(animationBoolKey, false);
+                anim.SetBool(animationBoolKey, false);               
             }
         }
 
