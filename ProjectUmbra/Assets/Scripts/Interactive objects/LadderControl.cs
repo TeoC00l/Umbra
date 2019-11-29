@@ -10,7 +10,7 @@ public class LadderControl : MonoBehaviour
     [SerializeField] private bool useXAxis;
 
 
-    private bool isSnaped = false;
+    public bool isSnaped = false;
 
 
     public void Start()
