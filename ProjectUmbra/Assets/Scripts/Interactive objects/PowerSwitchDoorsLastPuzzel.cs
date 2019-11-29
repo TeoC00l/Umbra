@@ -28,6 +28,7 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
                 if (!played)
                 {
                     leverAnimation.Play();
+                    AudioManager.instance.Play("LeverPull");
                     played = true;
                 }                
                 multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;

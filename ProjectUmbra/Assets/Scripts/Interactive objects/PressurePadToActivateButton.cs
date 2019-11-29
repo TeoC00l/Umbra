@@ -80,6 +80,7 @@ public class PressurePadToActivateButton : MonoBehaviour
                     if (!isPressed)
                     {
                         anim.Play();
+                        AudioManager.instance.Play("LeverPull");
                     }
                     isPressed = true;
                     gameobject_animation.Play();
