@@ -70,8 +70,6 @@ public class DeathComponent : MonoBehaviour
             {
 
                 fallDistance = cachedPosition.y - gameObject.transform.position.y;
-
-                Debug.Log(fallDistance);
                 if (fallDistance > fallDistanceToDie)
                 {
                     Debug.Log(fallDistance + " fall distance");

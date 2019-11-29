@@ -14,13 +14,11 @@ public class ObjectSoundManager : MonoBehaviour
 
     public void PlayAudioClip1()
     {
-        Debug.Log("Sound1");
         source.PlayOneShot(clip1);
     }
 
     public void PlayAudioClip2()
     {
-        Debug.Log("Sound2");
         source.PlayOneShot(clip2);
     }
 

@@ -20,8 +20,6 @@ public class CheckPointManager : MonoBehaviour
         {
             cornersTurned.Add(lastCorner);
         }
-        
-        Debug.Log(currentCheckpointPosition);
 
         SaveSystem.SavePosition();
     }
