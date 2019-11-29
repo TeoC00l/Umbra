@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
             setLadderStatus(false);
 
         }
+        LadderCollider.GetComponent<LadderControl>().isSnaped = false;
     }
 
     public void Jump()
