@@ -13,6 +13,7 @@ public class GrabbingState : BaseState
     public override void Enter()
     {
         Debug.Log("grabbing");
+   
     }
 
     public override void HandleUpdate()
@@ -37,6 +38,7 @@ public class GrabbingState : BaseState
     {
         animator.SetBool("isPulling", false);
         animator.SetBool("isPushing", false);
+        
 
     }
     private void playAnimation()
