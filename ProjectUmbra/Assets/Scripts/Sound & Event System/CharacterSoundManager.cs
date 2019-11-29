@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSoundManager : MonoBehaviour
 {
     private AudioSource source;
-    [SerializeField] private AudioClip footSteps;
+    [SerializeField] private AudioClip footSteps, ladderSound;
     [SerializeField] private AudioClip[] stepSounds;
 
     private void Start()
@@ -20,5 +20,10 @@ public class CharacterSoundManager : MonoBehaviour
         //source.PlayOneShot(footSteps);
 
 
+    }
+
+    public void PlayLadderClimb()
+    {
+        source.PlayOneShot(ladderSound);
     }
 }
