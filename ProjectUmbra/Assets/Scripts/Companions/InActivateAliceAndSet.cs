@@ -35,6 +35,7 @@ public class InActivateAliceAndSet : MonoBehaviour
     {
         ObjectHandeler.Set.GetComponentInChildren<ParticleSystem>().Play();
         ObjectHandeler.Alice.GetComponentInChildren<ParticleSystem>().Play();
+        AudioManager.instance.Play("Alice&Set_Appear");
         yield return new WaitForSeconds(0.35f);
         ObjectHandeler.SetActiveStatusForCompanions(false);
         followerIcons.SetActive(false);

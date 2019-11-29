@@ -25,6 +25,7 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
             //ObjectHandeler.Set.SetActive(true);
             //ObjectHandeler.Alice.SetActive(true);
             ObjectHandeler.SetActiveStatusForCompanions(true);
+            AudioManager.instance.Play("Alice&Set_Appear");
 
             ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(setSpawn.position);
             ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(aliceSpawn.position);

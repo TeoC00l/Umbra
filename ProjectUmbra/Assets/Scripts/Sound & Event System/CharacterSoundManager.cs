@@ -6,6 +6,7 @@ public class CharacterSoundManager : MonoBehaviour
 {
     private AudioSource source;
     [SerializeField] private AudioClip footSteps;
+    [SerializeField] private AudioClip[] stepSounds;
 
     private void Start()
     {
@@ -14,6 +15,10 @@ public class CharacterSoundManager : MonoBehaviour
 
     public void PlayFootSteps()
     {
-        source.PlayOneShot(footSteps);
+        int place = Random.Range(0, 3);
+        source.PlayOneShot(stepSounds[place]);
+        //source.PlayOneShot(footSteps);
+
+
     }
 }
