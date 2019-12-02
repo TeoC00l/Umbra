@@ -57,6 +57,10 @@ public class BaseState : State
             owner.Transition<ClimbState>();
         }
 
+        if(playerMovement.getSpeed() == 0)
+        {
+            owner.Transition<DialogueState>();
+        }
     }
 
     public override void HandleFixedUpdate()
