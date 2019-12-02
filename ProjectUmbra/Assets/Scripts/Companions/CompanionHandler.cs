@@ -22,11 +22,16 @@ public class CompanionHandler : MonoBehaviour
 
     private Vector3 direction;
 
+
     private bool setMoving = true;
     private bool aliceMoving = true;
 
+    #region SpeechBubbles
     [SerializeField] private TMP_Text speechBubbleText_A, speechBubbleText_S;
     [SerializeField] private GameObject speechBubble_A, speechBubble_S;
+
+    public LookAtCamera alice_lookAt, set_lookAt;
+    #endregion
 
     #region JumpVariabels
     [SerializeField] private float addToJumpHeight = 5;
@@ -53,21 +58,8 @@ public class CompanionHandler : MonoBehaviour
 
     private void Start()
     {
-
-
-        //speechBubble_A = GameObject.FindGameObjectWithTag("AliceSpeechBubble");
-        //speechBubble_S = GameObject.FindGameObjectWithTag("SetSpeechBubble");
-        //speechBubbleText_A = speechBubble_A.transform.GetChild(0).GetComponent<TextMeshPro>();
-        //speechBubbleText_S = speechBubble_S.transform.GetChild(0).GetComponent<TextMeshPro>();
-
-        //speechBubbleText_A = GameObject.FindGameObjectWithTag("A_SpeechText").GetComponent<TMP_Text>();
-        //speechBubbleText_S = GameObject.FindGameObjectWithTag("S_SpeechText").GetComponent<TMP_Text>();
-    }
-
-
-    private void Update()
-    {
-        //IfNotOnNavMesh();
+        alice_lookAt = speechBubble_A.GetComponent<LookAtCamera>();
+        set_lookAt = speechBubble_S.GetComponent<LookAtCamera>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -100,29 +92,16 @@ public class CompanionHandler : MonoBehaviour
             Debug.Log(thisAgent.pathStatus);
 
         }
-        //else if (thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
-        //{
-        //    //thisAgent.SetDestination(targetPlayer.transform.position);
-        //    //Debug.Log(thisAgent.pathStatus == NavMeshPathStatus.PathComplete);
 
-        //    //Debug.Log("on Mesh");
-        //    //gameObject.GetComponent<NavMeshAgent>().Warp(targetPlayer.transform.position);
-
-        //}
     }
 
     public bool NotCloseToDestinationCheck(NavMeshAgent agent)
     {
         if (Vector3.Distance(agent.transform.position, targetPlayer.transform.position) > 5)
         {
-
-            //Debug.Log("return true dist" + Vector3.Distance(agent.transform.position, targetPlayer.transform.position));
             return true;
         }
-
-        //Debug.Log("return false dist" + Vector3.Distance(agent.transform.position, agent.destination));
         return false;
-
     }
 
 
@@ -164,17 +143,13 @@ public class CompanionHandler : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Q) && setMoving)
         {
-            //setIcon.color = new Color(49f, 22f, 41f, 0.56f);
-            //setIcon.gameObject.SetActive(false);
             setMoving = false;
             setAgent.isStopped = true;
             Debug.Log("set stopped");
             
         }
         else if (Input.GetKeyDown(KeyCode.E) && aliceMoving)
-        {
-            //aliceIcon.color = new Color(49f, 22f, 41f, 0.56f);
-            
+        {       
             aliceMoving = false;
             aliceAgent.isStopped = true;
             Debug.Log("alice stopped");
@@ -183,7 +158,6 @@ public class CompanionHandler : MonoBehaviour
 
     public void LateUpdate()
     {
-        //characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
     }
 
     public void SpeechBubble(string text, string name)
@@ -196,14 +170,14 @@ public class CompanionHandler : MonoBehaviour
         if (name.Equals("Alice"))
         {
             speechBubble_A.SetActive(true);
-            print("teeeeeext");
+            //speechBubble_A.GetComponent<LookAtCamera>().LookAtTarget();
             speechBubbleText_A.text = text;
             yield return new WaitForSeconds(3);
             speechBubble_A.SetActive(false);
         } else if (name.Equals("Set"))
         {
             speechBubble_S.SetActive(true);
-            print("teeeeeext");
+            //speechBubble_S.GetComponent<LookAtCamera>().LookAtTarget();
             speechBubbleText_S.text = text;
             yield return new WaitForSeconds(3);
             speechBubble_S.SetActive(false);

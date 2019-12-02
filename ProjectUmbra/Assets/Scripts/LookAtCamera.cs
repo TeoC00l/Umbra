@@ -6,15 +6,32 @@ public class LookAtCamera : MonoBehaviour
 {
 
     Transform target;
+    Transform followTarget;
+    [SerializeField] private bool followAlice = false;
+    
 
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        if (followAlice)
+        {
+            followTarget = ObjectHandeler.Alice.transform;
+        }
+        else
+        {
+            followTarget = ObjectHandeler.Set.transform;
+        }
     }
 
     void Update()
     {
-        transform.LookAt(target);
+        transform.position = followTarget.position;
+       
+    }
+
+    public void LookAtTarget(Transform targetPoint)
+    {
+        transform.LookAt(targetPoint);
     }
 }

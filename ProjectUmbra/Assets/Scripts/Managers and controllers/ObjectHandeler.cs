@@ -14,14 +14,10 @@ public class ObjectHandeler : MonoBehaviour
     //public static GameObject SpeechBubble_Alice, SpeechBubble_Set;
     //public static TextMeshPro SpeechBubble_Alice_Text, SpeechBubble_Set_Text;
 
+  
+
+
     private void Awake()
-    {
-
-
-    }
-
-
-    private void Start()
     {
 
         Player = GameObject.FindGameObjectWithTag("Player");
