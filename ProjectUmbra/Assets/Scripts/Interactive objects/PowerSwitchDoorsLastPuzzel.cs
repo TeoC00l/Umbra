@@ -24,14 +24,18 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Animation leverAnimation = GetComponentInChildren<Animation>();
-                if (!played)
+                //Animation leverAnimation = GetComponentInChildren<Animation>();
+                //if (!played)
+                //{
+                //    leverAnimation.Play();
+                //    AudioManager.instance.Play("LeverPull");
+                //    played = true;
+                //}
+                if(multipleBoolButtons != null)
                 {
-                    leverAnimation.Play();
-                    AudioManager.instance.Play("LeverPull");
-                    played = true;
-                }                
-                multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;
+                    multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;
+
+                }
                 buttonLight.color = Color.green;
 
                 foreach (GameObject animGo in animGOs)

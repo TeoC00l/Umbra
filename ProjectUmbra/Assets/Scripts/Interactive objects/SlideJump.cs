@@ -11,7 +11,7 @@ public class SlideJump : MonoBehaviour
 
     private void Start()
     {
-        force = 5;
+        //force = 5;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,9 +25,7 @@ public class SlideJump : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DeathComponent.cachedPosition = other.transform.position;
-            //other.GetComponent<Player>().Transition<PlayerSlidingState>();
 
-            //DeathComponent.cachedPosition = other.transform.position;
             if(Input.GetKey(KeyCode.Space) && hasJumped == false)
             {
 
@@ -35,7 +33,9 @@ public class SlideJump : MonoBehaviour
                 //force = transform.forward.normalized + transform.up.normalized * 10;
                 if (useXAxis)
                 {
+
                     other.attachedRigidbody.velocity = Vector3.zero;
+                    Debug.Log("zero velocity");
                     other.attachedRigidbody.AddForce(new Vector3(force, force, 0), ForceMode.VelocityChange);
                 }
                 else

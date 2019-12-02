@@ -29,7 +29,7 @@ public class BridgeControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.name);
+        //Debug.Log(collision.collider.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             rb.AddForce(tippingDirection, ForceMode.Force);

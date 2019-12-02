@@ -147,7 +147,7 @@ public class ClimbState : BaseState
         Vector3 playerPos = new Vector3(0, playerMovement.transform.position.y, 0);
         float distance = Vector3.Distance(playerPos, upperPos);
 
-        Debug.Log(distance + " " + upperPos + " " + yCenter + " " + playerPos);
+        //Debug.Log(distance + " " + upperPos + " " + yCenter + " " + playerPos);
         if (distance < 3.5f)
         {
             return true;
@@ -175,7 +175,7 @@ public class ClimbState : BaseState
 
 
 
-        Debug.Log(distanceToLower + " " + lowerPos  +" " + yCenter + " " + playerPos);
+        //Debug.Log(distanceToLower + " " + lowerPos  +" " + yCenter + " " + playerPos);
         if (distanceToLower < 0.5f)
         {
             return true;

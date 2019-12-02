@@ -15,6 +15,7 @@ public class GrabObject : MonoBehaviour
     private bool isPushing;
     [SerializeField] private LayerMask groundCheck;
     RaycastHit hit;
+    private int frozenOnXPosition = 98;
     
     public void Start()
     {
@@ -46,12 +47,17 @@ public class GrabObject : MonoBehaviour
 
     private void FreezeRotation()
     {
-        if (boxRB.constraints == RigidbodyConstraints.FreezePositionX)
+        
+        Debug.Log(boxRB.constraints);
+        Debug.Log( RigidbodyConstraints.FreezePositionX == boxRB.constraints);
+        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX ) == RigidbodyConstraints.FreezePositionX)
         {
+            Debug.Log("xPos");
             boxRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX;
         }
         else
         {
+            Debug.Log("zPos");
             boxRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
         }
     }
@@ -75,7 +81,7 @@ public class GrabObject : MonoBehaviour
         Destroy(joint);
         grabStatus = false;
         
-        if(boxRB.constraints == RigidbodyConstraints.FreezePositionX)
+        if((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX )
         {
             UnFreezeZAxis();
 
