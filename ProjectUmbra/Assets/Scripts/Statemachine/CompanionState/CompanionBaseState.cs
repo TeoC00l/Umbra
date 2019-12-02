@@ -59,27 +59,30 @@ public class CompanionBaseState : CompanionState
 
     private void CheckIfWaiting()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(!(owner.TargetPlayer.GetComponent<PlayerMovement>().getSpeed() == 0))
         {
-            if (owner.gameObject.CompareTag("Set"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (owner.isWaiting == false)
+                if (owner.gameObject.CompareTag("Set"))
                 {
-                    companionHandler.SpeechBubble("I'll stay here, I guess...", "Set");
-                    owner.Transition<CompanionWaitingState>();
+                    if (owner.isWaiting == false)
+                    {
+                        companionHandler.SpeechBubble("I'll stay here, I guess...", "Set");
+                        owner.Transition<CompanionWaitingState>();
 
+                    }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (owner.gameObject.CompareTag("Alice"))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (owner.isWaiting == false)
+                if (owner.gameObject.CompareTag("Alice"))
                 {
-                    companionHandler.SpeechBubble("I'll stop here.", "Alice");
-                    owner.Transition<CompanionWaitingState>();
+                    if (owner.isWaiting == false)
+                    {
+                        companionHandler.SpeechBubble("I'll stop here.", "Alice");
+                        owner.Transition<CompanionWaitingState>();
+                    }
                 }
             }
         }

@@ -109,32 +109,35 @@ public class CompanionWaitingState : CompanionBaseState
 
     private void CheckIfNotWaiting()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(!(owner.TargetPlayer.GetComponent<PlayerMovement>().getSpeed() == 0))
         {
-            if (owner.gameObject.CompareTag("Set"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (owner.isWaiting == true)
+                if (owner.gameObject.CompareTag("Set"))
                 {
-                    owner.isWaiting = false;
-                    buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
-                    owner.Transition<CompanionIdelState>();
-                    companionHandler.SpeechBubble("Going...", "Set");
+                    if (owner.isWaiting == true)
+                    {
+                        owner.isWaiting = false;
+                        buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
+                        owner.Transition<CompanionIdelState>();
+                        companionHandler.SpeechBubble("Going...", "Set");
+                    }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (owner.gameObject.CompareTag("Alice"))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (owner.isWaiting == true)
+                if (owner.gameObject.CompareTag("Alice"))
                 {
-                    buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
+                    if (owner.isWaiting == true)
+                    {
+                        buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
 
-                    owner.isWaiting = false;
-                    owner.Transition<CompanionIdelState>();
+                        owner.isWaiting = false;
+                        owner.Transition<CompanionIdelState>();
 
-                    companionHandler.SpeechBubble("I'll get moving!", "Alice");
+                        companionHandler.SpeechBubble("I'll get moving!", "Alice");
+                    }
                 }
             }
         }
