@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private int newGameSceneNumber, demoSceneNumber;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject validateQuit, optionButtons;
-    private Toggle fontToggle;
+    [SerializeField] private Toggle fontToggle;
 
     #region DefaultValues
 

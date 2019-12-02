@@ -17,6 +17,13 @@ public class DialogueManager : MonoBehaviour
 
     private Dialogue current;
 
+    #region TextColours
+    private Color aliceColor = new Color32(107, 200, 129, 255);
+    private Color setColor = new Color32(127, 75, 153, 255);
+    private Color ozColor = new Color32(230, 230, 230, 255);
+
+    #endregion
+
     private void Start()
     {
         sentences = new Queue<string>();
@@ -45,6 +52,21 @@ public class DialogueManager : MonoBehaviour
         }
         nameText.text = dialogue.name;
         characterImage.sprite = dialogue.characterImage;
+
+        switch (dialogue.name)
+        {
+            case "Alice":
+                dialogueText.color = aliceColor;
+                break;
+            case "Set":
+                dialogueText.color = setColor;
+                break;
+            case "Oz":
+                dialogueText.color = ozColor;
+                break;
+            default:
+                break;
+        }
 
         foreach (string sentence in dialogue.sentences)
         {
