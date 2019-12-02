@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
 
     [SerializeField] private int newGameSceneNumber, demoSceneNumber;
     [SerializeField] private GameObject mainButtons;
-    [SerializeField] private GameObject validateQuit;
+    [SerializeField] private GameObject validateQuit, optionButtons;
+    private Toggle fontToggle;
+
+    #region DefaultValues
+
+    private bool defaultFont = false;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -40,31 +48,39 @@ public class MainMenuManager : MonoBehaviour
 
     public void Options()
     {
-
+        AudioManager.instance.Play("ButtonClicked");
+        optionButtons.SetActive(true);
+        mainButtons.SetActive(false);
     }
 
     public void LoadSave()
     {
         PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.LoadScene(data.lastLoadedSceneIndex);
-        Player player = FindObjectOfType<Player>();
+        KarmaManager.Karma = data.currentKarma;
+        //Player player = FindObjectOfType<Player>();
 
-        Vector3 savedPosition = new Vector3();
-        savedPosition.x = data.latestPassedCheckpoint[0];
-        savedPosition.y = data.latestPassedCheckpoint[1];
-        savedPosition.z = data.latestPassedCheckpoint[2];
+        //Vector3 savedPosition = new Vector3();
+        //savedPosition.x = data.latestPassedCheckpoint[0];
+        //savedPosition.y = data.latestPassedCheckpoint[1];
+        //savedPosition.z = data.latestPassedCheckpoint[2];
 
-        player.transform.position = savedPosition;
+        //player.transform.position = savedPosition;
     }
 
     public void ApplyAndReturn()
     {
-
+        AudioManager.instance.Play("ButtonClicked");
+        optionButtons.SetActive(false);
+        mainButtons.SetActive(true);
     }
 
     public void ResetToDefault()
     {
-
+        AudioManager.instance.Play("ButtonClicked");
+        optionButtons.SetActive(false);
+        mainButtons.SetActive(true);
+        fontToggle.isOn = false;
     }
 
     public void ValidateQuit()
