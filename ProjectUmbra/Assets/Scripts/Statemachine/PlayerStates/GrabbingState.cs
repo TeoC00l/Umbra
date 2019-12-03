@@ -36,6 +36,7 @@ public class GrabbingState : BaseState
 
     public override void Exit()
     {
+        animator.speed = 1;
         animator.SetBool("isPulling", false);
         animator.SetBool("isPushing", false);
         
