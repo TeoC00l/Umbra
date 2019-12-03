@@ -43,9 +43,17 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
                     animGo.GetComponent<Animator>().SetBool(animationBoolKey, true);
                 }
 
+
+
             }
         }
     }
 
+
+
+    private void Update()
+    {
+        
+    }
 
 }

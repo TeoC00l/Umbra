@@ -11,6 +11,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject[] ButtonList;
     public static GameObject Player;
     public static GameObject CheckPointManager;
+
     //public static GameObject SpeechBubble_Alice, SpeechBubble_Set;
     //public static TextMeshPro SpeechBubble_Alice_Text, SpeechBubble_Set_Text;
 
