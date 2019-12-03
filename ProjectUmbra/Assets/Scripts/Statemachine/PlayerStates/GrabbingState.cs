@@ -47,35 +47,37 @@ public class GrabbingState : BaseState
 
         if (grabHandler.IsBoxInFront())
         {
+            Debug.Log("Box is infront");
             if (Input.GetAxis("Horizontal") < 0)
             {
-                animator.SetBool("isPushing", true);
-                animator.SetBool("isPulling", false);
+                animator.SetBool("isPushing", false);
+                animator.SetBool("isPulling", true);
             }
 
             if (Input.GetAxis("Horizontal") > 0)
             {
-                animator.SetBool("isPushing", false);
-                animator.SetBool("isPulling", true);
+                animator.SetBool("isPushing", true);
+                animator.SetBool("isPulling", false);
             }
         }
 
         if (!grabHandler.IsBoxInFront())
         {
+            Debug.Log("Box is");
             if (Input.GetAxis("Horizontal") < 0)
             {
                 animator.speed = 1;
 
-                animator.SetBool("isPushing", false);
-                animator.SetBool("isPulling", true);
+                animator.SetBool("isPushing", true);
+                animator.SetBool("isPulling", false);
             }
 
             if (Input.GetAxis("Horizontal") > 0)
             {
                 animator.speed = 1;
 
-                animator.SetBool("isPushing", true);
-                animator.SetBool("isPulling", false);
+                animator.SetBool("isPushing", false);
+                animator.SetBool("isPulling", true);
             }
         }
 

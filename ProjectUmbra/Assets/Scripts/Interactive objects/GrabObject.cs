@@ -149,26 +149,31 @@ public class GrabObject : MonoBehaviour
         if (playerMovement.cornerTurnerMode == 0)
         {
             direction = Vector3.right;
+            Debug.Log("mode0");
+
         }
 
         if (playerMovement.cornerTurnerMode == 1)
         {
-            direction = Vector3.forward;
+            direction = Vector3.back;
+            Debug.Log("mode1");
         }
 
         if (playerMovement.cornerTurnerMode == 2)
         {
             direction = Vector3.left;
+            Debug.Log("mode2");
         }
 
         if (playerMovement.cornerTurnerMode == 3)
         {
-            direction = Vector3.back;
+            direction = Vector3.forward;
+            Debug.Log("mode3");
         }
 
         RaycastHit hit;
 
-        return (Physics.Raycast(player.transform.position, transform.TransformDirection(direction), out hit, 3f, layerMask));
+        return (Physics.Raycast(player.transform.position, direction, out hit, 3f, layerMask));
     }
 
 

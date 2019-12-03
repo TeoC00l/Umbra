@@ -171,9 +171,9 @@ public class WalkState : BaseState
     {
         if (LookForPushObject())
         {
-            animator.SetBool("isIdle", false);
+            animator.SetBool("isIdle", true);
             animator.SetBool("isWalking", false);
-            animator.SetBool("isPushing", true);
+            animator.SetBool("isPushing", false);
 
 
         }
