@@ -210,6 +210,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c, type: 2}
   - {fileID: 11400000, guid: bfd26bed997d8344889877a1774d46f1, type: 2}
   - {fileID: 11400000, guid: 9d8082cb29bdd304fa5988b2d39e48fc, type: 2}
+  wallMaterial: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84, type: 2}
 --- !u!136 &1740817134
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -221,9 +222,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 1
+  m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.7212734, z: 0}
 --- !u!1 &3220737030379990045
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,11 +386,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3220737029942767827}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9c149c9ca7310854bb2389eba9ff31f5,
+    - target: {fileID: -6057140222963153312, guid: 9c149c9ca7310854bb2389eba9ff31f5,
         type: 3}
-      propertyPath: m_Name
-      value: Idle
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
     - target: {fileID: -4216859302048453862, guid: 9c149c9ca7310854bb2389eba9ff31f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -460,11 +461,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 19.837
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 9c149c9ca7310854bb2389eba9ff31f5,
+    - target: {fileID: -927199367670048503, guid: 9c149c9ca7310854bb2389eba9ff31f5,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
+      propertyPath: m_Name
+      value: Idle
+      objectReference: {fileID: 0}
     - target: {fileID: -245997767025946417, guid: 9c149c9ca7310854bb2389eba9ff31f5,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

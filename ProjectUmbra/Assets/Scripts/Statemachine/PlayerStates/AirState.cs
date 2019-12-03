@@ -12,6 +12,7 @@ public class AirState : BaseState
         framesPassed = 0;
         //animator.SetBool("isJumping", false);
         animator.SetBool("isFalling", true);
+        playerCollider.material = owner.wallMaterial;
     }
 
     public override void HandleUpdate()
@@ -46,6 +47,7 @@ public class AirState : BaseState
         animator.SetBool("isFalling", false);
 
         animator.SetBool("isJumping", false);
+        playerCollider.material = null;
         
     }
 }

@@ -8,24 +8,57 @@ public class PressurePadTrigger : MonoBehaviour
     private bool isPressed = false;
     [SerializeField] GameObject animGO;
     [SerializeField] string animationBoolKey = "";
-    private BoxCollider boxCollider;
-    [SerializeField] private LayerMask TriggerLayerMask;
+    public bool isOccupied = false;
+    //private BoxCollider boxCollider;
+    //[SerializeField] private LayerMask TriggerLayerMask;
+
+    private Light feedbackLight;
     void Start()
     {
         anim = animGO.GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider>();
+        //boxCollider = GetComponent<BoxCollider>();
+        feedbackLight = GetComponentInChildren<Light>();
+
 
     }
 
-    //Byt ut "ObjectToAnimate" mot objektet som ska animeras, samt animator controllers och animationer i dem.
-    //Skriv villkorsboolens namn i animationBoolKey.
+    //public bool isPressed = false;
 
 
-    //private void OnTriggerStay(Collider other)
+
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
+        {
+            isPressed = true;
+            isOccupied = true;
+            feedbackLight.color = Color.green;
+
+            anim.SetBool(animationBoolKey, true);
+        }
+
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
+        {
+
+            isPressed = false;
+            isOccupied = false;
+            feedbackLight.color = Color.red;
+            anim.SetBool(animationBoolKey, false);
+
+        }
+    }
+
+    //private void FixedUpdate()
     //{
-    //    if (other.CompareTag("Player") || other.CompareTag("Set") || other.CompareTag("Alice"))
+    //    if (BoxCheck())
     //    {
-
     //        if (!isPressed)
     //        {
     //            anim.SetBool(animationBoolKey, true);
@@ -33,50 +66,31 @@ public class PressurePadTrigger : MonoBehaviour
     //            isPressed = true;
 
     //        }
-
-
-
-
     //    }
+    //    else
+    //    {
+    //        if (isPressed)
+    //        {
+    //            anim.SetBool(animationBoolKey, false);
 
+    //            isPressed = false;
+
+    //        }
+    //    }
     //}
 
-    private void FixedUpdate()
-    {
-        if (BoxCheck())
-        {
-            if (!isPressed)
-            {
-                anim.SetBool(animationBoolKey, true);
+    //private bool BoxCheck()
+    //{
+    //    if (Physics.CheckBox(transform.position, boxCollider.size / 2, Quaternion.identity, TriggerLayerMask))
+    //    {
 
-                isPressed = true;
-
-            }
-        }
-        else
-        {
-            if (isPressed)
-            {
-                anim.SetBool(animationBoolKey, false);
-
-                isPressed = false;
-
-            }
-        }
-    }
-
-    private bool BoxCheck()
-    {
-        if (Physics.CheckBox(transform.position, boxCollider.size / 2, Quaternion.identity, TriggerLayerMask))
-        {
-
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
 
 
 

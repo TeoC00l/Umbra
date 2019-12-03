@@ -7,7 +7,7 @@ public class BaseState : State
 {
     protected Player owner;
     protected PlayerMovement playerMovement;
-    protected BoxCollider playerCollider;
+    protected CapsuleCollider playerCollider;
     private bool onSetup;
     protected GrabObject grabHandler;
     protected Rigidbody playerBody;
@@ -20,7 +20,7 @@ public class BaseState : State
     {
         this.owner = (Player)owner;
         playerMovement = owner.GetComponent<PlayerMovement>();
-        playerCollider = owner.GetComponent<BoxCollider>();
+        playerCollider = owner.GetComponent<CapsuleCollider>();
         grabHandler = owner.GetComponentInChildren<GrabObject>();
         playerBody = owner.GetComponent<Rigidbody>();
         animator = owner.GetComponentInChildren<Animator>();
