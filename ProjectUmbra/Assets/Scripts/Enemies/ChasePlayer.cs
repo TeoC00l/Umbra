@@ -21,7 +21,16 @@ public class ChasePlayer : MonoBehaviour
             foreach (GameObject monster in monsters)
             {
                 AudioManager.instance.Play("MonsterGrowl");
-                monster.GetComponent<MonsterLevelOneScrpit>().isChasing = true;
+                //monster.TryGetComponent<MonsterLevelOneScrpit>().isChasing = true;
+                if(monster.TryGetComponent(out MonsterLevelOneScrpit monsterLevelOneScript))
+                {
+                    monsterLevelOneScript.isChasing = true;
+                }
+                if(monster.TryGetComponent(out PuzzelMonster puzzelMonster))
+                {
+                    puzzelMonster.isChasing = true;
+                }
+                //monster.TryGetComponent<PuzzelMonster>()
             }
         }
     }
