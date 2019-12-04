@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Text nameText;
     [SerializeField] private Text dialogueText;
     [SerializeField] private GameObject player;
+    [SerializeField] private Font OpenDyslexic;
     private PlayerMovement pm;
     private float originalSpeed;
 
@@ -29,7 +30,17 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         pm = player.GetComponent<PlayerMovement>();
         originalSpeed = pm.getSpeed();
-        
+
+        Debug.Log("Dialogue start");
+        if(PlayerPrefs.GetInt("UseOpenDyslexic") == 1 || OptionSettingsStorage.OpenDyslexic == true)
+        {
+            Debug.Log("Font change");
+            //Font OpenDyslexic = Resources.Load<Font>("OpenDyslexic.otf");
+            //nameText.font = OptionSettingsStorage.GetOpenDyslexic();
+            //dialogueText.font = OptionSettingsStorage.GetOpenDyslexic();
+            dialogueText.fontSize = 18;
+            dialogueText.font = OpenDyslexic;
+        }
     }
 
     private void Update()

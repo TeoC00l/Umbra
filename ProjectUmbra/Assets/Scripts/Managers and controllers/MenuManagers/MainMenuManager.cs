@@ -53,6 +53,19 @@ public class MainMenuManager : MonoBehaviour
         mainButtons.SetActive(false);
     }
 
+    public void SetOpenDyslexic()
+    {
+        if (fontToggle.isOn)
+        {
+            OptionSettingsStorage.OpenDyslexic = true;
+            PlayerPrefs.SetInt("UseOpenDyslexic", 1);
+        } else
+        {
+            OptionSettingsStorage.OpenDyslexic = false;
+            PlayerPrefs.SetInt("UseOpenDyslexic", 0);
+        }
+    }
+
     public void LoadSave()
     {
         PlayerData data = SaveSystem.LoadPlayer();
