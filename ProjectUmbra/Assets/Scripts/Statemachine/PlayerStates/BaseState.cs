@@ -5,16 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/BaseState")]
 public class BaseState : State
 {
+    #region Properties
     protected Player owner;
     protected PlayerMovement playerMovement;
     protected CapsuleCollider playerCollider;
+
     private bool onSetup;
+    protected bool runningBack;
+
     protected GrabObject grabHandler;
     protected Rigidbody playerBody;
     protected Animator animator;
     protected Transform characterModel;
-    protected bool runningBack;
     protected LayerMask boxLayerMask;
+    #endregion
 
     public override void Initialize(StateMachine owner)
     {
@@ -61,15 +65,5 @@ public class BaseState : State
         {
             owner.Transition<DialogueState>();
         }
-    }
-
-    public override void HandleFixedUpdate()
-    {
-        
-    }
-
-    public override void Exit()
-    {
-       
     }
 }

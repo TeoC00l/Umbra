@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/WalkState")]
 public class WalkState : BaseState
 {
+
+    //Walking animation control
     public override void Enter()
     {
 
@@ -18,6 +20,7 @@ public class WalkState : BaseState
         }
     }
 
+    //Jump and push control, setting input axis
     public override void HandleUpdate()
     {
         animator.SetBool("isPushing", false);
@@ -41,6 +44,7 @@ public class WalkState : BaseState
         playerMovement.SetInput();
     }
 
+    //Move character
     public override void HandleFixedUpdate()
     {
         playerMovement.Move();
@@ -53,6 +57,7 @@ public class WalkState : BaseState
         animator.SetBool("isIdle", false);
     }
 
+    //Rotating mesh to correct orientation upon turning based on position along map
     private void turnMesh()
     {
         if (playerMovement.cornerTurnerMode == 0)
@@ -174,8 +179,6 @@ public class WalkState : BaseState
             animator.SetBool("isIdle", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isPushing", false);
-
-
         }
     }
 
