@@ -39,28 +39,34 @@ public class BaseState : State
 
     }
 
+    //Continual checks that are made during all states
     public override void HandleUpdate()
     {
+        //Startup method to transition from the base state
         if (onSetup) {
             onSetup = false;
             owner.Transition<WalkState>();
         }
         
+        //Is player turning a corner
         if (playerMovement.getLocked())
         {
             owner.Transition<TurnState>();
         }
 
+        //Is player grabbing something
         if (grabHandler.GetGrabStatus() == true)
         {
             owner.Transition<GrabbingState>();
         }
 
+        //Is player on ladder
         if (playerMovement.getLadderStatus())
         {
             owner.Transition<ClimbState>();
         }
 
+        //Is player currently in a dialogue
         if(playerMovement.getSpeed() == 0)
         {
             owner.Transition<DialogueState>();

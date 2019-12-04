@@ -7,6 +7,7 @@ public class AirState : BaseState
 {
     public int framesPassed;
 
+    //Animation control and setting player collider material to disallow from jumping on walls
     public override void Enter()
     {
         framesPassed = 0;
@@ -14,6 +15,7 @@ public class AirState : BaseState
         playerCollider.material = owner.wallMaterial;
     }
 
+    //Checking when to start falling animation, checking ground collision
     public override void HandleUpdate()
     {
         framesPassed++;
@@ -35,12 +37,15 @@ public class AirState : BaseState
 
         base.HandleUpdate();
     }
+
+    //Moving player
     public override void HandleFixedUpdate()
     {
 
         playerMovement.Move();
     }
 
+    //Animation control
     public override void Exit()
     {
         animator.SetBool("isFalling", false);
