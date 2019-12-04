@@ -40,6 +40,7 @@ public class BridgeControl : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
             rb.isKinematic = true;
+            AudioManager.instance.Play("BridgeCollision");
             //gameObject.transform.rotation = Quaternion.Euler(finalRotation.x, finalRotation.y, finalRotation.z);
 
 
