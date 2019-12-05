@@ -10,6 +10,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject Set;
     public static GameObject Alice;
     public static GameObject[] ButtonList;
+    public static GameObject[] PressurePadList;
     public static GameObject Player;
     public static GameObject CheckPointManager;
 
@@ -33,7 +34,10 @@ public class ObjectHandeler : MonoBehaviour
 
 
         ButtonList = GameObject.FindGameObjectsWithTag("Button");
-        Debug.Log(ButtonList.Length);
+        Debug.Log(ButtonList.Length + ": Buttons with mulipleBools");
+
+        PressurePadList = GameObject.FindGameObjectsWithTag("PressurePad");
+        Debug.Log(PressurePadList.Length + ": PressurePads");
 
         Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Set.GetComponent<BoxCollider>());
         Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Alice.GetComponent<BoxCollider>());

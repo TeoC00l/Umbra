@@ -17,34 +17,26 @@ public class CompanionWaitingState : CompanionBaseState
     public override void Enter()
     {
         distance = Mathf.Infinity;
-        //thisAgent.path.ClearCorners();
 
-        //Debug.Log(owner.gameObject.name + " enter Waiting state");
         owner.iconSprite.color = new Color(0f, 0f, 0f, 1f);
 
         owner.isWaiting = true;
 
-
-        foreach (GameObject button in ObjectHandeler.ButtonList)
-        {
-            tempDistance = Vector3.Distance(owner.transform.position, button.transform.position);
-
-            if (tempDistance < distance && button.GetComponent<PressurePadMultipleBoolsChild>().isOccupied == false)
-            {
-                distance = tempDistance;
-
-                buttonTrans = button.transform;
-            }
-
-
-
-        }
+        GetNearestButton();
 
         if (distance < 15)
         {
             owner.isWalkingToButton = true;
 
-            buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = true;
+            if(buttonTrans.TryGetComponent(out PressurePadMultipleBoolsChild pressurePadMultipleBoolsChild))
+            {
+                pressurePadMultipleBoolsChild.isOccupied = true;
+            }
+            else if(buttonTrans.TryGetComponent(out PressurePadTrigger pressurePadTrigger))
+            {
+                pressurePadTrigger.isOccupied = true;
+            }
+
             owner.GetComponent<NavMeshAgent>().SetDestination(new Vector3(buttonTrans.transform.position.x, owner.transform.position.y, buttonTrans.transform.position.z));
             thisAgent.isStopped = false;
 
@@ -53,12 +45,37 @@ public class CompanionWaitingState : CompanionBaseState
                 StopAgent();
                 companionAnimator.SetBool("IsWalking", false);
             }
-
-            //Debug.Log(Vector3.Distance(owner.transform.position, buttonTrans.transform.position) + " " + thisAgent.pathStatus + thisAgent.isStopped + " " + thisAgent.pathEndPosition);
         }
 
     }
 
+    private void GetNearestButton()
+    {
+        foreach (GameObject button in ObjectHandeler.ButtonList)
+        {
+            tempDistance = Vector3.Distance(owner.transform.position, button.transform.position);
+            if(button.TryGetComponent(out PressurePadMultipleBoolsChild pressurePadWithMultipleBoolsChild))
+            {
+                if (tempDistance < distance && pressurePadWithMultipleBoolsChild.isOccupied == false)
+                {
+                    distance = tempDistance;
+
+                    buttonTrans = button.transform;
+                }
+            }
+
+            if(button.TryGetComponent(out PressurePadTrigger pressurePadTrigger))
+            {
+                if (tempDistance < distance && pressurePadTrigger.isOccupied == false)
+                {
+                    distance = tempDistance;
+                    buttonTrans = button.transform;
+                }
+
+            }
+
+        }
+    }
 
     public override void HandleUpdate()
     {
@@ -66,23 +83,22 @@ public class CompanionWaitingState : CompanionBaseState
         {
             companionAnimator.SetBool("IsWalking", true);
 
-            //thisAgent.SetDestination(buttonTrans.position);
-            //Debug.Log(thisAgent.pathEndPosition);
 
-            //thisAgent.SetDestination(new Vector3( buttonTrans.transform.position.x, owner.transform.position.y, buttonTrans.transform.position.z));
             if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.25f)
             {
                 StopAgent();
                 owner.isWalkingToButton = false;
+                companionAnimator.SetBool("IsWalking", false);
+
             }
 
-            if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.5f)
-            {
-                StopAgent();
-                owner.isWalkingToButton = false;
-                companionAnimator.SetBool("IsWalking", false);
-            }
+            //if (Vector3.Distance(owner.transform.position, buttonTrans.position) < 0.5f)
+            //{
+            //    StopAgent();
+            //    owner.isWalkingToButton = false;
+            //}
         }
+
         CheckIfNotWaiting();
 
         StopWalkingAnimationIfNotMoving();
@@ -118,7 +134,14 @@ public class CompanionWaitingState : CompanionBaseState
                     if (owner.isWaiting == true)
                     {
                         owner.isWaiting = false;
-                        buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
+                        if (buttonTrans.TryGetComponent(out PressurePadMultipleBoolsChild pressurePadMultipleBoolsChild))
+                        {
+                            pressurePadMultipleBoolsChild.isOccupied = false;
+                        }
+                        else if (buttonTrans.TryGetComponent(out PressurePadTrigger pressurePadTrigger))
+                        {
+                            pressurePadTrigger.isOccupied = false;
+                        }
                         owner.Transition<CompanionIdelState>();
                         companionHandler.SpeechBubble("Going...", "Set");
                     }
@@ -131,8 +154,13 @@ public class CompanionWaitingState : CompanionBaseState
                 {
                     if (owner.isWaiting == true)
                     {
-                        buttonTrans.GetComponent<PressurePadMultipleBoolsChild>().isOccupied = false;
-
+                        if(buttonTrans.TryGetComponent(out PressurePadMultipleBoolsChild pressurePadMultipleBoolsChild))
+                        {
+                            pressurePadMultipleBoolsChild.isOccupied = false;
+                        }else if(buttonTrans.TryGetComponent(out PressurePadTrigger pressurePadTrigger))
+                        {
+                            pressurePadTrigger.isOccupied = false;
+                        }
                         owner.isWaiting = false;
                         owner.Transition<CompanionIdelState>();
 

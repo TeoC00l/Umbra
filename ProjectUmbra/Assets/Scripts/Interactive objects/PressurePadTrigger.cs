@@ -16,13 +16,11 @@ public class PressurePadTrigger : MonoBehaviour
     void Start()
     {
         anim = animGO.GetComponent<Animator>();
-        //boxCollider = GetComponent<BoxCollider>();
         feedbackLight = GetComponentInChildren<Light>();
 
 
     }
 
-    //public bool isPressed = false;
 
 
 
