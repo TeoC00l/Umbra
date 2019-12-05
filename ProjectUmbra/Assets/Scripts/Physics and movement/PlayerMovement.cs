@@ -69,9 +69,13 @@ public class PlayerMovement : MonoBehaviour
         {
             cornerTurnerMode = 2;
         }
+        else if (sceneName == "WhiteBox_lvl3")
+        {
+            cornerTurnerMode = 1;
+        }
 
 
-        animator = GetComponentInChildren<Animator>();
+            animator = GetComponentInChildren<Animator>();
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();
