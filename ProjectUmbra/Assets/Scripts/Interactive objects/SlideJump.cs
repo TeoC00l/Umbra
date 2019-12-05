@@ -26,7 +26,7 @@ public class SlideJump : MonoBehaviour
         {
             DeathComponent.cachedPosition = other.transform.position;
 
-            if(Input.GetKey(KeyCode.Space) && hasJumped == false)
+            if(Input.GetKey(KeyCode.Space) && hasJumped == false )
             {
 
                 hasJumped = true;
@@ -49,4 +49,12 @@ public class SlideJump : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            hasJumped = false;
+        }
+    }
+
 }
