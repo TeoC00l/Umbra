@@ -36,8 +36,8 @@ public class ObjectHandeler : MonoBehaviour
         ButtonList = GameObject.FindGameObjectsWithTag("Button");
         Debug.Log(ButtonList.Length + ": Buttons with mulipleBools");
 
-        PressurePadList = GameObject.FindGameObjectsWithTag("PressurePad");
-        Debug.Log(PressurePadList.Length + ": PressurePads");
+        //PressurePadList = GameObject.FindGameObjectsWithTag("PressurePad");
+        //Debug.Log(PressurePadList.Length + ": PressurePads");
 
         Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Set.GetComponent<BoxCollider>());
         Physics.IgnoreCollision(Player.GetComponent<CapsuleCollider>(), Alice.GetComponent<BoxCollider>());

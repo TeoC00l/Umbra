@@ -6,7 +6,7 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] animGOs;
-    [SerializeField] string animationBoolKey = "";
+    [SerializeField] private string animationBoolKey = "";
     [SerializeField] GameObject multipleBoolButtons;
     private Light buttonLight;
 
@@ -24,23 +24,38 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Animation leverAnimation = GetComponentInChildren<Animation>();
-                if (!played)
-                {
-                    leverAnimation.Play();
-                    AudioManager.instance.Play("LeverPull");
-                    played = true;
-                }
+                //Animation leverAnimation = GetComponentInChildren<Animation>();
+                //if (!played)
+                //{
+                //    leverAnimation.Play();
+                //    AudioManager.instance.Play("LeverPull");
+                //    played = true;
+                //}
                 if (multipleBoolButtons != null)
                 {
                     multipleBoolButtons.GetComponent<PressurePadMultipleBools>().isActive = false;
 
                 }
-                buttonLight.color = Color.green;
 
                 foreach (GameObject animGo in animGOs)
                 {
-                    animGo.GetComponent<Animator>().SetBool(animationBoolKey, true);
+                    
+                    Animator leverAnimator = GetComponentInChildren<Animator>();
+                    Animator goAnim = animGo.GetComponent<Animator>();
+
+                    if (leverAnimator.GetBool(animationBoolKey) == false)
+                    {
+                        leverAnimator.SetBool(animationBoolKey, true);
+                        AudioManager.instance.Play("LeverPull");
+                        buttonLight.color = Color.green;
+
+                    }
+                    if (goAnim.GetBool(animationBoolKey) == false)
+                    {
+                        goAnim.SetBool(animationBoolKey, true);
+
+                    }
+
                 }
 
 
@@ -50,10 +65,5 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
     }
 
 
-
-    private void Update()
-    {
-        
-    }
 
 }

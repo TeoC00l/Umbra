@@ -20,6 +20,7 @@ public class GrabObject : MonoBehaviour
     public void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
+        grabStatus = false;
     }
 
     public void OnTriggerStay(Collider other)
@@ -48,7 +49,7 @@ public class GrabObject : MonoBehaviour
     private void FreezeRotation()
     {
         
-        Debug.Log(boxRB.constraints);
+        //Debug.Log(boxRB.constraints);
         Debug.Log( RigidbodyConstraints.FreezePositionX == boxRB.constraints);
         if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX ) == RigidbodyConstraints.FreezePositionX)
         {
@@ -68,7 +69,10 @@ public class GrabObject : MonoBehaviour
         {
             Release();
         }
-        else if (grabStatus && BoxGroundedRaycast() == false || player.GetComponent<PlayerMovement>().IsGrounded() == false)
+        else if (grabStatus && BoxGroundedRaycast() == false )
+        {
+            Release();
+        }else if( grabStatus == true && player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
         }

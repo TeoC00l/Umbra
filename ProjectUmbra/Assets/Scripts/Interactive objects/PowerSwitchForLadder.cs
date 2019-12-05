@@ -17,7 +17,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     private bool played = false;
 
 
-    private void Start()
+    private void Awake()
     {
         buttonLight = GetComponentInChildren<Light>();
         buttonLight.color = Color.yellow;
@@ -29,23 +29,32 @@ public class PowerSwitchForLadder : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                buttonLight.color = Color.green;
-                if (!played)
-                {
-                    Animation leverAnimation = GetComponentInChildren<Animation>();
-                    leverAnimation.Play();
-                    played = true;
-                }
+                //if (!played)
+                //{
+                //    Animation leverAnimation = GetComponentInChildren<Animation>();
+                //    leverAnimation.Play();
+                //    played = true;
+                //}
                 foreach (GameObject animGo in animGOs)
                 {
                     Animator animator = animGo.GetComponent<Animator>();
+                    Animator leverAnimator = GetComponentInChildren<Animator>();
+
                     if ((animator.GetBool(animationBoolKey)) == false)
                     {
                         animator.SetBool(animationBoolKey, true);
+                        leverAnimator.SetBool(animationBoolKey, true);
+                        AudioManager.instance.Play("LeverPull");
+                        buttonLight.color = Color.green;
+
                     }
                     else
                     {
                         animator.SetBool(animationBoolKey, false);
+                        leverAnimator.SetBool(animationBoolKey, false);
+                        AudioManager.instance.Play("LeverPull");
+                        buttonLight.color = Color.yellow;
+
                     }
 
 
