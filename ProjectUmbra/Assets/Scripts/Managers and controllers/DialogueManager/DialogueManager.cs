@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
         pm = player.GetComponent<PlayerMovement>();
         originalSpeed = pm.getSpeed();
 
-        Debug.Log("Dialogue start");
+        //Debug.Log("Dialogue start");
         if(PlayerPrefs.GetInt("UseOpenDyslexic") == 1 || OptionSettingsStorage.OpenDyslexic == true)
         {
             Debug.Log("Font change");

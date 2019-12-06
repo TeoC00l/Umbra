@@ -10,15 +10,22 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     private DeathComponent deathComponent;
     private NavMeshAgent agent;
     [SerializeField] private GameObject chaseColliderGO;
-    [SerializeField] private GameObject playerGO;
+    private GameObject playerGO;
     //private DeathComponent dc;
     private Transform playerTrans;
     [SerializeField] private Transform stopPoint;
     public Vector3 originalPosition;
 
+    private void Awake()
+    {
+
+        playerGO = GameObject.FindGameObjectWithTag("Player");
+        //Debug.Log(playerGO.name);
+    }
 
     private void Start()
     {
+        
         animator = GetComponentInChildren<Animator>();
         playerTrans = playerGO.transform;
         agent = GetComponent<NavMeshAgent>();
@@ -28,6 +35,11 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
     private void Update()
     {
+        if(playerGO == null)
+        {
+            playerGO = ObjectHandeler.Player;
+        }
+
         if (isChasing == true)
         {
             

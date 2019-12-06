@@ -72,6 +72,7 @@ public class DeathComponent : MonoBehaviour
                 fallDistance = cachedPosition.y - gameObject.transform.position.y;
                 if (fallDistance > fallDistanceToDie)
                 {
+                    
                     Debug.Log(fallDistance + " fall distance");
                     //die here
                     RespawnPlayer();
@@ -89,7 +90,7 @@ public class DeathComponent : MonoBehaviour
         //Debug.Log("respawning");
         deathScreenTimer.startFade();
         StartCoroutine(Respawn());
-        
+
         //Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         //transform.position = respawnPosition.position;
         ////transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
@@ -101,6 +102,8 @@ public class DeathComponent : MonoBehaviour
         //{
 
         //}
+
+        ObjectHandeler.ResetBoxes();
     }
 
     private IEnumerator Respawn()

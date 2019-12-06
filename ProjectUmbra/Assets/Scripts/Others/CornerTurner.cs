@@ -77,7 +77,7 @@ public class CornerTurner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Entered cornerturnmode " + cornerTurnMode);
+            //Debug.Log("Entered cornerturnmode " + cornerTurnMode);
             pm = other.gameObject.GetComponent<PlayerMovement>();
             pm.cornerTurner = gameObject;
         }
