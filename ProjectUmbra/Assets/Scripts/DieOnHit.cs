@@ -30,7 +30,7 @@ public class DieOnHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Deathzone"))
         {
             IsKilling = false;
             //isFalling = false;
@@ -38,12 +38,15 @@ public class DieOnHit : MonoBehaviour
 
         }
 
+        
+
         if (collision.collider.CompareTag("Player"))
         {
             if(IsKilling == true)
             {
                 Debug.Log("Hit by falling object -> DieOnHit.cs");
                 GetComponentInParent<FallingObjectsHandeler>().RespawnFallingObjects();
+                Debug.Log("Respawn");
                 collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
             }
 
@@ -51,6 +54,8 @@ public class DieOnHit : MonoBehaviour
         }
 
     }
+
+    
 
     private void Update()
     {
