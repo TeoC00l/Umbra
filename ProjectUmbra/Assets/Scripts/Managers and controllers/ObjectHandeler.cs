@@ -36,7 +36,7 @@ public class ObjectHandeler : MonoBehaviour
 
 
         ButtonList = GameObject.FindGameObjectsWithTag("Button");
-        Debug.Log(ButtonList.Length + ": Buttons with mulipleBools");
+        //Debug.Log(ButtonList.Length + ": Buttons with mulipleBools");
 
         //PressurePadList = GameObject.FindGameObjectsWithTag("PressurePad");
         //Debug.Log(PressurePadList.Length + ": PressurePads");

@@ -17,10 +17,10 @@ public class FallingObjectsHandeler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(fallingObjectSpawn.Length);
-        for (int i = 0; i <  fallingObjectSpawn.Length; i++)
+        //Debug.Log(fallingObjectSpawn.Length);
+        for (int i = 0; i < fallingObjectSpawn.Length; i++)
         {
-            GameObject tempGO = Instantiate<GameObject>(goPrefab);
+            GameObject tempGO = Instantiate<GameObject>(goPrefab, transform);
             tempGO.transform.position = fallingObjectSpawn[i].transform.position;
             //Debug.Log(fallingObjectSpawn[i].position);
             //tempGO.GetComponent<DieOnHit>().Index = i;
@@ -38,7 +38,7 @@ public class FallingObjectsHandeler : MonoBehaviour
             {
                 fallingObject.GetComponent<DieOnHit>().SetObjectToFalling();
             }
-            
+
         }
     }
 
@@ -46,12 +46,27 @@ public class FallingObjectsHandeler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            foreach  (GameObject fallingObject in fallingObjectsGOs)
+            foreach (GameObject fallingObject in fallingObjectsGOs)
             {
                 fallingObject.GetComponent<DieOnHit>().SetObjectToNotFalling();
             }
         }
     }
 
+    public void RespawnFallingObjects()
+    {
+        foreach (GameObject fallingObject in fallingObjectsGOs)
+        {
+            DieOnHit dieOnHit = fallingObject.GetComponent<DieOnHit>();
+            fallingObject.transform.position = dieOnHit.SpawnPosition.position;
+            dieOnHit.GoRigidbody.isKinematic = true;
+            dieOnHit.CoolDown = Random.Range(0, dieOnHit.randomRangeMax);
+            Debug.Log("respawn");
+        }
+
+
+
+
+    }
 
 }

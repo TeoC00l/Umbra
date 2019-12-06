@@ -9,21 +9,20 @@ public class DieOnHit : MonoBehaviour
     public Transform SpawnPosition;
     //public int Index;
     //[SerializeField] private FallingObjectsHandeler fallingObjectsHandeler;
-    private bool isKilling;
-    [SerializeField] float randomRangeMax = 1.5f;
-    private Rigidbody goRigidbody;
-    private float coolDown;
-    private bool isFalling;
-
+    public bool IsKilling;
+    [SerializeField] public float randomRangeMax = 1.5f;
+    public Rigidbody GoRigidbody;
+    public float CoolDown;
+    public bool isFalling;
+    private FallingObjectsHandeler fallingObjectsHandeler;
 
 
     private void Start()
     {
-        
-        isKilling = true;
+        IsKilling = true;
         isFalling = false;
-        goRigidbody = GetComponent<Rigidbody>();
-        goRigidbody.isKinematic = true;
+        GoRigidbody = GetComponent<Rigidbody>();
+        GoRigidbody.isKinematic = true;
     }
 
 
@@ -33,7 +32,7 @@ public class DieOnHit : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ground"))
         {
-            isKilling = false;
+            IsKilling = false;
             //isFalling = false;
             RespawnFallingObjects();
 
@@ -41,11 +40,10 @@ public class DieOnHit : MonoBehaviour
 
         if (collision.collider.CompareTag("Player"))
         {
-            if(isKilling == true)
+            if(IsKilling == true)
             {
                 Debug.Log("Hit by falling object -> DieOnHit.cs");
-
-                RespawnFallingObjects();
+                GetComponentInParent<FallingObjectsHandeler>().RespawnFallingObjects();
                 collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
             }
 
@@ -59,30 +57,32 @@ public class DieOnHit : MonoBehaviour
         DoFalling();
     }
 
+
     public void RespawnFallingObjects()
     {
 
-        transform.position = SpawnPosition.position;
-        goRigidbody.isKinematic = true;
-        coolDown = Random.Range(0, randomRangeMax);
+            transform.position = SpawnPosition.position;
+            GoRigidbody.isKinematic = true;
+            CoolDown = Random.Range(0, randomRangeMax);
+
+
 
 
     }
-
 
 
     private void DoFalling()
     {
         if(isFalling == true)
         {
-            if (coolDown < 0)
+            if (CoolDown < 0)
             {
-                goRigidbody.isKinematic = false;
+                GoRigidbody.isKinematic = false;
 
             }
             else
             {
-                coolDown -= Time.deltaTime;
+                CoolDown -= Time.deltaTime;
             }
         }
 
@@ -91,16 +91,16 @@ public class DieOnHit : MonoBehaviour
 
     public void SetObjectToFalling()
     {
-        isKilling = true;
+        IsKilling = true;
         isFalling = true;
-        coolDown = Random.Range(0, randomRangeMax);
+        CoolDown = Random.Range(0, randomRangeMax);
 
     }
 
 
     public void SetObjectToNotFalling()
     {
-        isKilling = false;
+        IsKilling = false;
         isFalling = false;
 
     }
