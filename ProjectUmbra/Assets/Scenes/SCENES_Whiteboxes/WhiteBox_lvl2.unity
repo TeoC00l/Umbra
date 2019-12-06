@@ -1740,16 +1740,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35232129}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026226044}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4799826}
+  m_LocalRotation: {x: -0, y: 0.7071059, z: -0, w: 0.7071077}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
   m_LocalScale: {x: 0.51392645, y: 0.45846125, z: 0.3821969}
   m_Children: []
   m_Father: {fileID: 1094550961}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6358585, y: 4.191355}
+  m_AnchoredPosition: {x: -0.76, y: 1.64}
   m_SizeDelta: {x: 9.779, y: 3.282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &38719306
@@ -7149,6 +7149,16 @@ PrefabInstance:
       propertyPath: speechBubble_S
       value: 
       objectReference: {fileID: 1094550959}
+    - target: {fileID: 7683845091548754789, guid: 163a953d704f3024c844716efbb1a903,
+        type: 3}
+      propertyPath: alice_lookAt
+      value: 
+      objectReference: {fileID: 1983526853}
+    - target: {fileID: 7683845091548754789, guid: 163a953d704f3024c844716efbb1a903,
+        type: 3}
+      propertyPath: set_lookAt
+      value: 
+      objectReference: {fileID: 1094550960}
     - target: {fileID: 7040780103529594280, guid: 163a953d704f3024c844716efbb1a903,
         type: 3}
       propertyPath: TargetPlayer
@@ -9035,16 +9045,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253667576}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026226044}
-  m_LocalPosition: {x: 0, y: 0, z: -0.48}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.64}
   m_LocalScale: {x: 0.51392645, y: 0.45846125, z: 0.3821969}
   m_Children: []
   m_Father: {fileID: 1983526852}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.73, y: 4.5}
+  m_AnchoredPosition: {x: 0.02, y: 1.85}
   m_SizeDelta: {x: 9.779, y: 3.282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253667578
@@ -32711,15 +32721,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094550959}
-  m_LocalRotation: {x: -0, y: -0.68424153, z: -0, w: -0.7292555}
-  m_LocalPosition: {x: 0.6883329, y: 0.07729833, z: -0.7166647}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.191, y: 0.27, z: -1.108}
   m_LocalScale: {x: 0.28131008, y: 0.0697962, z: 0.2580401}
   m_Children:
   - {fileID: 35232134}
   - {fileID: 1624553027}
   m_Father: {fileID: 961101474}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 86.352005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1097028082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45620,6 +45630,16 @@ PrefabInstance:
       propertyPath: speechBubbleText_S
       value: 
       objectReference: {fileID: 35232130}
+    - target: {fileID: 298127671376984968, guid: 2baa2099a5854eb4fba9a0c1fae84e49,
+        type: 3}
+      propertyPath: alice_lookAt
+      value: 
+      objectReference: {fileID: 1983526853}
+    - target: {fileID: 298127671376984968, guid: 2baa2099a5854eb4fba9a0c1fae84e49,
+        type: 3}
+      propertyPath: set_lookAt
+      value: 
+      objectReference: {fileID: 1094550960}
     - target: {fileID: 341712436, guid: 2baa2099a5854eb4fba9a0c1fae84e49, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -47038,17 +47058,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624553026}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026226041}
-  m_LocalPosition: {x: 0, y: 0, z: -0.48000005}
+  m_LocalRotation: {x: -0, y: 0.70710534, z: -0, w: 0.70710826}
+  m_LocalPosition: {x: 0, y: 0, z: -3.57}
   m_LocalScale: {x: 0.51392627, y: 0.45846125, z: 0.3821968}
   m_Children:
   - {fileID: 50004225}
   m_Father: {fileID: 1094550961}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.11, y: 5.31}
+  m_AnchoredPosition: {x: -0.7, y: 2.6399999}
   m_SizeDelta: {x: 13.553, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624553028
@@ -56178,15 +56198,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983526851}
-  m_LocalRotation: {x: -0, y: -0.6969193, z: -0, w: -0.71714956}
-  m_LocalPosition: {x: -0.52, y: 0.04, z: -0.74}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.249, y: 0.1815, z: -1.012}
   m_LocalScale: {x: 0.33333352, y: 0.08418004, z: 0.33333352}
   m_Children:
   - {fileID: 253667577}
   - {fileID: 2082522565}
   m_Father: {fileID: 961101474}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 88.36101, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1983526853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58369,17 +58389,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082522564}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026226041}
-  m_LocalPosition: {x: 0, y: 0, z: -0.48000005}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -3.8}
   m_LocalScale: {x: 0.51392627, y: 0.45846125, z: 0.3821968}
   m_Children:
   - {fileID: 1851829058}
   m_Father: {fileID: 1983526852}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.11, y: 5.31}
+  m_AnchoredPosition: {x: 0.03, y: 2.6599996}
   m_SizeDelta: {x: 13.553, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2082522566
@@ -77810,7 +77830,6 @@ MonoBehaviour:
   followerIcons: {fileID: 1822436163}
   aliceSpawn: {fileID: 1123890547}
   setSpawn: {fileID: 2147174310}
-  speechBubbleLookPoint: {fileID: 2118940763}
 --- !u!65 &4688956780126454891
 BoxCollider:
   m_ObjectHideFlags: 0
