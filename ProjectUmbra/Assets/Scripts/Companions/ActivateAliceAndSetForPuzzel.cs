@@ -10,7 +10,6 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     [SerializeField] private GameObject followerIcons;
     [SerializeField] private Transform aliceSpawn;
     [SerializeField] private Transform setSpawn;
-    [SerializeField] private Transform speechBubbleLookPoint;
 
     private void Awake()
     {
@@ -30,8 +29,8 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
             ObjectHandeler.Set.GetComponent<NavMeshAgent>().Warp(setSpawn.position);
             ObjectHandeler.Alice.GetComponent<NavMeshAgent>().Warp(aliceSpawn.position);
             try { 
-                ObjectHandeler.Alice.GetComponent<CompanionHandler>().alice_lookAt.LookAtTarget(speechBubbleLookPoint);
-                ObjectHandeler.Set.GetComponent<CompanionHandler>().set_lookAt.LookAtTarget(speechBubbleLookPoint);
+                ObjectHandeler.Alice.GetComponent<CompanionHandler>().alice_lookAt.LookAtTarget();
+                ObjectHandeler.Set.GetComponent<CompanionHandler>().set_lookAt.LookAtTarget();
             }
             catch (System.NullReferenceException)
             {

@@ -13,15 +13,14 @@ public class InActivateAliceAndSet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-
-
             try {
                 //ObjectHandeler.Alice.SetActive(false);
                 //ObjectHandeler.Set.SetActive(false);
 
                 //ObjectHandeler.SetActiveStatusForCompanions(false);
                 //followerIcons.SetActive(false);
+                ObjectHandeler.Alice.GetComponent<CompanionHandler>().alice_lookAt.ResetRotation();
+                ObjectHandeler.Set.GetComponent<CompanionHandler>().set_lookAt.ResetRotation();
                 StartCoroutine(PlayParticlesAndSetInactive());
             }
             catch (System.NullReferenceException)
