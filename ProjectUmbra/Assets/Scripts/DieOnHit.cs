@@ -46,7 +46,7 @@ public class DieOnHit : MonoBehaviour
                 Debug.Log("Hit by falling object -> DieOnHit.cs");
 
                 RespawnFallingObjects();
-                //collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
+                collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
             }
 
 
@@ -64,6 +64,8 @@ public class DieOnHit : MonoBehaviour
 
         transform.position = SpawnPosition.position;
         goRigidbody.isKinematic = true;
+        coolDown = Random.Range(0, randomRangeMax);
+
 
     }
 
@@ -95,5 +97,12 @@ public class DieOnHit : MonoBehaviour
 
     }
 
+
+    public void SetObjectToNotFalling()
+    {
+        isKilling = false;
+        isFalling = false;
+
+    }
 
 }

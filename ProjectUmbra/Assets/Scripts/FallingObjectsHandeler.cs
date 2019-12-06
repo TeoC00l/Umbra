@@ -22,11 +22,11 @@ public class FallingObjectsHandeler : MonoBehaviour
         {
             GameObject tempGO = Instantiate<GameObject>(goPrefab);
             tempGO.transform.position = fallingObjectSpawn[i].transform.position;
-            Debug.Log(fallingObjectSpawn[i].position);
+            //Debug.Log(fallingObjectSpawn[i].position);
             //tempGO.GetComponent<DieOnHit>().Index = i;
             tempGO.GetComponent<DieOnHit>().SpawnPosition = fallingObjectSpawn[i].transform;
             fallingObjectsGOs.Add(tempGO);
-            Debug.Log(i);
+            //Debug.Log(i);
         }
     }
 
@@ -37,15 +37,21 @@ public class FallingObjectsHandeler : MonoBehaviour
             foreach (GameObject fallingObject in fallingObjectsGOs)
             {
                 fallingObject.GetComponent<DieOnHit>().SetObjectToFalling();
-
-                
-
             }
             
         }
     }
 
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            foreach  (GameObject fallingObject in fallingObjectsGOs)
+            {
+                fallingObject.GetComponent<DieOnHit>().SetObjectToNotFalling();
+            }
+        }
+    }
 
 
 }

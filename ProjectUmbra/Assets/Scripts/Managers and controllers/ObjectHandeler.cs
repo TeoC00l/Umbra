@@ -13,6 +13,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject[] PressurePadList;
     public static GameObject Player;
     public static GameObject CheckPointManager;
+    public static GameObject[] Boxes;
 
 
     private void Awake()
@@ -22,6 +23,7 @@ public class ObjectHandeler : MonoBehaviour
         Set = GameObject.FindGameObjectWithTag("Set");
         Alice = GameObject.FindGameObjectWithTag("Alice");
         CheckPointManager = GameObject.FindGameObjectWithTag("CheckPointManager");
+        Boxes = GameObject.FindGameObjectsWithTag("Grabbable");
 
         if (Set != null && Alice != null){
             //Set.SetActive(false);
@@ -61,6 +63,17 @@ public class ObjectHandeler : MonoBehaviour
             Alice.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
+
+
+    public static void ResetBoxes()
+    {
+        foreach (GameObject box in Boxes)
+        {
+            box.GetComponent<BoxSpawn>().RespawnBox();
+            Debug.Log("BoxREspawn");
+        }
+    }
+
 
     
 
