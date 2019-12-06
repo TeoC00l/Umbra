@@ -16,16 +16,18 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private LayerMask groundCheck;
     RaycastHit hit;
     private int frozenOnXPosition = 98;
+    private bool isPressingF;
     
     public void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
         grabStatus = false;
+        isPressingF = false;
     }
 
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.F))
+        if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true)
         //if (other.CompareTag("Grabbable"))
         {
 
@@ -65,6 +67,12 @@ public class GrabObject : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isPressingF = true;
+        }
+
+
         if (grabStatus && Input.GetKeyUp(KeyCode.F))
         {
             Release();
@@ -84,8 +92,9 @@ public class GrabObject : MonoBehaviour
         FixedJoint joint = box.GetComponent<FixedJoint>();
         Destroy(joint);
         grabStatus = false;
-        
-        if((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX )
+        isPressingF = false;
+
+        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX )
         {
             UnFreezeZAxis();
 
@@ -99,7 +108,6 @@ public class GrabObject : MonoBehaviour
 
         Debug.Log("RElease");
         //box.transform.SetParent(null);
-
 
     }
     private void UnFreezeZAxis()

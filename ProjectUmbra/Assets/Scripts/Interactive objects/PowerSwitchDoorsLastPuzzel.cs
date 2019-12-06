@@ -11,6 +11,7 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
     private Light buttonLight;
 
     private bool played = false;
+    private bool isPressingF = false;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (isPressingF == true)
             {
                 //Animation leverAnimation = GetComponentInChildren<Animation>();
                 //if (!played)
@@ -64,6 +65,21 @@ public class PowerSwitchDoorsLastPuzzel : MonoBehaviour
         }
     }
 
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isPressingF = true;
+        }
+
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isPressingF = false;
+        }
+    }
 
 
 }

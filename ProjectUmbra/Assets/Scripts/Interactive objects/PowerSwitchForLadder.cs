@@ -15,7 +15,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     private Light buttonLight;
 
     private bool played = false;
-
+    private bool isPressingF = false;
 
     private void Awake()
     {
@@ -65,8 +65,19 @@ public class PowerSwitchForLadder : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isPressingF = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isPressingF = false;
+        }
+
+
         if (hasCoolDownToReset == true)
         {
 
@@ -80,6 +91,8 @@ public class PowerSwitchForLadder : MonoBehaviour
                 {
                     animGO.GetComponent<Animator>().SetBool(animationBoolKey, false);
                     coolDown = coolDownToReset;
+                    buttonLight.color = Color.yellow;
+
                 }
             }
 
