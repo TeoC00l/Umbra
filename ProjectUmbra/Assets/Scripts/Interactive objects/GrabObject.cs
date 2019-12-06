@@ -17,7 +17,7 @@ public class GrabObject : MonoBehaviour
     RaycastHit hit;
     private int frozenOnXPosition = 98;
     private bool isPressingF;
-    
+
     public void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -50,10 +50,10 @@ public class GrabObject : MonoBehaviour
 
     private void FreezeRotation()
     {
-        
+
         //Debug.Log(boxRB.constraints);
-        Debug.Log( RigidbodyConstraints.FreezePositionX == boxRB.constraints);
-        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX ) == RigidbodyConstraints.FreezePositionX)
+        Debug.Log(RigidbodyConstraints.FreezePositionX == boxRB.constraints);
+        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX)
         {
             Debug.Log("xPos");
             boxRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX;
@@ -73,14 +73,15 @@ public class GrabObject : MonoBehaviour
         }
 
 
-        if (grabStatus && Input.GetKeyUp(KeyCode.F))
+        if (grabStatus && isPressingF == false)
         {
             Release();
         }
-        else if (grabStatus && BoxGroundedRaycast() == false )
+        else if (grabStatus && BoxGroundedRaycast() == false)
         {
             Release();
-        }else if( grabStatus == true && player.GetComponent<PlayerMovement>().IsGrounded() == false)
+        }
+        else if (grabStatus == true && player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
         }
@@ -94,7 +95,7 @@ public class GrabObject : MonoBehaviour
         grabStatus = false;
         isPressingF = false;
 
-        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX )
+        if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX)
         {
             UnFreezeZAxis();
 
@@ -127,13 +128,14 @@ public class GrabObject : MonoBehaviour
     {
         return grabStatus;
     }
-    
+
 
 
     public bool BoxGroundedRaycast()
     {
-        
-        if (Physics.Raycast(box.transform.position,Vector3.down, 1f,groundCheck ,QueryTriggerInteraction.Ignore)){
+
+        if (Physics.Raycast(box.transform.position, Vector3.down, 1f, groundCheck, QueryTriggerInteraction.Ignore))
+        {
             return true;
 
         }
@@ -142,7 +144,7 @@ public class GrabObject : MonoBehaviour
 
     public bool BoxGrounded()
     {
-        if (Physics.BoxCast(box.transform.position, (box.GetComponent<BoxCollider>().transform.lossyScale + new Vector3(0.1f ,0.1f ,0.1f )) / 2, Vector3.down, Quaternion.identity, 0.5f, groundCheck))
+        if (Physics.BoxCast(box.transform.position, (box.GetComponent<BoxCollider>().transform.lossyScale + new Vector3(0.1f, 0.1f, 0.1f)) / 2, Vector3.down, Quaternion.identity, 0.5f, groundCheck))
         {
             Debug.Log("BoxGrounded");
             return true;
@@ -190,67 +192,6 @@ public class GrabObject : MonoBehaviour
 
 
 
-    //[SerializeField] private GameObject player;
-    //private PlayerMovement playerMovement;
-    //[SerializeField] private LayerMask layerMask;
-
-    //private Rigidbody rb;
-    //private bool grabStatus;
-    //private GameObject box;
-    //private bool isPushing;
-    //[SerializeField] private LayerMask groundCheck;
-
-    //public void Start()
-    //{
-    //    playerMovement = player.GetComponent<PlayerMovement>();
-    //}
-
-    //public void OnTriggerStay(Collider other)
-    //{
-    //    if (!grabStatus && other.CompareTag("Grabbable") && Input.GetKeyDown(KeyCode.F))
-    //    //if (other.CompareTag("Grabbable"))
-    //    {
-    //        box = other.gameObject;
-    //        Debug.Log("Grabbing");
-    //        GameObject grabbableObject = other.gameObject;
-    //        rb = player.GetComponent<Rigidbody>();
-    //        //rb = grabbableObject.GetComponent<Rigidbody>();
-    //        //grabbableObject.GetComponent<BoxCollider>().material = 
-    //        //grabbableObject.GetComponent<PhysicMaterial>().dynamicFriction = 0;
-
-
-    //        SpringJoint joint = box.AddComponent(typeof(SpringJoint)) as SpringJoint;
-    //        joint.connectedBody = rb;
-    //        joint.enableCollision = true;
-    //        joint.minDistance = 0.9f;
-    //        joint.maxDistance = 0.9f;
-    //        joint.spring = 1000;
-    //        joint.damper = 100;
-    //        grabStatus = true;
-    //    }
-    //}
-
-    //public void Update()
-    //{
-    //    if (grabStatus && Input.GetKeyUp(KeyCode.F))
-    //    {
-    //        Release();
-    //    }
-    //    //else if (grabStatus && BoxGrounded() == false || player.GetComponent<PlayerMovement>().IsGrounded() == false)
-    //    //{
-    //    //    Release();
-    //    //}
-    //}
-
-    //private void Release()
-    //{
-    //    SpringJoint joint = box.GetComponent<SpringJoint>();
-    //    Destroy(joint);
-    //    grabStatus = false;
-    //    //box.transform.SetParent(null);
-
-
-    //}
 
 
 }

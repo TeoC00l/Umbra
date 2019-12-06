@@ -6,15 +6,24 @@ public class DieOnHit : MonoBehaviour
 {
 
 
-    public Vector3 StartPosition;
-    [SerializeField] private FallingObjectsHandeler fallingObjectsHandeler;
+    public Transform SpawnPosition;
+    //public int Index;
+    //[SerializeField] private FallingObjectsHandeler fallingObjectsHandeler;
     private bool isKilling;
+    [SerializeField] float randomRangeMax = 1.5f;
+    private Rigidbody goRigidbody;
+    private float coolDown;
+    private bool isFalling;
+
+
 
     private void Start()
     {
-        StartPosition = transform.position;
+        
         isKilling = true;
-
+        isFalling = false;
+        goRigidbody = GetComponent<Rigidbody>();
+        goRigidbody.isKinematic = true;
     }
 
 
@@ -25,6 +34,9 @@ public class DieOnHit : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isKilling = false;
+            //isFalling = false;
+            RespawnFallingObjects();
+
         }
 
         if (collision.collider.CompareTag("Player"))
@@ -32,8 +44,8 @@ public class DieOnHit : MonoBehaviour
             if(isKilling == true)
             {
                 Debug.Log("Hit by falling object -> DieOnHit.cs");
-                fallingObjectsHandeler.RespawnFallingObjects();
 
+                RespawnFallingObjects();
                 //collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
             }
 
@@ -41,4 +53,47 @@ public class DieOnHit : MonoBehaviour
         }
 
     }
+
+    private void Update()
+    {
+        DoFalling();
+    }
+
+    public void RespawnFallingObjects()
+    {
+
+        transform.position = SpawnPosition.position;
+        goRigidbody.isKinematic = true;
+
+    }
+
+
+
+    private void DoFalling()
+    {
+        if(isFalling == true)
+        {
+            if (coolDown < 0)
+            {
+                goRigidbody.isKinematic = false;
+
+            }
+            else
+            {
+                coolDown -= Time.deltaTime;
+            }
+        }
+
+    }
+
+
+    public void SetObjectToFalling()
+    {
+        isKilling = true;
+        isFalling = true;
+        coolDown = Random.Range(0, randomRangeMax);
+
+    }
+
+
 }
