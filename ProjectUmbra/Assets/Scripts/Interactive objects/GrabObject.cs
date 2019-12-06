@@ -72,6 +72,10 @@ public class GrabObject : MonoBehaviour
             isPressingF = true;
         }
 
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isPressingF = false;
+        }
 
         if (grabStatus && isPressingF == false)
         {
