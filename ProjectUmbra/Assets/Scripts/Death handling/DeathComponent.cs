@@ -90,7 +90,7 @@ public class DeathComponent : MonoBehaviour
         //Debug.Log("respawning");
         deathScreenTimer.startFade();
         StartCoroutine(Respawn());
-        
+
         //Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         //transform.position = respawnPosition.position;
         ////transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
@@ -102,6 +102,8 @@ public class DeathComponent : MonoBehaviour
         //{
 
         //}
+
+        ObjectHandeler.ResetBoxes();
     }
 
     private IEnumerator Respawn()
