@@ -547,7 +547,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c2aba41a0d6a641ad42aeeea1a34fb, type: 2}
+      objectReference: {fileID: 2100000, guid: b5c900fbf55da974585d4c02069a0b46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114269113f4843c4d914c94ee51689eb, type: 3}
 --- !u!4 &86449045 stripped
@@ -556,6 +556,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 86449044}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &98632857
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &114379991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,41 +841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &284244046
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &290173337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
@@ -1769,6 +1769,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2632958084344715507, guid: 307284df750f52c44bc3a8f7b8793f21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4920698623795330041, guid: 307284df750f52c44bc3a8f7b8793f21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1822,11 +1827,6 @@ PrefabInstance:
     - target: {fileID: 4920698623795330041, guid: 307284df750f52c44bc3a8f7b8793f21,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2632958084344715507, guid: 307284df750f52c44bc3a8f7b8793f21,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920698623867942457, guid: 307284df750f52c44bc3a8f7b8793f21,
@@ -2570,7 +2570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c2aba41a0d6a641ad42aeeea1a34fb, type: 2}
+      objectReference: {fileID: 2100000, guid: b5c900fbf55da974585d4c02069a0b46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114269113f4843c4d914c94ee51689eb, type: 3}
 --- !u!4 &608129620 stripped
@@ -2689,7 +2689,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.9
+      value: 38.77
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
@@ -2699,7 +2699,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.627
+      value: -10.57
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
@@ -2744,17 +2744,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.2992
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.2992
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.2992
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 6f5360c5cc54dea4d8bbc30b2193e78a,
         type: 3}
@@ -2870,7 +2870,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c2aba41a0d6a641ad42aeeea1a34fb, type: 2}
+      objectReference: {fileID: 2100000, guid: b5c900fbf55da974585d4c02069a0b46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114269113f4843c4d914c94ee51689eb, type: 3}
 --- !u!4 &781023645 stripped
@@ -3000,41 +3000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &839742750
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &851171426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,7 +3119,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 8.21
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
@@ -3316,7 +3281,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c2aba41a0d6a641ad42aeeea1a34fb, type: 2}
+      objectReference: {fileID: 2100000, guid: b5c900fbf55da974585d4c02069a0b46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114269113f4843c4d914c94ee51689eb, type: 3}
 --- !u!4 &943420087 stripped
@@ -3550,7 +3515,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.499999
+      value: 8.28
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
@@ -3899,6 +3864,41 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 66dd7554c8381f54a9f7cfb5e4399903, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671dd8da2ceef7a4aa6a728095ceed18, type: 3}
+--- !u!84 &1173404442
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1221076684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4200,13 +4200,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 839742750}
+  shadowMapRenderTexture: {fileID: 1173404442}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.25
   outOfPhaseColor: {r: 1, g: 0.48999998, b: 0.39999998, a: 1}
-  shadowDataRenderTexture: {fileID: 284244046}
+  shadowDataRenderTexture: {fileID: 98632857}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -4229,12 +4229,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5a97f0a4793db5b4f8f3d21a12556b36,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.761
+      value: 38.759
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5a97f0a4793db5b4f8f3d21a12556b36,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.61
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5a97f0a4793db5b4f8f3d21a12556b36,
         type: 3}
@@ -5151,7 +5151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640258273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.39, y: -1.152, z: -8.48}
+  m_LocalPosition: {x: 40.54, y: -1.152, z: -8.088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5177,7 +5177,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.499999
+      value: 8.139999
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b4ebd46b909ed9489540946ec047f06,
         type: 3}
@@ -5608,7 +5608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738761731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.219, y: -1.152, z: -8.48}
+  m_LocalPosition: {x: 37.129, y: -1.152, z: -7.919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6195,7 +6195,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 492171ed8a127294cbe4ec0f0d7504b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.69
+      value: -4.58
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 492171ed8a127294cbe4ec0f0d7504b6,
         type: 3}
@@ -6261,7 +6261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bc0f13d37fe5ec643acbcb413428b517, type: 2}
+      objectReference: {fileID: 2100000, guid: b5c900fbf55da974585d4c02069a0b46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 492171ed8a127294cbe4ec0f0d7504b6, type: 3}
 --- !u!1001 &2106238388
