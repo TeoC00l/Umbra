@@ -59,6 +59,7 @@ MonoBehaviour:
 '
   dm: {fileID: 4278387990300913690}
   holdPlayer: 1
+  hasTimer: 0
 --- !u!114 &6642405548107792820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,89 +113,9 @@ Transform:
   m_LocalScale: {x: 1, y: 0.083333336, z: 0.33333334}
   m_Children:
   - {fileID: 6642405548107792822}
-  - {fileID: 6642405548570090066}
   m_Father: {fileID: 6642405548820113314}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6642405548570090069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6642405548570090066}
-  - component: {fileID: 6642405548570090067}
-  - component: {fileID: 6642405548570090065}
-  - component: {fileID: 6642405548570090064}
-  m_Layer: 0
-  m_Name: Trigger 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6642405548570090066
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642405548570090069}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.66, y: 0, z: 117.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6642405548147382236}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6642405548570090067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642405548570090069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976c88ce38d51714ba573a5b002175e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Alice
-    characterImage: {fileID: 21300000, guid: e5ab9f0fe6cdac345b4d613c5f71dcf5, type: 3}
-    playNextVideo: 0
-    sentences:
-    - Those three crooks in that alley sure look mean...
-    - I think we should be prepared to run for it!
-  dm: {fileID: 4278387990300913690}
-  holdPlayer: 1
---- !u!114 &6642405548570090065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642405548570090069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf8616d2c6ee370479cc7ffba9e6a6f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &6642405548570090064
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642405548570090069}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.248806, y: 11.983346, z: 10.659843}
-  m_Center: {x: 1.124403, y: 0.09841204, z: -2.5374413}
 --- !u!1 &6642405548820113317
 GameObject:
   m_ObjectHideFlags: 0
