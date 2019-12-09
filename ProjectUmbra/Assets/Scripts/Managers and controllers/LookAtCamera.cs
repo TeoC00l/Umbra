@@ -51,6 +51,10 @@ public class LookAtCamera : MonoBehaviour
                 {
                     transform.Rotate(0, -180, 0, Space.Self);
                 }
+                else if (SceneManager.GetActiveScene().name == "Whitebox_lvl3")
+                {
+                    transform.Rotate(0, -90, 0, Space.Self);
+                }
                 else
                 {
                     transform.Rotate(0, 270, 0, Space.Self);
@@ -60,6 +64,11 @@ public class LookAtCamera : MonoBehaviour
                 Debug.Log("Mode 1");
                 if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
                 {
+                    transform.Rotate(0, -90, 0, Space.Self);
+                }
+                else if (SceneManager.GetActiveScene().name == "Whitebox_lvl3")
+                {
+                    Debug.Log("scene3");
                     transform.Rotate(0, -90, 0, Space.Self);
                 }
                 else
@@ -73,6 +82,10 @@ public class LookAtCamera : MonoBehaviour
                 {
                     transform.Rotate(0, 0, 0, Space.Self);
                 }
+                else if (SceneManager.GetActiveScene().name == "Whitebox_lvl3")
+                {
+                    transform.Rotate(0, 0, 0, Space.Self);
+                }
                 else
                 {
                     transform.Rotate(0, 90, 0, Space.Self);
@@ -83,6 +96,10 @@ public class LookAtCamera : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
                 {
                     transform.Rotate(0, 90, 0, Space.Self);
+                }
+                else if (SceneManager.GetActiveScene().name == "Whitebox_lvl3")
+                {
+                    transform.Rotate(0, -180, 0, Space.Self);
                 }
                 else
                 {
