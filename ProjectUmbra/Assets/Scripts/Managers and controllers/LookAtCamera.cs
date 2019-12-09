@@ -71,7 +71,7 @@ public class LookAtCamera : MonoBehaviour
                 Debug.Log("Mode 2");
                 if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
                 {
-                    transform.Rotate(0, 270, 0, Space.Self);
+                    transform.Rotate(0, 0, 0, Space.Self);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ public class LookAtCamera : MonoBehaviour
                 Debug.Log("Mode 3");
                 if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
                 {
-                    transform.Rotate(0, 0, 0, Space.Self);
+                    transform.Rotate(0, 90, 0, Space.Self);
                 }
                 else
                 {
