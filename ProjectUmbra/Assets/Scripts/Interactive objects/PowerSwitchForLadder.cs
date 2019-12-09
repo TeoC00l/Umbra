@@ -16,6 +16,7 @@ public class PowerSwitchForLadder : MonoBehaviour
 
     private bool played = false;
     private bool isPressingF;
+    private float cooldown = 1;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (isPressingF == true)
+            if (isPressingF == true && cooldown <= 0)
             {
                 //if (!played)
                 //{
@@ -49,21 +50,19 @@ public class PowerSwitchForLadder : MonoBehaviour
                         leverAnimator.SetBool(animationBoolKey, false);
                         AudioManager.instance.Play("LeverPull");
                         buttonLight.color = Color.yellow;
-                        break;
                     }else
                     {
                         animator.SetBool(animationBoolKey, true);
                         leverAnimator.SetBool(animationBoolKey, true);
                         AudioManager.instance.Play("LeverPull");
                         buttonLight.color = Color.green;
-                        break;
-                        return;
+
                     }
 
 
                 }
 
-
+                cooldown = 0.3f;
             }
         }
     }
@@ -83,6 +82,12 @@ public class PowerSwitchForLadder : MonoBehaviour
         {
             isPressingF = false;
         }
+
+        if(cooldown >= 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
+
 
 
         //if (hasCoolDownToReset == true)
@@ -105,4 +110,7 @@ public class PowerSwitchForLadder : MonoBehaviour
 
         //}
     }
+
+
+
 }
