@@ -36,7 +36,7 @@ public class PowerSwitchTrigger : MonoBehaviour
                 }
                 
                 leverAnimator.SetTrigger(animationBoolKey);
-                
+                AudioManager.instance.Play("LeverPull");
             }
         }
     }
@@ -44,7 +44,7 @@ public class PowerSwitchTrigger : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(anim.GetCurrentAnimatorStateInfo(0).IsName("FloorAnimation"));
+        //Debug.Log(anim.GetCurrentAnimatorStateInfo(0).IsName("FloorAnimation"));
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("FloorAnimation") == true)
         {
             light.color = Color.green;
