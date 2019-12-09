@@ -6667,6 +6667,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
+        type: 3}
+      propertyPath: followerIcons
+      value: 
+      objectReference: {fileID: 1788957655}
     - target: {fileID: 8599812249134977928, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6682,11 +6687,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
-        type: 3}
-      propertyPath: followerIcons
-      value: 
-      objectReference: {fileID: 1788957655}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48545c71a012a04889778f0b540d594, type: 3}
 --- !u!4 &366725911 stripped
@@ -12553,7 +12553,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.58175516, g: 0.44348523, b: 0.6226415, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -25162,7 +25162,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.26569304, g: 0.20728016, b: 0.3207547, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -25740,9 +25740,9 @@ Transform:
   - {fileID: 1602592591}
   - {fileID: 1215897459}
   - {fileID: 688372282}
-  - {fileID: 234208363}
   - {fileID: 1772296015}
   - {fileID: 185876082}
+  - {fileID: 234208363}
   - {fileID: 837953880}
   m_Father: {fileID: 438072775}
   m_RootOrder: 20
@@ -28134,11 +28134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPointManager
       objectReference: {fileID: 0}
-    - target: {fileID: 90844158603831502, guid: 991f696254b49794ab75c174a8000d68,
-        type: 3}
-      propertyPath: currentCheckpointPosition
-      value: 
-      objectReference: {fileID: 1770251909}
     - target: {fileID: 90844158603831503, guid: 991f696254b49794ab75c174a8000d68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28194,6 +28189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 90844158603831502, guid: 991f696254b49794ab75c174a8000d68,
+        type: 3}
+      propertyPath: currentCheckpointPosition
+      value: 
+      objectReference: {fileID: 1770251909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991f696254b49794ab75c174a8000d68, type: 3}
 --- !u!114 &1642617182 stripped
@@ -28311,6 +28311,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 637481898}
     m_Modifications:
+    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 544013759}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueCanvas
+      value: 
+      objectReference: {fileID: 1171885655}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 91454254}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 130833380}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 1816389802}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: OpenDyslexic
+      value: 
+      objectReference: {fileID: 12800000, guid: 400874b261f27894da2663281c1cce13,
+        type: 3}
     - target: {fileID: 7453865932548544493, guid: 974dd2cab9a58a942aacb40259542c57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28365,42 +28401,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 544013759}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueCanvas
-      value: 
-      objectReference: {fileID: 1171885655}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 91454254}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 130833380}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: characterImage
-      value: 
-      objectReference: {fileID: 1816389802}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: OpenDyslexic
-      value: 
-      objectReference: {fileID: 12800000, guid: 400874b261f27894da2663281c1cce13,
-        type: 3}
-    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogueManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974dd2cab9a58a942aacb40259542c57, type: 3}
@@ -33978,6 +33978,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
+        type: 3}
+      propertyPath: followerIcons
+      value: 
+      objectReference: {fileID: 1788957655}
     - target: {fileID: 8599812249134977928, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33993,11 +33998,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
-        type: 3}
-      propertyPath: followerIcons
-      value: 
-      objectReference: {fileID: 1788957655}
     - target: {fileID: 3911990852099262536, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_IsActive
@@ -40241,13 +40241,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.9637
       objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 7b56cd9b663f23f429e131a54ec87db0, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.45490196
-      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 7b56cd9b663f23f429e131a54ec87db0, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 7b56cd9b663f23f429e131a54ec87db0, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.45490196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b56cd9b663f23f429e131a54ec87db0, type: 3}

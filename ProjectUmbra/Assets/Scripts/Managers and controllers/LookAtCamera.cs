@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LookAtCamera : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class LookAtCamera : MonoBehaviour
     {
         transform.position = followTarget.position + new Vector3(0, 3f, 0);
        
+        if(ObjectHandeler.Alice.activeSelf == false || ObjectHandeler.Alice.activeSelf == false)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void LookAtTarget()
@@ -42,19 +47,47 @@ public class LookAtCamera : MonoBehaviour
         {
             case 0:
                 Debug.Log("Mode 0");
-                transform.Rotate(0, 270, 0, Space.Self);
+                if(SceneManager.GetActiveScene().name == "Whitebox_lvl1")
+                {
+                    transform.Rotate(0, -180, 0, Space.Self);
+                }
+                else
+                {
+                    transform.Rotate(0, 270, 0, Space.Self);
+                }              
                 break;
             case 1:
                 Debug.Log("Mode 1");
-                transform.Rotate(0, 0, 0, Space.Self);
+                if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
+                {
+                    transform.Rotate(0, -90, 0, Space.Self);
+                }
+                else
+                {
+                    transform.Rotate(0, 0, 0, Space.Self);
+                }
                 break;
             case 2:
                 Debug.Log("Mode 2");
-                transform.Rotate(0, 90, 0, Space.Self);
+                if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
+                {
+                    transform.Rotate(0, 270, 0, Space.Self);
+                }
+                else
+                {
+                    transform.Rotate(0, 90, 0, Space.Self);
+                }
                 break;
             case 3:
                 Debug.Log("Mode 3");
-                transform.Rotate(0, 180, 0, Space.Self);
+                if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
+                {
+                    transform.Rotate(0, 0, 0, Space.Self);
+                }
+                else
+                {
+                    transform.Rotate(0, 180, 0, Space.Self);
+                }
                 break;
             default:
                 Debug.Log("Default");
