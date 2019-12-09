@@ -7,15 +7,15 @@ public class PowerSwitchForLadder : MonoBehaviour
 
     [SerializeField] private GameObject[] animGOs;
     [SerializeField] string animationBoolKey = "";
-    [SerializeField] private bool hasCoolDownToReset;
-    [SerializeField] private float coolDownToReset;
-    private float coolDown;
+    //[SerializeField] private bool hasCoolDownToReset;
+    //[SerializeField] private float coolDownToReset;
+    //private float coolDown;
 
     //[SerializeField] private GameObject groundToActivate;
     private Light buttonLight;
 
     private bool played = false;
-    private bool isPressingF = false;
+    private bool isPressingF;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class PowerSwitchForLadder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (isPressingF == true)
             {
                 //if (!played)
                 //{
@@ -35,26 +35,29 @@ public class PowerSwitchForLadder : MonoBehaviour
                 //    leverAnimation.Play();
                 //    played = true;
                 //}
+
+                Debug.Log(animGOs.Length);
                 foreach (GameObject animGo in animGOs)
                 {
                     Animator animator = animGo.GetComponent<Animator>();
                     Animator leverAnimator = GetComponentInChildren<Animator>();
+                    Debug.Log(animator.GetBool(animationBoolKey));
 
-                    if ((animator.GetBool(animationBoolKey)) == false)
-                    {
-                        animator.SetBool(animationBoolKey, true);
-                        leverAnimator.SetBool(animationBoolKey, true);
-                        AudioManager.instance.Play("LeverPull");
-                        buttonLight.color = Color.green;
-
-                    }
-                    else
+                    if ((animator.GetBool(animationBoolKey)) == true)
                     {
                         animator.SetBool(animationBoolKey, false);
                         leverAnimator.SetBool(animationBoolKey, false);
                         AudioManager.instance.Play("LeverPull");
                         buttonLight.color = Color.yellow;
-
+                        break;
+                    }else
+                    {
+                        animator.SetBool(animationBoolKey, true);
+                        leverAnimator.SetBool(animationBoolKey, true);
+                        AudioManager.instance.Play("LeverPull");
+                        buttonLight.color = Color.green;
+                        break;
+                        return;
                     }
 
 
@@ -71,6 +74,10 @@ public class PowerSwitchForLadder : MonoBehaviour
         {
             isPressingF = true;
         }
+        else
+        {
+            isPressingF = false;
+        }
 
         if (Input.GetKeyUp(KeyCode.F))
         {
@@ -78,24 +85,24 @@ public class PowerSwitchForLadder : MonoBehaviour
         }
 
 
-        if (hasCoolDownToReset == true)
-        {
+        //if (hasCoolDownToReset == true)
+        //{
 
-            if (coolDown >= 0)
-            {
-                coolDown -= Time.fixedDeltaTime;
-            }
-            else
-            {
-                foreach (GameObject animGO in animGOs)
-                {
-                    animGO.GetComponent<Animator>().SetBool(animationBoolKey, false);
-                    coolDown = coolDownToReset;
-                    buttonLight.color = Color.yellow;
+        //    if (coolDown >= 0)
+        //    {
+        //        coolDown -= Time.fixedDeltaTime;
+        //    }
+        //    else
+        //    {
+        //        foreach (GameObject animGO in animGOs)
+        //        {
+        //            animGO.GetComponent<Animator>().SetBool(animationBoolKey, false);
+        //            coolDown = coolDownToReset;
+        //            buttonLight.color = Color.yellow;
 
-                }
-            }
+        //        }
+        //    }
 
-        }
+        //}
     }
 }
