@@ -62,11 +62,11 @@ public class LookAtCamera : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("Mode 1");
-                if (SceneManager.GetActiveScene().name == "Whitebox_lvl1")
+                if (SceneManager.GetActiveScene().name.ToLower() == "whitebox_lvl1")
                 {
                     transform.Rotate(0, -90, 0, Space.Self);
                 }
-                else if (SceneManager.GetActiveScene().name == "Whitebox_lvl3")
+                else if (SceneManager.GetActiveScene().name.ToLower() == "whitebox_lvl3")
                 {
                     Debug.Log("scene3");
                     transform.Rotate(0, -90, 0, Space.Self);
