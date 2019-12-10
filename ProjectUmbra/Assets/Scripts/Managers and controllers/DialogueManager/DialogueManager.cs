@@ -87,7 +87,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void StartDialogueWithTimer(Dialogue dialogue, bool holdPlayer)
+    public void StartDialogueWithTimer(Dialogue dialogue, bool holdPlayer, float timerLength)
     {
         sentences.Clear();
         current = dialogue;
@@ -106,7 +106,7 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeTimedSentence(sentence));
+        StartCoroutine(TypeTimedSentence(sentence, timerLength));
     }
 
 
@@ -134,7 +134,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    IEnumerator TypeTimedSentence (string sentence)
+    IEnumerator TypeTimedSentence (string sentence, float timerLength)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -142,7 +142,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             //yield return null;
         }
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(timerLength);
         EndDialogue();
 
     }

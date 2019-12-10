@@ -10,6 +10,8 @@ public class KarmaDependentDialogueTrigger : MonoBehaviour
     [SerializeField] bool holdPlayer = true;
     [Header("Should dialogue disappear by itself after five seconds?")]
     [SerializeField] bool hasTimer = false;
+    [Header("How long should timer be?")]
+    [SerializeField] float timerLength = 0f;
     [SerializeField] private int karmaForOption1, karmaForOption2;
 
 
@@ -29,10 +31,10 @@ public class KarmaDependentDialogueTrigger : MonoBehaviour
         {
             if(KarmaManager.Karma == karmaForOption1)
             {
-                dm.StartDialogueWithTimer(dialogue1, holdPlayer);
+                dm.StartDialogueWithTimer(dialogue1, holdPlayer, timerLength);
             } else if(KarmaManager.Karma == karmaForOption2)
             {
-                dm.StartDialogueWithTimer(dialogue2, holdPlayer);
+                dm.StartDialogueWithTimer(dialogue2, holdPlayer, timerLength);
             }
             
         }
