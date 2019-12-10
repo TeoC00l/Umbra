@@ -11,7 +11,7 @@ public class Player : StateMachine
 
     //public Transform ClimbToTransform;
     public PhysicMaterial wallMaterial;
-
+    public LayerMask wallLayer;
 
     
 
