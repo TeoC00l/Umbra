@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayDialogue : MonoBehaviour
+public class PlayDialogue_Companion : MonoBehaviour
 {
     private DialogueTrigger dt;
-
 
     private void Start()
     {
@@ -13,11 +12,10 @@ public class PlayDialogue : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Alice"))
         {
             dt.TriggerDialogue();
             gameObject.SetActive(false);
         }
     }
-
 }

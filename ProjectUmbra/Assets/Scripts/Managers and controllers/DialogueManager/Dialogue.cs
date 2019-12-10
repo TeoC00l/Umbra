@@ -10,6 +10,7 @@ public class Dialogue
     private bool hasBeenPlayed = false;
     public Sprite characterImage;
     [SerializeField] private bool playNextVideo = false;
+    public string changeToScene = "";
 
     [TextArea(3,10)]
     public string[] sentences;
