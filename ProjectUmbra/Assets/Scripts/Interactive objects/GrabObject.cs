@@ -36,7 +36,6 @@ public class GrabObject : MonoBehaviour
     public void OnTriggerStay(Collider other)
     {
         if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true  && IsBoxInFrontOfMesh())
-        //if (other.CompareTag("Grabbable"))
         {
 
             box = other.gameObject;
@@ -44,27 +43,20 @@ public class GrabObject : MonoBehaviour
             FreezeRotation();
             Debug.Log("Grabbing");
             GameObject grabbableObject = other.gameObject;
-            //rb = grabbableObject.GetComponent<Rigidbody>();
             rb = player.GetComponent<Rigidbody>();
             FixedJoint joint = box.AddComponent(typeof(FixedJoint)) as FixedJoint;
 
             joint.connectedBody = rb;
-            //joint.anchor = player.transform.position;
-            //joint.connectedAnchor = transform.position;
-            ////box.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
             grabStatus = true;
 
-            if(IsBoxInFrontOfMesh() == false)
-            {
-                Release();
-            }
+
         }
     }
 
     private void FreezeRotation()
     {
 
-        //Debug.Log(boxRB.constraints);
         Debug.Log(RigidbodyConstraints.FreezePositionX == boxRB.constraints);
         if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX)
         {
@@ -125,19 +117,16 @@ public class GrabObject : MonoBehaviour
         }
 
         Debug.Log("RElease");
-        //box.transform.SetParent(null);
 
     }
     private void UnFreezeZAxis()
     {
 
-        //boxRB.constraints = RigidbodyConstraints.FreezeRotationX;
         boxRB.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX;
     }
 
     private void UnFreezeXAxis()
     {
-        //boxRB.constraints = RigidbodyConstraints.FreezeRotationZ;
         boxRB.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
     }
 
