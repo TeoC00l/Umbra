@@ -58,114 +58,114 @@ public class WalkState : BaseState
     }
 
     //Rotating mesh to correct orientation upon turning based on position along map
-    private void turnMesh()
-    {
-        if (playerMovement.cornerTurnerMode == 0)
-        {
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //private void turnMesh()
+    //{
+    //    if (playerMovement.cornerTurnerMode == 0)
+    //    {
+    //        if (Input.GetAxis("Horizontal") > 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //        if (Input.GetAxis("Horizontal") < 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
-            {
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isIdle", true);
-            }
-        }
-
-
-
-        if (playerMovement.cornerTurnerMode == 1)
-        {
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
-
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
-            }
-
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
-
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-            }
-
-            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
-            {
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isIdle", true);
-            }
-        }
+    //        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+    //        {
+    //            animator.SetBool("isWalking", false);
+    //            animator.SetBool("isIdle", true);
+    //        }
+    //    }
 
 
 
-        if (playerMovement.cornerTurnerMode == 2)
-        {
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //    if (playerMovement.cornerTurnerMode == 1)
+    //    {
+    //        if (Input.GetAxis("Horizontal") > 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //        if (Input.GetAxis("Horizontal") < 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
-            {
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isIdle", true);
-            }
-        }
+    //        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+    //        {
+    //            animator.SetBool("isWalking", false);
+    //            animator.SetBool("isIdle", true);
+    //        }
+    //    }
 
 
-        if (playerMovement.cornerTurnerMode == 3)
-        {
 
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //    if (playerMovement.cornerTurnerMode == 2)
+    //    {
+    //        if (Input.GetAxis("Horizontal") > 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.left, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
+    //        if (Input.GetAxis("Horizontal") < 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
 
-                characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
-            }
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+    //        }
 
-            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
-            {
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isIdle", true);
-            }
-        }
-    }
+    //        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+    //        {
+    //            animator.SetBool("isWalking", false);
+    //            animator.SetBool("isIdle", true);
+    //        }
+    //    }
+
+
+    //    if (playerMovement.cornerTurnerMode == 3)
+    //    {
+
+    //        if (Input.GetAxis("Horizontal") > 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
+
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+    //        }
+
+    //        if (Input.GetAxis("Horizontal") < 0)
+    //        {
+    //            animator.SetBool("isWalking", true);
+    //            animator.SetBool("isIdle", false);
+
+    //            characterModel.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+    //        }
+
+    //        if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+    //        {
+    //            animator.SetBool("isWalking", false);
+    //            animator.SetBool("isIdle", true);
+    //        }
+    //    }
+    //}
 
     private bool LookForPushObject()
     {

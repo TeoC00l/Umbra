@@ -17,7 +17,15 @@ public class GrabObject : MonoBehaviour
     RaycastHit hit;
     private int frozenOnXPosition = 98;
     private bool isPressingF;
+    private GameObject playerMesh;
 
+
+
+    private void Awake()
+    {
+        playerMesh = GameObject.FindGameObjectWithTag("PlayerMesh");
+
+    }
     public void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -27,7 +35,7 @@ public class GrabObject : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true)
+        if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true  && IsBoxInFrontOfMesh())
         //if (other.CompareTag("Grabbable"))
         {
 
@@ -45,6 +53,11 @@ public class GrabObject : MonoBehaviour
             //joint.connectedAnchor = transform.position;
             ////box.GetComponent<Rigidbody>().velocity = Vector3.zero;
             grabStatus = true;
+
+            if(IsBoxInFrontOfMesh() == false)
+            {
+                Release();
+            }
         }
     }
 
@@ -194,6 +207,11 @@ public class GrabObject : MonoBehaviour
         return (Physics.Raycast(player.transform.position, direction, out hit, 3f, layerMask));
     }
 
+    public bool IsBoxInFrontOfMesh()
+    {
+        RaycastHit hit;
+        return (Physics.Raycast(player.transform.position, playerMesh.transform.forward, out hit, 0.5f, layerMask, QueryTriggerInteraction.Ignore));
+    }
 
 
 

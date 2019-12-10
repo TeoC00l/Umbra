@@ -21,6 +21,7 @@ public class AirState : BaseState
         framesPassed++;
         playerMovement.SetInput();
 
+        turnMesh();
         if(framesPassed > 20)
         {
             animator.SetBool("isJumping", false);
