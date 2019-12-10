@@ -25,6 +25,7 @@ public class WalkState : BaseState
     {
         animator.SetBool("isPushing", false);
         turnMesh();
+        PlayWalkAnimation();
 
         if (Input.GetKeyDown(KeyCode.Space) && playerMovement.IsGrounded())
         {
@@ -35,7 +36,7 @@ public class WalkState : BaseState
             owner.Transition<AirState>();
         }
 
-        if(LookForWall() == true)
+        if (LookForWall() == true)
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", true);
@@ -73,7 +74,7 @@ public class WalkState : BaseState
     {
         return (Physics.Raycast(owner.transform.position, characterModel.transform.forward, 0.5f, playerMovement.boxes));
     }
-    
+
     private void ChangeToPushAnimation()
     {
         if (LookForPushObject())
@@ -85,5 +86,108 @@ public class WalkState : BaseState
     }
 
 
-    
+    private void PlayWalkAnimation()
+    {
+
+        if (playerMovement.cornerTurnerMode == 0)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+
+        if (playerMovement.cornerTurnerMode == 1)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+
+        if (playerMovement.cornerTurnerMode == 2)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+        if (playerMovement.cornerTurnerMode == 3)
+        {
+
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+
+            }
+
+            if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
+
+
+
+    }
 }
