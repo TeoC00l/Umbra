@@ -12,6 +12,9 @@ public class AirState : BaseState
     {
         framesPassed = 0;
         animator.SetBool("isFalling", true);
+        //animator.SetBool("isWalking", false);
+        //animator.SetBool("isIdle", false);
+        //animator.SetBool("isJumping", true);
         playerCollider.material = owner.wallMaterial;
     }
 
