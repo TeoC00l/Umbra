@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private DialogueManager dm;
     [Header("Should player input be disabled during dialogue?")]
     [SerializeField] bool holdPlayer = true;
-    [Header("Should dialogue disappear by itself after five seconds?")]
+    [Header("Should dialogue disappear by itself?")]
     [SerializeField] bool hasTimer = false;
     [Header("How long should timer be?")]
     [SerializeField] float timerLength = 0f;

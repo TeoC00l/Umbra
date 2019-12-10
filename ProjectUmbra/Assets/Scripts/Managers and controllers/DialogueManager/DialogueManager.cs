@@ -16,6 +16,9 @@ public class DialogueManager : MonoBehaviour
     private PlayerMovement pm;
     private float originalSpeed;
 
+    private bool currentlyTyping = false;
+    private bool breakTyping = false;
+
     private Dialogue current;
 
     #region TextColours
@@ -46,9 +49,13 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         //if (Input.anyKeyDown)
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && !currentlyTyping)
         {
             DisplayNextSentence();
+        }
+        else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && currentlyTyping)
+        {
+            breakTyping = true;
         }
     }
 
@@ -126,25 +133,42 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence (string sentence)
     {
+        currentlyTyping = true;
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
-        {
+        {            
             dialogueText.text += letter;
+            if (breakTyping)
+            {
+                dialogueText.text = "";
+                dialogueText.text = sentence;
+                breakTyping = false;
+                break;
+            }
             yield return null;
         }
+        currentlyTyping = false;
     }
 
     IEnumerator TypeTimedSentence (string sentence, float timerLength)
     {
+        currentlyTyping = true;
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            if (breakTyping)
+            {
+                dialogueText.text = "";
+                dialogueText.text = sentence;
+                breakTyping = false;
+                break;
+            }
             //yield return null;
         }
         yield return new WaitForSeconds(timerLength);
         EndDialogue();
-
+        currentlyTyping = false;
     }
 
     void EndDialogue()
