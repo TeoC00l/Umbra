@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DeathscreenTimer : MonoBehaviour
 {
@@ -24,5 +25,18 @@ public class DeathscreenTimer : MonoBehaviour
         deathScreen.CrossFadeAlpha(1, 0.5f, false);
         yield return new WaitForSeconds(2);
         deathScreen.CrossFadeAlpha(0, 2.0f, false);
+    }
+
+    public IEnumerator FadeAndChange(string sceneToChangeTo)
+    {
+        deathScreen.CrossFadeAlpha(1, 0.5f, false);
+        yield return new WaitForSeconds(2);
+        deathScreen.CrossFadeAlpha(0, 2.0f, false);
+        SceneManager.LoadScene(sceneToChangeTo);
+    }
+
+    public void FadeAndChangeScene(string sceneToChangeTo)
+    {
+        StartCoroutine(FadeAndChange(sceneToChangeTo));
     }
 }

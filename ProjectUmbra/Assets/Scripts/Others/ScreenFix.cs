@@ -13,6 +13,6 @@ void Start()
         QualitySettings.vSyncCount = 1;
     if (res.refreshRate == 144)
         QualitySettings.vSyncCount = 2;
-    print(QualitySettings.vSyncCount);
+    //print(QualitySettings.vSyncCount);
 }
 }

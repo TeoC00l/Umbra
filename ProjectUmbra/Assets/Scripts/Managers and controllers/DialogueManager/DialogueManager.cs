@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class DialogueManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool currentlyTyping = false;
     private bool breakTyping = false;
+    public bool Done = false;
 
     private Dialogue current;
 
@@ -61,6 +63,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, bool holdPlayer)
     {
+        Done = false;
         sentences.Clear();
         current = dialogue;
         //hold player
@@ -179,6 +182,11 @@ public class DialogueManager : MonoBehaviour
             current.HasBeenPlayed(true);
             //release player
             pm.setSpeed(originalSpeed);
+            Done = true;
+            if (!current.changeToScene.Equals(""))
+            {
+                ObjectHandeler.DeathScreen.GetComponent<DeathscreenTimer>().FadeAndChangeScene(current.changeToScene);
+            }
         } catch(System.NullReferenceException)
         {
 
