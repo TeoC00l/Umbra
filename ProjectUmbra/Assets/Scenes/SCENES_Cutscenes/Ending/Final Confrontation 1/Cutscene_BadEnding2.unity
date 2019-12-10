@@ -335,6 +335,7 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DWe\u2019ll just grab this, cheers!\u201D"
   dm: {fileID: 2112222808}
@@ -614,6 +615,11 @@ PrefabInstance:
       propertyPath: trigger
       value: 
       objectReference: {fileID: 85663835}
+    - target: {fileID: 380792451503139623, guid: d30ca5751b160a043a56021c551ff8d0,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: BadEnding_Church3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30ca5751b160a043a56021c551ff8d0, type: 3}
 --- !u!1 &1166452046
@@ -1014,6 +1020,7 @@ MonoBehaviour:
     name: Alice
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DWhat\u2026 Oz, help me, he\u2019s lost it...\u201D"
   dm: {fileID: 2112222808}
