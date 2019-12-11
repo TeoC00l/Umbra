@@ -531,12 +531,14 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DWHAT!\u201D"
     - "\u201DTWO times in one day, criminal activity must be flourishing in this area!\u201D"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &676189845
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,12 +586,14 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DThere are C4 explosives planted all over this hospital. Not here, but
       in your \r\nworld.\u201D\r"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &684334539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,11 +1261,13 @@ MonoBehaviour:
     name: Delinquent
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DAt last, got\u2019cha! Now hand over that portal key you\u2019ve stolen!\u201D\r"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1126063410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1315,7 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201D...\u201D"
     - "\u201DWait. Oz, she has a portal key.\u201D"
@@ -1317,6 +1324,7 @@ MonoBehaviour:
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1001 &1164809968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1684,11 +1692,13 @@ MonoBehaviour:
     name: Delinquent
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DStand and deliver, this is a stick-up!\u201D"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1376695716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,11 +1746,13 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - '"Hey!"'
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1418930252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,8 +1809,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 19
+    m_Font: {fileID: 12800000, guid: a146727226619344589935346907802d, type: 3}
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1835,6 +1847,31 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueCanvas
+      value: 
+      objectReference: {fileID: 1528719824}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1565234272}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1418930254}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 184774120}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 911232804}
     - target: {fileID: 7453865932548544493, guid: 974dd2cab9a58a942aacb40259542c57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1890,31 +1927,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueCanvas
-      value: 
-      objectReference: {fileID: 1528719824}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 1565234272}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 1418930254}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 184774120}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: characterImage
-      value: 
-      objectReference: {fileID: 911232804}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974dd2cab9a58a942aacb40259542c57, type: 3}
 --- !u!114 &1456754778 stripped
@@ -2013,12 +2025,14 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DRemember how I felt the beating you took earlier? Push the button \rOz,
       this jackass will erupt like a microwaved egg!\u201D\r\n"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1565234270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2157,7 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DNo, stop arguing with me Oz, I don\u2019t have time to explain!\""
     - "\u201DThere just is a big old bunch of high grade explosives planted all over
@@ -2153,6 +2168,7 @@ MonoBehaviour:
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1658840752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,12 +2427,14 @@ MonoBehaviour:
     name: Alice
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DDon\u2019t do anything stupid now, Oz\u2026\u201D"
     - "\u201DLet me just hand over the portal key...\u201D"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1001 &1881950117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2483,6 +2501,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815333144255830715, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: cm
+      value: 
+      objectReference: {fileID: 1164809969}
+    - target: {fileID: 4815333144255830715, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: play
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: m_Name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815333144373228721, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: m_Name
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144312534213, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
@@ -2575,26 +2613,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8,
         type: 3}
-    - target: {fileID: 4815333144255830715, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: cm
-      value: 
-      objectReference: {fileID: 1164809969}
-    - target: {fileID: 4815333144255830715, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: play
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: m_Name
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815333144373228721, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: m_Name
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5267ee2543ef54c9c38cc0c3f1adec, type: 3}
 --- !u!4 &1881950118 stripped
@@ -2650,11 +2668,13 @@ MonoBehaviour:
     name: Delinquent
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201DWhat are you two whispering about over there!?\u201D"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1895158134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,9 +2930,11 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
     sentences:
     - "\u201D...You say it in a derogatory manner, but the clown profession is in
       fact honest living, and in this economy\u2026\u201D\r"
   dm: {fileID: 1456754778}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
