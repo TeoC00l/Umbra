@@ -7,7 +7,7 @@ public class CreditsManager : MonoBehaviour
 {
 
     private bool play = false;
-    [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject credits, targetObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +24,16 @@ public class CreditsManager : MonoBehaviour
     {
         if (play)
         {
-            credits.transform.position += Vector3.up * 50 * Time.deltaTime;
+            targetObject.transform.position += Vector3.up * 15f * Time.deltaTime;
+            credits.transform.position = new Vector3(credits.transform.position.x, targetObject.transform.position.y, credits.transform.position.z);
+            //credits.transform.position = Vector3.MoveTowards(credits.transform.position, Vector3.up, 50 * Time.deltaTime);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
-        if(credits.transform.position.y > 1800)
+        if(targetObject.transform.position.y > 850)
         {
             SceneManager.LoadScene("MainMenu");
         }
