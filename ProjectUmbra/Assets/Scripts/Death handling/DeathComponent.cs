@@ -9,7 +9,7 @@ public class DeathComponent : MonoBehaviour
     [SerializeField] private int fallDistanceToDie;
     //[SerializeField] private GameObject set, alice;
     [Tooltip("Time befor fade starts")]
-    [SerializeField] private float deathDuration;
+    [SerializeField] public float deathDuration;
 
 
     private PlayerMovement playerMovement;
@@ -83,7 +83,6 @@ public class DeathComponent : MonoBehaviour
                     Debug.Log(fallDistance + " fall distance");
                     //die here
                     RespawnPlayer();
-                    playerScript.Transition<DeathState>();
                 }
                 fallDistance = 0;
                 cachedGroundedPos = false;
@@ -96,6 +95,8 @@ public class DeathComponent : MonoBehaviour
     public void RespawnPlayer()
     {
         //Debug.Log("respawning");
+        playerScript.Transition<DeathState>();
+
         deathScreenTimer.startFade(deathDuration);
         StartCoroutine(Respawn(deathDuration));
 
