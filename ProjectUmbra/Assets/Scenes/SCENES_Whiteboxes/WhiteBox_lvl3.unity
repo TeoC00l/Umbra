@@ -25416,7 +25416,7 @@ PrefabInstance:
     - target: {fileID: 7543011767599987198, guid: 796927c825311154a8ea895658576b37,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -216.27016
+      value: -218.02
       objectReference: {fileID: 0}
     - target: {fileID: 7543011767599987198, guid: 796927c825311154a8ea895658576b37,
         type: 3}
@@ -25479,8 +25479,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8e9255e234b014a9dda40963b0bb20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToChangeTo: Cutscene_Choice3
+  sceneToChangeTo: Cutscene_BadEnding1
   fadeScreen: {fileID: 1462165789}
+--- !u!114 &1150046306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150046304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40d51b25eb284b4ea4649403872514d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene1: 
+  scene2: Cutscene_BadEnding1
+  fadeScreen: {fileID: 1462165789}
+  karma_1: 3
+  karma_2: 0
 --- !u!1001 &1150407786
 PrefabInstance:
   m_ObjectHideFlags: 0
