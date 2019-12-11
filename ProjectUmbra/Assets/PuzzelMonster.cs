@@ -11,6 +11,7 @@ public class PuzzelMonster : MonoBehaviour
     private Vector3 spawnPosition;
     private DeathComponent deathComponent;
     private Animator animator;
+    private bool playerIsDead;
 
     public bool isChasing = false;
 
@@ -41,6 +42,11 @@ public class PuzzelMonster : MonoBehaviour
             agent.isStopped = true;
             animator.SetBool("isChasing", false);
         }
+
+        if (playerIsDead == true)
+        {
+            animator.SetBool("isChasing", false);
+        }
     }
 
 
@@ -62,25 +68,38 @@ public class PuzzelMonster : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            deathComponent.RespawnPlayer();
             animator.SetBool("isChasing", false);
-            RespawnPuzzelMonster();
             AudioManager.instance.Play("MonsterGrowl");
+            isChasing = false;
+            agent.isStopped = true;
+            deathComponent.RespawnPlayer();
+
+            StartCoroutine(RespawnPuzzelMonster(other.GetComponent<DeathComponent>().deathDuration));
+
         }
 
-        
+
     }
 
     
 
-
-
-    private void RespawnPuzzelMonster()
+    IEnumerator RespawnPuzzelMonster(float deathDuration)
     {
-        isChasing = false;
-        agent.isStopped = true;
+        playerIsDead = true;
 
+
+        yield return new WaitForSeconds(deathDuration);
         agent.Warp(spawnPosition);
 
+        playerIsDead = false;
     }
+
+    //private void RespawnPuzzelMonster()
+    //{
+    //    isChasing = false;
+    //    agent.isStopped = true;
+
+    //    agent.Warp(spawnPosition);
+
+    //}
 }

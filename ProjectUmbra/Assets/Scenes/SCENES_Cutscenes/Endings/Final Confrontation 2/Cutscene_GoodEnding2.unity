@@ -134,6 +134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
+      propertyPath: videos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
+        type: 3}
       propertyPath: choice
       value: 
       objectReference: {fileID: 951047057}
@@ -141,19 +146,19 @@ PrefabInstance:
         type: 3}
       propertyPath: videos.Array.data[2]
       value: 
-      objectReference: {fileID: 32900000, guid: 3962e757fbd02354b8e494361fa17139,
+      objectReference: {fileID: 32900000, guid: 7e8951de86c4d274f828c084429dd67b,
         type: 3}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: videos.Array.data[0]
       value: 
-      objectReference: {fileID: 32900000, guid: ce4bd576cba6df64a846f1b0812fbfad,
+      objectReference: {fileID: 32900000, guid: 2b6acb23075d27b4b89118f719e01549,
         type: 3}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: videos.Array.data[1]
       value: 
-      objectReference: {fileID: 32900000, guid: cab73995db9a7074b902bad43d0d165c,
+      objectReference: {fileID: 32900000, guid: 8efc0a417770d6547864150f178936c4,
         type: 3}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
@@ -312,60 +317,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &834845194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 834845195}
-  - component: {fileID: 834845196}
-  m_Layer: 0
-  m_Name: 4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &834845195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834845194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1464469651}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &834845196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834845194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976c88ce38d51714ba573a5b002175e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Set
-    characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
-    playNextVideo: 1
-    changeToScene: 
-    sentences:
-    - "\u201DWe\u2019ll just grab this, cheers!\u201D"
-  dm: {fileID: 2112222808}
-  holdPlayer: 0
-  hasTimer: 0
-  timerLength: 0
 --- !u!1001 &951047056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,7 +593,7 @@ PrefabInstance:
     - target: {fileID: 380792451503139623, guid: d30ca5751b160a043a56021c551ff8d0,
         type: 3}
       propertyPath: sceneToLoad
-      value: BadEnding_Church3
+      value: GoodEnding_Church3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30ca5751b160a043a56021c551ff8d0, type: 3}
@@ -925,7 +876,7 @@ PrefabInstance:
     - target: {fileID: 4815333144312534213, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: "\u201DAH!\u201D"
+      value: '"H-Hey Set, come on now..."'
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144312534213, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
@@ -966,12 +917,12 @@ PrefabInstance:
     - target: {fileID: 4815333144373228727, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: dialogue.name
-      value: Alice
+      value: Set
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144373228727, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: "\u201DHey, I think this altar might be the portal! Hey, what are you\u2026\u201D"
+      value: '"Where are you going? This room isn''t even that big, you know..."'
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144373228727, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
@@ -1041,12 +992,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Alice
+    name: Set
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
     changeToScene: 
     sentences:
-    - "\u201DWhat\u2026 Oz, help me, he\u2019s lost it...\u201D"
+    - '"Gaah! What the hell!?"'
   dm: {fileID: 2112222808}
   holdPlayer: 0
   hasTimer: 0
