@@ -8,6 +8,7 @@ public class Church3_CutsceneController : MonoBehaviour
     public GameObject player;
     public ParticleSystem particles;
 
+    private bool running = false;
 
     private void Start()
     {
@@ -15,9 +16,10 @@ public class Church3_CutsceneController : MonoBehaviour
     }
     private void Update()
     {
-        if (isSetDone.Done)
+        if (isSetDone.Done && !running)
         {
             StartCoroutine(DisappearOz());
+            running = true;
         }
     }
 
@@ -27,6 +29,7 @@ public class Church3_CutsceneController : MonoBehaviour
         particles.Play();
         yield return new WaitForSeconds(2);
         player.SetActive(false);
+        AudioManager.instance.Play("Alice&Set_Appear");
         ObjectHandeler.DeathScreen.GetComponent<DeathscreenTimer>().FadeAndChangeScene("Cutscene_BadEnding3");
     }
 }

@@ -91,7 +91,12 @@ public class AudioManager : MonoBehaviour
             Stop(currentlyPlayingMusic);
             Play("MainTheme");
             currentlyPlayingMusic = "MainTheme";
-        }
+        } else if (SceneManager.GetActiveScene().name.Equals("Credits"))
+            {
+                Stop(currentlyPlayingMusic);
+                Play("CreditsTheme");
+                currentlyPlayingMusic = "CreditsTheme";
+            }
     }
 
     private void OnLevelWasLoaded(int level)
