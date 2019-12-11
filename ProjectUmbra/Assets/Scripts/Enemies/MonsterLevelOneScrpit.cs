@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class MonsterLevelOneScrpit : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public bool isChasing = false;
     private bool isStopped = false;
     private DeathComponent deathComponent;
@@ -59,7 +59,10 @@ public class MonsterLevelOneScrpit : MonoBehaviour
             RespawnMonster();
         }
 
-
+        //if (deathComponent.IsDying == true)
+        //{
+        //    RespawnMonster();
+        //}
     }
 
     private void IfCloseToStopPosition()
@@ -84,22 +87,25 @@ public class MonsterLevelOneScrpit : MonoBehaviour
         
         foreach (GameObject monster in chaseColliderGO.GetComponent<ChasePlayer>().monsters)
         {
-            NavMeshAgent thisAgent = monster.GetComponent<NavMeshAgent>();
-            thisAgent.Warp(monster.GetComponent<MonsterLevelOneScrpit>().originalPosition);
 
-            monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
-            animator.SetBool("isChasing", false);
-            monster.GetComponent<NavMeshAgent>().isStopped = false;
+            monster.GetComponent<MonsterLevelOneScrpit>().StartCoroutine(RespawnMonsters());
+            //StartCoroutine(monster.GetComponent<MonsterLevelOneScrpit>().RespawnMonsters());            
+
         }
 
     }
 
+    //public void startRespawn()
+    //{
+    //    StartCoroutine(RespawnMonsters());
+    //}
     private void OnTriggerEnter(Collider other)
     {
         //if (other.CompareTag("Set") || other.CompareTag("Alice"))
         //{
         //    Physics.IgnoreCollision(GetComponent<BoxCollider>(), other.GetComponent<BoxCollider>());
         //}
+
 
         if (other.CompareTag("Player"))
         {
@@ -120,4 +126,28 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     }
 
 
+    public IEnumerator RespawnMonsters(){
+        //NavMeshAgent thisAgent = monster.GetComponent<NavMeshAgent>();
+
+        isChasing = false;
+        animator.SetBool("isChasing", false);
+        agent.isStopped = false;
+        yield return new WaitForSeconds(deathComponent.deathDuration);
+        agent.Warp(originalPosition);
+
+
+    }
+
+    //IEnumerable RespawnMonsters()
+    //{
+    //    NavMeshAgent thisAgent = monster.GetComponent<NavMeshAgent>();
+
+    //    monster.GetComponent<MonsterLevelOneScrpit>().isChasing = false;
+    //    monster.GetComponentInChildren<Animator>().SetBool("isChasing", false);
+    //    monster.GetComponent<NavMeshAgent>().isStopped = false;
+    //    yield return new WaitForSeconds(deathComponent.deathDuration);
+    //    thisAgent.Warp(monster.GetComponent<MonsterLevelOneScrpit>().originalPosition);
+
+
+    //}
 }

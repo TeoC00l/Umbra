@@ -95,13 +95,17 @@ public class DeathComponent : MonoBehaviour
     public void RespawnPlayer()
     {
         //Debug.Log("respawning");
-        playerScript.Transition<DeathState>();
+        if(IsDying == false)
+        {
+            playerScript.Transition<DeathState>();
 
-        deathScreenTimer.startFade(deathDuration);
-        StartCoroutine(Respawn(deathDuration));
+            deathScreenTimer.startFade(deathDuration);
+            StartCoroutine(Respawn(deathDuration));
 
 
-        ObjectHandeler.ResetBoxes();
+            ObjectHandeler.ResetBoxes();
+        }
+        
     }
 
     private IEnumerator Respawn(float deathDuration)
