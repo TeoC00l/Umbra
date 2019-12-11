@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDistanceToDie: 9
+  deathDuration: 4
   deathZone:
     serializedVersion: 2
     m_Bits: 16384
@@ -210,10 +211,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c, type: 2}
   - {fileID: 11400000, guid: bfd26bed997d8344889877a1774d46f1, type: 2}
   - {fileID: 11400000, guid: 9d8082cb29bdd304fa5988b2d39e48fc, type: 2}
+  - {fileID: 11400000, guid: 3a1552aa38bf0fb41a0cdce8a8b06d4e, type: 2}
   wallMaterial: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84, type: 2}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 1310720
 --- !u!136 &1740817134
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -399,11 +401,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerMesh
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
     - target: {fileID: -4216859302048453862, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,6 +461,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.6666667
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c, type: 3}
 --- !u!4 &7806789504094717953 stripped

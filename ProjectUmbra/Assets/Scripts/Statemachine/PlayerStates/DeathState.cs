@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player/DialogueState")]
+[CreateAssetMenu(menuName = "Player/DeathState")]
 public class DeathState : BaseState
 {
-    public int framesPassed;
 
     public override void Enter()
     {
-        animator.SetBool("isIdle", true);
+
+        animator.SetTrigger("isDying 0");
     }
 
     public override void HandleUpdate()
     {
-        if (playerMovement.getSpeed() != 0)
-        {
-            owner.Transition<WalkState>();
-        }
+
+
     }
     public override void HandleFixedUpdate()
     {
@@ -26,6 +24,10 @@ public class DeathState : BaseState
     public override void Exit()
     {
 
-        animator.SetBool("isIdle", false);
+        animator.SetBool("isIdle", true);
     }
+
+
+
+
 }
