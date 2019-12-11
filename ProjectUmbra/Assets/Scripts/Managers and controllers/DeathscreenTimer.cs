@@ -14,14 +14,15 @@ public class DeathscreenTimer : MonoBehaviour
         deathScreen.canvasRenderer.SetAlpha(0.0f);
     }
 
-    public void startFade()
+    public void startFade(float time)
     {
         
-        StartCoroutine(Fade());
+        StartCoroutine(Fade(time));
     }
 
-    public IEnumerator Fade()
+    public IEnumerator Fade( float time )
     {
+        yield return new WaitForSeconds(time);
         deathScreen.CrossFadeAlpha(1, 0.5f, false);
         yield return new WaitForSeconds(2);
         deathScreen.CrossFadeAlpha(0, 2.0f, false);

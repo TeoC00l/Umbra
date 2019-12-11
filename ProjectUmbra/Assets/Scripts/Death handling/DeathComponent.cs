@@ -8,8 +8,11 @@ public class DeathComponent : MonoBehaviour
 {
     [SerializeField] private int fallDistanceToDie;
     //[SerializeField] private GameObject set, alice;
+    [Tooltip("Time befor fade starts")]
+    [SerializeField] private float deathDuration;
 
-    private PlayerMovement pm;
+
+    private PlayerMovement playerMovement;
     private bool cachedGroundedPos, hasCalculatedAirDistance;
     public static Vector3 cachedPosition;
     public static float fallDistance;
@@ -26,6 +29,8 @@ public class DeathComponent : MonoBehaviour
 
     private GameObject[] cornerTriggers;
 
+    private Player playerScript;
+
     public bool IsDying
     {
         get
@@ -38,8 +43,10 @@ public class DeathComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pm = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
         checkpointManager = ObjectHandeler.CheckPointManager.GetComponent<CheckPointManager>();
+        playerScript = GetComponent<Player>();
+
 
         groundChecker = transform.GetChild(0).gameObject;
         cornerTriggers = GameObject.FindGameObjectsWithTag("Corner");
@@ -55,7 +62,7 @@ public class DeathComponent : MonoBehaviour
 
     private void FallDistanceCheck()
     {
-        if (pm.IsGrounded() == false)
+        if (playerMovement.IsGrounded() == false)
         {
             hasCalculatedAirDistance = false;
             if (cachedGroundedPos == false)
@@ -76,67 +83,43 @@ public class DeathComponent : MonoBehaviour
                     Debug.Log(fallDistance + " fall distance");
                     //die here
                     RespawnPlayer();
-                    //gameObject.SetActive(false);
+                    playerScript.Transition<DeathState>();
                 }
                 fallDistance = 0;
                 cachedGroundedPos = false;
                 hasCalculatedAirDistance = true;
             }
         }
+
     }
 
     public void RespawnPlayer()
     {
         //Debug.Log("respawning");
-        deathScreenTimer.startFade();
-        StartCoroutine(Respawn());
+        deathScreenTimer.startFade(deathDuration);
+        StartCoroutine(Respawn(deathDuration));
 
-        //Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
-        //transform.position = respawnPosition.position;
-        ////transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
-        //try { 
-        //    set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-        //    alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-        //}
-        //catch (UnassignedReferenceException)
-        //{
-
-        //}
 
         ObjectHandeler.ResetBoxes();
     }
 
-    private IEnumerator Respawn()
+    private IEnumerator Respawn(float deathDuration)
     {
         isDying = true;
+        yield return new WaitForSeconds(deathDuration);
         yield return new WaitForSeconds(0.8f);
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
         transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
-        try
-        {
-            //set.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-            //alice.GetComponent<NavMeshAgent>().Warp(respawnPosition.position);
-        }
-        catch (UnassignedReferenceException)
-        {
 
-        }
-        //foreach(GameObject corner in cornerTriggers)
-        //{
-        //    //if (checkpointManager.GetCornersTurned().Contains(corner) == false)
-        //    //{
-        //    //    corner.GetComponent<BoxCollider>().isTrigger = true;
-        //    //}
-        //    corner.GetComponent<BoxCollider>().isTrigger = true;
-        //}
-        
-        //checkpointManager.GetLastCorner().GetComponent<BoxCollider>().isTrigger = false;
+
         isDying = false;
 
         virtualCamera = virCam.GetCinemachineComponent<CinemachineTrackedDolly>();
         virCam.PreviousStateIsValid = false;
         virtualCamera.m_PathPosition = checkpointManager.GetCameraPositionAtCheckpoint();
+
+        playerScript.Transition<BaseState>();
     }
 
 }

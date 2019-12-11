@@ -18,6 +18,7 @@ public class BaseState : State
     protected Animator animator;
     protected Transform characterModel;
     protected LayerMask boxLayerMask;
+    protected DeathComponent deathComponent;
     #endregion
 
     public override void Initialize(StateMachine owner)
@@ -29,6 +30,10 @@ public class BaseState : State
         playerBody = owner.GetComponent<Rigidbody>();
         animator = owner.GetComponentInChildren<Animator>();
         characterModel = owner.transform.Find("Idle");
+        if(owner.TryGetComponent(out DeathComponent dC))
+        {
+            deathComponent = dC;
+        }
     }
 
     public override void Enter()
