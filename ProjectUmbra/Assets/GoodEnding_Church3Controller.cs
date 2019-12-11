@@ -29,7 +29,7 @@ public class GoodEnding_Church3Controller : MonoBehaviour
                 DisappearSet();
                 setDisappeared = true;
                 shopKeeperMoving.Play();
-                cameras.Play();
+                cameras.Resume();
             }
 
         }
@@ -62,12 +62,12 @@ public class GoodEnding_Church3Controller : MonoBehaviour
 
     public void TriggerDialogue2()
     {
-        Debug.Log("dialogue 2");
         dialogue2.SetActive(true);
     }
 
     public void HoldCameraAngle()
     {
         cameras.Pause();
+        Debug.Log("Hold");
     }
 }
