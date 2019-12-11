@@ -5458,6 +5458,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetChaseCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 91.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9143439667864205059, guid: 339f5b1abd37c8941bce80e5797a32fe,
         type: 3}
       propertyPath: m_IsActive
@@ -5547,21 +5562,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 91.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 9143439668493778041, guid: 339f5b1abd37c8941bce80e5797a32fe,
         type: 3}
@@ -5897,17 +5897,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.8937995
       objectReference: {fileID: 0}
+    - target: {fileID: 6516016545510891837, guid: 88cc33702ac1a2748a7548bbec5c25ed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af7bba611f6f3fc4692f47d28c4ae08a, type: 2}
     - target: {fileID: 3034694841140855337, guid: 88cc33702ac1a2748a7548bbec5c25ed,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af7bba611f6f3fc4692f47d28c4ae08a, type: 2}
     - target: {fileID: 3310183929879246025, guid: 88cc33702ac1a2748a7548bbec5c25ed,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: af7bba611f6f3fc4692f47d28c4ae08a, type: 2}
-    - target: {fileID: 6516016545510891837, guid: 88cc33702ac1a2748a7548bbec5c25ed,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7605,8 +7605,6 @@ MonoBehaviour:
   animGOs:
   - {fileID: 496554450}
   animationBoolKey: Active
-  hasCoolDownToReset: 1
-  coolDownToReset: 6
 --- !u!1 &295681872
 GameObject:
   m_ObjectHideFlags: 0
@@ -7787,7 +7785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1830744188}
-  m_PathPosition: 2.2617686
+  m_PathPosition: 2.25529
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -10608,6 +10606,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetChaseCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 145.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9143439667864205059, guid: 339f5b1abd37c8941bce80e5797a32fe,
         type: 3}
       propertyPath: m_IsActive
@@ -10672,11 +10675,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5630297353756766930, guid: 339f5b1abd37c8941bce80e5797a32fe,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 145.5
       objectReference: {fileID: 0}
     - target: {fileID: 5630297353951276684, guid: 339f5b1abd37c8941bce80e5797a32fe,
         type: 3}
@@ -10964,6 +10962,7 @@ MonoBehaviour:
     name: Alice
     characterImage: {fileID: 21300000, guid: 9deba6eeae1159b41b348036b6072bfe, type: 3}
     playNextVideo: 0
+    changeToScene: 
     sentences:
     - Jesus Oz, that was rough... Did you really have to go that far?
     - Anyway, perhaps the hospital a few blocks away would be a good place to look
@@ -10972,6 +10971,7 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 3f0d3d4d4c0d8ab4aab49c84b4032afb, type: 3}
     playNextVideo: 0
+    changeToScene: 
     sentences:
     - Really Oz, you can't let people push you around like that. I'd suggest you grow
       a pair and do the right thing next time.
@@ -10980,6 +10980,7 @@ MonoBehaviour:
   dm: {fileID: 1780836566}
   holdPlayer: 1
   hasTimer: 0
+  timerLength: 0
   karmaForOption1: 0
   karmaForOption2: 1
 --- !u!65 &430032412
@@ -11060,8 +11061,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433076470}
-  m_LocalRotation: {x: 0.21558742, y: 0.12001211, z: -0.026708722, w: 0.9687135}
-  m_LocalPosition: {x: 10.682663, y: 15.978679, z: -80.73736}
+  m_LocalRotation: {x: 0.23073901, y: 0.12657103, z: -0.030286944, w: 0.9642728}
+  m_LocalPosition: {x: 10.261337, y: 15.823134, z: -80.70497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 305101725}
@@ -20247,7 +20248,7 @@ PrefabInstance:
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.57
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767827, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -22802,8 +22803,6 @@ MonoBehaviour:
   animGOs:
   - {fileID: 309331171}
   animationBoolKey: Active
-  hasCoolDownToReset: 0
-  coolDownToReset: 0
 --- !u!1 &923463449
 GameObject:
   m_ObjectHideFlags: 0
@@ -24273,12 +24272,14 @@ MonoBehaviour:
     name: Set
     characterImage: {fileID: 21300000, guid: 3f0d3d4d4c0d8ab4aab49c84b4032afb, type: 3}
     playNextVideo: 0
+    changeToScene: 
     sentences:
     - You probably shouldn't touch that fire - in case you couldn't figure that out
       by yourself or something...
   dm: {fileID: 1780836566}
   holdPlayer: 0
   hasTimer: 1
+  timerLength: 0
 --- !u!1 &990333242
 GameObject:
   m_ObjectHideFlags: 0
@@ -26055,8 +26056,6 @@ MonoBehaviour:
   animGOs:
   - {fileID: 155774734}
   animationBoolKey: Active
-  hasCoolDownToReset: 0
-  coolDownToReset: 0
 --- !u!1001 &1081016635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35058,6 +35057,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1882759851}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueCanvas
+      value: 
+      objectReference: {fileID: 1907486826}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 736150347}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 413597653}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 1158181955}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: OpenDyslexic
+      value: 
+      objectReference: {fileID: 12800000, guid: 400874b261f27894da2663281c1cce13,
+        type: 3}
     - target: {fileID: 7453865932548544493, guid: 974dd2cab9a58a942aacb40259542c57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35113,37 +35143,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1882759851}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueCanvas
-      value: 
-      objectReference: {fileID: 1907486826}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 736150347}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 413597653}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: characterImage
-      value: 
-      objectReference: {fileID: 1158181955}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: OpenDyslexic
-      value: 
-      objectReference: {fileID: 12800000, guid: 400874b261f27894da2663281c1cce13,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974dd2cab9a58a942aacb40259542c57, type: 3}
 --- !u!1001 &1493300867
@@ -37256,7 +37255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620445231}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000015497205}
-  m_LocalPosition: {x: -39.55, y: 18.16, z: 160.96}
+  m_LocalPosition: {x: 18.5, y: 4.75, z: -60.5}
   m_LocalScale: {x: 0.64861, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1467968003}
@@ -37300,17 +37299,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Set
-    characterImage: {fileID: 21300000, guid: 3f0d3d4d4c0d8ab4aab49c84b4032afb, type: 3}
+    name: 
+    characterImage: {fileID: 21300000, guid: bfc8d97aa105c8642b18b0481d47f6f6, type: 3}
     playNextVideo: 0
+    changeToScene: 
     sentences:
-    - Look Oz, it's a shadow platform - they're a handy transportation device we have
-      down here. They make lots of sense, trust me.
-    - It needs to be activated before you can ride it though... maybe that lever can
-      be turned on somehow?
+    - 
   dm: {fileID: 1780836566}
   holdPlayer: 1
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1621877901
 GameObject:
   m_ObjectHideFlags: 0
@@ -43087,11 +43085,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
-        type: 3}
-      propertyPath: followerIcons
-      value: 
-      objectReference: {fileID: 168659467}
     - target: {fileID: 8599812249134977928, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43107,6 +43100,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
+        type: 3}
+      propertyPath: followerIcons
+      value: 
+      objectReference: {fileID: 168659467}
     - target: {fileID: 3911990852099262536, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_IsActive
@@ -46087,17 +46085,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.8937995
       objectReference: {fileID: 0}
+    - target: {fileID: 6516016545510891837, guid: 88cc33702ac1a2748a7548bbec5c25ed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4df5c6754d204fb408b064939baf79a6, type: 2}
     - target: {fileID: 3034694841140855337, guid: 88cc33702ac1a2748a7548bbec5c25ed,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4df5c6754d204fb408b064939baf79a6, type: 2}
     - target: {fileID: 3310183929879246025, guid: 88cc33702ac1a2748a7548bbec5c25ed,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4df5c6754d204fb408b064939baf79a6, type: 2}
-    - target: {fileID: 6516016545510891837, guid: 88cc33702ac1a2748a7548bbec5c25ed,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -49193,11 +49191,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
-        type: 3}
-      propertyPath: followerIcons
-      value: 
-      objectReference: {fileID: 168659467}
     - target: {fileID: 8599812249134977928, guid: e48545c71a012a04889778f0b540d594,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49213,6 +49206,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8599812249134977942, guid: e48545c71a012a04889778f0b540d594,
+        type: 3}
+      propertyPath: followerIcons
+      value: 
+      objectReference: {fileID: 168659467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48545c71a012a04889778f0b540d594, type: 3}
 --- !u!1001 &2137330024
