@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager instance;
+
+    private string currentlyPlayingMusic = "";
 
     private void Awake()
     {
@@ -42,7 +45,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == "MainTheme");
         if (s != null)
         {
-            Play("MainTheme");
+            PlaySoundTrackForScene();
         }
        
     }
@@ -72,5 +75,28 @@ public class AudioManager : MonoBehaviour
         {
             Debug.Log("Sound clip was not found");
         }
+    }
+
+    public void PlaySoundTrackForScene()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("MysteryShop"))
+        {
+            Stop(currentlyPlayingMusic);
+            Play("ShopTheme");
+            currentlyPlayingMusic = "ShopTheme";
+        }
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl1") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl2") ||
+            SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl3"))
+        {
+            Stop(currentlyPlayingMusic);
+            Play("MainTheme");
+            currentlyPlayingMusic = "MainTheme";
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        Debug.Log("Playmusic");
+        PlaySoundTrackForScene();
     }
 }
