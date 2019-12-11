@@ -199,7 +199,7 @@ public class GrabObject : MonoBehaviour
     public bool IsBoxInFrontOfMesh()
     {
         RaycastHit hit;
-        return (Physics.Raycast(player.transform.position, playerMesh.transform.forward, out hit, 0.5f, layerMask, QueryTriggerInteraction.Ignore));
+        return (Physics.Raycast(player.transform.position, playerMesh.transform.forward, out hit, 1f, layerMask, QueryTriggerInteraction.Ignore));
     }
 
 
