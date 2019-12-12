@@ -15,6 +15,14 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
         feedbackLight = GetComponentInChildren<Light>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
+        {
+            AudioManager.instance.Play("ButtonClick");
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
@@ -31,7 +39,7 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))
         {
-            
+            AudioManager.instance.Play("ButtonClick");
             isPressed = false;
             isOccupied = false;
             feedbackLight.color = Color.red;
