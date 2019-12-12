@@ -10,9 +10,9 @@ public class Player : StateMachine
 
 
     //public Transform ClimbToTransform;
-    public PhysicMaterial wallMaterial;
-    public LayerMask wallLayer;
-
+    public PhysicMaterial WallMaterial;
+    public LayerMask WallLayer;
+    public LayerMask Bridge;
     
 
 
