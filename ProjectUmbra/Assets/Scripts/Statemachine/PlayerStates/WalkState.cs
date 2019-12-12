@@ -47,6 +47,11 @@ public class WalkState : BaseState
             ChangeToPushAnimation();
         }
 
+        if(LookForBridge() == true)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isPushing", true);
+        }
         base.HandleUpdate();
         playerMovement.SetInput();
     }
@@ -67,13 +72,15 @@ public class WalkState : BaseState
 
     private bool LookForWall()
     {
-        return (Physics.Raycast(owner.transform.position, characterModel.transform.forward, 0.5f, owner.wallLayer));
+        return (Physics.Raycast(owner.transform.position, characterModel.transform.forward, 0.5f, owner.WallLayer));
     }
 
     private bool LookForPushObject()
     {
         return (Physics.Raycast(owner.transform.position, characterModel.transform.forward, 0.5f, playerMovement.boxes));
     }
+
+    
 
     private void ChangeToPushAnimation()
     {

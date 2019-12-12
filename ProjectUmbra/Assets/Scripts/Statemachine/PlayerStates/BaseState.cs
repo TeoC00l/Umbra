@@ -30,7 +30,7 @@ public class BaseState : State
         playerBody = owner.GetComponent<Rigidbody>();
         animator = owner.GetComponentInChildren<Animator>();
         characterModel = owner.transform.Find("Idle");
-        if(owner.TryGetComponent(out DeathComponent dC))
+        if (owner.TryGetComponent(out DeathComponent dC))
         {
             deathComponent = dC;
         }
@@ -48,11 +48,12 @@ public class BaseState : State
     public override void HandleUpdate()
     {
         //Startup method to transition from the base state
-        if (onSetup) {
+        if (onSetup)
+        {
             onSetup = false;
             owner.Transition<WalkState>();
         }
-        
+
         //Is player turning a corner
         if (playerMovement.getLocked())
         {
@@ -72,7 +73,7 @@ public class BaseState : State
         }
 
         //Is player currently in a dialogue
-        if(playerMovement.getSpeed() == 0)
+        if (playerMovement.getSpeed() == 0)
         {
             owner.Transition<DialogueState>();
         }
@@ -81,6 +82,11 @@ public class BaseState : State
 
 
 
+
+    protected bool LookForBridge()
+    {
+        return (Physics.Raycast(characterModel.transform.position + new Vector3(0, 0.5f, 0), characterModel.forward, 1f, owner.Bridge)) ;
+    }
 
 
 
