@@ -15,7 +15,7 @@ public class AirState : BaseState
         //animator.SetBool("isWalking", false);
         //animator.SetBool("isIdle", false);
         //animator.SetBool("isJumping", true);
-        playerCollider.material = owner.wallMaterial;
+        playerCollider.material = owner.WallMaterial;
     }
 
     //Checking when to start falling animation, checking ground collision
