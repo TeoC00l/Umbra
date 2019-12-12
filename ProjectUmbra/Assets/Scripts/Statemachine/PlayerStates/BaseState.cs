@@ -69,7 +69,14 @@ public class BaseState : State
         //Is player on ladder
         if (playerMovement.getLadderStatus())
         {
-            owner.Transition<ClimbState>();
+            if(owner.GetCurrentState() is GrabbingState ){
+                
+            }
+            else
+            {
+                owner.Transition<ClimbState>();
+
+            }
         }
 
         //Is player currently in a dialogue
