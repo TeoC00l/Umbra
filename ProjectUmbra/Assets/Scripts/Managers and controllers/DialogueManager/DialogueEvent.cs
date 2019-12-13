@@ -18,7 +18,14 @@ public class DialogueEvent : MonoBehaviour
 
     void Start()
     {
-        originalSpeed = ObjectHandeler.Player.GetComponent<PlayerMovement>().getSpeed();
+        try
+        {
+            originalSpeed = ObjectHandeler.Player.GetComponent<PlayerMovement>().getSpeed();
+        }
+        catch (System.NullReferenceException)
+        {
+
+        }
         currentTrigger = transform.GetChild(counter).gameObject.GetComponent<DialogueTrigger>();
 
     }
@@ -45,7 +52,14 @@ public class DialogueEvent : MonoBehaviour
                 }
                 catch (UnityException e)
                 {
-                    ObjectHandeler.Player.GetComponent<PlayerMovement>().setSpeed(originalSpeed);
+                    try
+                    {
+                        ObjectHandeler.Player.GetComponent<PlayerMovement>().setSpeed(originalSpeed);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+
+                    }
                     play = false;
                     this.gameObject.SetActive(false);
                     try {
