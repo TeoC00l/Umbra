@@ -13,6 +13,7 @@ public class SceneChangeTrigger_ByString : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            ObjectHandeler.Player.GetComponent<PlayerMovement>().setSpeed(0);
             StartCoroutine(FadeOut());
         }
     }
