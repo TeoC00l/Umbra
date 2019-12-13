@@ -22,7 +22,7 @@ public class CompanionWalkState : CompanionBaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false || owner.TargetIsToFarInYAxis())
+        if (companionHandler.NotCloseToDestinationCheck(thisAgent) == false || owner.TargetIsToFarInYAxis() )
         {
             owner.TargetIsToFarInYAxis();
             owner.Transition<CompanionIdelState>();
@@ -36,6 +36,12 @@ public class CompanionWalkState : CompanionBaseState
             //characterModel.LookAt(owner.TargetPlayer.transform.position);
 
             companionAnimator.SetBool("IsWalking", true);
+        }
+
+
+        if(thisAgent.pathStatus != NavMeshPathStatus.PathComplete)
+        {
+            companionAnimator.SetBool("IsWalking", false);
         }
 
         //if (thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
@@ -52,6 +58,7 @@ public class CompanionWalkState : CompanionBaseState
     public override void Exit()
     {
         companionAnimator.SetBool("IsWalking", false);
+        Debug.Log("Exit walk state companion");
     }
 
 

@@ -10,6 +10,8 @@ public class DeathComponent : MonoBehaviour
     //[SerializeField] private GameObject set, alice;
     [Tooltip("Time befor fade starts")]
     [SerializeField] public float deathDuration;
+    [SerializeField] public float shortDeathDuration;
+
 
 
     private PlayerMovement playerMovement;
@@ -30,7 +32,6 @@ public class DeathComponent : MonoBehaviour
     private GameObject[] cornerTriggers;
 
     private Player playerScript;
-
     public bool IsDying
     {
         get
@@ -91,7 +92,21 @@ public class DeathComponent : MonoBehaviour
         }
 
     }
+    public void RespawnPlayerShortFade()
+    {
+        //Debug.Log("respawning");
+        if (IsDying == false)
+        {
+            playerScript.Transition<DeathState>();
 
+            deathScreenTimer.startFade(shortDeathDuration);
+            StartCoroutine(Respawn(shortDeathDuration));
+
+
+            ObjectHandeler.ResetBoxes();
+        }
+
+    }
     public void RespawnPlayer()
     {
         //Debug.Log("respawning");
