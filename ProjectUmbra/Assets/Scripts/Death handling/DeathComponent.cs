@@ -109,7 +109,7 @@ public class DeathComponent : MonoBehaviour
     }
     public void RespawnPlayer()
     {
-        //Debug.Log("respawning");
+        Debug.Log("respawning at" + transform.position);
         if(IsDying == false)
         {
             playerScript.Transition<DeathState>();
