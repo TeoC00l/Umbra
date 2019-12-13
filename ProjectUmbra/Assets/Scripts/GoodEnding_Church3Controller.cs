@@ -11,12 +11,15 @@ public class GoodEnding_Church3Controller : MonoBehaviour
     public bool set_trigger = false;
     public GameObject shopKeeper;
     public PlayableDirector shopKeeperMoving, cameras;
+    private AudioSource source;
 
     bool setDisappeared = false;
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         StartCoroutine(AppearShopKeeper());
+
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class GoodEnding_Church3Controller : MonoBehaviour
             {
                 DisappearSet();
                 setDisappeared = true;
+                source.Stop();
                 StartCoroutine(ShopkeepWait());
             }
 
@@ -49,6 +53,8 @@ public class GoodEnding_Church3Controller : MonoBehaviour
 
     public void ActivateParticles()
     {
+        AudioManager.instance.Play("SpellHit");
+        source.Play();
         particles2.gameObject.SetActive(true);
     }
 
