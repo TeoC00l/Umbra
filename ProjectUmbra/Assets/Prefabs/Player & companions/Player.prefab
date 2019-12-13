@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3220737029274368831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3220737029274368830}
-  m_Layer: 14
-  m_Name: WallCheckerLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3220737029274368830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3220737029274368831}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3220737029942767827}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3220737029942767833
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,10 +35,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 3220737030458600430}
-  - {fileID: 3220737030875498120}
   - {fileID: 3220737030379990044}
-  - {fileID: 3220737029274368830}
-  - {fileID: 3220737031079223504}
   - {fileID: 7806789504094717953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -262,7 +229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3220737029942767827}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3220737030458600431
 GameObject:
@@ -320,11 +287,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220737030875498121}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.496, z: 0}
-  m_LocalScale: {x: 2.1268, y: 2.662634, z: 2.1268}
+  m_LocalPosition: {x: -0.05, y: 0.0045000315, z: 0.06}
+  m_LocalScale: {x: 2.1268, y: 3.9939508, z: 2.1268}
   m_Children: []
-  m_Father: {fileID: 3220737029942767827}
-  m_RootOrder: 1
+  m_Father: {fileID: 7806789504094717953}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3220737030875498127
 BoxCollider:
@@ -337,8 +304,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1.5, y: 0.86896807, z: 0.8163191}
+  m_Center: {x: 0, y: 0.4403493, z: 0.34184003}
 --- !u!114 &3220737030875498126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,36 +325,6 @@ MonoBehaviour:
   groundCheck:
     serializedVersion: 2
     m_Bits: 256
---- !u!1 &3220737031079223505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3220737031079223504}
-  m_Layer: 14
-  m_Name: WallCheckerRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3220737031079223504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3220737031079223505}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3220737029942767827}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2967306453998232347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,7 +380,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
         type: 3}

@@ -46,6 +46,8 @@ public class PuzzelMonster : MonoBehaviour
         if (playerIsDead == true)
         {
             animator.SetBool("isChasing", false);
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
         }
     }
 
