@@ -8,8 +8,11 @@ public class DeathscreenTimer : MonoBehaviour
 {
     [SerializeField] private Image deathScreen;
 
+    private Animator animator;
+
     private void Start()
     {
+        animator = this.GetComponent<Animator>();
         deathScreen.gameObject.SetActive(true);
         deathScreen.canvasRenderer.SetAlpha(0.0f);
     }
@@ -39,5 +42,14 @@ public class DeathscreenTimer : MonoBehaviour
     public void FadeAndChangeScene(string sceneToChangeTo)
     {
         StartCoroutine(FadeAndChange(sceneToChangeTo));
+    }
+
+    public void FadeIn()
+    {
+        animator.SetTrigger("FadeIn");
+    }
+    public void FadeOut()
+    {
+        animator.SetTrigger("FadeOut"); ;
     }
 }
