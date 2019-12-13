@@ -17,7 +17,7 @@ public class DeathZoneLevelOne : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            deathComponent.RespawnPlayer();
+            deathComponent.RespawnPlayerShortFade();
             try
             {
                 monsterLevelOneScrpit.RespawnMonster();

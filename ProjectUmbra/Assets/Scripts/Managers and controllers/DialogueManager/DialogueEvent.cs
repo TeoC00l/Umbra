@@ -11,13 +11,21 @@ public class DialogueEvent : MonoBehaviour
     private bool started = false;
     [SerializeField] private CutsceneManager cm;
 
+    private float originalSpeed;
     
     //Create a child for each "speaking turn". Give children DialogueTriggers with speaker name and sentences. Order the children in the order of conversation.
 
 
     void Start()
     {
-        
+        try
+        {
+            originalSpeed = ObjectHandeler.Player.GetComponent<PlayerMovement>().getSpeed();
+        }
+        catch (System.NullReferenceException)
+        {
+
+        }
         currentTrigger = transform.GetChild(counter).gameObject.GetComponent<DialogueTrigger>();
 
     }
@@ -28,6 +36,7 @@ public class DialogueEvent : MonoBehaviour
         if (play) { 
             if (!started && !currentTrigger.dialogue.getPlayedStatus())
             {
+                
                 if (currentTrigger.dialogue.getPlayNextVideo())
                 {
                     cm.PlayNextVideo();
@@ -43,6 +52,14 @@ public class DialogueEvent : MonoBehaviour
                 }
                 catch (UnityException e)
                 {
+                    try
+                    {
+                        ObjectHandeler.Player.GetComponent<PlayerMovement>().setSpeed(originalSpeed);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+
+                    }
                     play = false;
                     this.gameObject.SetActive(false);
                     try {
@@ -63,6 +80,7 @@ public class DialogueEvent : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            ObjectHandeler.Player.GetComponent<PlayerMovement>().setSpeed(0);
             play = true;
         }
     }

@@ -358,12 +358,15 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201CIt is seriously weighing on my conscience.\u201D\r"
     - "\u201CI wish I could do more.\u201D\r"
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1001 &782836508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,6 +638,8 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201CThe doctor said that her chances of surviving are slim... And our family
       has finally run out of funds for her continued treatment.\u201D"
@@ -642,6 +647,7 @@ MonoBehaviour:
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1324174682
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,11 +695,83 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201CHer condition progressed from stable, to bad, to worse\u2026\u201D"
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
+--- !u!1001 &1527840301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7536143395878572876, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_Name
+      value: StaticListOfObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32b3092f8f0c04b4487484523c24c7c5, type: 3}
 --- !u!1 &1541963925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,12 +1198,15 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201CInitially there was hope she would recover - She was admitted to St.
       Ana\u2019s hospital\u201D.\r"
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &4815333143462800468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,12 +1288,15 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201CFall turned to winter...\u201D"
     - "\u201C...and then from winter back to fall again.\u201D "
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!4 &4815333143477396006
 Transform:
   m_ObjectHideFlags: 0
@@ -1291,8 +1375,11 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201COne year ago my little sister Isabelle fell ill.\u201D"
   dm: {fileID: 48962081}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0

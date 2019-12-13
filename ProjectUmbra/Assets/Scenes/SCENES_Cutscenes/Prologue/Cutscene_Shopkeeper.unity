@@ -485,6 +485,8 @@ MonoBehaviour:
     name: Shopkeeper
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201DOne final thing. This portal key will bring you into the mirror dimension,
       but it is a one way ticket.\""
@@ -493,6 +495,7 @@ MonoBehaviour:
   dm: {fileID: 378148910}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1032616053
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +639,8 @@ MonoBehaviour:
     name: Shopkeeper
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201DYou might think of this place as a twisted mirror version of our own
       world. Everything you find here will have a counterpart down there. Even yourself.\u201D"
@@ -644,6 +649,7 @@ MonoBehaviour:
   dm: {fileID: 378148910}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1275815002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3220737029942767833, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
@@ -780,12 +786,15 @@ MonoBehaviour:
     name: Shopkeeper
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - "\u201DObtaining this healing elixir will be very difficult, as it is found
       in a very strange place.\u201D"
   dm: {fileID: 378148910}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &1502053739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4071311164426321425, guid: 39712d89b9915964690c9c9addc38d90,
@@ -883,6 +892,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30ca5751b160a043a56021c551ff8d0, type: 3}
+--- !u!1001 &1851132706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7536143395878572876, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_Name
+      value: StaticListOfObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32b3092f8f0c04b4487484523c24c7c5, type: 3}
 --- !u!1001 &1921916813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1248,6 +1326,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8,
         type: 3}
+    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: m_Name
+      value: ShopKeeper
+      objectReference: {fileID: 0}
     - target: {fileID: 4815333144373228721, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: m_Name
@@ -1262,11 +1345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: play
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: m_Name
-      value: ShopKeeper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5267ee2543ef54c9c38cc0c3f1adec, type: 3}

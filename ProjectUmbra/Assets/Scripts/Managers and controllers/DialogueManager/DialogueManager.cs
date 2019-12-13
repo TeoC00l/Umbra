@@ -181,7 +181,10 @@ public class DialogueManager : MonoBehaviour
             dialogueCanvas.SetActive(false);
             current.HasBeenPlayed(true);
             //release player
-            pm.setSpeed(originalSpeed);
+            if (current.isFinal)
+            {
+                pm.setSpeed(originalSpeed);
+            }
             Done = true;
             if (!current.changeToScene.Equals(""))
             {
