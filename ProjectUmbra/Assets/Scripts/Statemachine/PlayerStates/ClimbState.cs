@@ -135,7 +135,12 @@ public class ClimbState : BaseState
         float yCenter = playerMovement.LadderCollider.bounds.center.y;
 
 
-        float yUpperPos = (playerMovement.LadderCollider.transform.position.y +  yHalfExtent)/* * playerMovement.LadderCollider.transform.localScale.y*/;
+        //ändring 2019-12-13
+        float yUpperPos = (playerMovement.LadderCollider.bounds.center.y + yHalfExtent)/* * playerMovement.LadderCollider.transform.localScale.y*/;
+
+        //float yUpperPos = (playerMovement.LadderCollider.transform.position.y +  yHalfExtent)/* * playerMovement.LadderCollider.transform.localScale.y*/;
+        
+        
         //yUpperPos *= playerMovement.LadderCollider.transform.localScale.y;
 
         //yLowerPos *= playerMovement.LadderCollider.transform.localScale.y;
@@ -164,7 +169,10 @@ public class ClimbState : BaseState
         float yHalfExtent = playerMovement.LadderCollider.bounds.extents.y;
         float yCenter = playerMovement.LadderCollider.bounds.center.y;
 
-        float yLowerPos = (playerMovement.LadderCollider.transform.position.y -  yHalfExtent) /** playerMovement.LadderCollider.transform.localScale.y*/;
+
+        float yLowerPos = (playerMovement.LadderCollider.bounds.center.y - yHalfExtent) /** playerMovement.LadderCollider.transform.localScale.y*/;
+
+        //float yLowerPos = (playerMovement.LadderCollider.transform.position.y -  yHalfExtent) /** playerMovement.LadderCollider.transform.localScale.y*/;
 
 
         Vector3 playerPos = new Vector3(0, playerMovement.transform.position.y, 0);
