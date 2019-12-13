@@ -35,7 +35,7 @@ public class GrabObject : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true  && IsBoxInFrontOfMesh())
+        if (!grabStatus && other.CompareTag("Grabbable") && isPressingF == true  /*&& IsBoxInFrontOfMesh()*/)
         {
 
             box = other.gameObject;
