@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 public class MonsterLevelOneScrpit : MonoBehaviour
 {
-    public Animator animator;
+
+
     public bool isChasing = false;
     private bool isStopped = false;
     private DeathComponent deathComponent;
@@ -13,9 +14,12 @@ public class MonsterLevelOneScrpit : MonoBehaviour
     private GameObject playerGO;
     //private DeathComponent dc;
     private Transform playerTrans;
-    [SerializeField] private Transform stopPoint;
-    public Vector3 originalPosition;
 
+    [SerializeField] private Transform stopPoint;
+    [HideInInspector]
+    public Vector3 originalPosition;
+    [HideInInspector]
+    public Animator animator;
     private void Awake()
     {
 
@@ -109,9 +113,12 @@ public class MonsterLevelOneScrpit : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
             deathComponent.RespawnPlayer();
             RespawnMonster();
             AudioManager.instance.Play("MonsterGrowl");
+
         }
     }
 
