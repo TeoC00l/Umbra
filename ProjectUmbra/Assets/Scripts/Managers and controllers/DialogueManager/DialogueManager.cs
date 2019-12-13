@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.color = ozColor;
                 break;
             default:
+                dialogueText.color = Color.white;
                 break;
         }
 

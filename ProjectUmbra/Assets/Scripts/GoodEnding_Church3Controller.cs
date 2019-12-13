@@ -28,8 +28,7 @@ public class GoodEnding_Church3Controller : MonoBehaviour
             {
                 DisappearSet();
                 setDisappeared = true;
-                shopKeeperMoving.Play();
-                cameras.Resume();
+                StartCoroutine(ShopkeepWait());
             }
 
         }
@@ -69,5 +68,12 @@ public class GoodEnding_Church3Controller : MonoBehaviour
     {
         cameras.Pause();
         Debug.Log("Hold");
+    }
+
+    private IEnumerator ShopkeepWait()
+    {
+        yield return new WaitForSeconds(3);
+        shopKeeperMoving.Play();
+        cameras.Resume();
     }
 }
