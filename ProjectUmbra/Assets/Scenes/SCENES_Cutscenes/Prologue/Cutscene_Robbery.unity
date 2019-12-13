@@ -120,6 +120,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &267029635
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7536143395878572876, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_Name
+      value: StaticListOfObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536143395878572879, guid: 32b3092f8f0c04b4487484523c24c7c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32b3092f8f0c04b4487484523c24c7c5, type: 3}
 --- !u!1 &351112350
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +236,8 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - The robber quickly disappears back into the dark with your valuables.
     - Maybe you should have just listened and not tried to defend yourself, you think
@@ -175,6 +246,7 @@ MonoBehaviour:
   dm: {fileID: 1259154545}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!1 &365681932
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +422,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8,
         type: 3}
+    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: m_Name
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4815333144373228721, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: m_Name
@@ -364,11 +441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: play
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815333144312534215, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
-        type: 3}
-      propertyPath: m_Name
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5267ee2543ef54c9c38cc0c3f1adec, type: 3}
@@ -892,11 +964,14 @@ MonoBehaviour:
     name: 
     characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
     playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
     sentences:
     - '!!!'
   dm: {fileID: 1259154545}
   holdPlayer: 0
   hasTimer: 0
+  timerLength: 0
 --- !u!114 &213088160649393535 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4212336124607112904, guid: 39712d89b9915964690c9c9addc38d90,
