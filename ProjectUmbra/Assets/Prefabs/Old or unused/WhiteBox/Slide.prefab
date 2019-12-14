@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 735426061557654521}
   - component: {fileID: 1530142535}
   - component: {fileID: 1530142534}
+  - component: {fileID: 7912129020826511368}
   m_Layer: 16
   m_Name: Slide
   m_TagString: Untagged
@@ -105,8 +106,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.000001, z: 0.9999999}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.17108919, z: 0.9999999}
+  m_Center: {x: 1.9825071e-16, y: 0.24558343, z: 2.3114882e-10}
 --- !u!114 &1530142534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc36e91d8264494d99889283e34f5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useXAxis: 0
+  force: 0
+--- !u!136 &7912129020826511368
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735426061557654522}
+  m_Material: {fileID: 13400000, guid: 354ccdbeb333b1746b0bab53e9ef8d84, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.009196513
+  m_Height: 1.3789643
+  m_Direction: 0
+  m_Center: {x: -0.009674707, y: 0.24216582, z: -0.50000256}
