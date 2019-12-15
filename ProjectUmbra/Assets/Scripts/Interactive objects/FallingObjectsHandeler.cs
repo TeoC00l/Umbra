@@ -10,6 +10,11 @@ public class FallingObjectsHandeler : MonoBehaviour
     private int objectCounter;
     private float coolDown;
 
+    [SerializeField] private ParticleSystem vfxOnHit;
+    private ParticleSystem tempVFX;
+    [SerializeField] private Transform vfxParent;
+
+
     private void Awake()
     {
         fallingObjectsGOs = new List<GameObject>();
@@ -20,13 +25,19 @@ public class FallingObjectsHandeler : MonoBehaviour
         //Debug.Log(fallingObjectSpawn.Length);
         for (int i = 0; i < fallingObjectSpawn.Length; i++)
         {
-            GameObject tempGO = Instantiate<GameObject>(goPrefab, transform);
+            GameObject tempGO = Instantiate<GameObject>(goPrefab, fallingObjectSpawn[i].transform);
+            tempGO.GetComponent<DieOnHit>().fallingObjectsHandeler = this;
             tempGO.transform.position = fallingObjectSpawn[i].transform.position;
+
             //Debug.Log(fallingObjectSpawn[i].position);
             //tempGO.GetComponent<DieOnHit>().Index = i;
             tempGO.GetComponent<DieOnHit>().SpawnPosition = fallingObjectSpawn[i].transform;
             fallingObjectsGOs.Add(tempGO);
             //Debug.Log(i);
+            tempVFX = Instantiate<ParticleSystem>(vfxOnHit, vfxParent);
+            tempGO.GetComponent<DieOnHit>().vfxOnHit = tempVFX;
+
+
         }
     }
 
