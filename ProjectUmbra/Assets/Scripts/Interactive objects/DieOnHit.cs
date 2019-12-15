@@ -14,8 +14,9 @@ public class DieOnHit : MonoBehaviour
     public Rigidbody GoRigidbody;
     public float CoolDown;
     public bool isFalling;
-    private FallingObjectsHandeler fallingObjectsHandeler;
-
+    public FallingObjectsHandeler fallingObjectsHandeler;
+    private Animator meshAnimator;
+    public ParticleSystem vfxOnHit;
 
     private void Start()
     {
@@ -23,6 +24,12 @@ public class DieOnHit : MonoBehaviour
         isFalling = false;
         GoRigidbody = GetComponent<Rigidbody>();
         GoRigidbody.isKinematic = true;
+
+        meshAnimator = GetComponentInParent<Animator>();
+
+
+
+
     }
 
 
@@ -34,27 +41,31 @@ public class DieOnHit : MonoBehaviour
         {
             //IsKilling = false;
             //isFalling = false;
-            RespawnFallingObjects();
 
+            vfxOnHit.transform.position = collision.GetContact(0).point;
+            vfxOnHit.Play();
+            RespawnFallingObjects();
         }
 
-        
+
 
         if (collision.collider.CompareTag("Player"))
         {
 
-                Debug.Log("Hit by falling object -> DieOnHit.cs");
-                GetComponentInParent<FallingObjectsHandeler>().RespawnFallingObjects();
-                Debug.Log("Respawn");
-                collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
+            Debug.Log("Hit by falling object -> DieOnHit.cs");
+            //GetComponentInParent<FallingObjectsHandeler>().RespawnFallingObjects();
+            fallingObjectsHandeler.RespawnFallingObjects();
+            Debug.Log("Respawn");
+            collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
 
-
-
+            meshAnimator.SetBool("Drop", false);
+            vfxOnHit.transform.position = collision.GetContact(1).point;
+            vfxOnHit.Play();
         }
-
+        
     }
 
-    
+
 
     private void Update()
     {
@@ -65,9 +76,10 @@ public class DieOnHit : MonoBehaviour
     public void RespawnFallingObjects()
     {
 
-            transform.position = SpawnPosition.position;
-            GoRigidbody.isKinematic = true;
-            CoolDown = Random.Range(0, randomRangeMax);
+        transform.position = SpawnPosition.position;
+        GoRigidbody.isKinematic = true;
+        CoolDown = Random.Range(0, randomRangeMax);
+        meshAnimator.SetBool("Drop", false);
 
 
 
@@ -77,10 +89,13 @@ public class DieOnHit : MonoBehaviour
 
     private void DoFalling()
     {
-        if(isFalling == true)
+        if (isFalling == true)
         {
             if (CoolDown < 0)
             {
+                //meshAnimator.SetTrigger("Dropp");
+                meshAnimator.SetBool("Drop", false);
+                meshAnimator.SetBool("Drop", true);
                 GoRigidbody.isKinematic = false;
 
             }
