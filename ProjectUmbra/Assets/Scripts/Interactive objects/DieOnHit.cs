@@ -59,7 +59,7 @@ public class DieOnHit : MonoBehaviour
             collision.collider.GetComponent<DeathComponent>().RespawnPlayer();
 
             meshAnimator.SetBool("Drop", false);
-            vfxOnHit.transform.position = collision.GetContact(1).point;
+            vfxOnHit.transform.position = collision.GetContact(0).point;
             vfxOnHit.Play();
         }
         
