@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
             //Font OpenDyslexic = Resources.Load<Font>("OpenDyslexic.otf");
             //nameText.font = OptionSettingsStorage.GetOpenDyslexic();
             //dialogueText.font = OptionSettingsStorage.GetOpenDyslexic();
-            dialogueText.fontSize = 18;
+            dialogueText.fontSize = 15;
             dialogueText.font = OpenDyslexic;
         }
     }
