@@ -22,7 +22,6 @@ public class PuzzelMonster : MonoBehaviour
         spawnPosition = transform.position;
         deathComponent = player.GetComponent<DeathComponent>();
         animator = GetComponentInChildren<Animator>();
-
     }
 
 
@@ -34,7 +33,7 @@ public class PuzzelMonster : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
             animator.SetBool("isChasing", true);
-
+            AudioManager.instance.Play("MonsterGrowl");
         }
 
         if (isChasing == false || ToHighToChase() == true)
@@ -66,8 +65,6 @@ public class PuzzelMonster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         if (other.CompareTag("Player"))
         {
             animator.SetBool("isChasing", false);
@@ -75,12 +72,8 @@ public class PuzzelMonster : MonoBehaviour
             isChasing = false;
             agent.isStopped = true;
             deathComponent.RespawnPlayer();
-
             StartCoroutine(RespawnPuzzelMonster(other.GetComponent<DeathComponent>().deathDuration));
-
         }
-
-
     }
 
     
