@@ -42,11 +42,13 @@ public class GrabObject : MonoBehaviour
             boxRB = other.attachedRigidbody;
             FreezeRotation();
             Debug.Log("Grabbing");
-            GameObject grabbableObject = other.gameObject;
             rb = player.GetComponent<Rigidbody>();
             FixedJoint joint = box.AddComponent(typeof(FixedJoint)) as FixedJoint;
 
             joint.connectedBody = rb;
+
+            boxRB.mass = 2;
+
 
             grabStatus = true;
 
@@ -93,6 +95,9 @@ public class GrabObject : MonoBehaviour
         else if (grabStatus == true && player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
+        }else if(IsBoxInFrontOfMesh() == false)
+        {
+            Release();
         }
     }
 
@@ -103,6 +108,8 @@ public class GrabObject : MonoBehaviour
         Destroy(joint);
         grabStatus = false;
         isPressingF = false;
+        boxRB.mass = 5;
+
 
         if ((boxRB.constraints & RigidbodyConstraints.FreezePositionX) == RigidbodyConstraints.FreezePositionX)
         {
