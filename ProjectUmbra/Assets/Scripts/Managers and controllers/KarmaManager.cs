@@ -16,6 +16,7 @@ public static class KarmaManager
         set
         {
             karmaPoints += value;
+            Debug.Log("Karma: " + Karma);
         }
     }
 
