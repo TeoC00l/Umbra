@@ -70,7 +70,7 @@ public class FallingObjectsHandeler : MonoBehaviour
         {
             DieOnHit dieOnHit = fallingObject.GetComponent<DieOnHit>();
             fallingObject.transform.position = dieOnHit.SpawnPosition.position;
-            dieOnHit.GoRigidbody.isKinematic = true;
+            fallingObject.GetComponent<Rigidbody>().isKinematic = true;
             dieOnHit.CoolDown = Random.Range(0, dieOnHit.randomRangeMax);
             Debug.Log("respawn");
         }

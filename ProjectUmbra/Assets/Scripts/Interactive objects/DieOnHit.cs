@@ -22,7 +22,7 @@ public class DieOnHit : MonoBehaviour
     {
         //IsKilling = true;
         isFalling = false;
-        GoRigidbody = GetComponent<Rigidbody>();
+        GoRigidbody = gameObject.GetComponent<Rigidbody>();
         GoRigidbody.isKinematic = true;
 
         meshAnimator = GetComponentInParent<Animator>();
