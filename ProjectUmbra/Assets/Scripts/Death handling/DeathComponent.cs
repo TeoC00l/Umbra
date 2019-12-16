@@ -117,7 +117,7 @@ public class DeathComponent : MonoBehaviour
             deathScreenTimer.startFade(deathDuration);
             StartCoroutine(Respawn(deathDuration));
 
-
+            ObjectHandeler.DialogueUI.SetActive(false);
             ObjectHandeler.ResetBoxes();
         }
         
