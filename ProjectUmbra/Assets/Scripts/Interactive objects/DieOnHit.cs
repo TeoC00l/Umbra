@@ -44,6 +44,7 @@ public class DieOnHit : MonoBehaviour
 
             vfxOnHit.transform.position = collision.GetContact(0).point;
             vfxOnHit.Play();
+            AudioManager.instance.PlayOneShot("ShadowBallHit");
             RespawnFallingObjects();
         }
 
@@ -51,7 +52,7 @@ public class DieOnHit : MonoBehaviour
 
         if (collision.collider.CompareTag("Player"))
         {
-
+            AudioManager.instance.PlayOneShot("ShadowBallHit");
             Debug.Log("Hit by falling object -> DieOnHit.cs");
             //GetComponentInParent<FallingObjectsHandeler>().RespawnFallingObjects();
             fallingObjectsHandeler.RespawnFallingObjects();
