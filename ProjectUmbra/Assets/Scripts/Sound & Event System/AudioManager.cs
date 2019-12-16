@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
             Play("ShopTheme");
             currentlyPlayingMusic = "ShopTheme";
         }
-        else if (SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl1") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl2") ||
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("mainmenu") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl1") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl2") ||
             SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl3"))
         {
             Stop(currentlyPlayingMusic);

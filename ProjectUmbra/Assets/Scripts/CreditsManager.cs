@@ -37,11 +37,13 @@ public class CreditsManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.instance.Stop("Credits");
             SceneManager.LoadScene("MainMenu");
         }
         //if(targetObject.transform.position.y > 850)
         if(play && !anim.isPlaying)
         {
+            AudioManager.instance.Stop("Credits");
             SceneManager.LoadScene("MainMenu");
         }
     }
