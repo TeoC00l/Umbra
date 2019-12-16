@@ -27,8 +27,8 @@ public class CharacterSoundManager : MonoBehaviour
         source.PlayOneShot(ladderSound);
     }
 
-    public void PlayBoxPushingSound()
-    {
-        source.PlayOneShot(boxPushingSound);
-    }
+    //public void PlayBoxPushingSound()
+    //{
+    //    source.PlayOneShot(boxPushingSound);
+    //}
 }
