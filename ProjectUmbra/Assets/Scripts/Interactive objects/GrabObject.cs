@@ -95,7 +95,7 @@ public class GrabObject : MonoBehaviour
         else if (grabStatus == true && player.GetComponent<PlayerMovement>().IsGrounded() == false)
         {
             Release();
-        }else if(IsBoxInFrontOfMesh() == false)
+        }else if(grabStatus == true && IsBoxInFrontOfMesh() == false)
         {
             Release();
         }
