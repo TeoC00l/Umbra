@@ -15,7 +15,7 @@ public class ObjectHandeler : MonoBehaviour
     public static GameObject CheckPointManager;
     public static GameObject[] Boxes;
     public static GameObject DeathScreen;
-
+    public static GameObject DialogueUI;
 
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class ObjectHandeler : MonoBehaviour
         CheckPointManager = GameObject.FindGameObjectWithTag("CheckPointManager");
         Boxes = GameObject.FindGameObjectsWithTag("Grabbable");
         DeathScreen = GameObject.FindGameObjectWithTag("DeathScreen");
+        DialogueUI = GameObject.FindGameObjectWithTag("DialogueCanvas");
 
         if (Set != null && Alice != null){
             //Set.SetActive(false);
