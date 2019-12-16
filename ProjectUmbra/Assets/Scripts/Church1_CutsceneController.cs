@@ -30,4 +30,9 @@ public class Church1_CutsceneController : MonoBehaviour
         }
 
     }
+
+    public void InactivateOnSignal()
+    {
+        ObjectHandeler.Alice.SetActive(false);
+    }
 }
