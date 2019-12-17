@@ -2943,17 +2943,6 @@ PrefabInstance:
       propertyPath: fallDistanceToDie
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 3220737029942767826, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
-        type: 3}
-      propertyPath: states.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c,
-        type: 2}
-    - target: {fileID: 3220737029942767826, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
-        type: 3}
-      propertyPath: slideMask.m_Bits
-      value: 65536
-      objectReference: {fileID: 0}
     - target: {fileID: 3220737029942767839, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
       propertyPath: groundDistance
@@ -2983,6 +2972,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Ground.m_Bits
       value: 131328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220737029942767826, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
+        type: 3}
+      propertyPath: states.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b2c3281617f87743abe6567b8f5766c,
+        type: 2}
+    - target: {fileID: 3220737029942767826, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
+        type: 3}
+      propertyPath: slideMask.m_Bits
+      value: 65536
       objectReference: {fileID: 0}
     - target: {fileID: 7806789504094717953, guid: 4a01ab0b70a8a5d4c9d896da76a7d1c7,
         type: 3}
@@ -8886,41 +8886,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3e469e3ba16d654a98ea51b3399a632, type: 3}
---- !u!84 &282633189
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &284175250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13805,6 +13770,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 448334930}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &453205976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c96ac95199fb95245ade4a4b97b35762,
+    type: 3}
+  m_PrefabInstance: {fileID: 7868002811479764160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &453205979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453205976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 1}
+  m_Center: {x: 5.000004, y: -5, z: -0.5000038}
 --- !u!4 &453210871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c96ac95199fb95245ade4a4b97b35762,
@@ -16041,6 +16025,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6879740756212958558}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &557742008
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &558138433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21928,12 +21947,12 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198238417718666772, guid: b395d5d6eb4b4b846acc021ee036b744,
+    - target: {fileID: 198352115723562896, guid: b395d5d6eb4b4b846acc021ee036b744,
         type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198352115723562896, guid: b395d5d6eb4b4b846acc021ee036b744,
+    - target: {fileID: 198238417718666772, guid: b395d5d6eb4b4b846acc021ee036b744,
         type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -36344,6 +36363,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1250947243}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1253477376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c96ac95199fb95245ade4a4b97b35762,
+    type: 3}
+  m_PrefabInstance: {fileID: 7868002810719248429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1253477379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253477376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 1}
+  m_Center: {x: 5.000004, y: -5, z: -0.5}
 --- !u!1 &1254924872
 GameObject:
   m_ObjectHideFlags: 0
@@ -37803,11 +37841,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4920698623539209565, guid: 307284df750f52c44bc3a8f7b8793f21,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4920698623795330041, guid: 307284df750f52c44bc3a8f7b8793f21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37862,6 +37895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920698623539209565, guid: 307284df750f52c44bc3a8f7b8793f21,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6050545720702847227, guid: 307284df750f52c44bc3a8f7b8793f21,
         type: 3}
@@ -40329,7 +40367,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 282633189}
+  shadowMapRenderTexture: {fileID: 557742008}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -53448,31 +53486,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1740817127}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueCanvas
-      value: 
-      objectReference: {fileID: 1319029977}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 1319029975}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 1319029972}
-    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: characterImage
-      value: 
-      objectReference: {fileID: 1319029976}
     - target: {fileID: 7453865932548544493, guid: 974dd2cab9a58a942aacb40259542c57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53528,6 +53541,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1740817127}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueCanvas
+      value: 
+      objectReference: {fileID: 1319029977}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1319029975}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1319029972}
+    - target: {fileID: 7453865932548544494, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 1319029976}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974dd2cab9a58a942aacb40259542c57, type: 3}
 --- !u!114 &1928835580 stripped
@@ -94392,6 +94430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: redWallFBX (9)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c96ac95199fb95245ade4a4b97b35762,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c96ac95199fb95245ade4a4b97b35762,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95726,6 +95769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: redWallFBX (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c96ac95199fb95245ade4a4b97b35762,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c96ac95199fb95245ade4a4b97b35762,
         type: 3}
