@@ -12,9 +12,9 @@ public class DeathscreenTimer : MonoBehaviour
 
     private void Start()
     {
-        animator = this.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         deathScreen.gameObject.SetActive(true);
-        deathScreen.canvasRenderer.SetAlpha(0.0f);
+        //deathScreen.canvasRenderer.SetAlpha(0.0f);
     }
 
     public void startFade(float time)
@@ -46,10 +46,26 @@ public class DeathscreenTimer : MonoBehaviour
 
     public void FadeIn()
     {
-        animator.SetTrigger("FadeIn");
+        Debug.Log("Fade");
+        animator.SetTrigger("Fade");
     }
     public void FadeOut()
     {
         animator.SetTrigger("FadeOut"); ;
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        deathScreen.CrossFadeAlpha(0, 2.0f, false);
     }
 }
