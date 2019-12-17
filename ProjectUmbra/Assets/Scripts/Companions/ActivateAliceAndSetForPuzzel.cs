@@ -11,6 +11,9 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
     [SerializeField] private Transform aliceSpawn;
     [SerializeField] private Transform setSpawn;
 
+    [SerializeField] private bool setTriggerActive;
+    [SerializeField] private GameObject triggerToSetActive;
+
     private void Awake()
     {
        
@@ -45,6 +48,10 @@ public class ActivateAliceAndSetForPuzzel : MonoBehaviour
             catch (UnityEngine.UnassignedReferenceException)
             {
 
+            }
+            if (setTriggerActive)
+            {
+                triggerToSetActive.SetActive(true);
             }
 
             gameObject.SetActive(false);

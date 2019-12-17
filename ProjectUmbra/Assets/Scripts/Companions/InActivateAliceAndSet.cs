@@ -8,6 +8,8 @@ public class InActivateAliceAndSet : MonoBehaviour
     private GameObject alice;
     private GameObject set;
     [SerializeField] private GameObject followerIcons;
+    [SerializeField] private bool setTriggerActiveOnExit;
+    public GameObject triggerToSetActive;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +28,10 @@ public class InActivateAliceAndSet : MonoBehaviour
             catch (System.NullReferenceException)
             {
                 Debug.Log("deActivate set and alice FAIL");
+            }
+            if (setTriggerActiveOnExit)
+            {
+                triggerToSetActive.SetActive(true);
             }
         }
     }
