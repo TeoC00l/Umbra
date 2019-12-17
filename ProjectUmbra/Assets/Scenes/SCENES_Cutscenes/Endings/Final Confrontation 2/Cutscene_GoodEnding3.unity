@@ -164,7 +164,7 @@ PrefabInstance:
         type: 3}
       propertyPath: videos.Array.data[3]
       value: 
-      objectReference: {fileID: 32900000, guid: fee35a917e6699b48ae805cebc466dc3,
+      objectReference: {fileID: 32900000, guid: 7d705413a603744459e4ca5b4b84155d,
         type: 3}
     - target: {fileID: 7256317782607142789, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
@@ -647,7 +647,7 @@ MonoBehaviour:
     changeToScene: 
     isFinal: 0
     sentences:
-    - In your heart you know you did the right thing.
+    - So in your heart you know you did the right thing.
   dm: {fileID: 2112222808}
   holdPlayer: 0
   hasTimer: 0
@@ -911,8 +911,8 @@ PrefabInstance:
     - target: {fileID: 4815333144312534213, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: You began the adventure with an objective. Along the way you found that
-        you were not willing to step over dead bodies to accomplish it.
+      value: You had an objective. Along the way you found that you were not willing
+        to step over dead bodies to accomplish it.
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144312534213, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
@@ -1128,8 +1128,8 @@ MonoBehaviour:
     changeToScene: 
     isFinal: 0
     sentences:
-    - In the end you never let your desperation cloud your perception of what is right,
-      and what is wrong.
+    - You never let your desperation cloud your perception of what is right, and what
+      is wrong.
   dm: {fileID: 2112222808}
   holdPlayer: 0
   hasTimer: 0
@@ -1141,6 +1141,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7453865932548544493, guid: 974dd2cab9a58a942aacb40259542c57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1221,16 +1231,6 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 1039732734}
-    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogueManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7453865932548544495, guid: 974dd2cab9a58a942aacb40259542c57,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974dd2cab9a58a942aacb40259542c57, type: 3}
 --- !u!114 &2112222808 stripped
