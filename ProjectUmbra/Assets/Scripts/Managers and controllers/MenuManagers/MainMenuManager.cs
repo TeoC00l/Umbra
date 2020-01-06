@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
 
     [SerializeField] private int newGameSceneNumber, demoSceneNumber;
-    [SerializeField] private GameObject mainButtons;
+    [SerializeField] private GameObject mainButtons, continueButton;
     [SerializeField] private GameObject validateQuit, optionButtons;
     [SerializeField] private Toggle fontToggle;
 
@@ -20,7 +20,13 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SaveSystem.LoadPlayer() != null)
+        {
+            Button b = continueButton.GetComponent<Button>();
+            ColorBlock cb = b.colors;
+            cb.normalColor = Color.white;
+            b.colors = cb;
+        }
     }
 
     // Update is called once per frame
@@ -41,7 +47,18 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void NewGame()
-    {
+    {       
+        KarmaManager.Karma = 0;
+        try
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            data.lastLoadedSceneIndex = 0;
+            data.currentKarma = 0;
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.Log("No save file");
+        }
         SceneManager.LoadScene(newGameSceneNumber);
     }
 
@@ -68,9 +85,16 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadSave()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
-        SceneManager.LoadScene(data.lastLoadedSceneIndex);
-        KarmaManager.Karma = data.currentKarma;
+        try
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            SceneManager.LoadScene(data.lastLoadedSceneIndex);
+            KarmaManager.Karma = data.currentKarma;
+        }
+        catch (System.NullReferenceException)
+        {
+
+        }
         //Player player = FindObjectOfType<Player>();
 
         //Vector3 savedPosition = new Vector3();
