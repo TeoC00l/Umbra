@@ -32,7 +32,7 @@ public class KarmaDependentDialogueTrigger : MonoBehaviour
             if(KarmaManager.Karma == karmaForOption1)
             {
                 dm.StartDialogueWithTimer(dialogue1, holdPlayer, timerLength);
-            } else if(KarmaManager.Karma == karmaForOption2)
+            } else if(KarmaManager.Karma >= karmaForOption2)
             {
                 dm.StartDialogueWithTimer(dialogue2, holdPlayer, timerLength);
             }
@@ -44,7 +44,7 @@ public class KarmaDependentDialogueTrigger : MonoBehaviour
             {
                 dm.StartDialogue(dialogue1, holdPlayer);
             }
-            else if (KarmaManager.Karma == karmaForOption2)
+            else if (KarmaManager.Karma >= karmaForOption2)
             {
                 dm.StartDialogue(dialogue2, holdPlayer);
             }

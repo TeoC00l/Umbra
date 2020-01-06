@@ -14,7 +14,7 @@ public class SceneChangeTrigger_KarmaDependent : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(KarmaManager.Karma >= karma_1)
+            if(KarmaManager.Karma == 3)
             {
                 StartCoroutine(FadeOut(scene1));
             } else
