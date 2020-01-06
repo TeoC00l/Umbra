@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: videos.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
@@ -152,13 +152,13 @@ PrefabInstance:
         type: 3}
       propertyPath: videos.Array.data[2]
       value: 
-      objectReference: {fileID: 32900000, guid: 7d705413a603744459e4ca5b4b84155d,
+      objectReference: {fileID: 32900000, guid: 2ae5ac203389d7448add9997d1fab288,
         type: 3}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: videos.Array.data[0]
       value: 
-      objectReference: {fileID: 32900000, guid: cffbf36292420414ebccf2df27be5dfb,
+      objectReference: {fileID: 32900000, guid: 4cec6f8356596e244b9b36fdb1250cb9,
         type: 3}
     - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
@@ -166,6 +166,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32900000, guid: 7d705413a603744459e4ca5b4b84155d,
         type: 3}
+    - target: {fileID: 7256317782607142790, guid: b14615c3c0b424644bb1f93d5187b18a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7256317782607142789, guid: b14615c3c0b424644bb1f93d5187b18a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -231,6 +236,17 @@ PrefabInstance:
       propertyPath: m_Looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7256317781024609429, guid: b14615c3c0b424644bb1f93d5187b18a,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 4cec6f8356596e244b9b36fdb1250cb9,
+        type: 3}
+    - target: {fileID: 7256317781024609429, guid: b14615c3c0b424644bb1f93d5187b18a,
+        type: 3}
+      propertyPath: m_WaitForFirstFrame
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b14615c3c0b424644bb1f93d5187b18a, type: 3}
 --- !u!114 &85663834 stripped
@@ -240,7 +256,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 85663833}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85663835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ef0162066696bc40b4a94b1cfd0ad0c, type: 3}
   m_Name: 
@@ -408,6 +424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CutsceneDialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071311164426321425, guid: 39712d89b9915964690c9c9addc38d90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4071311164426321424, guid: 39712d89b9915964690c9c9addc38d90,
         type: 3}
@@ -593,10 +614,70 @@ PrefabInstance:
     - target: {fileID: 380792451503139623, guid: d30ca5751b160a043a56021c551ff8d0,
         type: 3}
       propertyPath: sceneToLoad
-      value: Cutscene_GoodEndingOutro
+      value: Credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 380792451503139623, guid: d30ca5751b160a043a56021c551ff8d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30ca5751b160a043a56021c551ff8d0, type: 3}
+--- !u!1 &1165821574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165821575}
+  - component: {fileID: 1165821576}
+  m_Layer: 0
+  m_Name: 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1165821575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165821574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4815333143504654891}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165821576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165821574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976c88ce38d51714ba573a5b002175e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    characterImage: {fileID: 21300000, guid: 2f41e608373686045aa5432c7068a8d8, type: 3}
+    playNextVideo: 1
+    changeToScene: 
+    isFinal: 0
+    sentences:
+    - So in your heart you know you did the right thing.
+  dm: {fileID: 2112222808}
+  holdPlayer: 0
+  hasTimer: 0
+  timerLength: 0
 --- !u!1 &1166452046
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +769,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!328 &1236274706 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 7256317781024609429, guid: b14615c3c0b424644bb1f93d5187b18a,
+    type: 3}
+  m_PrefabInstance: {fileID: 85663833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1448590661
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815333144255830708, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4815333144255830713, guid: 4e5267ee2543ef54c9c38cc0c3f1adec,
         type: 3}
@@ -1023,6 +1115,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32b3092f8f0c04b4487484523c24c7c5, type: 3}
+--- !u!1 &1853786472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 380792451503139622, guid: d30ca5751b160a043a56021c551ff8d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117588766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853786473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853786472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813e222af3b2130438f14f6396660d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 1236274706}
+  sceneToLoad: Credits
 --- !u!1 &2054489169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1187,6 @@ MonoBehaviour:
     sentences:
     - You never let your desperation cloud your perception of what is right, and what
       is wrong.
-    - So in your heart you know you did the right thing.
   dm: {fileID: 2112222808}
   holdPlayer: 0
   hasTimer: 0
