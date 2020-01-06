@@ -20,4 +20,9 @@ public static class KarmaManager
         }
     }
 
+    public static void SetKarma(int number)
+    {
+        karmaPoints = number;
+    }
+
 }

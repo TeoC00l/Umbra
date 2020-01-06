@@ -48,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void NewGame()
     {       
-        KarmaManager.Karma = 0;
+        KarmaManager.SetKarma(0);
         try
         {
             PlayerData data = SaveSystem.LoadPlayer();
@@ -89,7 +89,7 @@ public class MainMenuManager : MonoBehaviour
         {
             PlayerData data = SaveSystem.LoadPlayer();
             SceneManager.LoadScene(data.lastLoadedSceneIndex);
-            KarmaManager.Karma = data.currentKarma;
+            KarmaManager.SetKarma(data.currentKarma);
         }
         catch (System.NullReferenceException)
         {
