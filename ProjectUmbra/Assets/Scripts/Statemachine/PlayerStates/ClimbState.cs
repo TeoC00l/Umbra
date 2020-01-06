@@ -31,36 +31,14 @@ public class ClimbState : BaseState
         DeathComponent.cachedPosition = owner.transform.position;
 
 
-        //if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        //{
-        //    playerMovement.ExitLadder();
-
-        //}else if (CloseToUpperColliderEdge() == false)
-        //{
-        //    playerMovement.MoveUpOnLadder();
-        //    //SetClimbAnimationSpeed();
-
-        //}
-        //if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        //{
-        //    playerMovement.ExitLadder();
-
-        //}
-        //else if (CloseToLowerColliderEdge() == false)
-        //{
-        //    playerMovement.MoveDownOnLadder();
-        //    //SetClimbAnimationSpeed();
-        //}
-
-
 
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerMovement.ExitLadder();
-
+            
         }
-        else if (ColliderCalcBoundsUpper() == false)
+        else if (ColliderCalcBoundsUpper() == false )
         {
             playerMovement.MoveUpOnLadder();
             //SetClimbAnimationSpeed();
@@ -70,9 +48,8 @@ public class ClimbState : BaseState
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerMovement.ExitLadder();
-
         }
-        else if (ColliderCalcBoundsLower() == false)
+        else if (ColliderCalcBoundsLower() == false )
         {
             playerMovement.MoveDownOnLadder();
             //SetClimbAnimationSpeed();

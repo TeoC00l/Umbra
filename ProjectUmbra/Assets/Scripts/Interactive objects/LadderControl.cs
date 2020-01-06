@@ -35,7 +35,8 @@ public class LadderControl : MonoBehaviour
     {
         if (isSnaped == false)
         {
-            if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && !playerMovement.getLadderStatus())
+            if ((other.CompareTag("Player") && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))) && Input.GetKey(KeyCode.A) == false 
+                && Input.GetKey(KeyCode.D) == false && !playerMovement.getLadderStatus())
             {
                 playerMovement.setLadderStatus(true);
                 Vector3 playerPosition;
