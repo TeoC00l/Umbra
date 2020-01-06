@@ -10,7 +10,9 @@ public class AirState : BaseState
     //Animation control and setting player collider material to disallow from jumping on walls
     public override void Enter()
     {
+
         framesPassed = 0;
+
         animator.SetBool("isFalling", true);
         //animator.SetBool("isWalking", false);
         //animator.SetBool("isIdle", false);
@@ -23,7 +25,7 @@ public class AirState : BaseState
     {
         framesPassed++;
         playerMovement.SetInput();
-
+        animator.SetBool("isIdle", false);
         turnMesh();
         if(framesPassed > 20)
         {
