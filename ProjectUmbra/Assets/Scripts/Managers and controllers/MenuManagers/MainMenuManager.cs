@@ -10,6 +10,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainButtons, continueButton;
     [SerializeField] private GameObject validateQuit, optionButtons;
     [SerializeField] private Toggle fontToggle;
+    [SerializeField] private Slider speedSlider;
+    [SerializeField] private GameObject speedValue;
 
     #region DefaultValues
 
@@ -83,6 +85,12 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void SetPlayerSpeed()
+    {
+        PlayerPrefs.SetInt("PlayerSpeed", (int)speedSlider.value);
+        speedValue.GetComponent<Text>().text = speedSlider.value.ToString();
+    }
+
     public void LoadSave()
     {
         try
@@ -118,6 +126,8 @@ public class MainMenuManager : MonoBehaviour
         optionButtons.SetActive(false);
         mainButtons.SetActive(true);
         fontToggle.isOn = false;
+        speedSlider.value = 10;
+        SetPlayerSpeed();
     }
 
     public void ValidateQuit()
