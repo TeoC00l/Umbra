@@ -116,6 +116,17 @@ public class AudioManager : MonoBehaviour
             Play("MainMenuTheme");
             currentlyPlayingMusic = "MainMenuTheme";
         }
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_choice2") || SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_choice1")
+            || SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_badending1") || SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_goodending1"))
+        {
+            Stop(currentlyPlayingMusic);
+            Play("SuspenseTheme");
+            currentlyPlayingMusic = "SuspenseTheme";
+        }
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_goodendingoutro"))
+        {
+            Stop(currentlyPlayingMusic);
+        }
     }
 
     private void OnLevelWasLoaded(int level)
