@@ -13,8 +13,17 @@ public class PressurePadMultipleBoolsChild : MonoBehaviour
     private void Start()
     {
         feedbackLight = GetComponentInChildren<Light>();
+
+        InvokeRepeating("IfNotOccupied", 0f, 2.5f);
     }
 
+    private void IfNotOccupied()
+    {
+        if(isPressed == false)
+        {
+            isOccupied = false;
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Alice") || other.CompareTag("Set") || other.CompareTag("Grabbable"))

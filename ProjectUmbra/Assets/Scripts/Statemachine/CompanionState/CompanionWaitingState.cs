@@ -16,6 +16,10 @@ public class CompanionWaitingState : CompanionBaseState
 
     public override void Enter()
     {
+
+        buttonTrans = null;
+        tempDistance = Mathf.Infinity;
+
         distance = Mathf.Infinity;
 
         owner.iconSprite.color = new Color(0f, 0f, 0f, 1f);
@@ -40,11 +44,11 @@ public class CompanionWaitingState : CompanionBaseState
             owner.GetComponent<NavMeshAgent>().SetDestination(new Vector3(buttonTrans.transform.position.x, owner.transform.position.y, buttonTrans.transform.position.z));
             thisAgent.isStopped = false;
 
-            if (thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
-            {
-                StopAgent();
-                companionAnimator.SetBool("IsWalking", false);
-            }
+            //if (thisAgent.pathStatus == NavMeshPathStatus.PathPartial)
+            //{
+            //    StopAgent();
+            //    companionAnimator.SetBool("IsWalking", false);
+            //}
         }
 
     }
@@ -73,12 +77,16 @@ public class CompanionWaitingState : CompanionBaseState
                 }
 
             }
+            Debug.Log(ObjectHandeler.ButtonList.Length + " " + distance);
 
         }
     }
 
     public override void HandleUpdate()
     {
+
+        //compstate = owner.GetCurrentCompanionState();
+        //Debug.Log(compstate.ToString() + " " + compstate);
         if (owner.isWalkingToButton)
         {
             companionAnimator.SetBool("IsWalking", true);
@@ -118,7 +126,7 @@ public class CompanionWaitingState : CompanionBaseState
         companionAnimator.SetBool("IsWalking", false);
         thisAgent.isStopped = true;
         owner.isWaiting = true;
-        
+        Debug.Log("Agent is stopped in waiting mode");
     }
 
 

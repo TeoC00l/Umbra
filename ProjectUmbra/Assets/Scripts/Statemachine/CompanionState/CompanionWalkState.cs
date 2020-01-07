@@ -15,7 +15,7 @@ public class CompanionWalkState : CompanionBaseState
         
         thisAgent.isStopped = false;
         thisAgent.SetDestination(owner.TargetPlayer.transform.position);
-
+        companionAnimator.SetBool("IsWalking", true);
     }
 
 
