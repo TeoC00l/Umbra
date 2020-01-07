@@ -89,8 +89,8 @@ public class PlayerMovement : MonoBehaviour
 
         //}
 
-        speed = PlayerPrefs.GetInt("PlayerSpeed");
-        topSpeed = speed;
+        //speed = PlayerPrefs.GetInt("PlayerSpeed");
+        //topSpeed = speed;
     }
 
     private void FixedUpdate()
