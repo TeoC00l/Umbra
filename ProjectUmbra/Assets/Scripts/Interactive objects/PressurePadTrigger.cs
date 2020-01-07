@@ -32,7 +32,11 @@ public class PressurePadTrigger : MonoBehaviour
         {
             isPressed = true;
             isOccupied = true;
-            feedbackLight.color = Color.green;
+            if(feedbackLight != null)
+            {
+                feedbackLight.color = Color.green;
+
+            }
 
             anim.SetBool(animationBoolKey, true);
         }
@@ -47,7 +51,11 @@ public class PressurePadTrigger : MonoBehaviour
 
             isPressed = false;
             isOccupied = false;
-            feedbackLight.color = Color.red;
+            if(feedbackLight != null)
+            {
+                feedbackLight.color = Color.red;
+            }
+            
             anim.SetBool(animationBoolKey, false);
 
         }
