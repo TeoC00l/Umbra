@@ -114,8 +114,8 @@ public class WalkState : BaseState
 
             if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
             {
-                //animator.SetBool("isWalking", false);
-                //animator.SetBool("isIdle", true);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
             }
         }
 
@@ -139,8 +139,8 @@ public class WalkState : BaseState
 
             if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
             {
-                //animator.SetBool("isWalking", false);
-                //animator.SetBool("isIdle", true);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
             }
         }
 
@@ -164,8 +164,8 @@ public class WalkState : BaseState
 
             if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
             {
-                //animator.SetBool("isWalking", false);
-                //animator.SetBool("isIdle", true);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
             }
         }
 
@@ -189,8 +189,8 @@ public class WalkState : BaseState
 
             if (Input.GetAxis("Horizontal") == 0 || Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
             {
-                //animator.SetBool("isWalking", false);
-                //animator.SetBool("isIdle", true);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
             }
         }
 
