@@ -116,8 +116,11 @@ public class DeathComponent : MonoBehaviour
 
             deathScreenTimer.startFade(deathDuration);
             StartCoroutine(Respawn(deathDuration));
-
-            ObjectHandeler.DialogueUI.SetActive(false);
+            if(ObjectHandeler.DialogueUI != null)
+            {
+                ObjectHandeler.DialogueUI.SetActive(false);
+            }
+            
             ObjectHandeler.ResetBoxes();
         }
         
@@ -128,6 +131,7 @@ public class DeathComponent : MonoBehaviour
         isDying = true;
         yield return new WaitForSeconds(deathDuration);
         yield return new WaitForSeconds(0.8f);
+        playerMovement.setVelocity(Vector3.zero);
         Transform respawnPosition = checkpointManager.GetLatestCheckpointPosition();
         transform.position = respawnPosition.position;
         transform.rotation = checkpointManager.GetPlayerRotationAtCheckpoint();
