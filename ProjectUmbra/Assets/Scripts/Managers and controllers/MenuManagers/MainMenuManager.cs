@@ -29,6 +29,8 @@ public class MainMenuManager : MonoBehaviour
             cb.normalColor = Color.white;
             b.colors = cb;
         }
+
+        PlayerPrefs.SetInt("PlayerSpeed", 10);
     }
 
     // Update is called once per frame
