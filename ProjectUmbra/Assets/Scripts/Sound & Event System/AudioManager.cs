@@ -123,7 +123,7 @@ public class AudioManager : MonoBehaviour
             Play("SuspenseTheme");
             currentlyPlayingMusic = "SuspenseTheme";
         }
-        else if (SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_goodendingoutro"))
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_goodendingoutro") || SceneManager.GetActiveScene().name.ToLower().Equals("cutscene_badendingoutro"))
         {
             Stop(currentlyPlayingMusic);
         }
