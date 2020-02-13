@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     //this value serves to identify the rotation of the players character
 
 
-     private GameObject alice, set;
+    private GameObject alice, set;
 
     public RaycastHit SlideRayCastHit;
     [SerializeField] private LayerMask slideMask;
@@ -73,9 +73,13 @@ public class PlayerMovement : MonoBehaviour
         {
             cornerTurnerMode = 1;
         }
+        else if (sceneName == "TeoTest")
+        {
+            cornerTurnerMode = 3;
+        }
 
 
-            animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
         verticalLadderInput = Vector3.zero;
         horizontalLadderInput = Vector3.zero;
         rb = GetComponent<Rigidbody>();

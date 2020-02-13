@@ -34,7 +34,6 @@ public class PlayerSlidingState : BaseState
             animator.SetBool("isSliding", false);
             animator.SetBool("isFalling", true);
         }
-
     }
 
     public override void Exit()
