@@ -19,7 +19,7 @@ public class GrabObject : MonoBehaviour
     private bool isPressingF;
     private GameObject playerMesh;
 
-
+    private Vector3 offsetY = new Vector3(0, 0.01f, 0);
 
     private void Awake()
     {
@@ -45,8 +45,10 @@ public class GrabObject : MonoBehaviour
             rb = player.GetComponent<Rigidbody>();
             FixedJoint joint = box.AddComponent(typeof(FixedJoint)) as FixedJoint;
 
+            box.transform.position = box.transform.position + offsetY;
             joint.connectedBody = rb;
-
+            box.transform.position = box.transform.position + offsetY;
+            playerMovement.setSpeed(4);
             boxRB.mass = 2;
 
 
