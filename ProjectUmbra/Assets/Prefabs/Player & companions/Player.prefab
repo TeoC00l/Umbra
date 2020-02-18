@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780e6e8eae69cba4bb977de1a5c00b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDistanceToDie: 9
+  fallDistanceToDie: 100
   deathDuration: 4
   shortDeathDuration: 1
   deathZone:
@@ -457,6 +457,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerMesh
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
     - target: {fileID: -4216859302048453862, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,11 +522,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.6666667
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9555855ba6ba6644588549f6080bbb3c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55b3decb88a5fa44ba0cb0cb6d1f247c, type: 3}
 --- !u!1 &6488579210389928466 stripped
