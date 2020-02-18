@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
             Play("ShopTheme");
             currentlyPlayingMusic = "ShopTheme";
         }
-        else if (SceneManager.GetActiveScene().name.Equals("Cutscene_Church") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl1") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl2") ||
+        else if (SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl1") || SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl2") ||
             SceneManager.GetActiveScene().name.ToLower().Equals("whitebox_lvl3"))
         {
             Stop(currentlyPlayingMusic);
@@ -127,6 +127,14 @@ public class AudioManager : MonoBehaviour
         {
             Stop(currentlyPlayingMusic);
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Cutscene_Church"))
+        {
+
+            Stop(currentlyPlayingMusic);
+            Play("ChurchTheme");
+            currentlyPlayingMusic = "ChurchTheme";
+        }
+
     }
 
     private void OnLevelWasLoaded(int level)
