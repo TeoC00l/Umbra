@@ -38,16 +38,16 @@ public abstract class StateMachine : MonoBehaviour
         currentState.Enter();
     }
 
-    public void TransitionBack()
-    {
-        State __lastState = currentState;
+    //public void TransitionBack()
+    //{
+    //    State __lastState = currentState;
 
-        currentState.Exit();
-        currentState = lastState;
-        currentState.Enter();
+    //    currentState.Exit();
+    //    currentState = lastState;
+    //    currentState.Enter();
 
-        lastState = __lastState;
-    }
+    //    lastState = __lastState;
+    //}
 
     protected virtual void FixedUpdate()
     {
@@ -60,10 +60,10 @@ public abstract class StateMachine : MonoBehaviour
     }
 
     //Getters and Setters
-    public State GetLastState()
-    {
-        return lastState;
-    }
+    //public State GetLastState()
+    //{
+    //    return lastState;
+    //}
 
     public State GetCurrentState()
     {

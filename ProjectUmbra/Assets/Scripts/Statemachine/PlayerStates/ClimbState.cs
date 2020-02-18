@@ -19,7 +19,7 @@ public class ClimbState : BaseState
         RotateMesh();
 
         playerBody.isKinematic = true;
-        animator.SetBool("isClimbing", true);
+        //animator.SetBool("isClimbing", true);
         ColliderCalcBoundsUpper();
 
     }
@@ -45,19 +45,16 @@ public class ClimbState : BaseState
 
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            playerMovement.ExitLadder();
-        }
-        else if (ColliderCalcBoundsLower() == false )
+
+        if (ColliderCalcBoundsLower() == false )
         {
             playerMovement.MoveDownOnLadder();
-            //SetClimbAnimationSpeed();
         }
 
         if (ColliderCalcBoundsLower() == true || ColliderCalcBoundsUpper() == true)
         {
             animator.speed = 0f;
+
         }
         else
         {
@@ -80,6 +77,7 @@ public class ClimbState : BaseState
     {
         animator.speed = 1f;
         animator.SetBool("isClimbing", false);
+        animator.SetBool("isClimbingDown", false);
         playerBody.isKinematic = false;
     }
 
@@ -87,16 +85,26 @@ public class ClimbState : BaseState
 
     private void SetClimbAnimationSpeed()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) )
         {
             animator.SetBool("isClimbing", true);
-            animator.speed = 2f;
-            
+            animator.SetBool("isClimbingDown", false);
+
+            //animator.speed = 2f;
+            animator.speed = 2;
 
         }
-        else
+        else if (Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("isClimbingDown", true);
+            animator.SetBool("isClimbing", false);
+            animator.speed = 2;
+
+
+        }else
         {
             animator.SetBool("isClimbing", false);
+
             animator.speed = 0f;
         }
     }
@@ -192,33 +200,5 @@ public class ClimbState : BaseState
         }
     }
 
-
-    //first itteration of ladder y position calculation
-
-    //private bool CloseToUpperColliderEdge()
-    //{
-    //    if (Vector3.Distance(owner.transform.position, playerMovement.upperLadderTransform.position) < 1.5f)
-    //    {
-
-    //        animator.speed = 0f;
-    //        return true;
-    //    }
-
-    //    //Debug.Log(Vector3.Distance(owner.transform.position, playerMovement.upperLadderTransform.position));
-    //    return false;
-    //}
-
-    //private bool CloseToLowerColliderEdge()
-    //{
-
-    //    if (Vector3.Distance(owner.transform.position, playerMovement.lowerLadderTransform.position) < 0.6f)
-    //    {
-    //        animator.speed = 0f;
-
-    //        return true;
-    //    }
-    //    //Debug.Log(Vector3.Distance(owner.transform.position, playerMovement.upperLadderTransform.position));
-    //    return false;
-    //}
 
 }

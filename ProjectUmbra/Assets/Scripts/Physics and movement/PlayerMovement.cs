@@ -149,17 +149,17 @@ public class PlayerMovement : MonoBehaviour
         if(verticalLadderInput.y > 0)
         {
             transform.Translate(verticalLadderInput * 5 * Time.deltaTime);
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-            {
-                animator.SetBool("isClimbing", true);
-                animator.speed = 2f;
+            //if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            //{
+            //    animator.SetBool("isClimbing", true);
+            //    animator.speed = 2f;
 
-            }
-            else
-            {
-                animator.SetBool("isClimbing", false);
-                animator.speed = 0f;
-            }
+            //}
+            //else
+            //{
+            //    animator.SetBool("isClimbing", false);
+            //    animator.speed = 0f;
+            //}
 
         }
     }
