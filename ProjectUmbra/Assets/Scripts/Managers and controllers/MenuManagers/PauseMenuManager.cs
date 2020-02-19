@@ -13,8 +13,17 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject validateExitButtons, exitButton;
     [SerializeField] private GameObject controlScheme, backButton;
 
-    [SerializeField] private EventSystem es; 
+    [SerializeField] private EventSystem es;
 
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+    }
 
     bool isPaused = false;
     float original;
@@ -29,6 +38,7 @@ public class PauseMenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseMenu();
+
         }
     }
 
@@ -36,6 +46,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) { 
             pauseMenu.SetActive(true);
+            Cursor.visible = true;
 
             //es.SetSelectedGameObject(null);
             //es.SetSelectedGameObject(firstSelected);
@@ -48,12 +59,14 @@ public class PauseMenuManager : MonoBehaviour
             isPaused = true;
         } else
         {
+            Cursor.visible = false;
             mainButtons.SetActive(true);
             validateExitButtons.SetActive(false);
             controlScheme.SetActive(false);
             pauseMenu.SetActive(false);
             isPaused = false;
         }
+
         if (isPaused)
         {
             Time.timeScale = 0;
