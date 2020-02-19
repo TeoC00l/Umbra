@@ -48,7 +48,7 @@ public class GrabObject : MonoBehaviour
             box.transform.position = box.transform.position + offsetY;
             joint.connectedBody = rb;
             box.transform.position = box.transform.position + offsetY;
-            playerMovement.setSpeed(4);
+            //playerMovement.setSpeed(4);
             boxRB.mass = 2;
 
 

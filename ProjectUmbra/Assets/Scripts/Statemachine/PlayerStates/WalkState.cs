@@ -10,6 +10,7 @@ public class WalkState : BaseState
     //Walking animation control
     public override void Enter()
     {
+        playerMovement.setSpeed(10);
         idleFrames = 0;
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
         {
