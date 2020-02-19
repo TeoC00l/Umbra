@@ -134,6 +134,28 @@ public class AudioManager : MonoBehaviour
             Play("ChurchTheme");
             currentlyPlayingMusic = "ChurchTheme";
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Prologue_ChurchToHospital"))
+        {
+            Stop(currentlyPlayingMusic);
+            Play("RegularWorldTheme");
+            currentlyPlayingMusic = "RegularWorldTheme";
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Cutscene_Hospital"))
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == "RegularWorldTheme");
+            s.source.volume = 0.04f;
+            Play("HospitalAmbience");
+            currentlyPlayingMusic = "HospitalAmbience";
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Prologue_HospitalToRobbery"))
+        {
+            Stop(currentlyPlayingMusic);
+
+            Sound s = Array.Find(sounds, sound => sound.name == "RegularWorldTheme");
+            s.source.volume = 0.04f;
+
+            currentlyPlayingMusic = "RegularWorldTheme";
+        }
 
     }
 
