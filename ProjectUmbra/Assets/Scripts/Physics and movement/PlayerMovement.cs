@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             cornerTurnerMode = 1;
         }
-        else if (sceneName == "TeoTest")
+        else if (sceneName == "poop")
         {
             cornerTurnerMode = 3;
         }
@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (isJumping)
         {
             rb.velocity = Vector3.up * jumpHeight;
