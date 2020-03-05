@@ -156,6 +156,17 @@ public class AudioManager : MonoBehaviour
 
             currentlyPlayingMusic = "RegularWorldTheme";
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Prologue_ChurchToHospital2"))
+        {
+            Stop("CreepyWind");
+            Play("RegularWorldTheme");
+            PlayOneShot("Gong");
+            Sound s = Array.Find(sounds, sound => sound.name == "RegularWorldTheme");
+            s.source.volume = 0.04f;
+
+            currentlyPlayingMusic = "RegularWorldTheme";
+        }
+
 
     }
 
